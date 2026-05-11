@@ -525,6 +525,8 @@ img{max-width:100%;display:block}
     position:relative;top:auto;left:auto;
     width:100%;height:auto;min-height:auto;
     backface-visibility:visible;-webkit-backface-visibility:visible;
+    /* Override JS-set inline `transform: translateX(N*100%)` that pushes cards 1-7 off-screen */
+    transform:none !important;
   }
   /* Force every card visible regardless of data-state */
   .passport-card[data-state="active"],
@@ -533,6 +535,14 @@ img{max-width:100%;display:block}
   .passport-card[data-state="back"]{opacity:1 !important;filter:none !important;}
   .passport-globe.rotating .passport-card[data-state="adjacent"],
   .passport-globe.rotating .passport-card[data-state="far"]{opacity:1 !important;}
+
+  /* Trim long bios on mobile — first 2 lines visible, rest clipped with ellipsis.
+     Members can still tap the card to read the full bio if we add that later. */
+  .pillar-bio{
+    display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;
+    overflow:hidden;text-overflow:ellipsis;font-size:13px;line-height:1.55;
+  }
+  .pillar-quote{font-size:12.5px;line-height:1.5;}
 
   .card-inner{grid-template-columns:1fr;gap:20px;padding:24px 22px;}
   .photo-area{width:170px;height:227px;margin:0 auto;}
