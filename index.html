@@ -185,7 +185,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',Georgia,serif;line-height:1.18}
 /* ══════════════════════════════════════════
    7. HERO
 ══════════════════════════════════════════ */
-.hero-section{background:var(--navy);padding-top:var(--nav-h);overflow:hidden;}
+.hero-section{background:var(--navy);padding-top:var(--nav-h);overflow-x:hidden;}
 .hero{
   display:grid;grid-template-columns:1fr 1.05fr;
   gap:30px;align-items:center;
@@ -645,12 +645,28 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',Georgia,serif;line-height:1.18}
 }
 /* Tablet — hero collapses, identity strip tightens */
 @media(max-width:900px){
-  .hero{grid-template-columns:1fr;gap:8px;padding:32px 22px 24px;min-height:auto;}
+  .hero{grid-template-columns:1fr;gap:18px;padding:32px 22px 28px;min-height:auto;align-items:start;}
   .hero h1{font-size:2.2rem;line-height:1.18;}
   .hero-sub{font-size:16px;line-height:1.7;margin-top:18px;}
-  /* Shrink the constellation visual to fit. transform: scale + negative margins
-     so the 560x560 box takes ~310x310 of layout space on tablet */
-  .scene{transform:scale(0.55);margin:-128px auto -120px;}
+  /* On mobile, the 560x560 constellation can't fit. Replace it with the central KOPIT hub
+     as a clean static logo block — preserves brand identity, removes the layout problem. */
+  .scene{
+    width:100%;max-width:200px;height:200px;
+    margin:14px auto 0;
+    display:flex;align-items:center;justify-content:center;
+    transform:none;perspective:none;
+  }
+  .scene .stars,
+  .scene .ring,
+  .scene .connections,
+  .scene #constNodesContainer{display:none;}
+  .scene .hub{
+    position:relative;left:auto;top:auto;
+    width:110px;height:110px;
+    transform:none;animation:none;transform-style:flat;
+  }
+  .scene .hub-glow-outer{inset:-22px;}
+  .scene .hub-glow-inner{inset:-8px;}
   .identity-strip-inner{padding:0 22px;}
 }
 @media(max-width:768px){
@@ -673,10 +689,9 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',Georgia,serif;line-height:1.18}
   .divs-grid,.proj-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr;gap:36px}
   .footer-bar-inner{flex-direction:column;align-items:flex-start;gap:5px}
-  /* Hero buttons stack full-width on phones */
+  /* Hero buttons stack but hug their content (not full-width) — feels deliberate, not form-like */
   .hero h1{font-size:1.85rem;}
-  .hero-btns{flex-direction:column;align-items:stretch;gap:10px;width:100%;}
-  .hero-btns a{text-align:center;width:100%;}
+  .hero-btns{flex-direction:column;align-items:flex-start;gap:10px;}
   /* Tighter vertical padding for content sections */
   .memb-teaser-sec{padding:60px 16px;}
   .how-sec{padding:60px 22px;}
@@ -684,10 +699,11 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',Georgia,serif;line-height:1.18}
   .footer-main{padding:56px 0 44px}
 }
 @media(max-width:480px){
-  .hero{padding:24px 18px 16px;}
+  .hero{padding:24px 18px 20px;}
   .hero h1{font-size:1.65rem;}
-  /* Further shrink constellation on small phones */
-  .scene{transform:scale(0.46);margin:-150px auto -155px;}
+  /* Smaller KOPIT hub on small phones */
+  .scene{max-width:170px;height:170px;margin:10px auto 0;}
+  .scene .hub{width:92px;height:92px;}
 }
 
 /* 13. INVITATION MANIFESTO */
