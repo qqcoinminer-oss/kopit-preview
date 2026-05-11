@@ -13,7 +13,10 @@
 ═══════════════════════════════════════════ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Source Sans 3',sans-serif;color:#F4EFE8;background:#0A1628 url('images/about/flywheel-cosmos.jpg') center/cover no-repeat fixed;overflow-x:hidden;line-height:1.6}
+body{font-family:'Source Sans 3',sans-serif;color:#F4EFE8;background:#0A1628;overflow-x:hidden;line-height:1.6;}
+/* Backdrop as a viewport-fixed pseudo-element — works on iOS Safari + older mobile browsers
+   where background-attachment:fixed is broken or causes the image to stretch oddly */
+body::before{content:'';position:fixed;inset:0;z-index:-1;background:#0A1628 url('images/about/flywheel-cosmos.jpg') center/cover no-repeat;pointer-events:none;}
 a{text-decoration:none;color:inherit;transition:all .25s ease}
 ul{list-style:none}
 img{max-width:100%;display:block}
@@ -387,10 +390,9 @@ img{max-width:100%;display:block}
   background:repeating-linear-gradient(45deg,transparent 0,transparent 8px,rgba(201,168,76,0.04) 8px,rgba(201,168,76,0.04) 9px);
   pointer-events:none;
 }
-/* When a real photo is present, drop the diagonal hatching so the image reads cleanly */
-.photo-area:has(img.tonggak-photo)::after{display:none;}
-/* When a real photo is present, hide the placeholder monogram letter */
-.photo-area:has(img.tonggak-photo) .portrait-monogram{display:none;}
+/* All 8 cards have real photos — universally hide the placeholder hatch + monogram (avoids :has() compatibility issues on older mobile browsers) */
+.photo-area::after{display:none;}
+.portrait-monogram{display:none;}
 .photo-area img.tonggak-photo{
   position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1;
 }
@@ -508,18 +510,20 @@ img{max-width:100%;display:block}
   .photo-area{width:220px;height:293px;}
 }
 @media (max-width:780px){
-  .passport-stage{perspective:none;}
+  .passport-stage{perspective:none;padding:30px 0;}
   .passport-viewport{height:auto;overflow:hidden;transform-style:flat;}
   .passport-globe{width:100%;height:auto;transform-style:flat;top:0;}
-  .passport-card{width:100%;height:auto;min-height:780px;backface-visibility:visible;}
-  .card-inner{grid-template-columns:1fr;gap:30px;padding:30px 28px;}
-  .photo-area{width:200px;height:267px;margin:0 auto;}
-  .portrait-monogram{font-size:84px;}
-  .pillar-name{font-size:30px;}
-  .headline-top{font-size:34px;}
-  .headline-bottom{font-size:26px;}
-  .official-stamp{width:120px;height:120px;bottom:14px;right:14px;}
-  .passport-stage::before,.passport-stage::after{width:60px;}
+  .passport-card{width:100%;height:auto;min-height:auto;backface-visibility:visible;}
+  .card-inner{grid-template-columns:1fr;gap:20px;padding:24px 22px;}
+  .photo-area{width:170px;height:227px;margin:0 auto;}
+  .pillar-name{font-size:26px;}
+  .headline-top{font-size:28px;}
+  .headline-bottom{font-size:22px;}
+  /* Hide decorative elements on mobile for cleaner, more compact cards */
+  .page-header{display:none;}
+  .official-stamp{display:none;}
+  .corner-mount{display:none;}
+  .passport-stage::before,.passport-stage::after{display:none;}
   .passport-card[data-state="adjacent"],
   .passport-card[data-state="far"],
   .passport-card[data-state="back"]{opacity:1;filter:none;}
@@ -671,7 +675,6 @@ img{max-width:100%;display:block}
 }
 @media(max-width:768px){
   :root{--nav-h:72px}
-  body{background-attachment:scroll;}
   .wrap{padding:0 22px}
   .hamburger{display:flex}
   .nav-cta{display:none}
@@ -690,18 +693,65 @@ img{max-width:100%;display:block}
   .footer-main{padding:56px 0 44px}
   .lt-2{display:none}
 }
-@media(max-width:700px){
-  .hero-headline-1,.hero-headline-2{font-size:38px;}
-  .statement-h1,.statement-h2{font-size:24px;}
-  .const-headline{font-size:24px;}
-  .pillars-headline,.worlds-headline{font-size:24px;}
-  .pillars-grid{grid-template-columns:repeat(6,1fr);}
-  .pillar-card-a{grid-column:span 2;}
-  .pillar-card-a:nth-child(4){grid-column-start:2;}
+/* ─── Mobile simplification: simpler, more compact, easier to read ─── */
+@media(max-width:900px){
+  /* HERO — let it flow naturally instead of locking 100vh (avoids URL-bar jumps) */
+  .about-hero{height:auto;min-height:auto;max-height:none;padding:120px 22px 60px;}
+  .hero-headline-1,.hero-headline-2{font-size:42px;line-height:1.05;}
+  .hero-tagline{font-size:15px;margin-top:18px;}
+  .hero-ornament{margin-bottom:18px;}
+  .hero-ornament .line{width:32px;}
+  .hero-ornament .label{font-size:10px;letter-spacing:2px;}
+  .hero-scroll-hint{display:none;}
+
+  /* STATEMENT */
+  .statement-section{padding:60px 22px;}
+  .statement-inner{max-width:100%;}
+  .statement-h1,.statement-h2{font-size:28px;line-height:1.2;}
+  .statement-stamp{font-size:13px;letter-spacing:3px;}
+
+  /* CONSTELLATION */
+  .constellation-section{padding:60px 22px;}
+  .const-eyebrow{font-size:10px;letter-spacing:2.5px;margin-bottom:14px;}
+  .const-headline{font-size:26px;line-height:1.2;}
+  .const-svg-wrap{margin-top:30px;}
+
+  /* PILLARS — 2-col grid, last (5th) card centered */
+  .pillars-section{padding:60px 22px;}
+  .pillars-headline,.worlds-headline{font-size:26px;line-height:1.2;}
+  .pillars-grid{grid-template-columns:1fr 1fr;gap:14px;max-width:520px;margin:30px auto 0;}
+  .pillar-card-a{grid-column:auto;padding:22px 14px;}
+  .pillar-card-a:nth-child(5){grid-column:1 / -1;max-width:240px;margin:0 auto;}
+  .pillar-label-a{font-size:10px;letter-spacing:1.6px;}
   .worlds-grid{grid-template-columns:1fr;}
-  .cta-h1,.cta-h2{font-size:36px;}
-  .cta-buttons{flex-direction:column;gap:12px;align-items:stretch;}
-  .cta-btn-primary,.cta-btn-secondary{width:100%;}
+
+  /* REGULATORY — stack pills vertically (don't break the connected design with wrap) */
+  .regulatory-section{padding:50px 22px;}
+  .reg-eyebrow{font-size:10px;letter-spacing:2.5px;}
+  .reg-pills{flex-direction:column;gap:10px;align-items:stretch;max-width:340px;margin:0 auto;}
+  .reg-pill,.reg-pill-mid{border-radius:6px;border:0.5px solid rgba(201,168,76,0.3);padding:14px 18px;}
+  .reg-pill-num{font-size:11px;}
+  .reg-pill-text{font-size:12px;}
+
+  /* CTA */
+  .cta-section{padding:60px 22px;}
+  .cta-h1,.cta-h2{font-size:38px;line-height:1.1;}
+  .cta-buttons{flex-direction:column;gap:12px;align-items:stretch;margin-top:30px;}
+  .cta-btn-primary,.cta-btn-secondary{width:100%;justify-content:center;}
+}
+
+@media(max-width:480px){
+  .about-hero{padding:110px 18px 50px;}
+  .hero-headline-1,.hero-headline-2{font-size:34px;}
+  .hero-tagline{font-size:14px;}
+  .statement-section,.constellation-section,.pillars-section,.cta-section{padding:50px 18px;}
+  .statement-h1,.statement-h2{font-size:24px;}
+  .const-headline{font-size:22px;}
+  .pillars-headline,.worlds-headline{font-size:22px;}
+  .pillars-grid{grid-template-columns:1fr;max-width:300px;}
+  .pillar-card-a:nth-child(5){max-width:none;}
+  .cta-h1,.cta-h2{font-size:30px;}
+  .regulatory-section{padding:45px 18px;}
 }
 </style>
 </head>
