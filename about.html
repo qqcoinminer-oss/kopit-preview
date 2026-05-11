@@ -510,25 +510,45 @@ img{max-width:100%;display:block}
   .photo-area{width:220px;height:293px;}
 }
 @media (max-width:780px){
+  /* Switch from absolute-positioned 3D carousel to a clean vertical stack.
+     `!important` is required on .passport-globe transform/transition to win
+     against the JS that writes `globe.style.transform = translateX(...)` inline. */
   .passport-stage{perspective:none;padding:30px 0;}
-  .passport-viewport{height:auto;overflow:hidden;transform-style:flat;}
-  .passport-globe{width:100%;height:auto;transform-style:flat;top:0;}
-  .passport-card{width:100%;height:auto;min-height:auto;backface-visibility:visible;}
+  .passport-viewport{height:auto;overflow:visible;transform-style:flat;cursor:default;}
+  .passport-globe{
+    width:100%;height:auto;top:0;
+    transform:none !important;transition:none !important;
+    transform-style:flat;
+    display:flex;flex-direction:column;gap:22px;
+  }
+  .passport-card{
+    position:relative;top:auto;left:auto;
+    width:100%;height:auto;min-height:auto;
+    backface-visibility:visible;-webkit-backface-visibility:visible;
+  }
+  /* Force every card visible regardless of data-state */
+  .passport-card[data-state="active"],
+  .passport-card[data-state="adjacent"],
+  .passport-card[data-state="far"],
+  .passport-card[data-state="back"]{opacity:1 !important;filter:none !important;}
+  .passport-globe.rotating .passport-card[data-state="adjacent"],
+  .passport-globe.rotating .passport-card[data-state="far"]{opacity:1 !important;}
+
   .card-inner{grid-template-columns:1fr;gap:20px;padding:24px 22px;}
   .photo-area{width:170px;height:227px;margin:0 auto;}
   .pillar-name{font-size:26px;}
   .headline-top{font-size:28px;}
   .headline-bottom{font-size:22px;}
-  /* Hide decorative elements on mobile for cleaner, more compact cards */
+
+  /* Hide decorative chrome on mobile for cleaner, more compact cards */
   .page-header{display:none;}
   .official-stamp{display:none;}
   .corner-mount{display:none;}
   .passport-stage::before,.passport-stage::after{display:none;}
-  .passport-card[data-state="adjacent"],
-  .passport-card[data-state="far"],
-  .passport-card[data-state="back"]{opacity:1;filter:none;}
-  .passport-globe.rotating .passport-card[data-state="adjacent"],
-  .passport-globe.rotating .passport-card[data-state="far"]{opacity:1;}
+
+  /* Carousel controls don't make sense in a vertical list — hide them */
+  .passport-nav{display:none;}
+  .passport-meta{display:none;}
 }
 
 /* ══════════════════════════════════════════
