@@ -655,9 +655,15 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',Georgia,serif;line-height:1.18}
   .identity-strip-inner{padding:0 22px;}
 }
 @media(max-width:768px){
-  :root{--nav-h:72px}
+  :root{--nav-h:68px}
   .wrap{padding:0 22px}
-  /* Mobile nav */
+  /* Mobile nav — compact logo, hide long tagline lines so hamburger stays on-screen */
+  .lt-2,.lt-3{display:none;}
+  #kopitLogo{width:48px;height:48px;}
+  .navbar.scrolled #kopitLogo{width:42px;height:42px;}
+  .lt-1{font-size:22px;letter-spacing:3px;}
+  .navbar.scrolled .lt-1{font-size:20px;}
+  .nav-inner{padding:0 18px;}
   .hamburger{display:flex}
   .nav-cta{display:none}
   .nav-links{
