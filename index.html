@@ -302,7 +302,6 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',Georgia,serif;line-height:1.18}
   color:rgba(255,255,255,0.55);letter-spacing:0.4px;line-height:1.6;
 }
 @media(max-width:900px){.identity-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:540px){.identity-grid{grid-template-columns:1fr;}}
 
 /* ══════════════════════════════════════════
    9. WHO WE ARE — MANIFESTO
@@ -643,30 +642,16 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',Georgia,serif;line-height:1.18}
   .divs-grid,.proj-grid{grid-template-columns:1fr 1fr}
   .nl{padding:6px 9px;font-size:.76rem}
 }
-/* Tablet — hero collapses, identity strip tightens */
+/* Tablet + mobile — hero collapses to text-only, section paddings tighten */
 @media(max-width:900px){
-  .hero{grid-template-columns:1fr;gap:18px;padding:32px 22px 28px;min-height:auto;align-items:start;}
-  .hero h1{font-size:2.2rem;line-height:1.18;}
-  .hero-sub{font-size:16px;line-height:1.7;margin-top:18px;}
-  /* On mobile, the 560x560 constellation can't fit. Replace it with the central KOPIT hub
-     as a clean static logo block — preserves brand identity, removes the layout problem. */
-  .scene{
-    width:100%;max-width:200px;height:200px;
-    margin:14px auto 0;
-    display:flex;align-items:center;justify-content:center;
-    transform:none;perspective:none;
-  }
-  .scene .stars,
-  .scene .ring,
-  .scene .connections,
-  .scene #constNodesContainer{display:none;}
-  .scene .hub{
-    position:relative;left:auto;top:auto;
-    width:110px;height:110px;
-    transform:none;animation:none;transform-style:flat;
-  }
-  .scene .hub-glow-outer{inset:-22px;}
-  .scene .hub-glow-inner{inset:-8px;}
+  /* HERO — text-only, constellation hidden entirely */
+  .hero{grid-template-columns:1fr;gap:22px;padding:36px 22px 44px;min-height:auto;align-items:start;}
+  .hero h1{font-size:2.2rem;line-height:1.25;}
+  .hero-sub{font-size:16px;line-height:1.7;margin-top:22px;}
+  .scene{display:none;}
+  /* Section side-padding fixes — these were cramping content on phones */
+  .manifesto-inner{padding:0 22px;}
+  .hex-inner{padding:0 22px;}
   .identity-strip-inner{padding:0 22px;}
 }
 @media(max-width:768px){
@@ -687,23 +672,53 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',Georgia,serif;line-height:1.18}
   .nl{font-size:.92rem;padding:11px 14px;width:100%}
   /* Section grids collapse */
   .divs-grid,.proj-grid{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr;gap:36px}
-  .footer-bar-inner{flex-direction:column;align-items:flex-start;gap:5px}
-  /* Hero buttons stack but hug their content (not full-width) — feels deliberate, not form-like */
+  /* HERO — buttons stack with bigger tap targets, content-hugged */
   .hero h1{font-size:1.85rem;}
   .hero-btns{flex-direction:column;align-items:flex-start;gap:10px;}
+  .btn-hero-gold,.btn-hero-outline{padding:14px 26px;font-size:12px;}
+  /* IDENTITY STRIP — tighter 2x2 cards on mobile (kept visible, just compressed) */
+  .ibox{padding:20px 14px;}
+  .ibox-title{font-size:15px;}
+  .ibox-sub{font-size:10.5px;line-height:1.5;}
   /* Tighter vertical padding for content sections */
   .memb-teaser-sec{padding:60px 16px;}
   .how-sec{padding:60px 22px;}
   .proj-sec,.section,.hex-sec{padding:60px 0;}
-  .footer-main{padding:56px 0 44px}
+  /* FOOTER COMPRESSION — was 850px tall on mobile, target ~480px */
+  .footer-main{padding:48px 0 36px;}
+  .footer-grid{grid-template-columns:1fr;gap:32px;}
+  .f-svg-wrap{margin-bottom:12px;}
+  .f-svg-wrap svg{width:42px;height:42px;}
+  .f-logo-name{font-size:1.05rem;letter-spacing:3.5px;}
+  .f-tagline{font-size:.78rem;margin-bottom:10px;line-height:1.55;}
+  .f-premier{margin-bottom:12px;font-size:.74rem;}
+  .footer-credentials{margin-top:10px!important;font-size:11px!important;line-height:1.55!important;}
+  .footer-credentials > div{margin-bottom:8px!important;}
+  .footer-credentials > div:last-child{margin-bottom:0!important;}
+  /* Quick Links rendered as 2-col grid (4+3) instead of 7 stacked items */
+  .f-head{margin-bottom:14px;font-size:.62rem;}
+  .f-nav-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;}
+  .f-nav-list li a{padding:4px 0;font-size:.84rem;}
+  /* Contact section tighter */
+  .f-wa{font-size:1.06rem;margin-bottom:4px;}
+  .f-hours{font-size:.7rem;margin-bottom:14px;}
+  .f-email{margin-bottom:16px;}
+  .f-email span{font-size:.78rem!important;}
+  .f-contact-btn{padding:11px 22px;font-size:.76rem;}
+  /* Footer bottom bar tighter */
+  .footer-bar{padding:14px 0;}
+  .footer-bar-inner{flex-direction:column;align-items:flex-start;gap:5px;}
+  .footer-bar-inner p{font-size:.7rem;}
 }
 @media(max-width:480px){
-  .hero{padding:24px 18px 20px;}
+  .hero{padding:28px 18px 36px;}
   .hero h1{font-size:1.65rem;}
-  /* Smaller KOPIT hub on small phones */
-  .scene{max-width:170px;height:170px;margin:10px auto 0;}
-  .scene .hub{width:92px;height:92px;}
+  .hero-sub{font-size:15px;}
+  /* Tighter Investment Manifesto on very small phones */
+  .inv-sec{padding:60px 18px;}
+  /* Even tighter identity-strip cards on tiny screens */
+  .ibox{padding:16px 12px;}
+  .ibox-title{font-size:14px;}
 }
 
 /* 13. INVITATION MANIFESTO */
