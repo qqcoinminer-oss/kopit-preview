@@ -642,28 +642,12 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',Georgia,serif;line-height:1.18}
   .divs-grid,.proj-grid{grid-template-columns:1fr 1fr}
   .nl{padding:6px 9px;font-size:.76rem}
 }
-/* Tablet + mobile — hero collapses to text-only, section paddings tighten */
+/* Tablet + mobile — match news.html / about.html navbar pattern exactly */
 @media(max-width:900px){
-  /* HERO — text-only, constellation hidden entirely */
-  .hero{grid-template-columns:1fr;gap:22px;padding:36px 22px 44px;min-height:auto;align-items:start;}
-  .hero h1{font-size:2.2rem;line-height:1.25;}
-  .hero-sub{font-size:16px;line-height:1.7;margin-top:22px;}
-  .scene{display:none;}
-  /* Section side-padding fixes — these were cramping content on phones */
-  .manifesto-inner{padding:0 22px;}
-  .hex-inner{padding:0 22px;}
-  .identity-strip-inner{padding:0 22px;}
-}
-@media(max-width:768px){
-  :root{--nav-h:68px}
+  /* NAVBAR — same as every other page on the site */
+  :root{--nav-h:72px}
   .wrap{padding:0 22px}
-  /* Mobile nav — compact logo, hide long tagline lines so hamburger stays on-screen */
-  .lt-2,.lt-3{display:none;}
-  #kopitLogo{width:48px;height:48px;}
-  .navbar.scrolled #kopitLogo{width:42px;height:42px;}
-  .lt-1{font-size:22px;letter-spacing:3px;}
-  .navbar.scrolled .lt-1{font-size:20px;}
-  .nav-inner{padding:0 18px;}
+  .lt-2{display:none}
   .hamburger{display:flex}
   .nav-cta{display:none}
   .nav-links{
@@ -676,7 +660,22 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',Georgia,serif;line-height:1.18}
   }
   .nav-links.open{right:0}
   .nl{font-size:.92rem;padding:11px 14px;width:100%}
-  /* Section grids collapse */
+  /* FOOTER GRID — also matches other pages */
+  .footer-grid{grid-template-columns:1fr;gap:36px}
+  .footer-bar-inner{flex-direction:column;align-items:flex-start;gap:5px}
+  .footer-main{padding:56px 0 44px}
+  /* HERO — text-only, constellation hidden entirely (homepage-specific) */
+  .hero{grid-template-columns:1fr;gap:22px;padding:36px 22px 44px;min-height:auto;align-items:start;}
+  .hero h1{font-size:2.2rem;line-height:1.25;}
+  .hero-sub{font-size:16px;line-height:1.7;margin-top:22px;}
+  .scene{display:none;}
+  /* Section side-padding fixes (homepage-specific) */
+  .manifesto-inner{padding:0 22px;}
+  .hex-inner{padding:0 22px;}
+  .identity-strip-inner{padding:0 22px;}
+}
+@media(max-width:768px){
+  /* Section grids collapse (homepage-specific phone tightening) */
   .divs-grid,.proj-grid{grid-template-columns:1fr}
   /* HERO — buttons stack with bigger tap targets, content-hugged */
   .hero h1{font-size:1.85rem;}
