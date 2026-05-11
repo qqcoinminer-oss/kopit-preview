@@ -1,0 +1,281 @@
+COMPREHENSIVE UPDATE — 6 FIXES IN ONE PASS
+
+Read carefully. Execute every fix below.
+Touch only what is specified.
+
+═══════════════════════════════════════
+FIX 1 — ADD GOOGLE FONTS (STYLE E)
+═══════════════════════════════════════
+Add these font links inside the <head> 
+of index.html. Put them BEFORE the 
+existing <style> block:
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+If Cinzel link already exists, REPLACE 
+the existing link with the line above 
+(it includes all three fonts together).
+
+═══════════════════════════════════════
+FIX 2 — GLOBAL FONT REPLACEMENT
+═══════════════════════════════════════
+Throughout the entire CSS in the file:
+
+REPLACE all instances of:
+font-family: Cambria, serif;
+font-family: Cambria,serif;
+font-family: 'Cambria', serif;
+
+WITH:
+font-family: 'Playfair Display', Georgia, serif;
+
+REPLACE all instances of:
+font-family: Calibri, sans-serif;
+font-family: Calibri,sans-serif;
+font-family: 'Calibri', sans-serif;
+
+WITH:
+font-family: 'Source Sans 3', sans-serif;
+
+KEEP Cinzel as is — do NOT replace 
+Cinzel anywhere. Cinzel is still 
+used for:
+- KOPIT wordmark in navbar
+- Hero headline (mixed with Playfair)
+- KOPIT GENESIS hub block centre
+
+For h1 elements that previously used 
+Cinzel for "KOPIT" wordmark — keep Cinzel.
+For h1 elements that previously used 
+Cambria for headlines — change to 
+Playfair Display.
+
+═══════════════════════════════════════
+FIX 3 — REORDER SECTIONS
+═══════════════════════════════════════
+Currently the page has the WHO WE ARE 
+manifesto section AFTER the OUR 
+FOUNDATION boxes. This is wrong.
+
+Move the entire WHO WE ARE section 
+(the one with "We are not a company." 
+heading and credentials box) so it 
+comes BEFORE the OUR FOUNDATION 
+boxes section.
+
+Final correct order from top to bottom:
+1. Navbar (already done)
+2. Hero (Living Constellation — 
+   already done)
+3. WHO WE ARE — manifesto + 
+   credentials box
+4. Gold gradient divider line
+5. OUR FOUNDATION — 4 identity boxes
+6. [next sections continue below]
+
+Remove any empty padding/margin gap 
+that currently exists between the 
+two sections.
+
+═══════════════════════════════════════
+FIX 4 — UPDATE CREDENTIALS BOX
+═══════════════════════════════════════
+Inside the credentials box (KOPIT AT 
+A GLANCE):
+
+REMOVE the existing standalone 
+"BY INVITATION" badge that sits at 
+the bottom.
+
+ADD a new 5th credential row that 
+matches the format of the other 4 rows.
+
+NEW 5TH ROW:
+- Same flex layout as rows 1-4
+- Padding 14px 0
+- Border-bottom: none (it's the last row)
+
+Icon (32x32 box):
+- Border-radius 6px
+- Background rgba(201,168,76,0.08)
+- Border 0.5px solid rgba(201,168,76,0.2)
+- Inside: gold-stroke key SVG icon:
+
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round">
+  <circle cx="8" cy="15" r="4"/>
+  <line x1="10.85" y1="12.15" x2="19" y2="4"/>
+  <line x1="18" y1="5" x2="20" y2="7"/>
+  <line x1="15" y1="8" x2="17" y2="10"/>
+</svg>
+
+Content:
+- Label: "MEMBERSHIP STATUS"
+  Style: Source Sans 3, 8.5px, 
+  letter-spacing 2px, uppercase,
+  color rgba(201,168,76,0.7), mb 3px
+- Value: "By Invitation Only"
+  Style: Playfair Display, 14px, 
+  weight 600, color #fff,
+  letter-spacing 0.3px
+- Sub: "BOD reviews all applications"
+  Style: Source Sans 3, 10px,
+  color rgba(255,255,255,0.45),
+  margin-top 2px
+
+So the credentials box now has 
+5 rows total:
+1. REGISTRATION — SKM Registered Cooperative
+2. PROCUREMENT — E-Perolehan Registered  
+3. ESTABLISHED — 2022
+4. HEADQUARTERS — Cheras, Kuala Lumpur
+5. MEMBERSHIP STATUS — By Invitation Only
+
+═══════════════════════════════════════
+FIX 5 — BOTTOM STATUS INDICATOR
+═══════════════════════════════════════
+At the very bottom of the credentials 
+box, BELOW the 5 rows, keep the status 
+indicator but UPDATE the text:
+
+OLD: "BY INVITATION" (gold)
+NEW: "KOPIT IS GROWING" (gold)
+
+Style stays the same:
+- Margin-top 20px
+- Padding-top 18px
+- Border-top 0.5px solid rgba(201,168,76,0.15)
+- Display flex, align centre, justify 
+  centre, gap 8px
+
+Pulsing dot (gold):
+- 6x6px, border-radius 50%
+- Background #C9A84C
+- Box-shadow 0 0 8px #C9A84C
+- Animation pulse 2s infinite
+- @keyframes pulse: 0%,100% opacity 0.7;
+  50% opacity 1
+
+Text:
+- "KOPIT IS GROWING"
+- Source Sans 3, 9px, letter-spacing 
+  2.5px
+- Color rgba(201,168,76,0.95)
+- font-weight 600
+
+═══════════════════════════════════════
+FIX 6 — TIGHTEN SECTION SPACING
+═══════════════════════════════════════
+Reduce vertical padding from 80px 
+to 60px on both the WHO WE ARE 
+section and the OUR FOUNDATION 
+section. This removes excess empty 
+space between sections.
+
+.section-who { padding: 60px 30px; }
+.section-foundation { padding: 60px 30px; }
+
+═══════════════════════════════════════
+FIX 7 — DIVIDER VISIBILITY
+═══════════════════════════════════════
+Ensure the gold divider between 
+WHO WE ARE and OUR FOUNDATION sections 
+is visible:
+- Height: 1px
+- Background: linear-gradient(to right,
+  transparent, rgba(201,168,76,0.18),
+  transparent)
+- Max-width: 1100px
+- Margin: 0 auto
+
+═══════════════════════════════════════
+PRESERVATION — DO NOT CHANGE
+═══════════════════════════════════════
+PRESERVE these unchanged:
+- Navbar logo and animation
+- Navbar "KOPIT" wordmark in Cinzel
+- Hero Living Constellation visual
+- Hero headline content
+- Hero CTA buttons
+- Manifesto paragraph content
+- Pull quote text
+- 4 credential rows existing content
+- Headquarters: "Cheras, Kuala Lumpur"
+- "OUR FOUNDATION" label
+- 4 identity boxes content
+
+═══════════════════════════════════════
+FIX 8 — UPDATE CANVAS LOGO HARD-CODED FONT
+═══════════════════════════════════════
+Inside the navbar logo canvas drawing 
+JavaScript, find this line:
+
+ctx.font = `700 ${7*n.sc}px Georgia`;
+
+REPLACE with:
+
+ctx.font = `700 ${7*n.sc}px 'Playfair Display'`;
+
+This ensures the tiny "K" letter inside 
+the centre hub block matches the rest 
+of the new typography.
+
+═══════════════════════════════════════
+FIX 9 — PRESERVE GENESIS SUBTEXT WEIGHT
+═══════════════════════════════════════
+The hub "GENESIS" subtext was previously 
+Calibri 700 weight. After swap to 
+Source Sans 3, ensure font-weight 
+explicitly stays at 700 to maintain 
+visual presence at small size:
+
+.hub-sub {
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 700;
+  font-size: 9px;
+  letter-spacing: 4.5px;
+}
+
+Also for the constellation hub block 
+.hub-text using Cinzel — confirm 
+font-family stays as 'Cinzel', Cambria, 
+serif (Cinzel preserved).
+═══════════════════════════════════════
+VERIFICATION CHECKLIST
+═══════════════════════════════════════
+After all fixes — verify:
+
+1. ✓ Page loads with new fonts 
+   (Playfair Display headlines, 
+   Source Sans 3 body text)
+2. ✓ Cinzel still active for KOPIT 
+   wordmark in navbar
+3. ✓ Order is: Hero → WHO WE ARE → 
+   divider → OUR FOUNDATION
+4. ✓ NO empty gap between sections
+5. ✓ Credentials box has 5 rows total
+6. ✓ 5th row shows MEMBERSHIP STATUS · 
+   By Invitation Only · BOD reviews 
+   all applications
+7. ✓ Bottom indicator shows gold dot 
+   + "KOPIT IS GROWING"
+8. ✓ Gold divider visible between 
+   WHO WE ARE and OUR FOUNDATION
+9. ✓ Headquarters still shows 
+   "Cheras, Kuala Lumpur"
+10. ✓ All previous content preserved
+
+After fixing — refresh browser and 
+take FOUR screenshots:
+- Screenshot 1: Navbar (showing 
+  new Playfair font on tagline)
+- Screenshot 2: Hero section 
+  (showing Playfair headline)
+- Screenshot 3: WHO WE ARE section 
+  with credentials box (showing 5 rows)
+- Screenshot 4: OUR FOUNDATION 
+  section (showing 4 boxes)
+
+Bring all 4 screenshots back for 
+review.

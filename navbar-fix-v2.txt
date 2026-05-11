@@ -1,0 +1,161 @@
+Fix the navbar layout, fonts, and 
+hide BM toggle. Only fix the navbar.
+Touch nothing else on the page.
+
+═══════════════════════════════════════
+FIX 1 — NAVBAR WIDTH & ALIGNMENT
+═══════════════════════════════════════
+Currently the navbar contents sit close 
+to the centre. Change to wide-but-contained 
+layout.
+
+Navbar container CSS:
+.navbar {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+LEFT GROUP — locks to far left:
+- Logo canvas (75x75px)
+- KOPIT text + 2 lines (immediately right of canvas)
+
+CENTRE GROUP — nav links:
+- Justified centrally between left and right groups
+- Spacing between links: 24px
+
+RIGHT GROUP — locks to far right:
+- EN/BM toggle (BM hidden for now — see Fix 4)
+- Member Login button
+
+═══════════════════════════════════════
+FIX 2 — UPGRADE KOPIT FONT TO CINZEL
+═══════════════════════════════════════
+Add Cinzel from Google Fonts at top 
+of HTML <head>:
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+
+Use Cinzel ONLY for the KOPIT wordmark 
+in navbar:
+
+.kopit-wordmark {
+  font-family: 'Cinzel', Cambria, serif;
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: 4px;
+  color: #ffffff;
+  margin-bottom: 2px;
+  line-height: 1;
+}
+
+All other text remains Cambria (headers) 
+or Calibri (body) as before.
+
+═══════════════════════════════════════
+FIX 3 — TEXT SIZING UPDATE
+═══════════════════════════════════════
+KOPIT wordmark: Cinzel bold 30px, 
+  letter-spacing 4px
+
+Full registered name (Line 2): 
+  Calibri 10px
+  Colour rgba(255,255,255,0.5)
+  Letter-spacing 0.4px
+  White-space nowrap
+
+Tagline (Line 3): 
+  Calibri italic 11px
+  Colour rgba(201,168,76,0.85)
+  Letter-spacing 0.5px
+
+Nav links: 
+  Calibri 15px
+  Letter-spacing 0.3px
+  Colour white, hover gold
+
+Member Login button:
+  Calibri 14px
+  Padding 10px 24px
+  Background gold #C9A84C filled
+  Text colour navy #0A1628
+  Border-radius 4px
+  Hover: slightly darker gold
+
+═══════════════════════════════════════
+FIX 4 — HIDE BM TOGGLE
+═══════════════════════════════════════
+The BM language toggle button is not 
+ready yet (no translator confirmed).
+
+DO NOT delete the BM button or any BM 
+data-bm content from the HTML. We will 
+re-enable it later.
+
+JUST hide the BM button visually:
+
+.lang-toggle .bm-button {
+  display: none;
+}
+
+OR add a wrapper class:
+.lang-toggle {
+  display: none;
+}
+
+The EN button can also be hidden 
+since there is no toggle needed:
+hide the entire language toggle 
+container for now.
+
+Keep all data-en="..." attributes intact.
+Keep all data-bm="..." attributes intact 
+in the HTML.
+This way when we add a translator later, 
+we just unhide the toggle and everything 
+works.
+
+═══════════════════════════════════════
+FIX 5 — SCROLL COMPACT BEHAVIOUR
+═══════════════════════════════════════
+Maintain existing scroll compact:
+
+EXPANDED (top of page):
+- Navbar height: 95px
+- Logo canvas: 75x75px
+- All 3 text lines visible
+
+COMPACT (scrolled 80px+):
+- Navbar height: 65px
+- Logo canvas: 55x55px  
+- KOPIT wordmark: 24px
+- Full registered name (Line 2) hides
+- Tagline (Line 3) stays visible
+- Smooth transition 0.35s ease
+
+═══════════════════════════════════════
+VERIFICATION CHECKLIST
+═══════════════════════════════════════
+After implementation:
+1. Navbar stretches wide (max 1600px)
+2. Logo + KOPIT pushed far left
+3. Member Login pushed far right
+4. KOPIT wordmark uses Cinzel font 
+   (Roman luxury feel)
+5. All nav links fit in one line — no 
+   wrapping like "Hire Us"
+6. EN/BM toggle is hidden
+7. data-bm attributes preserved in HTML
+8. Scroll compact still works
+
+After fixing — refresh browser. 
+Take screenshot of navbar at top of 
+page (expanded). Then scroll down 200px 
+and screenshot again (compact).
+Bring both back for review.

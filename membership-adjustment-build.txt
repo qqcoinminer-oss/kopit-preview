@@ -1,0 +1,567 @@
+ADJUSTMENT BUILD — MEMBERSHIP TEASER SECTION
+5 SPECIFIC CHANGES · DO NOT REBUILD ENTIRE SECTION
+
+The membership teaser section already exists on 
+the homepage with the globe carousel and 7 cards. 
+Apply ONLY these 5 changes — do not modify any 
+other section, do not rebuild the carousel logic, 
+do not change other 6 cards.
+
+═══════════════════════════════════════
+CHANGE 1 — SIDE CARD OPACITY (25% → 5%)
+═══════════════════════════════════════
+
+Find the JavaScript in main.js or inline in 
+index.html that handles the globe carousel 
+card opacity. Look for the line that sets 
+opacity for non-active cards (currently 
+0.25 or 25%).
+
+Change from:
+face.style.opacity = i === cur ? '1' : '0.25';
+
+To:
+face.style.opacity = i === cur ? '1' : '0.05';
+
+This makes the side cards barely visible — 
+no longer bleed through the active card.
+
+═══════════════════════════════════════
+CHANGE 2 — KI3 STRATEGIC PARTNER CARD 
+COMPLETE REDESIGN (Engraved Gunmetal Titanium)
+═══════════════════════════════════════
+
+Find the KI3 (Strategic Partner) card data 
+or HTML in the carousel. Replace the entire 
+card styling and content with the new 
+engraved gunmetal titanium design.
+
+NEW KI3 BACKGROUND GRADIENT:
+linear-gradient(135deg,
+  #1a1d22 0%,#252a32 22%,#363c46 42%,
+  #494f5a 49%,#5c6371 50%,#494f5a 51%,
+  #363c46 58%,#252a32 78%,#1a1d22 100%)
+
+NEW BORDER:
+1px solid rgba(180,195,215,0.55)
+
+NEW BOX-SHADOW:
+0 30px 70px rgba(0,0,0,0.7),
+0 0 35px rgba(200,220,250,0.4),
+inset 0 1px 0 rgba(220,235,255,0.18),
+inset 0 -1px 0 rgba(0,0,0,0.6)
+
+NEW LAYERS UNIQUE TO KI3 (other 6 cards 
+do NOT get these):
+
+LAYER A — Brushed grain texture (vertical):
+<svg style="position:absolute;inset:0;
+ width:100%;height:100%;opacity:0.20;
+ pointer-events:none;" viewBox="0 0 380 235" 
+ preserveAspectRatio="none">
+  <defs>
+    <pattern id="ki3-brush" x="0" y="0" 
+     width="2" height="235" 
+     patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="0" y2="235" 
+       stroke="#aabbd0" stroke-width="0.4"/>
+      <line x1="1" y1="0" x2="1" y2="235" 
+       stroke="#000" stroke-width="0.3"/>
+    </pattern>
+  </defs>
+  <rect width="380" height="235" 
+   fill="url(#ki3-brush)"/>
+</svg>
+
+LAYER B — Top polished bevel highlight:
+<div style="position:absolute;top:0;left:0;
+ right:0;height:2px;background:
+ linear-gradient(to right,transparent,
+ rgba(220,235,255,0.6) 30%,
+ rgba(255,255,255,0.85) 50%,
+ rgba(220,235,255,0.6) 70%,transparent);
+ pointer-events:none;"></div>
+
+LAYER C — Bottom dark bevel:
+<div style="position:absolute;bottom:0;
+ left:0;right:0;height:1px;background:
+ linear-gradient(to right,transparent,
+ rgba(0,0,0,0.7) 30%,rgba(0,0,0,0.85) 50%,
+ rgba(0,0,0,0.7) 70%,transparent);
+ pointer-events:none;"></div>
+
+LAYER D — EDITION 001 / 050 mark 
+(positioned at top:60px from card top):
+<div style="position:absolute;top:60px;
+ left:0;right:0;text-align:center;">
+  <span style="font-family:'Cinzel',serif;
+   font-weight:500;font-size:7px;
+   letter-spacing:5px;
+   color:rgba(245,250,255,0.92);
+   padding:3px 14px;
+   border-top:0.5px solid rgba(220,235,255,0.4);
+   border-bottom:0.5px solid rgba(220,235,255,0.4);
+   text-shadow:0 1px 0 rgba(0,0,0,0.7), 
+   0 -0.5px 0 rgba(255,255,255,0.2);">
+   EDITION 001 / 050
+  </span>
+</div>
+
+LAYER E — Single diamond ornament 
+(above the section caption, inside title 
+block):
+<div style="font-family:'Playfair Display',
+ serif;font-size:14px;
+ color:rgba(245,250,255,0.95);
+ margin-bottom:4px;
+ text-shadow:0 1px 1px rgba(0,0,0,0.7), 
+ 0 -0.5px 0 rgba(255,255,255,0.3), 
+ 0 0 10px rgba(200,220,250,0.4);">◆</div>
+
+═══════════════════════════════════════
+KI3 NEW TEXT COLOURS (BRIGHT)
+═══════════════════════════════════════
+
+All text on KI3 changes to bright cool-white 
+with engraving shadows.
+
+KOPIT wordmark:
+font-family: 'Cinzel', serif
+font-weight: 700
+font-size: 14px
+letter-spacing: 4px
+color: rgba(255,255,255,1)
+text-shadow: 0 1px 1px rgba(0,0,0,0.85), 
+  0 -0.5px 0 rgba(255,255,255,0.25), 
+  0 0 6px rgba(180,200,225,0.3)
+
+EST · MMXXII:
+font-family: 'Playfair Display', serif
+font-style: italic
+font-weight: 500
+font-size: 7px
+letter-spacing: 3px
+color: rgba(220,235,255,0.7)
+text-shadow: 0 1px 0 rgba(0,0,0,0.6)
+
+Member name (Dato' Lee Chong):
+font-family: 'Playfair Display', serif
+font-style: italic
+font-weight: 500
+font-size: 12px
+color: rgba(255,255,255,1)
+letter-spacing: 0.2px
+text-shadow: 0 1px 1px rgba(0,0,0,0.8), 
+  0 -0.5px 0 rgba(255,255,255,0.2)
+
+MEMBER SINCE label:
+font-family: 'Cinzel', serif
+font-weight: 500
+font-size: 6.5px
+letter-spacing: 3px
+color: rgba(220,235,255,0.7)
+text-shadow: 0 1px 0 rgba(0,0,0,0.6)
+
+Year value (2024):
+font-family: 'Cinzel', serif
+font-weight: 600
+font-size: 10px
+letter-spacing: 4px
+color: rgba(255,255,255,1)
+text-shadow: 0 1px 1px rgba(0,0,0,0.8), 
+  0 -0.5px 0 rgba(255,255,255,0.2)
+
+Section caption — wrap with em-dashes:
+"— AHLI PELABUR · TIER III —"
+font-family: 'Cinzel', serif
+font-weight: 500
+font-size: 7px
+letter-spacing: 6px
+color: rgba(220,235,255,0.78)
+text-shadow: 0 1px 0 rgba(0,0,0,0.6)
+
+Strategic Partner title:
+font-family: 'Playfair Display', serif
+font-size: 30px (was 26px - increase 
+  to be more striking)
+font-weight: 700 (was 600)
+color: rgba(255,255,255,1)
+letter-spacing: -0.5px
+line-height: 1
+text-shadow: 0 2px 2px rgba(0,0,0,0.85), 
+  0 -1px 0 rgba(255,255,255,0.35), 
+  0 0 18px rgba(200,220,250,0.4)
+
+Pelabur Agung subtitle:
+font-family: 'Playfair Display', serif
+font-style: italic
+font-weight: 500
+font-size: 10px
+letter-spacing: 2.5px
+color: rgba(245,250,255,0.88)
+margin-top: 5px
+text-shadow: 0 1px 1px rgba(0,0,0,0.75), 
+  0 -0.5px 0 rgba(255,255,255,0.2)
+
+SERIAL label:
+font-family: 'Cinzel', serif
+font-weight: 500
+font-size: 7px
+letter-spacing: 2.5px
+color: rgba(220,235,255,0.7)
+text-shadow: 0 1px 0 rgba(0,0,0,0.6)
+
+Serial number (KI3 · 0001 · MY):
+font-family: 'Cinzel', serif
+font-weight: 600
+font-size: 11px
+letter-spacing: 3px
+color: rgba(255,255,255,1)
+text-shadow: 0 1px 1px rgba(0,0,0,0.8), 
+  0 -0.5px 0 rgba(255,255,255,0.2)
+
+Certified By label:
+font-family: 'Playfair Display', serif
+font-style: italic
+font-weight: 500
+font-size: 7px
+letter-spacing: 2px
+color: rgba(220,235,255,0.7)
+text-shadow: 0 1px 0 rgba(0,0,0,0.6)
+
+BOD · CHAIRMAN value:
+font-family: 'Cinzel', serif
+font-weight: 600
+font-size: 8.5px
+letter-spacing: 3px
+color: rgba(255,255,255,1)
+text-shadow: 0 1px 1px rgba(0,0,0,0.8), 
+  0 -0.5px 0 rgba(255,255,255,0.2)
+
+Corner brackets:
+stroke: rgba(220,235,255,0.95) for outer 
+stroke: rgba(220,235,255,0.6) for inner
+
+KOPIT crest centre dot:
+fill: rgba(255,255,255,1) (was tinted)
+all 4 endpoint dots: rgba(255,255,255,0.98)
+
+Diamond divider centre piece:
+fill: rgba(255,255,255,0.95)
+filter: drop-shadow(0 1px 0 rgba(0,0,0,0.5))
+
+Hairline divider gradient:
+linear-gradient(to right,transparent,
+  rgba(220,235,255,0.55) 20%,
+  rgba(220,235,255,0.55) 80%,transparent)
+
+Micro-text strip:
+font-family: 'Cinzel', serif
+font-size: 4px
+letter-spacing: 1px
+color: rgba(220,235,255,0.32)
+font-weight: 500
+
+═══════════════════════════════════════
+CHANGE 3 — KI3 LAYOUT FIX
+═══════════════════════════════════════
+
+KI3 has slightly different layout positions 
+because the EDITION mark needs space and 
+Pelabur Agung needs clearance from divider.
+
+Title block top position: 90px 
+  (other cards: 88px)
+
+Diamond divider bottom position: 42px 
+  (other cards: 50px)
+
+Serial/cert section bottom: 18px 
+  (other cards: 22px)
+
+Micro-text strip bottom: 5px 
+  (other cards: 6px)
+
+═══════════════════════════════════════
+CHANGE 4 — HOVER-REVEAL ARROWS
+═══════════════════════════════════════
+
+Find the existing arrow buttons 
+(prev-btn and next-btn or similar) in 
+the carousel.
+
+Change their default state to HIDDEN 
+(opacity: 0). Reveal them on hover.
+
+Update arrow button styling:
+position: absolute
+left: 5% (for prev) / right: 5% (for next)
+top: 50%
+transform: translateY(-50%)
+width: 42px
+height: 42px
+border-radius: 50%
+border: 1px solid rgba(201,168,76,0.5)
+background: rgba(10,22,40,0.85)
+backdrop-filter: blur(8px)
+color: #C9A84C
+cursor: pointer
+font-size: 20px
+opacity: 0 (HIDDEN BY DEFAULT)
+transition: all 0.3s
+z-index: 10
+
+The arrows now overlay the card area 
+(left edge and right edge), not below 
+the carousel.
+
+JavaScript additions for hover behaviour:
+Find the carousel stage element 
+(likely id="globe-stage" or class 
+".carousel-stage"). Add these listeners:
+
+stageElement.addEventListener('mouseenter', 
+  () => {
+    prevBtn.style.opacity = '0.85';
+    nextBtn.style.opacity = '0.85';
+});
+
+stageElement.addEventListener('mouseleave', 
+  () => {
+    prevBtn.style.opacity = '0';
+    nextBtn.style.opacity = '0';
+});
+
+═══════════════════════════════════════
+CHANGE 5 — DRAG GESTURE SUPPORT
+═══════════════════════════════════════
+
+Add mouse drag functionality to the 
+carousel stage. User can grab and drag 
+the active card to advance.
+
+Add to carousel stage element:
+cursor: grab
+user-select: none
+
+Add JavaScript drag handlers:
+let dragStartX = 0;
+let isDragging = false;
+let dragMoved = false;
+
+stage.addEventListener('mousedown', e => {
+  dragStartX = e.clientX;
+  isDragging = true;
+  dragMoved = false;
+  stage.style.cursor = 'grabbing';
+});
+
+stage.addEventListener('mousemove', e => {
+  if (!isDragging) return;
+  if (Math.abs(e.clientX - dragStartX) > 8) 
+    dragMoved = true;
+});
+
+stage.addEventListener('mouseup', e => {
+  if (!isDragging) return;
+  isDragging = false;
+  stage.style.cursor = 'grab';
+  if (!dragMoved) return;
+  const dx = e.clientX - dragStartX;
+  if (dx > 50) {
+    // Drag right = previous card
+    prevBtn.click();
+  }
+  if (dx < -50) {
+    // Drag left = next card
+    nextBtn.click();
+  }
+});
+
+Touch swipe should already be working 
+from previous build. Verify it still works 
+on mobile. If not, add:
+
+let touchStartX = 0;
+stage.addEventListener('touchstart', e => { 
+  touchStartX = e.touches[0].clientX; 
+});
+stage.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - 
+    touchStartX;
+  if (dx > 50) prevBtn.click();
+  if (dx < -50) nextBtn.click();
+});
+
+═══════════════════════════════════════
+OPTIONAL — ADD DRAG HINT TEXT
+═══════════════════════════════════════
+
+Below the carousel stage, before the dot 
+navigation, optionally add a subtle hint:
+
+<div id="drag-hint" style="
+  color: rgba(201,168,76,0.4);
+  font-size: 9px;
+  letter-spacing: 3px;
+  font-weight: 500;
+  margin-bottom: 14px;
+  font-family: 'Cinzel', serif;
+  text-transform: uppercase;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+">← drag or use arrows →</div>
+
+On stage hover, brighten this hint:
+stage.addEventListener('mouseenter', 
+  () => { dragHint.style.opacity = '1'; });
+stage.addEventListener('mouseleave', 
+  () => { dragHint.style.opacity = '0.6'; });
+
+═══════════════════════════════════════
+WHAT NOT TO TOUCH
+═══════════════════════════════════════
+
+PRESERVE COMPLETELY:
+- Section heading "Membership Is By 
+  Invitation."
+- Section subtext
+- "MEMBERSHIP" label with vertical 
+  ornament
+- All other 6 cards (BOD, KL, KP, KI1, 
+  KI2, KB) — do NOT change them
+- Globe carousel rotation logic 
+  (just update opacity)
+- Dot navigation
+- Info bar below carousel showing 
+  English + Malay name
+- "Explore All Membership Tiers →" CTA 
+  button
+- /membership.html link
+- Mobile responsive media queries
+- All other sections of the homepage 
+  (navbar, hero, who we are, foundation, 
+  divisions, 8th division, how kopit 
+  works)
+
+═══════════════════════════════════════
+GOOGLE FONTS REQUIREMENT
+═══════════════════════════════════════
+
+KI3 uses Cinzel and Playfair Display 
+which should already be loaded for the 
+site. Verify in <head>:
+
+<link href="https://fonts.googleapis.com/
+css2?family=Cinzel:wght@500;600;700&
+family=Playfair+Display:ital,wght@0,500;
+0,600;0,700;1,400;1,500;1,600&display=swap" 
+rel="stylesheet">
+
+If not present, add it. Make sure weight 
+700 for Cinzel and 700 + italic 500 for 
+Playfair Display are included.
+
+═══════════════════════════════════════
+VERIFICATION CHECKLIST
+═══════════════════════════════════════
+
+After build, verify the following:
+
+SIDE CARDS (Change 1):
+1. ✓ Non-active cards barely visible 
+   (opacity 5%)
+2. ✓ No bleed-through strips on active 
+   card
+3. ✓ Active card sits cleanly centred
+
+KI3 STRATEGIC PARTNER (Change 2):
+4. ✓ Background is gunmetal titanium 
+   gradient (NOT black + gold like before)
+5. ✓ Vertical brushed grain texture 
+   visible across card
+6. ✓ Top edge has bright bevel highlight
+7. ✓ Bottom edge has subtle dark bevel
+8. ✓ "EDITION 001 / 050" mark visible 
+   between member identity and section 
+   caption
+9. ✓ Single ◆ ornament above section 
+   caption
+10. ✓ All text bright white with 
+    engraving shadow effect
+11. ✓ "Strategic Partner" title looks 
+    pressed INTO the metal (engraving)
+12. ✓ Cinzel font used for KOPIT, 
+    SERIAL, MEMBER SINCE, BOD CHAIRMAN
+13. ✓ Playfair Display 700 used for 
+    "Strategic Partner" title
+14. ✓ Title is 30px (bigger than other 
+    cards)
+
+KI3 LAYOUT (Change 3):
+15. ✓ Diamond divider line does NOT 
+    cover "Pelabur Agung" text
+16. ✓ Clean breathing space between 
+    Pelabur Agung and divider
+17. ✓ EDITION mark sits above the 
+    section caption, not overlapping
+
+ARROWS (Change 4):
+18. ✓ Arrows HIDDEN by default 
+    (no visible arrows on page load)
+19. ✓ Arrows fade in when mouse hovers 
+    over carousel area
+20. ✓ Arrows fade out when mouse leaves
+21. ✓ Arrows positioned on left and 
+    right edges of card area
+22. ✓ Clicking arrows still rotates 
+    globe normally
+
+DRAG (Change 5):
+23. ✓ Cursor shows "grab" when 
+    hovering carousel
+24. ✓ Cursor changes to "grabbing" 
+    when mouse held down
+25. ✓ Drag right (50px+) = previous 
+    card
+26. ✓ Drag left (50px+) = next card
+27. ✓ Click without dragging does 
+    NOT trigger card change
+28. ✓ Touch swipe still works on mobile
+
+OTHER 6 CARDS (Preservation):
+29. ✓ BOD card unchanged 
+    (black + gold stripe + ◆◆◆)
+30. ✓ KL card unchanged (full gold)
+31. ✓ KP card unchanged (navy + gold)
+32. ✓ KI1 card unchanged (copper)
+33. ✓ KI2 card unchanged 
+    (steel silver-blue)
+34. ✓ KB card unchanged (deep navy)
+
+OVERALL:
+35. ✓ Globe rotation still smooth 
+    (0.9s cubic-bezier)
+36. ✓ Dot navigation still works
+37. ✓ Section heading still says 
+    "Membership Is By Invitation."
+38. ✓ CTA button still links to 
+    /membership.html
+
+After fixing — refresh browser. 
+Take FIVE screenshots:
+
+1. Carousel showing KI3 in active 
+   position (gunmetal titanium engraved)
+2. Same carousel with mouse hovering 
+   over (arrows visible)
+3. Side-by-side: scroll past one click 
+   to see KI3 transitioning to KB 
+   (showing the 5% opacity side cards 
+   no longer bleed)
+4. BOD card in active position to 
+   verify it's unchanged
+5. Mobile view (resize browser to 
+   ~400px wide)
+
+Bring all 5 back for review.

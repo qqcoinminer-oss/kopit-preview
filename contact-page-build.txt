@@ -1,0 +1,725 @@
+COMPREHENSIVE BUILD — CONTACT PAGE
+NEW PAGE · /contact.html
+
+This is a NEW page build. Create the 
+file contact.html in the project root 
+folder. Do NOT modify index.html or 
+any existing pages.
+
+═══════════════════════════════════════
+FILE TO CREATE
+═══════════════════════════════════════
+
+Path: C:\Projects\KOPIT-Website\contact.html
+
+═══════════════════════════════════════
+PAGE STRUCTURE (TOP TO BOTTOM)
+═══════════════════════════════════════
+
+1. <head> with all meta tags + Google 
+   Fonts + CSS link
+2. NAVBAR (copy EXACTLY from index.html)
+3. CONTACT HERO BAND
+4. CONTACT BODY (two-column layout)
+5. FOOTER (copy EXACTLY from index.html)
+6. Inline JavaScript at bottom for form 
+   logic
+
+═══════════════════════════════════════
+HEAD SECTION
+═══════════════════════════════════════
+
+<title>Contact KOPIT — Let's Build Together</title>
+
+Meta description:
+"Get in touch with KOPIT — Malaysia's 
+Premier IT Koperasi. WhatsApp 010-5122561 
+or send us a message. We respond within 
+one working day."
+
+Same Google Fonts link as index.html 
+(Cinzel + Playfair Display + Source 
+Sans 3).
+
+Same CSS link to css/style.css.
+
+═══════════════════════════════════════
+NAVBAR
+═══════════════════════════════════════
+
+Copy EXACTLY from index.html. Do not 
+modify. The navbar must look identical 
+between Home and Contact pages.
+
+Verify "Contact" link in navbar has 
+active state styling (slightly different 
+visual to indicate current page).
+
+If active state class doesn't exist 
+yet, add this CSS:
+
+.nav-link.active {
+  color: #C9A84C;
+  border-bottom: 1px solid #C9A84C;
+  padding-bottom: 2px;
+}
+
+Apply class="nav-link active" to the 
+Contact link in the navbar on this 
+page only.
+
+═══════════════════════════════════════
+CONTACT HERO BAND
+═══════════════════════════════════════
+
+<section id="contact-hero">
+
+Container styling:
+- Background: linear-gradient(135deg, 
+  #0A1628 0%, #0F1D33 50%, #0A1628 100%)
+- Padding: 100px 30px 80px
+- Text-align: center
+- Position: relative
+- Overflow: hidden
+- Border-bottom: 0.5px solid 
+  rgba(201, 168, 76, 0.15)
+
+Subtle grid pattern background overlay:
+<svg style="position:absolute;inset:0;
+ width:100%;height:100%;opacity:0.04;
+ pointer-events:none;" viewBox="0 0 800 300">
+  <defs>
+    <pattern id="contactGrid" x="0" y="0" 
+     width="40" height="40" 
+     patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" 
+       fill="none" stroke="#C9A84C" 
+       stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="300" 
+   fill="url(#contactGrid)"/>
+</svg>
+
+CONTACT label:
+- Vertical gold ornament 1px x 14px
+- Text "CONTACT"
+- Source Sans 3, 9px, letter-spacing 4px
+- Color: rgba(201, 168, 76, 0.65)
+- Margin-bottom: 18px
+
+Heading:
+"Let's Build <span class='gold'>
+Together.</span>"
+- Playfair Display, 48px, weight 600
+- Color: #ffffff
+- Letter-spacing: -0.5px
+- Line-height: 1.15
+- Margin-bottom: 16px
+- .gold class: color #C9A84C, italic, 
+  weight 500
+
+Subtext:
+"Tell us about your project, ask about 
+membership, or simply say hello.<br>
+We'll get back to you within one 
+working day."
+- Source Sans 3, 15px
+- Color: rgba(255, 255, 255, 0.55)
+- Line-height: 1.7
+- Max-width: 580px
+- Margin: 0 auto
+
+═══════════════════════════════════════
+CONTACT BODY — TWO-COLUMN LAYOUT
+═══════════════════════════════════════
+
+<section id="project-inquiry" 
+ class="contact-body">
+
+Container styling:
+- Background: #0A1628
+- Padding: 80px 40px 100px
+- Position: relative
+
+Inner grid:
+- Display: grid
+- Grid-template-columns: 1fr 1.4fr
+- Gap: 60px
+- Max-width: 1200px
+- Margin: 0 auto
+
+Note: id="project-inquiry" enables the 
+hero CTA "/contact.html#project-inquiry" 
+to scroll to this section.
+
+═══════════════════════════════════════
+LEFT COLUMN — DIRECT CHANNELS
+═══════════════════════════════════════
+
+Section label at top:
+"— DIRECT CHANNELS —"
+- Cinzel, 9px, letter-spacing 4px
+- Color: rgba(201, 168, 76, 0.7)
+- Weight 500
+- Margin-bottom: 24px
+
+CHANNEL 1 — WhatsApp:
+Display flex, gap 14px, margin-bottom 
+28px
+
+Icon (left):
+- Width 36px, height 36px
+- Border-radius: 50%
+- Background: rgba(37, 211, 102, 0.15)
+- Display flex, centre
+- Inline SVG WhatsApp icon (use the 
+  standard WhatsApp logo path), 18x18, 
+  fill: rgba(37, 211, 102, 0.95)
+
+Content (right):
+- Label "WHATSAPP" — Cinzel, 10px, 
+  letter-spacing 2px, color rgba(255, 
+  255, 255, 0.55), weight 600, 
+  uppercase, margin-bottom 4px
+- Number "010-5122561" — Playfair 
+  Display, 18px, weight 600, color #fff, 
+  margin-bottom 2px
+- Description "Fastest response · 
+  Mon-Fri 9am-6pm" — Source Sans 3, 
+  12px, color rgba(255, 255, 255, 0.5)
+
+Make the number a clickable WhatsApp 
+link:
+<a href="https://wa.me/60105122561" 
+ target="_blank" 
+ style="color:inherit;
+ text-decoration:none;">010-5122561</a>
+
+CHANNEL 2 — Email:
+Same layout as WhatsApp (flex gap 14px, 
+margin-bottom 28px)
+
+Icon:
+- Same circle style but background 
+  rgba(201, 168, 76, 0.15)
+- Inline SVG envelope icon 16x16, 
+  stroke #C9A84C, stroke-width 1.8
+- SVG path: M3 6l9 7 9-7M3 6h18v12H3z
+
+Content:
+- Label "EMAIL" — same style as WhatsApp 
+  label
+- Address "admin@kopit.com.my" — 
+  Playfair Display, 15px, color #fff, 
+  margin-bottom 2px
+- Description "Within 24 hours" — same 
+  style as WhatsApp description
+
+Clickable mailto link:
+<a href="mailto:admin@kopit.com.my" 
+ style="color:inherit;
+ text-decoration:none;">
+ admin@kopit.com.my</a>
+
+CHANNEL 3 — Office:
+Same layout (flex gap 14px, margin-
+bottom 36px)
+
+Icon:
+- Same circle style with rgba(201, 168, 
+  76, 0.15) background
+- Inline SVG location pin 16x16, 
+  stroke #C9A84C, stroke-width 1.8
+- SVG paths:
+  M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 
+  7-13c0-4-3-7-7-7z
+  circle cx="12" cy="9" r="2.5"
+
+Content:
+- Label "OFFICE"
+- Address (multi-line):
+  "No 36-2, Jalan Sri Permaisuri 9
+  Bandar Sri Permaisuri
+  56000 Kuala Lumpur"
+- Source Sans 3, 13px, color #fff, 
+  line-height 1.6
+
+OPERATING HOURS BOX:
+Below the 3 channels.
+- Padding: 18px
+- Background: rgba(201, 168, 76, 0.04)
+- Border: 0.5px solid rgba(201, 168, 76, 
+  0.2)
+- Border-radius: 6px
+
+Inside:
+- Label "— OPERATING HOURS —" Cinzel, 
+  9px, letter-spacing 3px, color 
+  rgba(201, 168, 76, 0.85), weight 600, 
+  margin-bottom 8px
+- "Monday – Friday" Source Sans 3, 13px, 
+  weight 500, color #fff, margin-bottom 
+  4px
+- "9:00 AM – 6:00 PM" Source Sans 3, 
+  13px, color rgba(255, 255, 255, 0.65)
+
+═══════════════════════════════════════
+RIGHT COLUMN — CONTACT FORM
+═══════════════════════════════════════
+
+Container styling:
+- Background: rgba(255, 255, 255, 0.025)
+- Border: 0.5px solid rgba(201, 168, 76, 
+  0.18)
+- Border-radius: 8px
+- Padding: 36px 32px
+
+Form section label:
+"— PROJECT INQUIRY —"
+- Cinzel, 9px, letter-spacing 4px
+- Color: rgba(201, 168, 76, 0.85)
+- Weight 500
+- Margin-bottom 6px
+
+Form heading:
+"Send Us A Message"
+- Playfair Display, 24px, weight 600
+- Color #fff
+- Letter-spacing -0.3px
+- Margin: 0 0 28px 0
+
+═══════════════════════════════════════
+FORM FIELDS
+═══════════════════════════════════════
+
+<form id="contact-form" 
+ onsubmit="submitToWhatsApp(event)">
+
+ROW 1 — Name + Email (two columns):
+Display: grid
+Grid-template-columns: 1fr 1fr
+Gap: 14px
+Margin-bottom: 14px
+
+FIELD: Name (required)
+- Label "NAME *" Cinzel, 10px, 
+  letter-spacing 1.5px, weight 600, 
+  uppercase, color rgba(255, 255, 255, 
+  0.6), margin-bottom 6px
+- <input type="text" name="name" 
+  placeholder="Your name" required>
+- Input styling: width 100%, padding 
+  11px 14px, background rgba(10, 22, 40, 
+  0.6), border 0.5px solid rgba(201, 
+  168, 76, 0.25), border-radius 4px, 
+  color #fff, font-family Source Sans 3, 
+  font-size 13px, box-sizing border-box
+- Focus state: border-color #C9A84C, 
+  outline none, box-shadow 0 0 0 2px 
+  rgba(201, 168, 76, 0.1)
+
+FIELD: Email (required)
+- Label "EMAIL *"
+- <input type="email" name="email" 
+  placeholder="you@email.com" required>
+- Same styling as Name field
+
+ROW 2 — Phone + Subject (two columns):
+Same grid pattern, margin-bottom 14px
+
+FIELD: Phone (optional, no asterisk)
+- Label "PHONE"
+- <input type="tel" name="phone" 
+  placeholder="+60 1X XXX XXXX">
+
+FIELD: Subject (required)
+- Label "SUBJECT *"
+- <select name="subject" required>
+  <option value="">— Select Subject —</option>
+  <option value="General Inquiry">General Inquiry</option>
+  <option value="Hire A Division">Hire A Division</option>
+  <option value="Membership Question">Membership Question</option>
+  <option value="Partnership Proposal">Partnership Proposal</option>
+  <option value="Media Request">Media Request</option>
+  </select>
+- Same input styling as fields above
+
+ROW 3 — Division (full width):
+Margin-bottom: 14px
+
+FIELD: Division (optional)
+- Label "DIVISION <span style='color:
+  rgba(255,255,255,0.4);font-weight:400;
+  text-transform:none;letter-spacing:0;'>
+  (if hiring a specific division)</span>"
+- <select name="division" id="division-select">
+  <option value="">— Select Division —</option>
+  <option value="wira-digital">KOPIT Wira Digital</option>
+  <option value="bijak-ai">KOPIT Bijak AI</option>
+  <option value="hijau">KOPIT Hijau</option>
+  <option value="blockchain">KOPIT Blockchain</option>
+  <option value="dana-sejahtera">KOPIT Dana Sejahtera</option>
+  <option value="angkasa-build">KOPIT Angkasa Build</option>
+  <option value="arif-advisory">KOPIT Arif Advisory</option>
+  </select>
+- Same input styling
+
+ROW 4 — Message (full width):
+Margin-bottom: 24px
+
+FIELD: Message (required)
+- Label "MESSAGE *"
+- <textarea name="message" 
+  placeholder="Tell us about your 
+  project, timeline, and any specific 
+  requirements..." rows="5" required>
+  </textarea>
+- Same base styling but: resize 
+  vertical, line-height 1.6
+
+═══════════════════════════════════════
+SUBMIT BUTTON
+═══════════════════════════════════════
+
+<button type="submit">
+
+Styling:
+- Width: 100%
+- Padding: 14px 20px
+- Background: rgba(37, 211, 102, 0.95) 
+  (WhatsApp green)
+- Border: none
+- Border-radius: 4px
+- Color: #fff
+- Font: Source Sans 3, 12px, weight 600
+- Letter-spacing: 2px
+- Text-transform: uppercase
+- Cursor: pointer
+- Display: flex centre, gap 10px
+- Transition: background 0.2s ease
+
+Hover state:
+- Background: rgba(30, 200, 95, 1) 
+  (slightly brighter)
+
+Inside button:
+- WhatsApp icon SVG 16x16 (same path as 
+  channel icon), fill #fff
+- Text "Send via WhatsApp →"
+
+Helper text below button:
+"You'll be redirected to WhatsApp to 
+complete your message"
+- Source Sans 3, 11px
+- Italic
+- Color: rgba(255, 255, 255, 0.4)
+- Text-align: center
+- Margin: 14px 0 0
+- Padding: 0
+
+═══════════════════════════════════════
+EMAIL FALLBACK NOTE (BOTTOM OF SECTION)
+═══════════════════════════════════════
+
+After the closing </section> of the 
+contact body, before the footer:
+
+<div class="email-fallback">
+
+Padding: 0 40px 60px
+Text-align: center
+
+Inside:
+"— PREFER EMAIL? · 
+ADMIN@KOPIT.COM.MY —"
+- Cinzel, 9px, letter-spacing 4px
+- Color: rgba(201, 168, 76, 0.5)
+- Weight 500
+
+Wrap "ADMIN@KOPIT.COM.MY" in mailto link.
+
+═══════════════════════════════════════
+FOOTER
+═══════════════════════════════════════
+
+Copy EXACTLY from index.html. Do not 
+modify. Footer must look identical 
+between Home and Contact pages.
+
+═══════════════════════════════════════
+JAVASCRIPT — INLINE AT BOTTOM OF PAGE
+═══════════════════════════════════════
+
+Place this <script> block before 
+closing </body> tag:
+
+<script>
+(function() {
+  // 1. URL PARAMETER DETECTION 
+  // (?division=wira-digital)
+  const urlParams = new URLSearchParams(
+    window.location.search);
+  const divisionParam = urlParams.get(
+    'division');
+  
+  if (divisionParam) {
+    const divisionSelect = document
+      .getElementById('division-select');
+    if (divisionSelect) {
+      // Auto-select division
+      divisionSelect.value = divisionParam;
+    }
+    
+    // Auto-set Subject to "Hire A Division"
+    const subjectSelect = document
+      .querySelector(
+      'select[name="subject"]');
+    if (subjectSelect) {
+      subjectSelect.value = 
+        'Hire A Division';
+    }
+  }
+  
+  // 2. ANCHOR SCROLL 
+  // (#project-inquiry)
+  if (window.location.hash === 
+      '#project-inquiry') {
+    setTimeout(() => {
+      const target = document
+        .getElementById('project-inquiry');
+      if (target) {
+        target.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        });
+      }
+    }, 100);
+  }
+  
+  // 3. WHATSAPP FORM SUBMISSION
+  window.submitToWhatsApp = function(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const phone = form.phone.value.trim();
+    const subject = form.subject.value;
+    const division = form.division.value;
+    const message = form.message.value
+      .trim();
+    
+    // Validation
+    if (!name || !email || !subject || 
+        !message) {
+      alert('Please fill in all required '
+        + 'fields (marked with *)');
+      return false;
+    }
+    
+    // Map division code to display name
+    const divisionMap = {
+      'wira-digital': 'KOPIT Wira Digital',
+      'bijak-ai': 'KOPIT Bijak AI',
+      'hijau': 'KOPIT Hijau',
+      'blockchain': 'KOPIT Blockchain',
+      'dana-sejahtera': 
+        'KOPIT Dana Sejahtera',
+      'angkasa-build': 
+        'KOPIT Angkasa Build',
+      'arif-advisory': 
+        'KOPIT Arif Advisory'
+    };
+    const divisionDisplay = 
+      divisionMap[division] || '';
+    
+    // Build structured WhatsApp message
+    let waMessage = 'Hello KOPIT,\n\n';
+    waMessage += 'Name: ' + name + '\n';
+    waMessage += 'Subject: ' + subject 
+      + '\n';
+    waMessage += 'Email: ' + email + '\n';
+    if (phone) {
+      waMessage += 'Phone: ' + phone 
+        + '\n';
+    }
+    if (divisionDisplay) {
+      waMessage += 'Division: ' 
+        + divisionDisplay + '\n';
+    }
+    waMessage += '\nMessage:\n' + message;
+    waMessage += '\n\n— Sent via KOPIT '
+      + 'website';
+    
+    // URL-encode and open WhatsApp
+    const waUrl = 'https://wa.me/'
+      + '60105122561?text=' 
+      + encodeURIComponent(waMessage);
+    
+    window.open(waUrl, '_blank');
+    
+    return false;
+  };
+})();
+</script>
+
+═══════════════════════════════════════
+MOBILE RESPONSIVE
+═══════════════════════════════════════
+
+@media (max-width: 900px) {
+  /* Hero */
+  #contact-hero {
+    padding: 80px 24px 60px;
+  }
+  #contact-hero h1 {
+    font-size: 36px;
+  }
+  
+  /* Body — stack columns */
+  .contact-body .grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  
+  /* Form rows — stack inputs */
+  .contact-body form .grid-row {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Form padding */
+  .contact-body .form-container {
+    padding: 28px 22px;
+  }
+  
+  /* Email fallback */
+  .email-fallback {
+    padding: 0 24px 40px;
+  }
+}
+
+═══════════════════════════════════════
+WHAT NOT TO TOUCH
+═══════════════════════════════════════
+
+DO NOT MODIFY:
+- index.html
+- about.html (if exists)
+- Any other existing page
+- css/style.css existing rules 
+  (only ADD new rules if needed for 
+  contact page)
+- js/main.js existing code
+
+ONLY CREATE:
+- contact.html (new file)
+
+═══════════════════════════════════════
+VERIFICATION CHECKLIST
+═══════════════════════════════════════
+
+After build, visit /contact.html and 
+verify:
+
+PAGE STRUCTURE:
+1. ✓ Page loads at /contact.html
+2. ✓ Browser title shows 
+   "Contact KOPIT — Let's Build Together"
+3. ✓ Navbar identical to index.html
+4. ✓ "Contact" link in navbar shows 
+   active state (gold + underline)
+5. ✓ Footer identical to index.html
+
+HERO BAND:
+6. ✓ "CONTACT" gold label visible at top
+7. ✓ "Let's Build Together." headline 
+   in Playfair white + gold italic
+8. ✓ Subtext mentions one working day 
+   response
+9. ✓ Subtle grid pattern visible
+
+LEFT COLUMN:
+10. ✓ "— DIRECT CHANNELS —" label
+11. ✓ WhatsApp 010-5122561 with green 
+    icon (clickable, opens wa.me link)
+12. ✓ Email admin@kopit.com.my with 
+    gold envelope icon (clickable mailto)
+13. ✓ Office address shows 3 lines 
+    (No 36-2, Jalan Sri Permaisuri 9 / 
+    Bandar Sri Permaisuri / 
+    56000 Kuala Lumpur)
+14. ✓ Operating Hours box shows 
+    Mon-Fri 9am-6pm with gold border
+
+RIGHT COLUMN — FORM:
+15. ✓ "— PROJECT INQUIRY —" label
+16. ✓ "Send Us A Message" heading
+17. ✓ Name + Email side by side
+18. ✓ Phone + Subject side by side
+19. ✓ Subject dropdown has 5 options 
+    + placeholder
+20. ✓ Division dropdown has 7 options 
+    + placeholder
+21. ✓ Message textarea (5 rows)
+22. ✓ Green WhatsApp button "Send via 
+    WhatsApp →" with icon
+23. ✓ Helper text "You'll be redirected 
+    to WhatsApp to complete your message"
+24. ✓ Email fallback at bottom shows 
+    "PREFER EMAIL? · ADMIN@KOPIT.COM.MY"
+
+FORM FUNCTIONALITY:
+25. ✓ Submit button works — opens 
+    WhatsApp with structured message
+26. ✓ Validation alerts if required 
+    fields empty
+27. ✓ Required fields: Name, Email, 
+    Subject, Message
+28. ✓ Optional fields: Phone, Division
+
+URL PARAMETER TEST:
+29. ✓ Visit /contact.html?division=
+    wira-digital — Division dropdown 
+    auto-selects "KOPIT Wira Digital"
+30. ✓ Subject dropdown auto-sets to 
+    "Hire A Division"
+31. ✓ Try other divisions: bijak-ai, 
+    hijau, blockchain, dana-sejahtera, 
+    angkasa-build, arif-advisory
+
+ANCHOR SCROLL TEST:
+32. ✓ Visit /contact.html#project-inquiry 
+    — page smooth-scrolls to the form 
+    section
+
+NAVIGATION TESTS:
+33. ✓ Click navbar "Home" link — goes 
+    back to index.html
+34. ✓ Click any other navbar link — 
+    they go to respective pages 
+    (most will 404 — acceptable)
+
+MOBILE RESPONSIVE:
+35. ✓ At 400px width, columns stack 
+    vertically
+36. ✓ Form fields stack vertically 
+    instead of side-by-side
+37. ✓ Hero headline scales to 36px
+
+After fixing — refresh browser. 
+Take SIX screenshots:
+
+1. Top of contact page (hero band)
+2. Left column with all 3 channels + 
+   Operating Hours box
+3. Right column with form fields
+4. Bottom of contact page (email 
+   fallback note)
+5. Test URL: visit 
+   /contact.html?division=wira-digital 
+   — screenshot showing the dropdowns 
+   auto-filled
+6. Mobile view (browser ~400px wide)
+
+Bring all 6 back for review.

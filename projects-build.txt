@@ -1,0 +1,1834 @@
+COMPREHENSIVE BUILD — PROJECTS PAGE
+NEW PAGE · /projects.html
+
+Updated build covering all 7 KOPIT 
+divisions across 8 example cards in 
+4-column grid layout.
+
+═══════════════════════════════════════
+FILE TO CREATE
+═══════════════════════════════════════
+
+C:\Projects\KOPIT-Website\
+projects.html
+
+DO NOT MODIFY:
+- index.html
+- contact.html
+- membership.html
+- css/style.css existing rules
+
+═══════════════════════════════════════
+ALL 7 KOPIT DIVISIONS COVERED
+═══════════════════════════════════════
+
+1. Hijau (Renewable Energy)
+2. Wira Digital (Digital Infrastructure)
+3. Bijak AI (AI / Decision Intelligence)
+4. Blockchain (Distributed Ledger)
+5. Angkasa Build (Architecture / 
+   Construction)
+6. Dana Sejahtera (Treasury / Capital)
+7. Arif Advisory (Multi-Domain 
+   Advisory)
+
+8 example cards displayed in 
+4-column grid (2 rows of 4):
+- Card 1: Hijau · Active · Floating 
+  Solar Infrastructure
+- Card 2: Wira Digital · In Dev · 
+  Member Portal Platform
+- Card 3: Bijak AI · Planning · SME 
+  Decision Intelligence
+- Card 4: Blockchain · Completed · 
+  Member Share Registry
+- Card 5: Angkasa Build · In Dev · 
+  Education Campus
+- Card 6: Dana Sejahtera · Active · 
+  Cooperative Treasury Operations
+- Card 7: Arif Advisory · Active · 
+  Strategic Advisory Programme
+- Card 8: Hijau · Active · Bitcoin 
+  Mining Infrastructure
+
+═══════════════════════════════════════
+PAGE STRUCTURE TOP TO BOTTOM
+═══════════════════════════════════════
+
+1. <head> with meta + Google Fonts
+2. NAVBAR (copy EXACTLY from 
+   index.html with active state on 
+   "Projects" link)
+3. SECTION 1 — HERO BAND
+4. SECTION 2 — IMPACT METRICS BAND
+5. SECTION 3 — PROJECT GRID 
+   (8 cards in 4-col grid)
+6. SECTION 4 — OUR APPROACH 
+   (4 trust pillars)
+7. SECTION 5 — FINAL CTA BAND
+8. PROJECT DETAIL MODAL HTML
+9. FOOTER
+10. Inline JavaScript at bottom
+
+═══════════════════════════════════════
+HEAD SECTION
+═══════════════════════════════════════
+
+<title>Projects — KOPIT · Real Work, 
+Real Member Wealth</title>
+
+Meta description:
+"KOPIT delivers real cooperative 
+projects across seven specialised 
+divisions. Member-built. 
+BOD-reviewed. SKM-compliant. Wealth 
+returns to those who built it."
+
+Same Google Fonts link as homepage 
+(Cinzel + Playfair Display + 
+Cormorant Garamond + Source Sans 3).
+
+Same CSS link to css/style.css.
+
+═══════════════════════════════════════
+NAVBAR
+═══════════════════════════════════════
+
+Copy EXACTLY from index.html. Apply 
+class="nav-link active" to the 
+Projects link on this page only.
+
+═══════════════════════════════════════
+SECTION 1 — HERO BAND
+═══════════════════════════════════════
+
+<section id="hero" 
+ style="padding:90px 40px 70px;
+ text-align:center;border-bottom:
+ 0.5px solid rgba(201,168,76,0.15);
+ position:relative;overflow:hidden;
+ background:#0A1628;">
+
+Subtle grid pattern overlay (same 
+SVG pattern used on other pages — 
+hg pattern at 0.04 opacity).
+
+Section label:
+<div style="display:inline-flex;
+ align-items:center;gap:10px;
+ margin-bottom:24px;position:
+ relative;">
+  <div style="width:1px;height:16px;
+   background:rgba(201,168,76,0.7);
+  "></div>
+  <span style="color:rgba(201,168,76,
+   0.85);font-size:13px;letter-
+   spacing:4px;font-weight:500;font-
+   family:'Cinzel',serif;">PROJECTS
+  </span>
+  <div style="width:1px;height:16px;
+   background:rgba(201,168,76,0.7);
+  "></div>
+</div>
+
+Headline (locked typography pattern):
+<h1 class="headline-top hero-size">
+  Our Work,</h1>
+<h1 class="headline-bottom hero-size">
+  Our Members' Wealth.</h1>
+
+Subtext:
+<p class="hero-subtext" 
+ style="font-family:'Cormorant 
+ Garamond',serif;font-style:italic;
+ font-weight:400;color:rgba(244,239,
+ 232,0.8);font-size:18px;line-
+ height:1.7;max-width:580px;margin:
+ 22px auto 0;">A cooperative builds 
+ when its members build.<br>
+ Every project here was delivered 
+ by KOPIT members.</p>
+
+═══════════════════════════════════════
+SECTION 2 — IMPACT METRICS BAND
+═══════════════════════════════════════
+
+<section id="impact-metrics" 
+ style="padding:50px 40px;
+ background:linear-gradient(180deg,
+ #0A1628 0%,#0D1A30 50%,#0A1628 
+ 100%);border-bottom:0.5px solid 
+ rgba(201,168,76,0.1);">
+
+Inner grid: max-width 1100px, 
+margin 0 auto, grid-template-columns 
+repeat(4,1fr), gap 30px, text-align 
+center.
+
+4 metric cells (vague institutional 
+anchors):
+
+CELL 1:
+- Label "PROJECTS" Cinzel 13px caps 
+  letter-spacing 3px gold 0.85
+- Value "Multiple Active" Playfair 
+  26px weight 600 warm pearl
+
+CELL 2:
+- Label "DIVISIONS"
+- Value "Seven Specialised"
+
+CELL 3:
+- Label "DELIVERY"
+- Value "Member-Led"
+
+CELL 4:
+- Label "GOVERNANCE"
+- Value "BOD-Reviewed"
+
+═══════════════════════════════════════
+SECTION 3 — PROJECT GRID
+═══════════════════════════════════════
+
+<section id="project-grid" 
+ style="padding:80px 40px;
+ border-bottom:0.5px solid 
+ rgba(201,168,76,0.1);">
+
+Inner container: max-width 1320px, 
+margin 0 auto.
+
+ADD THIS DOCUMENTATION COMMENT AT 
+THE TOP OF THE PROJECT GRID SECTION:
+
+<!--
+  ============================================
+  HOW TO ADD A NEW PROJECT MONTHLY
+  ============================================
+  
+  STEP 1 — Add card HTML in this 
+  grid following the .project-card 
+  template structure
+  
+  STEP 2 — Set data-project="card-X" 
+  with new unique ID (e.g. card-9)
+  
+  STEP 3 — Set data-division to one 
+  of: hijau, wira-digital, bijak-ai, 
+  blockchain, angkasa-build, 
+  dana-sejahtera, arif-advisory
+  
+  STEP 4 — Set status badge class 
+  to: status-active, 
+  status-in-development, 
+  status-planning, or status-completed
+  
+  STEP 5 — Add corresponding entry 
+  to projectData object in the JS 
+  at bottom of file with: status, 
+  statusClass, division, 
+  divisionRoute, title, subtitle, 
+  challenge, approach, outcome
+  
+  OPTIONAL — Replace SVG illustration 
+  with real photo: change the cover 
+  div's content from <svg> to 
+  <img src="images/photo.jpg" 
+  style="position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;"/>
+  ============================================
+-->
+
+Header block (centered, margin-
+bottom 50px):
+- Section label "— THE WORK —" 
+  Cinzel 13px gold 0.85
+- Heading "Live Project Portfolio." 
+  Playfair 30px weight 600 warm pearl
+- Subtext: "Each project listed here 
+  represents real cooperative 
+  delivery. Status reflects current 
+  phase honestly — Active, Completed, 
+  In Development, or Planning." 
+  Cormorant italic 15px max-width 
+  560px
+
+CARD GRID — 4 COLUMNS:
+- Display: grid
+- Grid-template-columns: 
+  repeat(4, 1fr)
+- Gap: 22px
+
+═══════════════════════════════════════
+EDITORIAL CARD TEMPLATE
+═══════════════════════════════════════
+
+Each project card uses this exact 
+HTML structure:
+
+<div class="project-card" 
+ data-project="card-1" 
+ onclick="openProjectModal(
+ 'card-1')">
+  
+  <div class="project-cover" 
+   data-division="hijau">
+    
+    <!-- SVG illustration OR photo 
+    img element -->
+    
+    <div class="project-status 
+     status-active">ACTIVE</div>
+    <div class="project-division">
+     HIJAU</div>
+  </div>
+  
+  <div class="project-info">
+    <h3 class="project-title">
+     [PROJECT TITLE]</h3>
+    <p class="project-description">
+     [DESCRIPTION]</p>
+    <div class="project-footer">
+      <div>
+        <div class="project-key-
+         label">[FIELD LABEL]</div>
+        <div class="project-key-
+         value">[FIELD VALUE]</div>
+      </div>
+      <div class="project-arrow">
+       →</div>
+    </div>
+  </div>
+  
+</div>
+
+═══════════════════════════════════════
+PROJECT CARD CSS
+═══════════════════════════════════════
+
+.project-card {
+  background: rgba(255,255,255,0.025);
+  border: 0.5px solid 
+    rgba(201,168,76,0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.3s, 
+    transform 0.3s;
+}
+
+.project-card:hover {
+  border-color: rgba(201,168,76,0.5);
+  transform: translateY(-3px);
+}
+
+.project-cover {
+  height: 160px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Per-division illustration 
+backgrounds */
+.project-cover[data-division=
+"hijau"] {
+  background: linear-gradient(135deg,
+    #0d2818 0%, #1a4a2e 50%, 
+    #0d2818 100%);
+}
+
+.project-cover[data-division=
+"wira-digital"] {
+  background: linear-gradient(135deg,
+    #0a1f3d 0%, #1e3a6e 50%, 
+    #0a1f3d 100%);
+}
+
+.project-cover[data-division=
+"bijak-ai"] {
+  background: linear-gradient(135deg,
+    #1a0d2a 0%, #3a1e4d 50%, 
+    #1a0d2a 100%);
+}
+
+.project-cover[data-division=
+"blockchain"] {
+  background: linear-gradient(135deg,
+    #1a1d22 0%, #363c46 50%, 
+    #1a1d22 100%);
+}
+
+.project-cover[data-division=
+"angkasa-build"] {
+  background: linear-gradient(135deg,
+    #1f1610 0%, #3d2920 50%, 
+    #1f1610 100%);
+}
+
+.project-cover[data-division=
+"dana-sejahtera"] {
+  background: linear-gradient(135deg,
+    #2a1f0a 0%, #4d3a1e 50%, 
+    #2a1f0a 100%);
+}
+
+.project-cover[data-division=
+"arif-advisory"] {
+  background: linear-gradient(135deg,
+    #1a1410 0%, #3a2e24 50%, 
+    #1a1410 100%);
+}
+
+/* Status badges */
+.project-status {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 3px 9px;
+  border-radius: 3px;
+  font-family: 'Cinzel', serif;
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: #fff;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.status-active {
+  background: rgba(60,140,90,0.85);
+}
+
+.status-in-development {
+  background: rgba(85,130,200,0.85);
+}
+
+.status-planning {
+  background: rgba(180,140,60,0.85);
+}
+
+.status-completed {
+  background: rgba(80,120,80,0.85);
+}
+
+/* Division tag (top right) */
+.project-division {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 3px 9px;
+  background: rgba(10,22,40,0.85);
+  border: 0.5px solid 
+    rgba(201,168,76,0.4);
+  border-radius: 3px;
+  font-family: 'Cinzel', serif;
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: #D4B97A;
+  font-weight: 600;
+  z-index: 2;
+}
+
+/* Card content area */
+.project-info {
+  padding: 18px 18px 16px;
+}
+
+.project-title {
+  font-family: 'Playfair Display', 
+    serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #F4EFE8;
+  margin: 0 0 8px;
+  letter-spacing: -0.2px;
+  line-height: 1.3;
+}
+
+.project-description {
+  font-family: 'Cormorant Garamond', 
+    serif;
+  font-style: italic;
+  font-size: 12px;
+  color: rgba(244,239,232,0.7);
+  line-height: 1.55;
+  margin: 0 0 14px;
+}
+
+.project-footer {
+  padding-top: 12px;
+  border-top: 0.5px solid 
+    rgba(201,168,76,0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-key-label {
+  font-family: 'Cinzel', serif;
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: rgba(201,168,76,0.7);
+  font-weight: 600;
+}
+
+.project-key-value {
+  font-family: 'Playfair Display', 
+    serif;
+  font-size: 13px;
+  color: #F4EFE8;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.project-arrow {
+  color: rgba(201,168,76,0.7);
+  font-size: 16px;
+  transition: color 0.3s, 
+    transform 0.3s;
+}
+
+.project-card:hover .project-arrow {
+  color: rgba(201,168,76,1);
+  transform: translateX(4px);
+}
+
+═══════════════════════════════════════
+DIVISION ILLUSTRATION SVGS
+═══════════════════════════════════════
+
+──────────────────────────────────
+HIJAU SVG (sun + solar panels):
+──────────────────────────────────
+
+<svg viewBox="0 0 300 160" 
+ style="position:absolute;inset:0;
+ width:100%;height:100%;opacity:0.3;">
+  <defs>
+    <radialGradient id="hijau-sun">
+      <stop offset="0%" 
+       stop-color="rgba(255,228,150,
+       0.5)"/>
+      <stop offset="100%" 
+       stop-color="rgba(255,228,150,
+       0)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="240" cy="45" r="32" 
+   fill="url(#hijau-sun)"/>
+  <circle cx="240" cy="45" r="20" 
+   fill="rgba(255,228,150,0.4)"/>
+  <rect x="40" y="90" width="220" 
+   height="55" 
+   fill="rgba(60,140,90,0.4)" 
+   rx="2"/>
+  <line x1="40" y1="105" x2="260" 
+   y2="105" 
+   stroke="rgba(60,140,90,0.6)" 
+   stroke-width="0.5"/>
+  <line x1="40" y1="118" x2="260" 
+   y2="118" 
+   stroke="rgba(60,140,90,0.6)" 
+   stroke-width="0.5"/>
+  <line x1="40" y1="131" x2="260" 
+   y2="131" 
+   stroke="rgba(60,140,90,0.6)" 
+   stroke-width="0.5"/>
+</svg>
+
+──────────────────────────────────
+WIRA DIGITAL SVG (network nodes):
+──────────────────────────────────
+
+<svg viewBox="0 0 300 160" 
+ style="position:absolute;inset:0;
+ width:100%;height:100%;">
+  <defs>
+    <radialGradient id="wd-glow">
+      <stop offset="0%" 
+       stop-color="rgba(255,228,150,
+       0.4)"/>
+      <stop offset="100%" 
+       stop-color="rgba(255,228,150,
+       0)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="80" cy="55" r="3" 
+   fill="#D4B97A"/>
+  <circle cx="160" cy="35" r="3" 
+   fill="#D4B97A"/>
+  <circle cx="220" cy="75" r="3" 
+   fill="#D4B97A"/>
+  <circle cx="60" cy="115" r="3" 
+   fill="#D4B97A"/>
+  <circle cx="140" cy="105" r="3" 
+   fill="#D4B97A"/>
+  <circle cx="240" cy="125" r="3" 
+   fill="#D4B97A"/>
+  <line x1="80" y1="55" x2="160" 
+   y2="35" 
+   stroke="rgba(212,185,122,0.4)" 
+   stroke-width="0.5"/>
+  <line x1="160" y1="35" x2="220" 
+   y2="75" 
+   stroke="rgba(212,185,122,0.4)" 
+   stroke-width="0.5"/>
+  <line x1="80" y1="55" x2="60" 
+   y2="115" 
+   stroke="rgba(212,185,122,0.4)" 
+   stroke-width="0.5"/>
+  <line x1="60" y1="115" x2="140" 
+   y2="105" 
+   stroke="rgba(212,185,122,0.4)" 
+   stroke-width="0.5"/>
+  <line x1="140" y1="105" x2="220" 
+   y2="75" 
+   stroke="rgba(212,185,122,0.4)" 
+   stroke-width="0.5"/>
+  <line x1="140" y1="105" x2="240" 
+   y2="125" 
+   stroke="rgba(212,185,122,0.4)" 
+   stroke-width="0.5"/>
+  <circle cx="160" cy="80" r="36" 
+   fill="url(#wd-glow)"/>
+</svg>
+
+──────────────────────────────────
+BIJAK AI SVG (neural network):
+──────────────────────────────────
+
+<svg viewBox="0 0 300 160" 
+ style="position:absolute;inset:0;
+ width:100%;height:100%;">
+  <line x1="60" y1="35" x2="120" 
+   y2="62" stroke="rgba(212,185,122,
+   0.5)" stroke-width="0.5"/>
+  <line x1="60" y1="35" x2="120" 
+   y2="98" stroke="rgba(212,185,122,
+   0.3)" stroke-width="0.5"/>
+  <line x1="60" y1="80" x2="120" 
+   y2="62" stroke="rgba(212,185,122,
+   0.4)" stroke-width="0.5"/>
+  <line x1="60" y1="80" x2="120" 
+   y2="98" stroke="rgba(212,185,122,
+   0.5)" stroke-width="0.5"/>
+  <line x1="60" y1="125" x2="120" 
+   y2="98" stroke="rgba(212,185,122,
+   0.3)" stroke-width="0.5"/>
+  <line x1="120" y1="62" x2="180" 
+   y2="55" stroke="rgba(212,185,122,
+   0.4)" stroke-width="0.5"/>
+  <line x1="120" y1="62" x2="180" 
+   y2="105" stroke="rgba(212,185,122,
+   0.5)" stroke-width="0.5"/>
+  <line x1="120" y1="98" x2="180" 
+   y2="55" stroke="rgba(212,185,122,
+   0.3)" stroke-width="0.5"/>
+  <line x1="120" y1="98" x2="180" 
+   y2="105" stroke="rgba(212,185,122,
+   0.5)" stroke-width="0.5"/>
+  <line x1="180" y1="55" x2="240" 
+   y2="80" stroke="rgba(212,185,122,
+   0.4)" stroke-width="0.5"/>
+  <line x1="180" y1="105" x2="240" 
+   y2="80" stroke="rgba(212,185,122,
+   0.5)" stroke-width="0.5"/>
+  <circle cx="60" cy="35" r="4" 
+   fill="#D4B97A"/>
+  <circle cx="60" cy="80" r="4" 
+   fill="#D4B97A"/>
+  <circle cx="60" cy="125" r="4" 
+   fill="#D4B97A"/>
+  <circle cx="120" cy="62" r="5" 
+   fill="#F4EFE8"/>
+  <circle cx="120" cy="98" r="5" 
+   fill="#F4EFE8"/>
+  <circle cx="180" cy="55" r="5" 
+   fill="#F4EFE8"/>
+  <circle cx="180" cy="105" r="5" 
+   fill="#F4EFE8"/>
+  <circle cx="240" cy="80" r="6" 
+   fill="#D4B97A"/>
+</svg>
+
+──────────────────────────────────
+BLOCKCHAIN SVG (linked blocks):
+──────────────────────────────────
+
+<svg viewBox="0 0 300 160" 
+ style="position:absolute;inset:0;
+ width:100%;height:100%;">
+  <rect x="60" y="55" width="38" 
+   height="38" fill="none" 
+   stroke="rgba(212,185,122,0.7)" 
+   stroke-width="0.8" rx="2"/>
+  <rect x="130" y="55" width="38" 
+   height="38" fill="none" 
+   stroke="rgba(212,185,122,0.85)" 
+   stroke-width="1" rx="2"/>
+  <rect x="200" y="55" width="38" 
+   height="38" 
+   fill="rgba(212,185,122,0.15)" 
+   stroke="rgba(212,185,122,0.95)" 
+   stroke-width="1.2" rx="2"/>
+  <line x1="98" y1="74" x2="130" 
+   y2="74" 
+   stroke="rgba(212,185,122,0.6)" 
+   stroke-width="0.6"/>
+  <line x1="168" y1="74" x2="200" 
+   y2="74" 
+   stroke="rgba(212,185,122,0.7)" 
+   stroke-width="0.6"/>
+  <line x1="65" y1="63" x2="93" 
+   y2="85" 
+   stroke="rgba(212,185,122,0.4)" 
+   stroke-width="0.4"/>
+  <line x1="135" y1="63" x2="163" 
+   y2="85" 
+   stroke="rgba(212,185,122,0.4)" 
+   stroke-width="0.4"/>
+  <line x1="205" y1="63" x2="233" 
+   y2="85" 
+   stroke="rgba(212,185,122,0.4)" 
+   stroke-width="0.4"/>
+  <circle cx="219" cy="74" r="3" 
+   fill="#D4B97A"/>
+</svg>
+
+──────────────────────────────────
+ANGKASA BUILD SVG (architecture):
+──────────────────────────────────
+
+<svg viewBox="0 0 300 160" 
+ style="position:absolute;inset:0;
+ width:100%;height:100%;opacity:0.4;">
+  <rect x="20" y="70" width="80" 
+   height="75" 
+   fill="rgba(150,120,80,0.5)" 
+   rx="1"/>
+  <rect x="110" y="40" width="80" 
+   height="105" 
+   fill="rgba(180,140,90,0.4)" 
+   rx="1"/>
+  <rect x="200" y="60" width="80" 
+   height="85" 
+   fill="rgba(150,120,80,0.5)" 
+   rx="1"/>
+  <line x1="35" y1="90" x2="85" 
+   y2="90" 
+   stroke="rgba(255,228,150,0.4)" 
+   stroke-width="0.4"/>
+  <line x1="35" y1="108" x2="85" 
+   y2="108" 
+   stroke="rgba(255,228,150,0.4)" 
+   stroke-width="0.4"/>
+  <line x1="35" y1="126" x2="85" 
+   y2="126" 
+   stroke="rgba(255,228,150,0.4)" 
+   stroke-width="0.4"/>
+  <circle cx="50" cy="35" r="18" 
+   fill="rgba(255,228,150,0.3)"/>
+</svg>
+
+──────────────────────────────────
+DANA SEJAHTERA SVG (treasury rings):
+──────────────────────────────────
+
+<svg viewBox="0 0 300 160" 
+ style="position:absolute;inset:0;
+ width:100%;height:100%;">
+  <circle cx="150" cy="80" r="50" 
+   fill="none" 
+   stroke="rgba(212,185,122,0.45)" 
+   stroke-width="0.6"/>
+  <circle cx="150" cy="80" r="38" 
+   fill="none" 
+   stroke="rgba(212,185,122,0.6)" 
+   stroke-width="0.7"/>
+  <circle cx="150" cy="80" r="26" 
+   fill="none" 
+   stroke="rgba(212,185,122,0.75)" 
+   stroke-width="0.8"/>
+  <circle cx="150" cy="80" r="14" 
+   fill="rgba(212,185,122,0.25)" 
+   stroke="rgba(212,185,122,0.95)" 
+   stroke-width="1"/>
+  <circle cx="150" cy="30" r="3" 
+   fill="#D4B97A"/>
+  <circle cx="150" cy="130" r="3" 
+   fill="#D4B97A"/>
+  <circle cx="100" cy="80" r="3" 
+   fill="#D4B97A"/>
+  <circle cx="200" cy="80" r="3" 
+   fill="#D4B97A"/>
+</svg>
+
+──────────────────────────────────
+ARIF ADVISORY SVG (compass/balance):
+──────────────────────────────────
+
+<svg viewBox="0 0 300 160" 
+ style="position:absolute;inset:0;
+ width:100%;height:100%;">
+  <circle cx="150" cy="80" r="42" 
+   fill="none" 
+   stroke="rgba(212,185,122,0.7)" 
+   stroke-width="0.8"/>
+  <circle cx="150" cy="80" r="32" 
+   fill="none" 
+   stroke="rgba(212,185,122,0.4)" 
+   stroke-width="0.5"/>
+  <line x1="150" y1="40" x2="150" 
+   y2="120" 
+   stroke="rgba(212,185,122,0.5)" 
+   stroke-width="0.5"/>
+  <line x1="108" y1="80" x2="192" 
+   y2="80" 
+   stroke="rgba(212,185,122,0.5)" 
+   stroke-width="0.5"/>
+  <polygon points="150,48 145,80 
+   150,75 155,80" 
+   fill="#D4B97A" opacity="0.95"/>
+  <polygon points="150,112 145,80 
+   150,85 155,80" 
+   fill="rgba(212,185,122,0.5)"/>
+  <circle cx="150" cy="80" r="3" 
+   fill="#F4EFE8"/>
+  <text x="150" y="36" 
+   font-family="Cinzel,serif" 
+   font-size="7" 
+   fill="rgba(212,185,122,0.8)" 
+   text-anchor="middle" 
+   letter-spacing="2">N</text>
+</svg>
+
+═══════════════════════════════════════
+8 EXAMPLE PROJECT CARDS
+═══════════════════════════════════════
+
+CARD 1 — Hijau (Active):
+- Title: "Floating Solar 
+  Infrastructure · Perak"
+- Description: "Lake-based renewable 
+  energy infrastructure across 
+  multiple sites in Gopeng/Kampar. 
+  Member-led EPC delivery."
+- Status: ACTIVE
+- Division: HIJAU
+- Key field: SCALE / "Multi-Site 
+  Portfolio"
+- Use Hijau SVG illustration
+
+CARD 2 — Wira Digital (In 
+Development):
+- Title: "Member Portal Platform"
+- Description: "Internal cooperative 
+  platform for share management, 
+  dividend tracking, and AGM voting. 
+  Built by Wira Digital."
+- Status: IN DEVELOPMENT
+- Division: WIRA DIGITAL
+- Key field: SCOPE / "Cooperative-
+  Wide"
+- Use Wira Digital SVG illustration
+
+CARD 3 — Bijak AI (Planning):
+- Title: "SME Decision Intelligence"
+- Description: "AI-driven business 
+  intelligence platform for 
+  cooperative members and SME 
+  clients. Bijak AI division 
+  initiative."
+- Status: PLANNING
+- Division: BIJAK AI
+- Key field: PHASE / "Strategic 
+  Design"
+- Use Bijak AI SVG illustration
+
+CARD 4 — Blockchain (Completed):
+- Title: "Member Share Registry"
+- Description: "Distributed ledger 
+  system for transparent member 
+  share tracking and AGM record. 
+  Cooperative governance use case."
+- Status: COMPLETED
+- Division: BLOCKCHAIN
+- Key field: DELIVERY / "Internal Use"
+- Use Blockchain SVG illustration
+
+CARD 5 — Angkasa Build (In 
+Development):
+- Title: "Education Campus · 
+  Selangor"
+- Description: "Joint venture campus 
+  development for vocational 
+  training programs. Member-
+  cooperative partnership delivery."
+- Status: IN DEVELOPMENT
+- Division: ANGKASA BUILD
+- Key field: PARTNER / "Foundation JV"
+- Use Angkasa Build SVG illustration
+
+CARD 6 — Dana Sejahtera (Active):
+- Title: "Cooperative Treasury 
+  Operations"
+- Description: "Member capital 
+  deployment, dividend distribution, 
+  and Capital Investment Programme 
+  administration."
+- Status: ACTIVE
+- Division: DANA SEJAHTERA
+- Key field: SCOPE / "All Members"
+- Use Dana Sejahtera SVG illustration
+
+CARD 7 — Arif Advisory (Active):
+- Title: "Strategic Advisory 
+  Programme"
+- Description: "Multi-domain 
+  advisory services for cooperative 
+  members and external clients. 
+  Strategic, financial, and 
+  governance consultation."
+- Status: ACTIVE
+- Division: ARIF ADVISORY
+- Key field: SERVICES / 
+  "Multi-Domain Advisory"
+- Use Arif Advisory SVG illustration
+
+CARD 8 — Hijau (Active) — second 
+Hijau project:
+- Title: "Bitcoin Mining 
+  Infrastructure · Kampar"
+- Description: "Solar-powered HPC 
+  compute infrastructure leveraging 
+  cooperative renewable energy. 
+  Member-led EPC delivery."
+- Status: ACTIVE
+- Division: HIJAU
+- Key field: COMPUTE / "Solar HPC 
+  Hub"
+- Use Hijau SVG illustration
+
+═══════════════════════════════════════
+SECTION 4 — OUR APPROACH (4 PILLARS)
+═══════════════════════════════════════
+
+<section id="our-approach" 
+ style="padding:80px 40px;
+ border-bottom:0.5px solid 
+ rgba(201,168,76,0.1);
+ background:#0A1628;">
+
+Inner container: max-width 1100px, 
+margin 0 auto.
+
+Header (centered, margin-bottom 
+50px):
+- Section label "— OUR APPROACH —" 
+  Cinzel 13px gold 0.85
+- Heading "How We Build." Playfair 
+  30px weight 600 warm pearl
+
+Grid:
+- Display: grid
+- Grid-template-columns: 
+  repeat(4, 1fr)
+- Gap: 28px
+
+PILLAR 01 · MEMBER-BUILT
+- Number "01" Cinzel 11px gold 0.85 
+  letter-spacing 3px
+- Heading "Member-Built" Playfair 
+  18px warm pearl
+- Description: "From engineering to 
+  delivery, every project is the 
+  work of cooperative members. 
+  Skill stays in-house. Trust stays 
+  internal."
+- Style: Cormorant italic 14px 
+  pearl 0.7
+
+PILLAR 02 · BOD-REVIEWED
+- Number "02"
+- Heading "BOD-Reviewed"
+- Description: "Strategic projects 
+  pass through Board oversight. 
+  Governance is not optional — it 
+  is built in."
+
+PILLAR 03 · SKM-COMPLIANT
+- Number "03"
+- Heading "SKM-Compliant"
+- Description: "Registered under 
+  Suruhanjaya Koperasi Malaysia. 
+  All financial structures regulator-
+  aligned."
+
+PILLAR 04 · WEALTH-RETURNING
+- Number "04"
+- Heading "Wealth-Returning"
+- Description: "What members build, 
+  members earn. Returns are 
+  distributed across the cooperative 
+  — through dividends, fixed 
+  returns, and member benefits."
+
+Pillar card styling:
+- Padding: 28px 22px
+- Background: rgba(255,255,255,0.025)
+- Border: 0.5px solid 
+  rgba(201,168,76,0.2)
+- Border-radius: 8px
+- Text-align: center
+
+═══════════════════════════════════════
+SECTION 5 — FINAL CTA BAND
+═══════════════════════════════════════
+
+<section id="final-cta" 
+ style="padding:90px 40px;
+ background:linear-gradient(135deg,
+ #0A1628 0%,#0F1D33 50%,#0A1628 
+ 100%);text-align:center;position:
+ relative;overflow:hidden;">
+
+Subtle grid pattern overlay (same 
+SVG as hero).
+
+Section label "— READY TO BUILD —" 
+Cinzel 13px gold 0.85, margin-bottom 
+24px.
+
+Stacked headline (locked typography):
+<h2 class="headline-top cta-size">
+  Have A Project</h2>
+<h2 class="headline-bottom cta-size">
+  In Mind?</h2>
+
+Subtext:
+"Tell us what you need delivered.<br>
+We will assign the right division."
+- Font: Cormorant Garamond italic 
+  16px pearl 0.7
+- Max-width 500px
+- Margin: 22px auto 36px
+
+Two buttons (flex centered, 
+gap 14px):
+
+Button 1 — Hire Our Services 
+(gold):
+- href="contact.html#project-inquiry"
+- Background: #C9A84C
+- Color: #0A1628
+- Padding 14px 30px
+- Source Sans 3 11px caps weight 600
+- Letter-spacing 2.5px
+- Border-radius 4px
+- Text: "Hire Our Services →"
+
+Button 2 — WhatsApp Direct (green):
+- href="https://wa.me/60105122561?
+  text=Hello%20KOPIT%2C%20I%27d%20
+  like%20to%20discuss%20a%20
+  project%20delivery."
+- Background: rgba(37,211,102,0.95)
+- Color: #fff
+- Same padding/styling as Button 1
+- WhatsApp SVG icon before text
+- Text: "WhatsApp Direct →"
+
+═══════════════════════════════════════
+PROJECT DETAIL MODAL
+═══════════════════════════════════════
+
+Add this HTML before footer (hidden 
+by default):
+
+<div id="project-modal" 
+ class="vault-modal" 
+ role="dialog" 
+ aria-modal="true" 
+ aria-labelledby="project-modal-title" 
+ aria-hidden="true">
+  
+  <div class="vault-backdrop" 
+   id="project-modal-backdrop"></div>
+  
+  <div class="vault-content 
+   project-modal-content">
+    
+    <button class="vault-close" 
+     id="project-modal-close" 
+     aria-label="Close project 
+     details">×</button>
+    
+    <div class="project-modal-badges" 
+     id="project-modal-badges">
+      <!-- JS injects status + 
+      division badges -->
+    </div>
+    
+    <h2 class="vault-title" 
+     id="project-modal-title">
+     [TITLE]</h2>
+    <div class="vault-subtitle" 
+     id="project-modal-subtitle">
+     [KEY VALUE]</div>
+    
+    <div class="project-modal-
+     sections" id="project-modal-
+     sections">
+      <!-- JS injects three sections: 
+      Challenge / Approach / Outcome -->
+    </div>
+    
+    <div class="project-modal-cta">
+      <div class="project-modal-cta-
+       prompt">Interested in similar 
+       work?</div>
+      <a href="#" 
+       class="project-modal-cta-button" 
+       id="project-modal-cta-button">
+       Hire This Division →</a>
+    </div>
+    
+    <div class="vault-dismiss-hint">
+      ESC · CLICK BACKDROP · X TO 
+      CLOSE
+    </div>
+    
+  </div>
+</div>
+
+═══════════════════════════════════════
+PROJECT MODAL CSS
+═══════════════════════════════════════
+
+Reuse existing .vault-modal, 
+.vault-backdrop, .vault-content, 
+.vault-close, .vault-title, 
+.vault-subtitle, .vault-dismiss-hint 
+classes from membership.html (they 
+were defined globally in CSS).
+
+If those CSS rules are NOT in 
+css/style.css, copy them into 
+projects.html inline <style> block.
+
+Add these new project-specific 
+rules:
+
+.project-modal-badges {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.project-modal-content 
+.project-status,
+.project-modal-content 
+.project-division {
+  position: static;
+}
+
+.project-modal-sections {
+  display: grid;
+  gap: 18px;
+  margin: 24px 0 28px;
+}
+
+.project-modal-section {
+  padding: 18px 22px;
+  background: rgba(10,22,40,0.5);
+  border: 0.5px solid 
+    rgba(201,168,76,0.18);
+  border-radius: 6px;
+}
+
+.project-modal-section.outcome {
+  background: linear-gradient(135deg,
+    rgba(201,168,76,0.12) 0%,
+    rgba(201,168,76,0.06) 100%);
+  border: 0.5px solid 
+    rgba(201,168,76,0.45);
+}
+
+.project-modal-section-label {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: rgba(201,168,76,0.85);
+}
+
+.project-modal-section.outcome 
+.project-modal-section-label {
+  color: rgba(201,168,76,0.95);
+}
+
+.project-modal-section-text {
+  font-family: 'Cormorant Garamond', 
+    serif;
+  font-style: italic;
+  font-size: 14px;
+  color: rgba(244,239,232,0.85);
+  line-height: 1.7;
+}
+
+.project-modal-cta {
+  padding-top: 20px;
+  border-top: 0.5px solid 
+    rgba(201,168,76,0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.project-modal-cta-prompt {
+  font-family: 'Cormorant Garamond', 
+    serif;
+  font-style: italic;
+  color: rgba(244,239,232,0.6);
+  font-size: 14px;
+}
+
+.project-modal-cta-button {
+  background: #C9A84C;
+  color: #0A1628;
+  padding: 12px 24px;
+  font-family: 'Source Sans 3', 
+    sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.project-modal-cta-button:hover {
+  background: #D4B97A;
+}
+
+═══════════════════════════════════════
+PROJECT DATA OBJECT (FOR MODAL)
+═══════════════════════════════════════
+
+Add to JavaScript inline at bottom:
+
+const projectData = {
+  'card-1': {
+    status: 'ACTIVE',
+    statusClass: 'status-active',
+    division: 'HIJAU',
+    divisionRoute: 'hijau',
+    title: 'Floating Solar '
+      + 'Infrastructure',
+    subtitle: 'Multi-Site Portfolio '
+      + '· Perak',
+    challenge: 'Lake-based renewable '
+      + 'energy infrastructure '
+      + 'development requiring '
+      + 'SKM-compliant cooperative '
+      + 'delivery, multi-stakeholder '
+      + 'coordination, and member '
+      + 'capital structuring.',
+    approach: 'Member-led EPC '
+      + 'delivery through KOPIT '
+      + 'Hijau division. '
+      + 'BOD-reviewed financial '
+      + 'structure. Capital '
+      + 'deployment via Cooperative '
+      + 'Investment Programme.',
+    outcome: 'Active cooperative-led '
+      + 'renewable infrastructure '
+      + 'portfolio. Real wealth '
+      + 'flowing back to KOPIT '
+      + 'members through dividend '
+      + 'and Capital Programme '
+      + 'returns.'
+  },
+  'card-2': {
+    status: 'IN DEVELOPMENT',
+    statusClass: 
+      'status-in-development',
+    division: 'WIRA DIGITAL',
+    divisionRoute: 'wira-digital',
+    title: 'Member Portal Platform',
+    subtitle: 'Cooperative-Wide '
+      + 'Digital Infrastructure',
+    challenge: 'KOPIT requires a '
+      + 'unified digital portal '
+      + 'for share management, '
+      + 'dividend tracking, AGM '
+      + 'voting, and member '
+      + 'communications across '
+      + 'all tier categories.',
+    approach: 'Wira Digital division '
+      + 'building cooperative-wide '
+      + 'platform with role-based '
+      + 'access (KB/KP/KL/KI tiers), '
+      + 'real-time dashboards, and '
+      + 'Capital Programme tracking.',
+    outcome: 'Operational platform '
+      + 'enabling transparent member '
+      + 'engagement, automated '
+      + 'governance processes, and '
+      + 'self-service member '
+      + 'experience aligned with '
+      + 'cooperative values.'
+  },
+  'card-3': {
+    status: 'PLANNING',
+    statusClass: 'status-planning',
+    division: 'BIJAK AI',
+    divisionRoute: 'bijak-ai',
+    title: 'SME Decision Intelligence',
+    subtitle: 'Strategic AI Platform '
+      + 'for Cooperative Members',
+    challenge: 'Cooperative members '
+      + 'and SME clients need '
+      + 'data-driven decision tools '
+      + 'tailored to Malaysian '
+      + 'business contexts and '
+      + 'cooperative principles.',
+    approach: 'Bijak AI division '
+      + 'designing decision '
+      + 'intelligence platform '
+      + 'leveraging member-data '
+      + 'aggregation, market '
+      + 'analytics, and SME-'
+      + 'specific insights — under '
+      + 'BOD strategic review.',
+    outcome: 'Anticipated platform '
+      + 'will deliver actionable '
+      + 'business intelligence to '
+      + 'KOPIT members and '
+      + 'commercial SME clients '
+      + 'through cooperative-aligned '
+      + 'AI capabilities.'
+  },
+  'card-4': {
+    status: 'COMPLETED',
+    statusClass: 'status-completed',
+    division: 'BLOCKCHAIN',
+    divisionRoute: 'blockchain',
+    title: 'Member Share Registry',
+    subtitle: 'Distributed Ledger '
+      + 'for Cooperative Governance',
+    challenge: 'Traditional share '
+      + 'registries create '
+      + 'transparency gaps and '
+      + 'audit complexity. KOPIT '
+      + 'required member share '
+      + 'tracking that aligns with '
+      + 'cooperative transparency '
+      + 'principles.',
+    approach: 'Blockchain division '
+      + 'deployed distributed '
+      + 'ledger system with '
+      + 'member-verifiable share '
+      + 'records, automated AGM '
+      + 'tracking, and SKM-aligned '
+      + 'audit trail.',
+    outcome: 'Operational share '
+      + 'registry providing '
+      + 'transparent member '
+      + 'verification, automated '
+      + 'AGM record-keeping, and '
+      + 'audit-ready governance '
+      + 'documentation.'
+  },
+  'card-5': {
+    status: 'IN DEVELOPMENT',
+    statusClass: 
+      'status-in-development',
+    division: 'ANGKASA BUILD',
+    divisionRoute: 'angkasa-build',
+    title: 'Education Campus · '
+      + 'Selangor',
+    subtitle: 'Joint Venture '
+      + 'Vocational Training Hub',
+    challenge: 'Foundation partner '
+      + 'requires vocational '
+      + 'training campus development '
+      + 'with member-cooperative '
+      + 'governance, mixed-use '
+      + 'design, and financial '
+      + 'structuring.',
+    approach: 'Angkasa Build '
+      + 'division leading '
+      + 'architectural delivery '
+      + 'with KOPIT cooperative '
+      + 'investment structure. '
+      + 'Joint venture model with '
+      + 'land rental and graduated '
+      + 'distribution framework.',
+    outcome: 'Campus development '
+      + 'progressing under '
+      + 'cooperative JV model '
+      + 'with member returns '
+      + 'structured across '
+      + 'multi-year delivery '
+      + 'timeline.'
+  },
+  'card-6': {
+    status: 'ACTIVE',
+    statusClass: 'status-active',
+    division: 'DANA SEJAHTERA',
+    divisionRoute: 'dana-sejahtera',
+    title: 'Cooperative Treasury '
+      + 'Operations',
+    subtitle: 'Member Capital '
+      + 'Deployment & Returns',
+    challenge: 'KOPIT cooperative '
+      + 'requires sophisticated '
+      + 'treasury operations to '
+      + 'manage member share '
+      + 'capital, Capital Investment '
+      + 'Programme arrangements, '
+      + 'dividend distributions, '
+      + 'and member benefit '
+      + 'allocations.',
+    approach: 'Dana Sejahtera '
+      + 'division operating '
+      + 'cooperative treasury '
+      + 'with BOD-determined '
+      + 'investment allocation, '
+      + 'AGM dividend processes, '
+      + 'and Member Introducer '
+      + 'Programme commission '
+      + 'management.',
+    outcome: 'Operational treasury '
+      + 'serving all 6 member '
+      + 'tiers with structured '
+      + 'capital deployment, '
+      + 'transparent dividend '
+      + 'declarations, and '
+      + 'compliant Fixed Return '
+      + 'Arrangement '
+      + 'administration.'
+  },
+  'card-7': {
+    status: 'ACTIVE',
+    statusClass: 'status-active',
+    division: 'ARIF ADVISORY',
+    divisionRoute: 'arif-advisory',
+    title: 'Strategic Advisory '
+      + 'Programme',
+    subtitle: 'Multi-Domain '
+      + 'Cooperative Advisory',
+    challenge: 'Cooperative members '
+      + 'and external clients '
+      + 'require expert advisory '
+      + 'across strategic, '
+      + 'financial, and governance '
+      + 'domains aligned with '
+      + 'Malaysian cooperative and '
+      + 'business contexts.',
+    approach: 'Arif Advisory '
+      + 'division providing '
+      + 'multi-domain consultation '
+      + 'with member-priority '
+      + 'access. Services span '
+      + 'strategic planning, '
+      + 'financial structuring, '
+      + 'and regulatory advisory.',
+    outcome: 'Active advisory '
+      + 'engagement delivering '
+      + 'expert guidance to KOPIT '
+      + 'members and external '
+      + 'clients while building '
+      + 'cooperative knowledge '
+      + 'capital.'
+  },
+  'card-8': {
+    status: 'ACTIVE',
+    statusClass: 'status-active',
+    division: 'HIJAU',
+    divisionRoute: 'hijau',
+    title: 'Bitcoin Mining '
+      + 'Infrastructure',
+    subtitle: 'Solar-Powered HPC '
+      + 'Compute · Kampar',
+    challenge: 'Energy-intensive '
+      + 'compute infrastructure '
+      + 'requires sustainable '
+      + 'power source, cooperative '
+      + 'capital structure, and '
+      + 'member-aligned operational '
+      + 'model.',
+    approach: 'Hijau division '
+      + 'integrating cooperative '
+      + 'renewable energy with '
+      + 'HPC compute infrastructure. '
+      + 'BOD-reviewed financial '
+      + 'structure with member '
+      + 'capital programme '
+      + 'deployment.',
+    outcome: 'Active solar-powered '
+      + 'HPC infrastructure '
+      + 'generating returns through '
+      + 'compute services while '
+      + 'maintaining cooperative '
+      + 'sustainability principles '
+      + 'and member wealth '
+      + 'distribution.'
+  }
+};
+
+═══════════════════════════════════════
+PROJECT MODAL JAVASCRIPT
+═══════════════════════════════════════
+
+(function() {
+  const modal = document
+    .getElementById('project-modal');
+  const backdrop = document
+    .getElementById(
+    'project-modal-backdrop');
+  const closeBtn = document
+    .getElementById(
+    'project-modal-close');
+  const badges = document
+    .getElementById(
+    'project-modal-badges');
+  const title = document
+    .getElementById(
+    'project-modal-title');
+  const subtitle = document
+    .getElementById(
+    'project-modal-subtitle');
+  const sections = document
+    .getElementById(
+    'project-modal-sections');
+  const ctaBtn = document
+    .getElementById(
+    'project-modal-cta-button');
+  
+  if (!modal) return;
+  
+  window.openProjectModal = 
+   function(projectId) {
+    const data = projectData[
+      projectId];
+    if (!data) return;
+    
+    badges.innerHTML = `
+      <div class="project-status 
+       ${data.statusClass}">
+       ${data.status}</div>
+      <div class="project-division">
+       ${data.division}</div>
+    `;
+    
+    title.textContent = data.title;
+    subtitle.textContent = 
+      data.subtitle;
+    
+    sections.innerHTML = `
+      <div class="project-modal-
+       section">
+        <div class="project-modal-
+         section-label">CHALLENGE
+         </div>
+        <div class="project-modal-
+         section-text">
+         ${data.challenge}</div>
+      </div>
+      <div class="project-modal-
+       section">
+        <div class="project-modal-
+         section-label">APPROACH
+         </div>
+        <div class="project-modal-
+         section-text">
+         ${data.approach}</div>
+      </div>
+      <div class="project-modal-
+       section outcome">
+        <div class="project-modal-
+         section-label">OUTCOME
+         </div>
+        <div class="project-modal-
+         section-text">
+         ${data.outcome}</div>
+      </div>
+    `;
+    
+    ctaBtn.href = 'contact.html?'
+      + 'division=' 
+      + data.divisionRoute;
+    ctaBtn.textContent = 
+      'Hire ' + data.division 
+      + ' Division →';
+    
+    modal.classList.add('active');
+    modal.setAttribute(
+      'aria-hidden', 'false');
+    document.body.style.overflow = 
+      'hidden';
+    
+    setTimeout(() => closeBtn
+      .focus(), 100);
+  };
+  
+  function closeModal() {
+    modal.classList.remove('active');
+    modal.setAttribute(
+      'aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  
+  closeBtn.addEventListener('click', 
+    closeModal);
+  backdrop.addEventListener('click', 
+    closeModal);
+  
+  document.addEventListener(
+    'keydown', e => {
+    if (e.key === 'Escape' 
+      && modal.classList
+      .contains('active')) {
+      closeModal();
+    }
+  });
+})();
+
+═══════════════════════════════════════
+MOBILE RESPONSIVE
+═══════════════════════════════════════
+
+@media (max-width: 1100px) {
+  /* Project grid 4-col → 3-col */
+  #project-grid > div > 
+   div[style*="grid-template-"] {
+    grid-template-columns: 
+      repeat(3, 1fr) !important;
+  }
+}
+
+@media (max-width: 900px) {
+  
+  /* Hero scaling */
+  #hero h1.headline-top {
+    font-size: 36px !important;
+  }
+  #hero h1.headline-bottom {
+    font-size: 30px !important;
+  }
+  #hero p {
+    font-size: 16px !important;
+  }
+  
+  /* Impact metrics — 2x2 grid */
+  #impact-metrics > div {
+    grid-template-columns: 1fr 1fr 
+      !important;
+    gap: 20px !important;
+  }
+  
+  /* Project grid — 2 columns */
+  #project-grid > div > 
+   div[style*="grid-template-"] {
+    grid-template-columns: 
+      repeat(2, 1fr) !important;
+  }
+  
+  /* Our Approach — 2x2 grid */
+  #our-approach > div > 
+   div[style*="grid-template-"] {
+    grid-template-columns: 1fr 1fr 
+      !important;
+    gap: 20px !important;
+  }
+  
+  /* Final CTA scaling */
+  #final-cta h2.headline-top {
+    font-size: 32px !important;
+  }
+  #final-cta h2.headline-bottom {
+    font-size: 26px !important;
+  }
+  
+  /* Section padding reduce */
+  section {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+  
+  /* Project modal full-screen */
+  .project-modal-content {
+    padding: 36px 22px 24px 
+      !important;
+    max-width: 100% !important;
+  }
+  
+  .project-modal-cta {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  
+  /* Hero even smaller */
+  #hero h1.headline-top {
+    font-size: 30px !important;
+  }
+  #hero h1.headline-bottom {
+    font-size: 24px !important;
+  }
+  
+  /* Project grid — single column */
+  #project-grid > div > 
+   div[style*="grid-template-"] {
+    grid-template-columns: 1fr 
+      !important;
+  }
+  
+  /* Our Approach — single column */
+  #our-approach > div > 
+   div[style*="grid-template-"] {
+    grid-template-columns: 1fr 
+      !important;
+  }
+}
+
+═══════════════════════════════════════
+FOOTER
+═══════════════════════════════════════
+
+Copy EXACTLY from index.html. No 
+modifications.
+
+═══════════════════════════════════════
+WHAT NOT TO TOUCH
+═══════════════════════════════════════
+
+DO NOT MODIFY:
+- index.html
+- contact.html
+- membership.html
+- All locked typography classes
+- All locked CSS rules
+- All other existing pages
+
+═══════════════════════════════════════
+VERIFICATION CHECKLIST
+═══════════════════════════════════════
+
+After build:
+
+PAGE STRUCTURE:
+1. ✓ /projects.html loads
+2. ✓ Browser title "Projects — KOPIT 
+   · Real Work, Real Member Wealth"
+3. ✓ Navbar identical to homepage 
+   with "Projects" active state
+4. ✓ Footer identical
+
+HERO:
+5. ✓ "PROJECTS" gold label
+6. ✓ Stacked headline: "Our Work," 
+   (warm pearl) / "Our Members' 
+   Wealth." (soft gold)
+7. ✓ Cormorant italic subtext
+
+IMPACT METRICS:
+8. ✓ 4 vague anchors visible
+
+PROJECT GRID — 8 CARDS, 4 COLUMNS:
+9. ✓ Heading "Live Project 
+   Portfolio."
+10. ✓ Documentation comment block 
+    visible in HTML source
+11. ✓ 8 cards in 4-column grid 
+    (2 rows of 4)
+12. ✓ All 7 divisions represented:
+    - Hijau (Cards 1 & 8)
+    - Wira Digital (Card 2)
+    - Bijak AI (Card 3)
+    - Blockchain (Card 4)
+    - Angkasa Build (Card 5)
+    - Dana Sejahtera (Card 6)
+    - Arif Advisory (Card 7)
+13. ✓ Each card has signature SVG 
+    illustration in division colours
+14. ✓ Card 7 (Arif Advisory) shows 
+    compass/balance illustration
+15. ✓ All 4 status colors visible: 
+    Active (green), In Development 
+    (blue), Planning (amber), 
+    Completed (olive)
+
+CARD INTERACTION:
+16. ✓ Hover any card — border 
+    brightens, slight lift, arrow 
+    moves right
+17. ✓ Click card — opens project 
+    detail modal
+18. ✓ Modal shows status badge + 
+    division tag at top
+19. ✓ Modal shows title + subtitle
+20. ✓ Three sections: CHALLENGE / 
+    APPROACH / OUTCOME (Outcome 
+    highlighted gold)
+21. ✓ "Hire This Division" CTA at 
+    bottom routes to contact.html?
+    division=xxx (each of 7 
+    divisions routes correctly)
+22. ✓ ESC, X, backdrop click — 
+    all dismiss
+
+OUR APPROACH:
+23. ✓ "How We Build." heading
+24. ✓ 4 pillars in horizontal row
+25. ✓ Locked descriptions with new 
+    institutional copy
+
+FINAL CTA:
+26. ✓ "Have A Project / In Mind?" 
+    stacked headline
+27. ✓ Hire Our Services button 
+    (gold)
+28. ✓ WhatsApp Direct button 
+    (green)
+
+MOBILE:
+29. ✓ At ~1000px: 3-col grid
+30. ✓ At ~700px: 2-col grid
+31. ✓ At ~400px: 1-col grid
+32. ✓ Hero headlines scale 
+    appropriately
+33. ✓ Modal scales to full screen
+
+PRESERVATION:
+34. ✓ Other pages unchanged
+35. ✓ All locked typography 
+    preserved
+
+After fixing — refresh browser. 
+Take EIGHT screenshots:
+
+1. /projects.html showing hero
+2. Impact metrics band
+3. Project grid showing all 8 cards 
+   in 4-column grid (2 rows)
+4. Click Card 7 (Arif Advisory) — 
+   modal open showing three 
+   sections
+5. Click Card 8 (Hijau Bitcoin 
+   Mining) — modal open
+6. Our Approach pillars (4 boxes)
+7. Final CTA band
+8. Mobile view (~700px) showing 
+   2-col grid
+
+Bring all 8 back for review.

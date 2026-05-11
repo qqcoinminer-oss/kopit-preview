@@ -1,0 +1,293 @@
+COMPREHENSIVE BUILD — FOOTER UPDATE
+TARGETED CHANGES · DO NOT REBUILD ENTIRE FOOTER
+
+The footer already exists with the 
+correct three-column structure (Logo / 
+Quick Links / Get In Touch). Apply ONLY 
+the specific changes listed below.
+
+DO NOT touch any other section of the 
+homepage. DO NOT redesign the footer 
+layout — just update the content per 
+the specifications.
+
+═══════════════════════════════════════
+CHANGE 1 — VERIFY KOPIT LOGO FONT
+═══════════════════════════════════════
+
+The "KOPIT" wordmark in the footer 
+(below the network node icon) must 
+use Cinzel font to match the navbar 
+KOPIT wordmark.
+
+If currently using Georgia, Playfair 
+Display, or any other font, change to:
+
+font-family: 'Cinzel', serif
+font-weight: 700
+letter-spacing: 4px
+color: #C9A84C (gold, unchanged)
+
+If already Cinzel, leave it.
+
+═══════════════════════════════════════
+CHANGE 2 — UPDATE QUICK LINKS LIST
+═══════════════════════════════════════
+
+Find the "QUICK LINKS" column in the 
+footer. Update to exactly match the 
+navbar — 7 links in this exact order 
+with these exact labels:
+
+CURRENT (likely 7 links with various 
+labels like "Our Divisions", "News & 
+Updates", "Contact Us"):
+
+NEW (must match navbar exactly):
+1. Home
+2. About
+3. Divisions
+4. Projects
+5. Membership
+6. News
+7. Contact
+
+Each link should:
+- Use the same em-dash bullet "—" prefix 
+  as currently shown
+- Maintain Source Sans 3 font
+- Maintain hover effect
+- Link to its respective page:
+  - Home → / or /index.html
+  - About → /about.html
+  - Divisions → /divisions.html
+  - Projects → /projects.html
+  - Membership → /membership.html
+  - News → /news.html
+  - Contact → /contact.html
+
+Note: Most of these pages don't exist 
+yet and will 404 until built. Acceptable 
+for now.
+
+═══════════════════════════════════════
+CHANGE 3 — REPLACE PLACEHOLDER EMAIL
+═══════════════════════════════════════
+
+In the "GET IN TOUCH" column, find the 
+email line that currently shows:
+
+"Email: [to be confirmed]"
+
+Replace with:
+
+"Email: admin@kopit.com.my"
+
+The email should be a clickable mailto 
+link:
+<a href="mailto:admin@kopit.com.my" 
+ style="color:inherit;text-decoration:none;">
+  admin@kopit.com.my
+</a>
+
+Maintain existing email icon (✉ or 
+similar) before the address.
+
+═══════════════════════════════════════
+CHANGE 4 — ROUTE "SEND US A MESSAGE" 
+BUTTON
+═══════════════════════════════════════
+
+Find the gold "Send Us a Message" button 
+in the "GET IN TOUCH" column.
+
+Update its href to:
+href="/contact.html"
+
+Note: /contact.html will 404 until that 
+page is built later. Acceptable.
+
+Maintain all existing button styling 
+(gold background, dark text, padding, 
+border-radius, hover effect).
+
+═══════════════════════════════════════
+CHANGE 5 — UPDATE BOTTOM STRIP 
+(COPYRIGHT + LEGAL LINKS)
+═══════════════════════════════════════
+
+The bottom strip currently shows:
+"© 2025 KOPIT. All rights reserved."
+(left side)
+"Malaysia's Premier IT Koperasi"
+(right side, italic gold)
+
+Update to inline format with Privacy 
+Policy and Terms of Service inserted 
+between copyright and tagline:
+
+NEW LEFT SIDE TEXT:
+"© 2025 KOPIT. All rights reserved. · 
+Privacy Policy · Terms of Service"
+
+NEW RIGHT SIDE TEXT (unchanged):
+"Malaysia's Premier IT Koperasi"
+
+Styling for new links:
+- "Privacy Policy" and "Terms of Service" 
+  are inline links separated by middle 
+  dots (·)
+- Same font and size as the copyright 
+  text
+- Color: rgba(255, 255, 255, 0.5) 
+  (subtle, matches copyright)
+- Hover: color changes to #C9A84C (gold)
+- Cursor: pointer
+- Text-decoration: none
+
+Link destinations:
+- Privacy Policy → /privacy.html
+- Terms of Service → /terms.html
+
+Note: Both pages don't exist yet. They 
+will 404 until built later. Acceptable.
+
+═══════════════════════════════════════
+CHANGE 6 — VERIFY NO SOCIAL MEDIA 
+ICONS
+═══════════════════════════════════════
+
+If the footer has any social media 
+icons (Facebook, LinkedIn, Twitter, 
+Instagram, etc.), do NOT add any.
+
+If there are existing social icons in 
+the current footer that I'm not aware 
+of, REMOVE them.
+
+User specifically requested no social 
+media icons at this stage.
+
+═══════════════════════════════════════
+CHANGE 7 — VERIFY NO ADDRESS LINE
+═══════════════════════════════════════
+
+If the footer has any physical address 
+line (Cheras, Kuala Lumpur, etc.), do 
+NOT add or keep one.
+
+User specifically requested address 
+to remain private.
+
+═══════════════════════════════════════
+WHAT NOT TO TOUCH
+═══════════════════════════════════════
+
+PRESERVE:
+- Network node logo SVG (gold, top of 
+  footer left column)
+- Full registered name "Koperasi 
+  Usahawan Informasi Teknologi 
+  Malaysia Berhad"
+- Tagline "Malaysia's Premier IT 
+  Koperasi" (italic, gold)
+- "Registered under Suruhanjaya 
+  Koperasi Malaysia (SKM) · Est. 2022 
+  · E-Perolehan Registered Vendor"
+- "GET IN TOUCH" column heading
+- WhatsApp icon (green)
+- WhatsApp number "010-5122561"
+- "Available Mon – Fri, 9am – 6pm"
+- Three-column layout
+- Background colour (dark navy)
+- All padding, margins, spacing
+- Footer border-top divider before the 
+  bottom strip
+- Bottom strip styling (smaller text, 
+  subtle border separator)
+
+PRESERVE EVERY OTHER SECTION OF THE 
+HOMEPAGE COMPLETELY:
+- Navbar
+- Hero
+- Who We Are
+- Our Foundation
+- Seven Divisions
+- The 8th Division
+- How KOPIT Works
+- Membership Carousel
+- Closing Manifesto
+
+═══════════════════════════════════════
+VERIFICATION CHECKLIST
+═══════════════════════════════════════
+
+After build, verify the following:
+
+KOPIT LOGO:
+1. ✓ "KOPIT" in footer uses Cinzel font
+2. ✓ Gold color preserved
+3. ✓ Network node icon above unchanged
+
+QUICK LINKS (must match navbar exactly):
+4. ✓ Home
+5. ✓ About (not "About KOPIT")
+6. ✓ Divisions (not "Our Divisions")
+7. ✓ Projects
+8. ✓ Membership
+9. ✓ News (not "News & Updates")
+10. ✓ Contact (not "Contact Us")
+11. ✓ Each link clickable
+12. ✓ Em-dash bullets preserved
+
+GET IN TOUCH:
+13. ✓ WhatsApp 010-5122561 unchanged
+14. ✓ "Available Mon – Fri, 9am – 6pm" 
+    unchanged
+15. ✓ Email shows "admin@kopit.com.my" 
+    (NOT "[to be confirmed]")
+16. ✓ Email is clickable mailto link
+17. ✓ "Send Us a Message" button 
+    routes to /contact.html
+
+BOTTOM STRIP:
+18. ✓ Left side reads: "© 2025 KOPIT. 
+    All rights reserved. · Privacy 
+    Policy · Terms of Service"
+19. ✓ "Privacy Policy" link → 
+    /privacy.html
+20. ✓ "Terms of Service" link → 
+    /terms.html
+21. ✓ Right side reads: "Malaysia's 
+    Premier IT Koperasi" (italic gold, 
+    unchanged)
+22. ✓ Hover on Privacy Policy / Terms 
+    turns gold
+
+PRESERVATION CHECKS:
+23. ✓ Three-column layout intact
+24. ✓ Network node logo intact
+25. ✓ Full registered name intact
+26. ✓ "Malaysia's Premier IT Koperasi" 
+    tagline intact
+27. ✓ SKM + Est. 2022 + E-Perolehan 
+    line intact
+28. ✓ NO social media icons added
+29. ✓ NO physical address added
+30. ✓ All other homepage sections 
+    unchanged
+
+After fixing — refresh browser. 
+Take FOUR screenshots:
+
+1. Full footer view (showing all 3 
+   columns including new email and 
+   updated Quick Links)
+2. Bottom strip close-up (showing 
+   new Privacy Policy + Terms links)
+3. Hover state on "Privacy Policy" 
+   link (showing gold colour change)
+4. Mobile view of footer (browser 
+   ~400px wide)
+
+Bring all 4 back for review.

@@ -1,0 +1,642 @@
+COMPREHENSIVE BUILD — TYPOGRAPHY 
+SIZING ROUND 2 · AGGRESSIVE 
+READABILITY + CONTRAST BOOST
+
+This is the SECOND sizing pass. The 
+first pass was too conservative. 
+This pass applies real luxury 
+readability standards across all 
+small text site-wide.
+
+═══════════════════════════════════════
+FILES TO MODIFY
+═══════════════════════════════════════
+
+1. C:\Projects\KOPIT-Website\index.html
+2. C:\Projects\KOPIT-Website\contact.html
+3. C:\Projects\KOPIT-Website\membership.html
+
+═══════════════════════════════════════
+WHAT THIS BUILD DOES
+═══════════════════════════════════════
+
+A) SIZING INCREASES (smallest text 
+   only — headlines and body 
+   paragraphs already correct)
+
+B) OPACITY BOOSTS on light grey 
+   text for genuine contrast
+
+C) MINOR PROPORTIONAL ADJUSTMENTS 
+   (ornament hairlines, step circles)
+
+═══════════════════════════════════════
+GLOBAL FIND & REPLACE PATTERNS
+═══════════════════════════════════════
+
+These changes apply across ALL 3 
+files. Search and replace carefully 
+— only update font-size and opacity 
+in matching contexts.
+
+─────────────────────────────────────
+CHANGE 1 — SECTION LABELS
+─────────────────────────────────────
+
+Section labels are inline gold 
+caption text like "MEMBERSHIP", 
+"CONTACT", "THE PHILOSOPHY", 
+"GOVERNANCE PILLAR", "CAPITAL 
+STRUCTURE", "THE SIX TIERS", 
+"SIDE BY SIDE", "THE PATHWAY", 
+"EXPRESS INTEREST", "THE 
+INVITATION", "DIRECT CHANNELS", 
+"PROJECT INQUIRY", etc.
+
+FROM:
+font-size: 11px;
+letter-spacing: 4px;
+
+TO:
+font-size: 13px;
+letter-spacing: 4px;
+
+ALSO update the vertical hairline 
+ornaments flanking these labels:
+
+FROM:
+width: 1px;
+height: 14px;
+
+TO:
+width: 1px;
+height: 16px;
+
+ALSO update opacity where applicable:
+
+FROM:
+color: rgba(201, 168, 76, 0.7);
+
+TO:
+color: rgba(201, 168, 76, 0.85);
+
+─────────────────────────────────────
+CHANGE 2 — STREAM BOX STAT LABELS
+─────────────────────────────────────
+
+(Capital Structure section in 
+membership.html)
+
+These are stat row labels like 
+"VALUE PER SHARE", "RETURNS", 
+"MINIMUM", "RATE", "TERM" inside 
+the stream boxes.
+
+FROM:
+font-size: 10px;
+color: rgba(255, 255, 255, 0.55);
+(or rgba(244, 239, 232, 0.6))
+
+TO:
+font-size: 12px;
+color: rgba(244, 239, 232, 0.7);
+
+Stat row VALUES (RM 200, Annual 
+Dividend, etc.):
+
+FROM:
+font-size: 14px;
+
+TO:
+font-size: 15px;
+
+─────────────────────────────────────
+CHANGE 3 — SUB-SECTION HEADERS
+─────────────────────────────────────
+
+Headers within stream boxes like 
+"SHARE QUANTITY BY TIER", 
+"VOLUME RECLASSIFIES TIER":
+
+FROM:
+font-size: 10px;
+color: rgba(201, 168, 76, 0.7);
+
+TO:
+font-size: 12px;
+color: rgba(201, 168, 76, 0.85);
+
+─────────────────────────────────────
+CHANGE 4 — STEP CIRCLES (HOW TO APPLY)
+─────────────────────────────────────
+
+The 4 numbered circles in the 
+"How To Apply" section.
+
+FROM:
+width: 64px;
+height: 64px;
+
+TO:
+width: 72px;
+height: 72px;
+
+The number inside (1, 2, 3, 4):
+
+FROM:
+font-size: 22px;
+
+TO:
+font-size: 26px;
+
+The connection line offset (top 
+position of horizontal line):
+
+FROM:
+top: 30px;
+
+TO:
+top: 36px;
+
+─────────────────────────────────────
+CHANGE 5 — STEP LABELS & DESCRIPTIONS
+─────────────────────────────────────
+
+Labels under step circles 
+("EXPRESS INTEREST", "INITIAL 
+DIALOGUE", "BOD REVIEW", 
+"INVITATION"):
+
+FROM:
+font-size: 10px;
+color: rgba(201, 168, 76, 0.85);
+
+TO:
+font-size: 12px;
+color: rgba(201, 168, 76, 0.95);
+
+Step descriptions (paragraphs 
+under labels):
+
+FROM:
+font-size: 13px;
+color: rgba(255, 255, 255, 0.6);
+
+TO:
+font-size: 14px;
+color: rgba(244, 239, 232, 0.8);
+
+─────────────────────────────────────
+CHANGE 6 — WORKED EXAMPLE LABELS
+─────────────────────────────────────
+
+(Membership page Capital Structure 
+section)
+
+Top labels "EXAMPLE 1 · MODEST 
+ENTRY" / "EXAMPLE 2 · STRATEGIC 
+SCALE":
+
+FROM:
+font-size: 11px;
+color: rgba(201, 168, 76, 0.85);
+
+TO:
+font-size: 12px;
+color: rgba(201, 168, 76, 0.95);
+
+Italic description "A KB member 
+chooses to invest RM 50,000.":
+
+FROM:
+font-size: 15px;
+color: rgba(255, 255, 255, 0.85);
+
+TO:
+font-size: 16px;
+color: rgba(244, 239, 232, 0.9);
+
+BEFORE / AFTER labels inside 
+mini-boxes:
+
+FROM:
+font-size: 8px;
+color: rgba(255, 255, 255, 0.5);
+
+TO:
+font-size: 11px;
+color: rgba(244, 239, 232, 0.7);
+
+BEFORE / AFTER content (KB · 1 
+share · Dividend only):
+
+FROM:
+font-size: 12px;
+color: rgba(255, 255, 255, 0.85);
+
+TO:
+font-size: 13px;
+color: rgba(244, 239, 232, 0.9);
+
+After 3 years footnote:
+
+FROM:
+font-size: 11px;
+color: rgba(255, 255, 255, 0.5);
+
+TO:
+font-size: 12px;
+color: rgba(244, 239, 232, 0.65);
+
+─────────────────────────────────────
+CHANGE 7 — MEMBERSHIP CARD MICRO-TEXT
+─────────────────────────────────────
+
+(Both homepage carousel cards AND 
+membership page BOD card)
+
+KOPIT wordmark on cards:
+
+FROM:
+font-size: 14px;
+
+TO:
+font-size: 15px;
+
+EST · MMXXII tagline:
+
+FROM:
+font-size: 7-9px;
+color: rgba(255, 228, 150, 0.5-0.6);
+
+TO:
+font-size: 11px;
+color: rgba(255, 228, 150, 0.75);
+
+Member name (italic):
+
+FROM:
+font-size: 11px;
+
+TO:
+font-size: 12px;
+
+MEMBER SINCE label:
+
+FROM:
+font-size: 6.5-8px;
+color: rgba(255, 228, 150, 0.5-0.6);
+
+TO:
+font-size: 10px;
+color: rgba(255, 228, 150, 0.75);
+
+Year display (2022, 2024, etc.):
+
+FROM:
+font-size: 10-11px;
+color: rgba(255, 228, 150, 0.85);
+
+TO:
+font-size: 13px;
+color: rgba(255, 228, 150, 0.95);
+
+Card caption (LEMBAGA PENGARAH · 
+GOVERNANCE, AHLI PELABUR · TIER III, 
+etc.):
+
+FROM:
+font-size: 7-8px;
+color: rgba(255, 228, 150, 0.55-0.7);
+
+TO:
+font-size: 9px;
+color: rgba(255, 228, 150, 0.85);
+
+Card body name (Board of Directors, 
+Strategic Partner) — DO NOT change 
+this. Already correct size.
+
+Malay subtitle (Lembaga Pengarah, 
+Pelabur Agung):
+
+FROM:
+font-size: 10px;
+
+TO:
+font-size: 11px;
+
+Card bottom labels (AGM ELECTED / 
+NOT A TIER, SERIAL · KI3·0001·MY, 
+CERTIFIED BY · BOD · CHAIRMAN):
+
+FROM:
+font-size: 8px;
+color: rgba(255, 228, 150, 0.85);
+
+TO:
+font-size: 10px;
+color: rgba(255, 228, 150, 0.95);
+
+Bottom micro-text strip 
+(KOPIT·KOPIT·KOPIT...):
+
+FROM:
+font-size: 6px;
+
+TO:
+font-size: 8px;
+
+─────────────────────────────────────
+CHANGE 8 — HERO SUBTEXTS
+─────────────────────────────────────
+
+All hero paragraphs under main 
+headings (across 3 pages):
+
+FROM:
+font-size: 17px;
+color: rgba(244, 239, 232, 0.7);
+
+TO:
+font-size: 18px;
+color: rgba(244, 239, 232, 0.8);
+
+Closing manifesto subtext 
+(homepage):
+
+Same change as above.
+
+─────────────────────────────────────
+CHANGE 9 — FOOTER CREDENTIALS
+─────────────────────────────────────
+
+Footer credentials block (E-Perolehan 
+reference number, Est. 2022, etc.):
+
+FROM:
+font-size: 10-11px;
+color: rgba(201, 168, 76, 0.7);
+
+TO:
+font-size: 14px;
+color: rgba(201, 168, 76, 0.85);
+
+Footer separator dots / pipes:
+Keep current size, but increase 
+opacity from 0.4 to 0.6 for 
+visibility.
+
+─────────────────────────────────────
+CHANGE 10 — FORM HELPER TEXT
+─────────────────────────────────────
+
+(Contact page)
+
+Helper text under "Send via 
+WhatsApp" button:
+
+FROM:
+font-size: 13px;
+color: rgba(255, 255, 255, 0.4);
+
+TO:
+font-size: 14px;
+color: rgba(244, 239, 232, 0.6);
+
+Email fallback note 
+("PREFER EMAIL? · ADMIN@KOPIT...") :
+
+FROM:
+font-size: 11px;
+color: rgba(201, 168, 76, 0.5);
+
+TO:
+font-size: 13px;
+color: rgba(201, 168, 76, 0.7);
+
+─────────────────────────────────────
+CHANGE 11 — CONTACT PAGE CHANNEL 
+LABELS
+─────────────────────────────────────
+
+(Contact page left column)
+
+Channel labels (WHATSAPP, EMAIL, 
+OFFICE):
+
+FROM:
+font-size: 11px;
+color: rgba(255, 255, 255, 0.55);
+
+TO:
+font-size: 13px;
+color: rgba(244, 239, 232, 0.75);
+
+Operating Hours box label 
+("OPERATING HOURS"):
+
+FROM:
+font-size: 11px;
+
+TO:
+font-size: 13px;
+
+Operating Hours content 
+("Monday – Friday", "9:00 AM – 
+6:00 PM"):
+
+FROM:
+font-size: 13px;
+
+TO:
+font-size: 14px;
+
+─────────────────────────────────────
+CHANGE 12 — STREAM BOX OPTIONAL PILL
+─────────────────────────────────────
+
+The "OPTIONAL" gold pill badge on 
+Stream Two:
+
+FROM:
+font-size: 8px;
+
+TO:
+font-size: 10px;
+
+─────────────────────────────────────
+CHANGE 13 — STERAM BOX SUBTITLES
+─────────────────────────────────────
+
+The italic Cormorant subtitles in 
+stream boxes ("Modal Saham · 
+Permanent Equity", "Pelaburan Modal 
+· Fixed Return Arrangement"):
+
+FROM:
+font-size: 11px;
+color: rgba(201, 168, 76, 0.7);
+
+TO:
+font-size: 13px;
+color: rgba(201, 168, 76, 0.8);
+
+═══════════════════════════════════════
+GLOBAL OPACITY CONTRAST BOOST
+═══════════════════════════════════════
+
+For ANY light grey text on dark 
+navy background:
+
+OLD: rgba(255, 255, 255, 0.55)
+NEW: rgba(244, 239, 232, 0.7)
+
+OLD: rgba(255, 255, 255, 0.5)
+NEW: rgba(244, 239, 232, 0.65)
+
+OLD: rgba(255, 255, 255, 0.4)
+NEW: rgba(244, 239, 232, 0.6)
+
+OLD: rgba(255, 255, 255, 0.6)
+NEW: rgba(244, 239, 232, 0.75)
+
+OLD: rgba(255, 255, 255, 0.65)
+NEW: rgba(244, 239, 232, 0.8)
+
+This applies to:
+- Hero subtexts
+- Body paragraphs in Cormorant 
+  italic
+- Helper text
+- Footer separator text
+- Card descriptions
+- Step descriptions
+- Footnote text
+
+DO NOT apply to:
+- Headlines (already correct)
+- Pure white text used in primary 
+  emphasis
+- Gold (#C9A84C) text — different 
+  colour family
+
+═══════════════════════════════════════
+WHAT NOT TO TOUCH
+═══════════════════════════════════════
+
+DO NOT MODIFY:
+- Headline sizes (Playfair Display 
+  600/500)
+- Headline arrangements (stacked 
+  pattern)
+- Body paragraph base sizes 
+  (already 14-15px)
+- CTA button typography 
+  (11px caps, weight 600)
+- KOPIT navbar wordmark size
+- Card body MAIN heading sizes 
+  (Board of Directors, Strategic 
+  Partner — these are already 
+  correct)
+- Layout, spacing, padding, gaps
+- Background colours, gradients
+- Border styling
+- Card 3D effects, shadows
+- Section structure
+- HTML structure
+
+═══════════════════════════════════════
+VERIFICATION CHECKLIST
+═══════════════════════════════════════
+
+After build, refresh all 3 pages 
+and verify:
+
+HOMEPAGE:
+1. ✓ All section labels readable 
+   at 13px (— DIVISIONS —, 
+   — MEMBERSHIP —, etc.)
+2. ✓ Hero subtext at 18px / 0.8 
+   opacity
+3. ✓ Card EST tagline visible 
+   at 11px
+4. ✓ MEMBER SINCE labels readable 
+   at 10px
+5. ✓ Year display prominent at 13px
+6. ✓ Card bottom labels (SERIAL, 
+   CERTIFIED BY) readable at 10px
+7. ✓ Closing manifesto subtext 
+   at 18px
+8. ✓ Footer credentials readable 
+   at 14px
+
+CONTACT PAGE:
+9. ✓ Hero subtext at 18px / 0.8
+10. ✓ Section labels at 13px
+11. ✓ Channel labels (WHATSAPP, 
+    EMAIL, OFFICE) at 13px
+12. ✓ Operating Hours readable
+13. ✓ Helper text under button 
+    at 14px
+14. ✓ Email fallback at 13px
+
+MEMBERSHIP PAGE:
+15. ✓ Hero subtext at 18px / 0.8
+16. ✓ Section labels at 13px 
+    across all sections
+17. ✓ Stream box stat labels at 12px
+18. ✓ Stream box values at 15px
+19. ✓ Sub-section headers (SHARE 
+    QUANTITY BY TIER) at 12px
+20. ✓ Stream subtitles (Modal 
+    Saham · Permanent Equity) 
+    at 13px
+21. ✓ "OPTIONAL" pill at 10px
+22. ✓ Worked example labels 
+    (EXAMPLE 1) at 12px
+23. ✓ BEFORE / AFTER labels 
+    JUMP from 8px to 11px (+37%)
+24. ✓ BEFORE / AFTER content 
+    at 13px
+25. ✓ Step circles 72px (was 64px)
+26. ✓ Step numbers 26px (was 22px)
+27. ✓ Step labels at 12px
+28. ✓ Step descriptions at 14px
+29. ✓ BOD card matches homepage 
+    micro-text increases
+
+OPACITY CONTRAST CHECK:
+30. ✓ All white-with-low-opacity 
+    text now uses warm pearl 
+    #F4EFE8 with boosted opacity
+31. ✓ Light grey text genuinely 
+    readable on dark navy
+
+PRESERVATION:
+32. ✓ Headlines unchanged
+33. ✓ CTA buttons unchanged
+34. ✓ Layout unchanged
+35. ✓ Card designs preserved 
+    (only text sizes increased)
+
+After fixing — refresh browser. 
+Take SIX screenshots:
+
+1. Homepage hero showing increased 
+   section label + larger subtext
+2. Homepage carousel card showing 
+   increased card micro-text
+3. Membership page hero with new 
+   sizing
+4. Membership page Capital Structure 
+   section showing increased stream 
+   box stats
+5. Membership page Worked Examples 
+   showing the BEFORE/AFTER labels 
+   jump
+6. Membership page How To Apply 
+   showing larger step circles + 
+   labels
+
+Bring all 6 back for review.

@@ -1,0 +1,666 @@
+SURGICAL FIX — PROJECTS PAGE
+ADD CARDS 7 & 8 + 4-COL GRID + 
+YEAR METADATA + EXPANDED DOCS
+
+Updated fix combining:
+1. Switch grid from 3-col to 4-col
+2. Add Card 7 (Arif Advisory)
+3. Add Card 8 (Hijau Bitcoin Mining)
+4. Add `year` field to ALL projectData 
+   entries (cards 1-8)
+5. Display year subtly in modal footer
+6. Expand documentation comment to 
+   cover ADD + REMOVE workflows
+
+═══════════════════════════════════════
+FILE TO MODIFY
+═══════════════════════════════════════
+
+C:\Projects\KOPIT-Website\
+projects.html
+
+DO NOT MODIFY:
+- index.html
+- contact.html
+- membership.html
+- The existing 6 cards on 
+  projects.html (HTML structure)
+- Hero, Impact Metrics, Our 
+  Approach, Final CTA sections
+- Modal HTML structure
+- Footer
+
+═══════════════════════════════════════
+STEP 1 — UPDATE GRID LAYOUT
+═══════════════════════════════════════
+
+Find the project grid container in 
+the #project-grid section.
+
+CHANGE from:
+grid-template-columns: 
+  repeat(3, 1fr)
+
+TO:
+grid-template-columns: 
+  repeat(4, 1fr)
+
+Update gap if needed:
+gap: 22px
+
+═══════════════════════════════════════
+STEP 2 — UPDATE DOCUMENTATION COMMENT
+═══════════════════════════════════════
+
+Find the existing documentation 
+comment block at the top of the 
+project-grid section. REPLACE it 
+with this expanded version:
+
+<!--
+============================================
+PROJECTS PAGE — UPDATE WORKFLOW GUIDE
+============================================
+
+≡ HOW TO ADD A NEW PROJECT ≡
+
+STEP 1 — Copy an existing 
+.project-card div block in this 
+grid
+
+STEP 2 — Update these fields:
+  - data-project="card-X" (use 
+    next unique ID, e.g. card-9)
+  - onclick="openProjectModal(
+    'card-X')" (match data-project)
+  - data-division="..." (one of: 
+    hijau, wira-digital, bijak-ai, 
+    blockchain, angkasa-build, 
+    dana-sejahtera, arif-advisory)
+  - SVG illustration (copy from 
+    matching division card)
+  - status class (status-active, 
+    status-in-development, 
+    status-planning, status-completed)
+  - status label (ACTIVE, IN 
+    DEVELOPMENT, PLANNING, COMPLETED)
+  - division label
+  - title, description, key field
+
+STEP 3 — Add matching entry to 
+projectData object in JavaScript:
+  'card-X': {
+    status, statusClass, division, 
+    divisionRoute, title, subtitle, 
+    challenge, approach, outcome, 
+    year (4-digit number)
+  }
+
+STEP 4 — Save, refresh browser, 
+verify new card appears and modal 
+opens correctly
+
+≡ HOW TO REMOVE A PROJECT ≡
+
+STEP 1 — Use Ctrl+F to find the 
+card by data-project="card-X"
+
+STEP 2 — Delete the entire 
+.project-card div block (from 
+opening <div class="project-card" 
+to its matching closing </div>)
+
+STEP 3 — Use Ctrl+F to find 
+'card-X': in the projectData 
+object
+
+STEP 4 — Delete the entire entry 
+from 'card-X': { to its closing 
+}, including the trailing comma
+
+STEP 5 — Save, refresh browser, 
+verify card is gone and other 
+cards still work
+
+NOTE: Card IDs do not need to be 
+sequential. If you remove card-3, 
+do NOT renumber cards 4-8. Just 
+leave the gap.
+
+≡ HOW TO UPDATE A PROJECT STATUS ≡
+
+(e.g. project moves from PLANNING 
+→ IN DEVELOPMENT → ACTIVE → 
+COMPLETED)
+
+STEP 1 — Find the card by 
+data-project="card-X"
+
+STEP 2 — Update two values:
+  - status class on .project-status 
+    div (status-X)
+  - status label text (X)
+
+STEP 3 — Update matching 
+projectData entry status and 
+statusClass fields
+
+STEP 4 — Optionally update year 
+field if the project status change 
+marks a milestone
+
+≡ HOW TO REPLACE ILLUSTRATION 
+WITH PHOTO ≡
+
+In the .project-cover div, replace 
+the <svg>...</svg> block with:
+
+<img src="images/photo-name.jpg" 
+ style="position:absolute;inset:0;
+ width:100%;height:100%;
+ object-fit:cover;"/>
+
+Save photo to: 
+C:\Projects\KOPIT-Website\images\
+============================================
+-->
+
+═══════════════════════════════════════
+STEP 3 — ADD ARIF ADVISORY GRADIENT
+═══════════════════════════════════════
+
+In the existing CSS for 
+.project-cover[data-division="..."], 
+add a new entry:
+
+.project-cover[data-division=
+"arif-advisory"] {
+  background: linear-gradient(135deg,
+    #1a1410 0%, #3a2e24 50%, 
+    #1a1410 100%);
+}
+
+═══════════════════════════════════════
+STEP 4 — ADD MODAL FOOTER YEAR CSS
+═══════════════════════════════════════
+
+Add this new CSS rule for the 
+modal year display:
+
+.project-modal-year {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 0.5px solid 
+    rgba(201,168,76,0.12);
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  color: rgba(201,168,76,0.6);
+  text-align: center;
+  font-weight: 500;
+}
+
+═══════════════════════════════════════
+STEP 5 — ADD CARD 7 (ARIF ADVISORY)
+═══════════════════════════════════════
+
+Add this card AFTER existing Card 6 
+(Dana Sejahtera) inside the project 
+grid container:
+
+<div class="project-card" 
+ data-project="card-7" 
+ onclick="openProjectModal(
+ 'card-7')">
+  
+  <div class="project-cover" 
+   data-division="arif-advisory">
+    
+    <svg viewBox="0 0 300 160" 
+     style="position:absolute;
+     inset:0;width:100%;height:100%;">
+      <circle cx="150" cy="80" 
+       r="42" fill="none" 
+       stroke="rgba(212,185,122,
+       0.7)" stroke-width="0.8"/>
+      <circle cx="150" cy="80" 
+       r="32" fill="none" 
+       stroke="rgba(212,185,122,
+       0.4)" stroke-width="0.5"/>
+      <line x1="150" y1="40" 
+       x2="150" y2="120" 
+       stroke="rgba(212,185,122,
+       0.5)" stroke-width="0.5"/>
+      <line x1="108" y1="80" 
+       x2="192" y2="80" 
+       stroke="rgba(212,185,122,
+       0.5)" stroke-width="0.5"/>
+      <polygon points="150,48 
+       145,80 150,75 155,80" 
+       fill="#D4B97A" 
+       opacity="0.95"/>
+      <polygon points="150,112 
+       145,80 150,85 155,80" 
+       fill="rgba(212,185,122,
+       0.5)"/>
+      <circle cx="150" cy="80" 
+       r="3" fill="#F4EFE8"/>
+      <text x="150" y="36" 
+       font-family="Cinzel,serif" 
+       font-size="7" 
+       fill="rgba(212,185,122,0.8)" 
+       text-anchor="middle" 
+       letter-spacing="2">N</text>
+    </svg>
+    
+    <div class="project-status 
+     status-active">ACTIVE</div>
+    <div class="project-division">
+     ARIF ADVISORY</div>
+  </div>
+  
+  <div class="project-info">
+    <h3 class="project-title">
+     Strategic Advisory Programme</h3>
+    <p class="project-description">
+     Multi-domain advisory services 
+     for cooperative members and 
+     external clients. Strategic, 
+     financial, and governance 
+     consultation.</p>
+    <div class="project-footer">
+      <div>
+        <div class="project-key-
+         label">SERVICES</div>
+        <div class="project-key-
+         value">Multi-Domain 
+         Advisory</div>
+      </div>
+      <div class="project-arrow">→</div>
+    </div>
+  </div>
+  
+</div>
+
+═══════════════════════════════════════
+STEP 6 — ADD CARD 8 (HIJAU BITCOIN)
+═══════════════════════════════════════
+
+Add this card AFTER Card 7:
+
+<div class="project-card" 
+ data-project="card-8" 
+ onclick="openProjectModal(
+ 'card-8')">
+  
+  <div class="project-cover" 
+   data-division="hijau">
+    
+    <svg viewBox="0 0 300 160" 
+     style="position:absolute;
+     inset:0;width:100%;height:100%;
+     opacity:0.3;">
+      <defs>
+        <radialGradient 
+         id="hijau-sun-2">
+          <stop offset="0%" 
+           stop-color="rgba(255,228,
+           150,0.5)"/>
+          <stop offset="100%" 
+           stop-color="rgba(255,228,
+           150,0)"/>
+        </radialGradient>
+      </defs>
+      <circle cx="240" cy="45" 
+       r="32" 
+       fill="url(#hijau-sun-2)"/>
+      <circle cx="240" cy="45" 
+       r="20" 
+       fill="rgba(255,228,150,
+       0.4)"/>
+      <rect x="40" y="90" 
+       width="220" height="55" 
+       fill="rgba(60,140,90,0.4)" 
+       rx="2"/>
+      <line x1="40" y1="105" 
+       x2="260" y2="105" 
+       stroke="rgba(60,140,90,
+       0.6)" stroke-width="0.5"/>
+      <line x1="40" y1="118" 
+       x2="260" y2="118" 
+       stroke="rgba(60,140,90,
+       0.6)" stroke-width="0.5"/>
+      <line x1="40" y1="131" 
+       x2="260" y2="131" 
+       stroke="rgba(60,140,90,
+       0.6)" stroke-width="0.5"/>
+    </svg>
+    
+    <div class="project-status 
+     status-active">ACTIVE</div>
+    <div class="project-division">
+     HIJAU</div>
+  </div>
+  
+  <div class="project-info">
+    <h3 class="project-title">
+     Bitcoin Mining Infrastructure 
+     · Kampar</h3>
+    <p class="project-description">
+     Solar-powered HPC compute 
+     infrastructure leveraging 
+     cooperative renewable energy. 
+     Member-led EPC delivery.</p>
+    <div class="project-footer">
+      <div>
+        <div class="project-key-
+         label">COMPUTE</div>
+        <div class="project-key-
+         value">Solar HPC Hub</div>
+      </div>
+      <div class="project-arrow">→</div>
+    </div>
+  </div>
+  
+</div>
+
+═══════════════════════════════════════
+STEP 7 — ADD YEAR FIELD TO ALL 
+PROJECTDATA ENTRIES
+═══════════════════════════════════════
+
+Update the existing projectData 
+object — add a `year` field to each 
+of the 6 existing entries AND the 
+2 new entries.
+
+Locate the existing projectData 
+entries for card-1 through card-6 
+and add `year: YYYY,` after the 
+`outcome:` line in each.
+
+Year values to use (representing 
+when each project started/began):
+
+card-1 (Floating Solar): year: 2024
+card-2 (Member Portal): year: 2024
+card-3 (SME Decision Intelligence): 
+  year: 2025
+card-4 (Member Share Registry): 
+  year: 2023
+card-5 (Education Campus): year: 2024
+card-6 (Treasury Operations): 
+  year: 2022
+
+Then add the two new entries:
+
+  ,
+  'card-7': {
+    status: 'ACTIVE',
+    statusClass: 'status-active',
+    division: 'ARIF ADVISORY',
+    divisionRoute: 'arif-advisory',
+    title: 'Strategic Advisory '
+      + 'Programme',
+    subtitle: 'Multi-Domain '
+      + 'Cooperative Advisory',
+    challenge: 'Cooperative members '
+      + 'and external clients '
+      + 'require expert advisory '
+      + 'across strategic, '
+      + 'financial, and governance '
+      + 'domains aligned with '
+      + 'Malaysian cooperative and '
+      + 'business contexts.',
+    approach: 'Arif Advisory '
+      + 'division providing '
+      + 'multi-domain consultation '
+      + 'with member-priority '
+      + 'access. Services span '
+      + 'strategic planning, '
+      + 'financial structuring, '
+      + 'and regulatory advisory.',
+    outcome: 'Active advisory '
+      + 'engagement delivering '
+      + 'expert guidance to KOPIT '
+      + 'members and external '
+      + 'clients while building '
+      + 'cooperative knowledge '
+      + 'capital.',
+    year: 2024
+  },
+  'card-8': {
+    status: 'ACTIVE',
+    statusClass: 'status-active',
+    division: 'HIJAU',
+    divisionRoute: 'hijau',
+    title: 'Bitcoin Mining '
+      + 'Infrastructure',
+    subtitle: 'Solar-Powered HPC '
+      + 'Compute · Kampar',
+    challenge: 'Energy-intensive '
+      + 'compute infrastructure '
+      + 'requires sustainable '
+      + 'power source, cooperative '
+      + 'capital structure, and '
+      + 'member-aligned operational '
+      + 'model.',
+    approach: 'Hijau division '
+      + 'integrating cooperative '
+      + 'renewable energy with '
+      + 'HPC compute infrastructure. '
+      + 'BOD-reviewed financial '
+      + 'structure with member '
+      + 'capital programme '
+      + 'deployment.',
+    outcome: 'Active solar-powered '
+      + 'HPC infrastructure '
+      + 'generating returns through '
+      + 'compute services while '
+      + 'maintaining cooperative '
+      + 'sustainability principles '
+      + 'and member wealth '
+      + 'distribution.',
+    year: 2025
+  }
+
+═══════════════════════════════════════
+STEP 8 — UPDATE OPENPROJECTMODAL 
+TO DISPLAY YEAR
+═══════════════════════════════════════
+
+Find the existing 
+window.openProjectModal function in 
+the JavaScript. Update it to 
+display the year in the modal 
+footer.
+
+Find the section that injects HTML 
+into the sections container 
+(currently injects Challenge / 
+Approach / Outcome).
+
+After injecting the three sections, 
+ALSO inject a year display IF the 
+data has a year field.
+
+Modify the openProjectModal 
+function to add this AFTER the 
+existing sections.innerHTML 
+assignment:
+
+// Add year display
+const existingYear = document
+  .querySelector(
+  '.project-modal-year');
+if (existingYear) existingYear
+  .remove();
+
+if (data.year) {
+  const yearDiv = document
+    .createElement('div');
+  yearDiv.className = 
+    'project-modal-year';
+  yearDiv.textContent = 
+    'PROJECT YEAR · ' + data.year;
+  sections.parentElement
+    .insertBefore(
+    yearDiv, 
+    sections.nextSibling);
+}
+
+═══════════════════════════════════════
+STEP 9 — UPDATE MOBILE BREAKPOINTS
+═══════════════════════════════════════
+
+Find the existing @media queries 
+in the CSS and update/add these 
+breakpoints:
+
+@media (max-width: 1100px) {
+  /* 4-col → 3-col */
+  #project-grid > div > 
+   div[style*="grid-template-"],
+  #project-grid .project-grid {
+    grid-template-columns: 
+      repeat(3, 1fr) !important;
+  }
+}
+
+@media (max-width: 900px) {
+  /* 3-col → 2-col */
+  #project-grid > div > 
+   div[style*="grid-template-"],
+  #project-grid .project-grid {
+    grid-template-columns: 
+      repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 600px) {
+  /* 2-col → 1-col */
+  #project-grid > div > 
+   div[style*="grid-template-"],
+  #project-grid .project-grid {
+    grid-template-columns: 1fr 
+      !important;
+  }
+}
+
+═══════════════════════════════════════
+WHAT NOT TO TOUCH
+═══════════════════════════════════════
+
+DO NOT MODIFY:
+- Existing Cards 1-6 HTML structure 
+  (only add `year` to their 
+  projectData entries)
+- Hero, Impact Metrics, Our 
+  Approach, Final CTA sections
+- Modal HTML structure (only ADD 
+  the year display to the JS 
+  injection)
+- Footer
+- Navbar
+- index.html, contact.html, 
+  membership.html
+
+═══════════════════════════════════════
+VERIFICATION CHECKLIST
+═══════════════════════════════════════
+
+After fix:
+
+GRID LAYOUT:
+1. ✓ Project grid is now 4 columns 
+   wide (was 3)
+2. ✓ 8 cards display in 2 rows of 4
+
+NEW CARDS:
+3. ✓ Card 7 visible with ARIF 
+   ADVISORY tag and compass/balance 
+   illustration
+4. ✓ Card 7 status: ACTIVE (green)
+5. ✓ Card 7 title: "Strategic 
+   Advisory Programme"
+6. ✓ Card 8 visible with HIJAU 
+   tag and sun+solar illustration
+7. ✓ Card 8 status: ACTIVE (green)
+8. ✓ Card 8 title: "Bitcoin Mining 
+   Infrastructure · Kampar"
+
+ALL DIVISIONS REPRESENTED:
+9. ✓ Hijau (Cards 1 & 8)
+10. ✓ Wira Digital (Card 2)
+11. ✓ Bijak AI (Card 3)
+12. ✓ Blockchain (Card 4)
+13. ✓ Angkasa Build (Card 5)
+14. ✓ Dana Sejahtera (Card 6)
+15. ✓ Arif Advisory (Card 7)
+
+YEAR METADATA & DISPLAY:
+16. ✓ All 8 projectData entries 
+    now have year field
+17. ✓ Click any card — modal opens 
+    showing PROJECT YEAR · YYYY 
+    in subtle gold text below the 
+    three sections
+18. ✓ Year display is visually 
+    subtle (10px Cinzel gold 0.6, 
+    centered, with hairline above)
+
+DOCUMENTATION COMMENT:
+19. ✓ Updated comment block in 
+    HTML covers ADD, REMOVE, 
+    UPDATE STATUS, and PHOTO 
+    REPLACE workflows
+
+MODAL FUNCTIONALITY:
+20. ✓ Click Card 7 — modal opens 
+    with Strategic Advisory 
+    Programme, three sections, 
+    year 2024
+21. ✓ Click Card 8 — modal opens 
+    with Bitcoin Mining, year 2025
+22. ✓ All existing cards 1-6 modals 
+    show correct years
+23. ✓ ESC, X, backdrop click — 
+    all dismiss
+
+EXISTING CARDS PRESERVED:
+24. ✓ Cards 1-6 visual unchanged
+25. ✓ All existing modals still 
+    work with new year addition
+
+MOBILE RESPONSIVE:
+26. ✓ At ~1000px: grid becomes 
+    3-column
+27. ✓ At ~700px: grid becomes 
+    2-column
+28. ✓ At ~400px: grid becomes 
+    1-column
+
+PRESERVATION:
+29. ✓ Hero unchanged
+30. ✓ Impact Metrics unchanged
+31. ✓ Our Approach unchanged
+32. ✓ Final CTA unchanged
+
+After fixing — refresh browser. 
+Take FIVE screenshots:
+
+1. Full project grid showing all 
+   8 cards in 4-column layout
+2. Click Card 7 (Arif Advisory) — 
+   modal open showing year 2024 
+   in footer
+3. Click Card 8 (Hijau Bitcoin) — 
+   modal open showing year 2025 
+   in footer
+4. Click any existing card 
+   (Card 1) — modal open showing 
+   its year
+5. Mobile view (~700px) showing 
+   2-column grid with all 8 cards
+
+Bring all 5 back for review.

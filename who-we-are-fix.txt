@@ -1,0 +1,255 @@
+URGENT FIX — REPLACE WHO WE ARE AREA
+
+═══════════════════════════════════════
+STEP 1 — DELETE THE WHITE SECTION
+═══════════════════════════════════════
+Delete entirely the white background 
+section that contains:
+- "WHO WE ARE" tag pill
+- "A Cooperative Built for Technology 
+  Entrepreneurs" heading
+- "Trusted Since 2022" card
+- "SKM Registered" card
+This whole section must be REMOVED.
+
+═══════════════════════════════════════
+STEP 2 — INSERT NEW MANIFESTO SECTION
+═══════════════════════════════════════
+INSERT a new section BEFORE the 4 
+identity boxes (between hero and 
+the 4 boxes).
+
+Background: navy #0A1628
+Padding: 80px vertical
+Container: max-width 1300px, margin auto
+
+Section label at top (centred):
+- Vertical gold line ornament 1px x 18px,
+  gradient transparent to #C9A84C, 
+  margin-bottom 8px
+- Below: "WHO WE ARE"
+- Calibri 9px, letter-spacing 4px,
+  color rgba(201,168,76,0.6)
+
+Two-column grid:
+- grid-template-columns: 1.2fr 1fr
+- gap: 60px
+- align-items: center
+
+═══════════════════════════════════════
+LEFT COLUMN — MANIFESTO
+═══════════════════════════════════════
+
+Heading (Cinzel):
+"We are not<br>
+<span class='gold'>a company.</span>"
+
+Style:
+- 'Cinzel', Cambria, serif
+- 34px / 1.2 line-height / 700 weight
+- letter-spacing 1px
+- color #fff
+- .gold: color #C9A84C, italic, 
+  font-family Cambria (NOT Cinzel)
+
+Gold line below: 60px x 1px, gradient
+#C9A84C to transparent, margin 18px 0 24px
+
+Body (Calibri 14.5px / 1.85 line-height /
+0.3px letter-spacing / rgba(255,255,255,0.65)):
+
+Paragraph 1:
+"KOPIT is a <strong>registered technology 
+cooperative</strong> — where every member 
+is a co-owner, every project builds shared 
+wealth, and every ringgit earned comes 
+back to the people who earned it."
+
+Paragraph 2:
+"We are <strong>not investors waiting for 
+returns</strong>. We are <strong>not 
+employees collecting salaries</strong>. 
+We are <strong>builders, owners, and 
+partners</strong> — quietly building 
+Malaysia's digital and energy future, 
+one project at a time."
+
+strong: rgba(255,255,255,0.92), font-weight 400
+
+Pull quote:
+- Padding 16px 20px
+- Border-left 2px solid #C9A84C
+- Background rgba(201,168,76,0.04)
+- Italic Cambria 14px
+- Color rgba(255,255,255,0.85)
+- Text: "Built by its members. Governed 
+  by its members. Grown by its members."
+
+═══════════════════════════════════════
+RIGHT COLUMN — CREDENTIALS BOX
+═══════════════════════════════════════
+
+Box style:
+- Background linear-gradient(135deg, 
+  rgba(15,30,53,0.8), rgba(10,22,40,0.6))
+- Border 0.5px solid rgba(201,168,76,0.3)
+- Border-radius 10px
+- Padding 36px 32px
+- Backdrop-filter blur(8px)
+- Box-shadow 0 24px 60px rgba(0,0,0,0.4)
+- Position relative, overflow hidden
+
+Corner accents (pseudo-elements):
+- ::before top-left 14px 14px:
+  24x24px, border-top + border-left 
+  1.5px solid #C9A84C
+- ::after bottom-right 14px 14px:
+  24x24px, border-bottom + border-right 
+  1.5px solid #C9A84C
+
+Title (top of box):
+- "⬡ KOPIT AT A GLANCE ⬡"
+- Calibri 9px, letter-spacing 3px
+- Color rgba(201,168,76,0.7)
+- Centred, padding-bottom 14px
+- Border-bottom 0.5px solid 
+  rgba(201,168,76,0.15)
+- Margin-bottom 24px
+
+4 credential rows:
+- Display flex, gap 14px, align flex-start
+- Padding 14px 0
+- Border-bottom 0.5px solid 
+  rgba(255,255,255,0.06)
+- Last row: no border, no padding-bottom
+- First row: no padding-top
+
+Icon box (32x32):
+- Border-radius 6px
+- Background rgba(201,168,76,0.08)
+- Border 0.5px solid rgba(201,168,76,0.2)
+- Contains gold-stroke SVG icon
+
+Label: Calibri 8.5px, letter-spacing 2px,
+rgba(201,168,76,0.7), uppercase, mb 3px
+
+Value: Cambria 14px bold, #fff,
+letter-spacing 0.3px
+
+Sub: Calibri 10px, rgba(255,255,255,0.45),
+margin-top 2px
+
+ROW 1 — REGISTRATION
+Value: SKM Registered Cooperative
+Sub: Suruhanjaya Koperasi Malaysia
+Icon: checkmark in circle SVG
+
+ROW 2 — PROCUREMENT
+Value: E-Perolehan Registered
+Sub: Federal vendor status
+Icon: checkmark in square SVG
+
+ROW 3 — ESTABLISHED
+Value: 2022
+Sub: Building the foundation
+Icon: calendar SVG
+
+ROW 4 — HEADQUARTERS
+Value: Cheras, Kuala Lumpur
+Sub: Malaysia
+Icon: location pin SVG
+
+═══════════════════════════════════════
+STATUS BADGE — BY INVITATION
+═══════════════════════════════════════
+At bottom of credentials box:
+- Margin-top 20px
+- Padding-top 18px
+- Border-top 0.5px solid rgba(201,168,76,0.15)
+- Display flex, justify centre, gap 8px
+
+Pulsing GOLD dot (NOT green):
+- 6x6px, border-radius 50%
+- Background #C9A84C
+- Box-shadow 0 0 8px #C9A84C
+- Animation pulse 2s infinite
+- @keyframes pulse: 0%,100% opacity 0.7;
+  50% opacity 1
+
+Text "BY INVITATION":
+- Calibri 9px, letter-spacing 2.5px
+- Color rgba(201,168,76,0.95)
+- font-weight 600
+
+IMPORTANT: this badge is GOLD not green.
+The previous "OPEN FOR MEMBERSHIP" 
+language is wrong. KOPIT membership 
+is invitation-only with BOD approval.
+
+═══════════════════════════════════════
+STEP 3 — RELABEL 4 IDENTITY BOXES
+═══════════════════════════════════════
+The 4 boxes section currently labeled 
+"WHO WE ARE" must change.
+
+Find the section label above the 4 boxes
+(E-Perolehan, SKM Registered, 7 Divisions,
+4 Revenue Channels).
+
+Change label from "WHO WE ARE" to:
+"OUR FOUNDATION"
+
+Same styling unchanged. Same vertical 
+ornament line above.
+
+Keep all 4 boxes content unchanged.
+
+═══════════════════════════════════════
+DIVIDER BETWEEN SECTIONS
+═══════════════════════════════════════
+Add a subtle gold gradient line between
+"Who We Are" section and "Our Foundation"
+section:
+- Height 1px
+- Background linear-gradient(to right, 
+  transparent, rgba(201,168,76,0.15), 
+  transparent)
+- Max-width 1100px, margin auto
+
+═══════════════════════════════════════
+FINAL PAGE ORDER
+═══════════════════════════════════════
+1. Navbar
+2. Hero (Living Constellation)
+3. WHO WE ARE — manifesto + credentials
+4. (gold divider line)
+5. OUR FOUNDATION — 4 identity boxes
+6. [next sections continue below]
+
+═══════════════════════════════════════
+VERIFICATION CHECKLIST
+═══════════════════════════════════════
+After implementation:
+1. NO white background sections
+2. NO "Trusted Since 2022" card
+3. NO "A Cooperative Built for 
+   Technology Entrepreneurs" heading
+4. ONE "WHO WE ARE" label only
+5. 4 boxes section labeled "OUR FOUNDATION"
+6. Headquarters shows "Cheras, Kuala Lumpur"
+7. Badge shows GOLD "BY INVITATION" 
+   (not green "OPEN FOR MEMBERSHIP")
+8. Manifesto with "We are not a company." 
+   present
+9. Credentials box with gold corner 
+   brackets present
+10. Pull quote with gold left border 
+    present
+
+DO NOT touch the navbar.
+DO NOT touch the hero section.
+DO NOT touch any section below 
+the 4 identity boxes.
+
+After fixing — refresh browser and 
+screenshot. Bring back for review.

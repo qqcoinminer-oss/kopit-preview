@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Membership — KOPIT · Curated By The Cooperative</title>
+<meta name="description" content="Membership in KOPIT is by invitation. Six tiers reviewed by the Board. Discover the cooperative structure, capital programme, and pathway to membership.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Source+Sans+3:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   KOPIT — Membership Page
+   Navy #0A1628 | Gold #C9A84C
+═══════════════════════════════════════════ */
+
+/* 1. RESET & BASE */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Source Sans 3',sans-serif;color:#2C2C2C;background:#0A1628;overflow-x:hidden;line-height:1.6}
+a{text-decoration:none;color:inherit;transition:all .25s ease}
+ul{list-style:none}
+
+/* 2. VARIABLES */
+:root{
+  --navy:#0A1628;
+  --navy-dk:#060D1A;
+  --gold:#C9A84C;
+  --gold-dk:#A8862A;
+  --gold-lt:#DEC06A;
+  --nav-h:95px;
+  --cw:1160px;
+}
+
+/* 3. LAYOUT */
+.wrap{max-width:var(--cw);margin:0 auto;padding:0 44px}
+
+/* 4. TYPOGRAPHY */
+.italic-accent{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;color:rgba(255,255,255,0.85);}
+
+/* ══════════════════════════════════════════
+   NAVBAR
+══════════════════════════════════════════ */
+.navbar{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:var(--nav-h);background:var(--navy);
+  box-shadow:0 2px 20px rgba(0,0,0,.35);
+  display:flex;align-items:center;
+  transition:height .35s ease, padding .35s ease, box-shadow .35s ease;
+}
+.navbar.scrolled{height:65px}
+.nav-inner{
+  max-width:1600px;margin:0 auto;padding:0 32px;
+  display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:center;width:100%;
+}
+.nav-right{display:flex;align-items:center;justify-content:flex-end;gap:12px;}
+#kopitLogo{background:transparent;display:block;flex-shrink:0;width:75px;height:75px;transition:width .35s ease, height .35s ease;}
+.navbar.scrolled #kopitLogo{width:55px;height:55px}
+.logo-unit{display:flex;align-items:center;gap:11px;flex-shrink:0;cursor:pointer;}
+.logo-text-block{display:flex;flex-direction:column;justify-content:center;}
+.lt-1{font-family:'Cinzel','Playfair Display',serif;font-size:30px;font-weight:700;color:#ffffff;letter-spacing:4px;margin-bottom:2px;display:block;line-height:1;transition:font-size .35s ease;}
+.navbar.scrolled .lt-1{font-size:24px}
+.lt-2{font-family:'Source Sans 3',sans-serif;font-size:10px;color:rgba(255,255,255,0.5);letter-spacing:.4px;white-space:nowrap;display:block;overflow:hidden;max-height:18px;opacity:1;margin-bottom:2px;line-height:1.4;transition:opacity .35s ease, max-height .35s ease, margin-bottom .35s ease;}
+.lt-3{font-family:'Source Sans 3',sans-serif;font-size:11px;font-style:italic;color:rgba(201,168,76,.85);letter-spacing:.5px;display:block;line-height:1;}
+.navbar.scrolled .lt-2{opacity:0;max-height:0;margin-bottom:0;overflow:hidden}
+.nav-links{display:flex;align-items:center;justify-content:center;gap:24px;}
+.nl{font-family:'Source Sans 3',sans-serif;font-size:15px;font-weight:600;letter-spacing:.3px;color:rgba(255,255,255,.75);padding:4px 2px;border-radius:4px;transition:all .2s ease;}
+.nl:hover,.nl.active{color:var(--gold);background:transparent}
+.lang-toggle{display:none}
+.nav-cta{font-family:'Source Sans 3',sans-serif;font-size:14px;font-weight:700;letter-spacing:.04em;background:var(--gold);color:var(--navy);border:none;padding:10px 24px;border-radius:4px;flex-shrink:0;transition:all .2s ease;}
+.nav-cta:hover{background:var(--gold-dk);color:var(--navy)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;margin-left:8px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--gold);border-radius:2px;transition:all .25s ease;}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-links.open{right:0 !important;}
+
+/* ══════════════════════════════════════════
+   STICKY IN-PAGE NAV
+══════════════════════════════════════════ */
+.page-nav-link{color:rgba(255,255,255,0.5);font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;font-weight:600;text-decoration:none;transition:color .2s;}
+.page-nav-link.active,.page-nav-link:hover{color:rgba(201,168,76,0.85);}
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+.footer{background:var(--navy);border-top:1px solid rgba(201,168,76,.14)}
+.footer-main{padding:80px 0 60px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1.2fr;gap:52px;}
+.f-svg-wrap{margin-bottom:18px}
+.f-logo-name{font-family:'Cinzel',serif;font-size:1.22rem;letter-spacing:4px;font-weight:700;color:var(--gold);margin-bottom:4px;}
+.f-tagline{font-family:'Source Sans 3',sans-serif;font-size:.84rem;color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:14px;}
+.f-premier{font-family:'Source Sans 3',sans-serif;font-size:.78rem;font-style:italic;color:rgba(255,255,255,.38);margin-bottom:14px;}
+.f-head{font-family:'Source Sans 3',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;}
+.f-nav-list{display:flex;flex-direction:column;gap:9px}
+.f-nav-list li a{display:flex;align-items:center;gap:9px;font-family:'Source Sans 3',sans-serif;font-size:.88rem;color:rgba(255,255,255,.52);transition:all .2s ease;}
+.f-nav-list li a::before{content:'';width:13px;height:1px;background:var(--gold);opacity:.35;flex-shrink:0;transition:all .2s ease;}
+.f-nav-list li a:hover{color:var(--gold-lt);padding-left:5px}
+.f-nav-list li a:hover::before{width:18px;opacity:1}
+.f-wa{display:inline-flex;align-items:center;gap:11px;font-family:'Source Sans 3',sans-serif;font-size:1.18rem;font-weight:700;color:var(--gold-lt);letter-spacing:.04em;margin-bottom:6px;transition:all .2s ease;}
+.f-wa:hover{color:#EDD47E}
+.f-hours{font-family:'Source Sans 3',sans-serif;font-size:.76rem;color:rgba(255,255,255,.36);margin-bottom:18px}
+.f-email{display:flex;align-items:center;gap:9px;font-family:'Source Sans 3',sans-serif;font-size:.86rem;color:rgba(255,255,255,.48);margin-bottom:22px;}
+.f-contact-btn{display:inline-block;font-family:'Source Sans 3',sans-serif;font-size:.8rem;font-weight:700;color:var(--navy-dk);background:linear-gradient(135deg,var(--gold),var(--gold-lt));padding:10px 24px;border-radius:4px;transition:all .2s ease;}
+.f-contact-btn:hover{transform:translateY(-1px);box-shadow:0 5px 20px rgba(201,168,76,.35)}
+.footer-bar{border-top:1px solid rgba(255,255,255,.055);padding:20px 0}
+.footer-bar-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.footer-bar-inner p{font-family:'Source Sans 3',sans-serif;font-size:.74rem;color:rgba(255,255,255,.28);}
+.bar-r{font-size:.7rem !important;color:rgba(201,168,76,.6) !important;white-space:nowrap}
+.bar-legal{color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s ease;}
+.bar-legal:hover{color:#C9A84C;}
+
+/* ══════════════════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════════════════ */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1)}
+.reveal.vis{opacity:1;transform:translateY(0)}
+
+/* ══════════════════════════════════════════
+   BOD CARD (static, membership page)
+══════════════════════════════════════════ */
+.bod-card-wrap{width:380px;height:235px;margin:40px auto 0;position:relative;border-radius:14px;overflow:hidden;}
+
+/* ══════════════════════════════════════════
+   SECTION-SPECIFIC
+══════════════════════════════════════════ */
+.streams-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:36px;}
+.examples-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.steps-wrap{position:relative;}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;position:relative;z-index:1;}
+.conn-line{position:absolute;top:36px;left:60px;right:60px;height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,0.4) 15%,rgba(201,168,76,0.4) 85%,transparent);z-index:0;}
+.step-circle{width:72px;height:72px;border-radius:50%;background:radial-gradient(circle at 30% 25%,rgba(20,38,62,0.95) 0%,rgba(8,16,28,0.98) 100%);border:1px solid rgba(201,168,76,0.45);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media(max-width:768px){
+  :root{--nav-h:72px}
+  .wrap{padding:0 22px}
+  .hamburger{display:flex}
+  .nav-cta{display:none}
+  .nav-links{position:fixed;top:0;right:-100%;width:268px;height:100vh;background:var(--navy-dk);flex-direction:column;align-items:flex-start;padding:80px 26px 36px;gap:3px;border-left:1px solid rgba(201,168,76,.14);transition:right .38s ease;z-index:999;box-shadow:-18px 0 55px rgba(0,0,0,.38);}
+  .nav-links.open{right:0}
+  .nl{font-size:.92rem;padding:11px 14px;width:100%}
+  .footer-grid{grid-template-columns:1fr;gap:36px}
+  .footer-bar-inner{flex-direction:column;align-items:flex-start;gap:5px}
+  .lt-2{display:none}
+  .footer-main{padding:56px 0 44px}
+  .bod-card-wrap{width:300px;height:188px;}
+  .streams-grid{grid-template-columns:1fr !important;}
+  .examples-grid{grid-template-columns:1fr !important;}
+  .steps-grid{grid-template-columns:1fr 1fr !important;}
+  .conn-line{display:none !important;}
+}
+@media(max-width:480px){
+  .steps-grid{grid-template-columns:1fr !important;}
+}
+
+/* ═══ TIER CAROUSEL + VAULT MODAL (Build 2B) ═══ */
+.tier-carousel{position:relative;width:100%;max-width:1200px;height:420px;margin:0 auto;perspective:1400px;user-select:none;}
+.carousel-stage{position:relative;width:100%;height:100%;transform-style:preserve-3d;}
+.tier-card{position:absolute;top:50%;left:50%;width:440px;height:275px;margin:-137.5px 0 0 -220px;transform-style:preserve-3d;backface-visibility:hidden;cursor:pointer;border-radius:14px;overflow:hidden;transition:opacity 0.4s,filter 0.4s;}
+.tier-card:not(.active){opacity:0.05;pointer-events:none;filter:blur(2px);}
+.tier-card.active{opacity:1;pointer-events:auto;filter:none;z-index:10;}
+.carousel-arrow{position:absolute;top:50%;width:50px;height:50px;background:rgba(10,22,40,0.7);border:1px solid rgba(201,168,76,0.4);border-radius:50%;color:rgba(201,168,76,0.85);font-size:28px;cursor:pointer;opacity:0;transition:opacity 0.3s;display:flex;align-items:center;justify-content:center;z-index:20;line-height:1;}
+.carousel-arrow-left{left:30px;transform:translateY(-50%);}
+.carousel-arrow-right{right:30px;transform:translateY(-50%);}
+.tier-carousel:hover .carousel-arrow{opacity:1;}
+@media(hover:none){.carousel-arrow{opacity:0.5;}}
+.carousel-dots{position:absolute;bottom:-28px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:10;}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(201,168,76,0.25);border:none;cursor:pointer;transition:width 0.3s,background 0.3s;}
+.dot.active{width:24px;border-radius:4px;background:#C9A84C;}
+.vault-modal{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:1000;display:flex;align-items:center;justify-content:center;padding:40px 20px;visibility:hidden;opacity:0;transition:visibility 0s 0.3s,opacity 0.3s;}
+.vault-modal.active{visibility:visible;opacity:1;transition:opacity 0.3s;}
+.vault-backdrop{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(5,12,24,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);cursor:pointer;}
+.vault-content{position:relative;background:rgba(8,16,28,0.92);border:1px solid rgba(201,168,76,0.35);border-radius:14px;max-width:640px;width:100%;max-height:90vh;overflow-y:auto;padding:50px 40px 36px;z-index:1;transform:scale(0.95);transition:transform 0.3s cubic-bezier(0.4,0.0,0.2,1);}
+.vault-modal.active .vault-content{transform:scale(1);}
+.vault-close{position:absolute;top:18px;right:22px;width:36px;height:36px;border-radius:50%;background:rgba(201,168,76,0.1);border:0.5px solid rgba(201,168,76,0.4);color:rgba(201,168,76,0.85);font-size:20px;cursor:pointer;transition:background 0.2s;display:flex;align-items:center;justify-content:center;line-height:1;}
+.vault-close:hover{background:rgba(201,168,76,0.2);}
+.vault-header{text-align:center;margin-bottom:24px;}
+.vault-eyebrow{font-family:'Cinzel',serif;font-size:13px;letter-spacing:4px;color:rgba(201,168,76,0.85);font-weight:600;margin-bottom:8px;}
+.vault-title{font-family:'Playfair Display',serif;font-size:32px;font-weight:600;color:#F4EFE8;margin:0 0 4px;letter-spacing:-0.4px;}
+.vault-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#D4B97A;letter-spacing:1px;}
+.vault-card-back{display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:32px;}
+.vault-stat-row{padding:14px 18px;background:rgba(10,22,40,0.5);border:0.5px solid rgba(180,195,215,0.25);border-radius:6px;}
+.vault-stat-row.highlight{background:rgba(201,168,76,0.08);border:0.5px solid rgba(201,168,76,0.4);}
+.vault-stat-label{font-family:'Cinzel',serif;font-size:11px;letter-spacing:2.5px;color:rgba(220,235,255,0.75);font-weight:600;margin-bottom:6px;}
+.vault-stat-row.highlight .vault-stat-label{color:rgba(201,168,76,0.95);}
+.vault-stat-value{font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:#F4EFE8;}
+.vault-stat-note{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(220,235,255,0.7);margin-top:4px;}
+.vault-cta{text-align:center;}
+.vault-cta-prompt{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:rgba(244,239,232,0.6);margin-bottom:14px;}
+.vault-cta-button{display:inline-block;background:#C9A84C;color:#0A1628;padding:14px 32px;font-family:'Source Sans 3',sans-serif;font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;border-radius:4px;text-decoration:none;transition:background 0.2s;}
+.vault-cta-button:hover{background:#D4B97A;}
+.vault-dismiss-hint{text-align:center;margin-top:24px;padding-top:18px;border-top:0.5px solid rgba(201,168,76,0.15);font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:rgba(244,239,232,0.4);}
+@media(max-width:900px){
+  .tier-carousel{height:auto;perspective:none;}
+  .carousel-stage{transform:none !important;transform-style:flat;display:flex;flex-direction:column;gap:30px;padding:20px;align-items:center;}
+  .tier-card{position:static;margin:0;width:100%;max-width:380px;height:240px;transform:none !important;opacity:1 !important;filter:none !important;pointer-events:auto !important;}
+  .tier-card:not(.active){opacity:1 !important;filter:none !important;}
+  .carousel-arrow{display:none;}
+  .carousel-dots{display:none;}
+  .vault-content{max-width:100%;padding:36px 24px 28px;border-radius:10px;}
+  .vault-title{font-size:26px;}
+  .vault-stat-row{padding:12px 14px;}
+}
+
+/* ═══ COMPARISON TABLE (Build 2C) ═══ */
+.comparison-wrapper{max-width:1100px;margin:0 auto;position:relative;}
+.comparison-scroll{background:rgba(255,255,255,0.025);border:0.5px solid rgba(201,168,76,0.2);border-radius:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.comparison-scroll-hint{display:none;text-align:center;margin-top:14px;font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;color:rgba(201,168,76,0.65);}
+.tier-comparison{width:100%;min-width:900px;border-collapse:collapse;font-family:'Source Sans 3',sans-serif;font-size:13px;}
+.tier-comparison thead{background:rgba(201,168,76,0.08);}
+.comparison-cell{padding:16px 14px;border-right:0.5px solid rgba(201,168,76,0.12);border-bottom:0.5px solid rgba(201,168,76,0.1);text-align:center;vertical-align:middle;color:rgba(244,239,232,0.85);line-height:1.5;}
+.comparison-cell:last-child{border-right:none;}
+.tier-comparison tbody tr:last-child .comparison-cell{border-bottom:none;}
+.tier-header{font-family:'Cinzel',serif;font-size:13px;letter-spacing:3px;color:rgba(201,168,76,0.95);font-weight:600;}
+.comparison-row-label{font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;color:rgba(201,168,76,0.85);font-weight:600;text-align:left;padding-left:18px;background:rgba(201,168,76,0.04);white-space:nowrap;}
+.comparison-multiline{font-size:12px;line-height:1.4;}
+.comparison-empty{color:rgba(244,239,232,0.35);}
+.comparison-gold{color:#D4B97A;font-weight:600;}
+
+/* ═══ VAULT EXTENDED (Build 2C) ═══ */
+.vault-section{margin-bottom:22px;}
+.vault-section-heading{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;color:rgba(201,168,76,0.85);font-weight:600;margin-bottom:12px;padding-left:4px;}
+.vault-section:nth-of-type(2) .vault-section-heading{color:rgba(201,168,76,0.95);}
+.vault-stat-row.highlight{background:linear-gradient(135deg,rgba(201,168,76,0.12) 0%,rgba(201,168,76,0.06) 100%);border:0.5px solid rgba(201,168,76,0.45);}
+.vault-stat-row.portal-access{margin-top:8px;margin-bottom:0;}
+.vault-privileges-box{padding:18px 22px;background:rgba(10,22,40,0.5);border:0.5px solid rgba(180,195,215,0.25);border-radius:6px;display:grid;gap:10px;}
+.vault-privilege-item{display:flex;gap:10px;align-items:flex-start;font-family:'Source Sans 3',sans-serif;font-size:13px;color:rgba(244,239,232,0.85);line-height:1.5;}
+.vault-privilege-mark{color:#D4B97A;font-size:11px;margin-top:3px;flex-shrink:0;}
+
+/* ═══ MOBILE RESPONSIVE (Build 2C) ═══ */
+@media(max-width:900px){
+  #hero h1{font-size:36px !important;}
+  #hero p{font-size:16px !important;}
+  #page-nav{overflow-x:auto;-webkit-overflow-scrolling:touch;justify-content:flex-start;padding:12px 20px;gap:22px;}
+  #page-nav::-webkit-scrollbar{display:none;}
+  .page-nav-link{flex-shrink:0;}
+  .streams-grid{grid-template-columns:1fr !important;}
+  .comparison-scroll-hint{display:block;}
+  section{padding-left:24px !important;padding-right:24px !important;}
+  .vault-content{padding:36px 22px 26px !important;max-width:100% !important;}
+  .vault-title{font-size:26px !important;}
+  .vault-section-heading{font-size:10px !important;}
+  .vault-stat-row{padding:12px 14px !important;}
+  .member-login-content{max-width:100% !important;}
+}
+@media(max-width:600px){
+  #hero h1{font-size:30px !important;}
+  #apply > div > div[style*="grid-template-"]{grid-template-columns:1fr !important;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════ -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" aria-label="KOPIT Home">
+      <div class="logo-unit">
+        <canvas id="kopitLogo" width="60" height="60" style="display:block;flex-shrink:0;"></canvas>
+        <div class="logo-text-block">
+          <span class="lt-1">KOPIT</span>
+          <span class="lt-2">Koperasi Usahawan Informasi Teknologi Malaysia Berhad</span>
+          <span class="lt-3">Malaysia's Premier IT Koperasi</span>
+        </div>
+      </div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html"      class="nl"        data-en="Home"       data-bm="Utama">Home</a></li>
+      <li><a href="about.html"      class="nl"        data-en="About"      data-bm="Tentang">About</a></li>
+      <li><a href="divisions.html"  class="nl"        data-en="Divisions"  data-bm="Bahagian">Divisions</a></li>
+      <li><a href="projects.html"   class="nl"        data-en="Projects"   data-bm="Projek">Projects</a></li>
+      <li><a href="membership.html" class="nl active" data-en="Membership" data-bm="Keahlian">Membership</a></li>
+      <li><a href="news.html"       class="nl"        data-en="News"       data-bm="Berita">News</a></li>
+      <li><a href="contact.html"    class="nl"        data-en="Contact"    data-bm="Hubungi">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btnEN" onclick="setLang('en')">EN</button>
+        <button class="lang-btn"        id="btnBM" onclick="setLang('bm')">BM</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="membership.html" class="nav-cta"
+         data-en="Member Login" data-bm="Log Masuk Ahli">Member Login</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════
+     STICKY IN-PAGE NAVIGATION
+══════════════════════════════════════ -->
+<nav id="page-nav" style="position:sticky;top:70px;background:rgba(10,22,40,0.95);backdrop-filter:blur(8px);border-bottom:0.5px solid rgba(201,168,76,0.2);padding:14px 40px;display:flex;justify-content:center;gap:28px;z-index:50;opacity:0;pointer-events:none;transition:opacity 0.3s;">
+  <a href="#philosophy" class="page-nav-link active">PHILOSOPHY</a>
+  <a href="#governance" class="page-nav-link">GOVERNANCE</a>
+  <a href="#capital"    class="page-nav-link">CAPITAL</a>
+  <a href="#tiers"      class="page-nav-link">SIX TIERS</a>
+  <a href="#compare"    class="page-nav-link">COMPARE</a>
+  <a href="#apply"      class="page-nav-link">APPLY</a>
+</nav>
+
+<!-- ══════════════════════════════════════
+     SECTION 1 — HERO BAND
+══════════════════════════════════════ -->
+<section id="hero" style="background:linear-gradient(135deg,#0A1628 0%,#0F1D33 50%,#0A1628 100%);padding:calc(var(--nav-h) + 60px) 30px 80px;text-align:center;position:relative;overflow:hidden;border-bottom:0.5px solid rgba(201,168,76,0.15);">
+  <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.04;pointer-events:none;" viewBox="0 0 800 400">
+    <defs>
+      <pattern id="heroGrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#C9A84C" stroke-width="0.5"/>
+      </pattern>
+    </defs>
+    <rect width="800" height="400" fill="url(#heroGrid)"/>
+  </svg>
+
+  <!-- Label -->
+  <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:20px;">
+    <div style="width:1px;height:16px;background:rgba(201,168,76,0.5);"></div>
+    <span style="font-family:'Source Sans 3',sans-serif;font-size:13px;letter-spacing:4px;font-weight:500;color:rgba(201,168,76,0.85);text-transform:uppercase;">MEMBERSHIP</span>
+    <div style="width:1px;height:16px;background:rgba(201,168,76,0.5);"></div>
+  </div>
+
+  <h1 style="font-family:'Playfair Display',serif;font-size:48px;font-weight:600;color:#fff;margin:0 0 18px;letter-spacing:-0.5px;line-height:1.15;">Membership Is <span class="italic-accent">Earned, Not Bought.</span></h1>
+
+  <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;color:rgba(244,239,232,0.8);font-size:18px;line-height:1.7;max-width:580px;margin:0 auto;letter-spacing:0.2px;">Curated by the cooperative. Reviewed by the Board.<br>Six tiers. Two streams. One pathway.</p>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 2 — PHILOSOPHY
+══════════════════════════════════════ -->
+<section id="philosophy" style="padding:80px 40px;border-bottom:0.5px solid rgba(201,168,76,0.1);">
+  <div style="max-width:760px;margin:0 auto;text-align:center;">
+
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:18px;">
+      <div style="width:1px;height:16px;background:rgba(201,168,76,0.4);"></div>
+      <span style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:4px;font-weight:500;color:rgba(201,168,76,0.85);">THE PHILOSOPHY</span>
+      <div style="width:1px;height:16px;background:rgba(201,168,76,0.4);"></div>
+    </div>
+
+    <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:30px;font-weight:600;color:#fff;margin:0 0 28px;letter-spacing:-0.3px;">Curated by the cooperative.</h2>
+
+    <p class="reveal" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:16px;color:rgba(255,255,255,0.7);line-height:1.85;margin:0 0 16px;">KOPIT does not chase membership numbers. We choose people who believe what we believe — that wealth, when built collectively, returns to those who built it.</p>
+
+    <p class="reveal" style="font-family:'Source Sans 3',sans-serif;font-size:14px;color:rgba(255,255,255,0.55);line-height:1.85;margin:0;">Every application — from the first share at RM 200 to the strategic partnership of RM 1,000,000 — is reviewed by the Board of Directors. Approval is not transactional. It is a judgment of alignment.</p>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 3 — GOVERNANCE PILLAR (BOD)
+══════════════════════════════════════ -->
+<section id="governance" style="padding:80px 40px;background:linear-gradient(180deg,#0A1628 0%,#0D1A30 50%,#0A1628 100%);border-bottom:0.5px solid rgba(201,168,76,0.1);">
+  <div style="max-width:1000px;margin:0 auto;text-align:center;">
+
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:18px;">
+      <div style="width:1px;height:16px;background:rgba(201,168,76,0.4);"></div>
+      <span style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:4px;font-weight:500;color:rgba(201,168,76,0.85);">GOVERNANCE PILLAR</span>
+      <div style="width:1px;height:16px;background:rgba(201,168,76,0.4);"></div>
+    </div>
+
+    <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:28px;font-weight:600;color:#fff;margin:0 0 16px;letter-spacing:-0.3px;">The Board Is Not A Membership Tier.</h2>
+
+    <p class="reveal" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(255,255,255,0.55);max-width:560px;margin:0 auto 0;line-height:1.7;">The BOD governs the cooperative. Elected at AGM by members. You cannot apply for this — but every application passes through them.</p>
+
+    <!-- BOD Card -->
+    <div class="bod-card-wrap reveal" style="background:linear-gradient(135deg,#080808 0%,#121212 22%,#1a1400 42%,#3a2c08 49%,#5a4410 50%,#3a2c08 51%,#1a1400 58%,#121212 78%,#080808 100%);border:1px solid rgba(201,168,76,0.65);box-shadow:0 24px 60px rgba(0,0,0,0.65),0 0 30px rgba(255,228,150,0.35);">
+      <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.05" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="guillo-bod" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/><circle cx="0" cy="11" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/><circle cx="22" cy="11" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/><circle cx="11" cy="0" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/><circle cx="11" cy="22" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/></pattern></defs><rect width="100%" height="100%" fill="url(#guillo-bod)"/></svg>
+      <div style="position:absolute;inset:8px;border:0.5px solid rgba(201,168,76,0.32);border-radius:10px;pointer-events:none;"></div>
+      <svg style="position:absolute;top:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 9 L2 2 L9 2" stroke="rgba(255,228,150,0.85)" stroke-width="0.8" fill="none"/><path d="M5 6 L5 4 L7 4" stroke="rgba(255,228,150,0.55)" stroke-width="0.5" fill="none"/></svg>
+      <svg style="position:absolute;top:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 2 L22 2 L22 9" stroke="rgba(255,228,150,0.85)" stroke-width="0.8" fill="none"/><path d="M17 4 L19 4 L19 6" stroke="rgba(255,228,150,0.55)" stroke-width="0.5" fill="none"/></svg>
+      <svg style="position:absolute;bottom:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 15 L2 22 L9 22" stroke="rgba(255,228,150,0.85)" stroke-width="0.8" fill="none"/><path d="M5 18 L5 20 L7 20" stroke="rgba(255,228,150,0.55)" stroke-width="0.5" fill="none"/></svg>
+      <svg style="position:absolute;bottom:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 22 L22 22 L22 15" stroke="rgba(255,228,150,0.85)" stroke-width="0.8" fill="none"/><path d="M17 20 L19 20 L19 18" stroke="rgba(255,228,150,0.55)" stroke-width="0.5" fill="none"/></svg>
+      <div style="position:absolute;top:24px;left:26px;display:flex;align-items:center;gap:10px;">
+        <svg width="24" height="24" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="rgba(255,228,150,0.55)" stroke-width="0.5"/><circle cx="20" cy="20" r="11" fill="none" stroke="rgba(255,228,150,0.7)" stroke-width="0.5"/><circle cx="20" cy="20" r="4" fill="rgba(255,228,150,0.95)"/><line x1="20" y1="20" x2="20" y2="6" stroke="rgba(255,228,150,0.7)" stroke-width="1"/><line x1="20" y1="20" x2="20" y2="34" stroke="rgba(255,228,150,0.7)" stroke-width="1"/><line x1="20" y1="20" x2="6" y2="20" stroke="rgba(255,228,150,0.7)" stroke-width="1"/><line x1="20" y1="20" x2="34" y2="20" stroke="rgba(255,228,150,0.7)" stroke-width="1"/><circle cx="20" cy="6" r="2" fill="rgba(255,228,150,0.85)"/><circle cx="20" cy="34" r="2" fill="rgba(255,228,150,0.85)"/><circle cx="6" cy="20" r="2" fill="rgba(255,228,150,0.85)"/><circle cx="34" cy="20" r="2" fill="rgba(255,228,150,0.85)"/></svg>
+        <div><div style="font-family:'Cinzel',serif;font-size:15px;font-weight:700;letter-spacing:3px;color:rgba(255,228,150,0.95);">KOPIT</div><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:2.5px;margin-top:3px;color:rgba(255,228,150,0.75);">EST · MMXXII</div></div>
+      </div>
+      <div style="position:absolute;top:24px;right:26px;text-align:right;">
+        <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:12px;color:rgba(255,248,220,0.92);line-height:1;">Tan Sri Michael</div>
+        <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:2px;color:rgba(255,228,150,0.75);margin-top:4px;">MEMBER SINCE</div>
+        <div style="font-family:'Playfair Display',Georgia,serif;font-size:13px;letter-spacing:3px;font-weight:600;color:rgba(255,228,150,0.95);margin-top:1px;">2022</div>
+      </div>
+      <div style="position:absolute;top:88px;left:0;right:0;text-align:center;">
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:6px;color:rgba(255,228,150,0.6);margin-bottom:4px;">◆ ◆ ◆</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:5px;color:rgba(255,228,150,0.85);margin-bottom:8px;">◆ LEMBAGA PENGARAH · GOVERNANCE ◆</div>
+        <div style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:600;letter-spacing:-0.3px;color:#ffffff;text-shadow:0 0 12px rgba(255,228,150,0.35);">Board of Directors</div>
+        <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:3px;color:rgba(255,228,150,0.7);margin-top:4px;">Lembaga Pengarah</div>
+      </div>
+      <div style="position:absolute;bottom:50px;left:26px;right:26px;display:flex;align-items:center;gap:10px;">
+        <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(255,228,150,0.5) 20%,rgba(255,228,150,0.5) 80%,transparent 100%);"></div>
+        <svg width="9" height="9" viewBox="0 0 9 9"><path d="M4.5 0 L9 4.5 L4.5 9 L0 4.5 Z" fill="rgba(255,228,150,0.7)"/></svg>
+        <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(255,228,150,0.5) 20%,rgba(255,228,150,0.5) 80%,transparent 100%);"></div>
+      </div>
+      <div style="position:absolute;bottom:22px;left:26px;right:26px;display:flex;justify-content:space-between;align-items:flex-end;">
+        <div><div style="font-family:'Courier New',monospace;font-size:10px;letter-spacing:2px;color:rgba(255,228,150,0.95);font-weight:700;">AGM ELECTED</div></div>
+        <div style="text-align:right;"><div style="font-family:'Courier New',monospace;font-size:10px;letter-spacing:2px;color:rgba(255,228,150,0.95);font-weight:700;">NOT A TIER</div></div>
+      </div>
+      <div style="position:absolute;bottom:6px;left:0;right:0;text-align:center;font-family:'Courier New',monospace;font-size:8px;letter-spacing:0.5px;color:rgba(255,228,150,0.22);">KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 4 — CAPITAL STRUCTURE
+══════════════════════════════════════ -->
+<section id="capital" style="padding:80px 40px;background:#0A1628;border-bottom:0.5px solid rgba(201,168,76,0.1);">
+  <div style="max-width:1100px;margin:0 auto;">
+
+    <div style="text-align:center;margin-bottom:48px;">
+      <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:18px;">
+        <div style="width:1px;height:16px;background:rgba(201,168,76,0.4);"></div>
+        <span style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:4px;font-weight:500;color:rgba(201,168,76,0.85);">CAPITAL STRUCTURE</span>
+        <div style="width:1px;height:16px;background:rgba(201,168,76,0.4);"></div>
+      </div>
+      <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:30px;font-weight:600;color:#fff;margin:0 0 16px;letter-spacing:-0.3px;">Two Streams. One Member.</h2>
+      <p class="reveal" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(255,255,255,0.55);max-width:600px;margin:0 auto;line-height:1.7;">Every member holds shares in the cooperative. Some choose to do more — extending capital to KOPIT under our SKM-approved Capital Investment Programme.</p>
+    </div>
+
+    <!-- Two Streams -->
+    <div class="streams-grid">
+
+      <!-- Stream 1: Share Capital -->
+      <div class="reveal" style="padding:32px 28px;background:rgba(255,255,255,0.025);border:0.5px solid rgba(201,168,76,0.2);border-radius:8px;position:relative;">
+        <div style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:3px;color:rgba(201,168,76,0.8);font-weight:600;margin-bottom:10px;">STREAM ONE</div>
+        <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:#fff;margin-bottom:6px;">Share Capital</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(201,168,76,0.8);margin-bottom:24px;">Modal Saham · Permanent Equity</div>
+
+        <!-- Stat rows -->
+        <div style="border-top:0.5px solid rgba(255,255,255,0.08);padding:12px 0;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:2px;color:rgba(244,239,232,0.7);">VALUE PER SHARE</span>
+          <span style="font-family:'Source Sans 3',sans-serif;font-size:15px;font-weight:600;color:#fff;">RM 200</span>
+        </div>
+        <div style="border-top:0.5px solid rgba(255,255,255,0.08);padding:12px 0;display:flex;justify-content:space-between;align-items:flex-start;">
+          <span style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:2px;color:rgba(244,239,232,0.7);">RETURNS</span>
+          <div style="text-align:right;">
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:15px;font-weight:600;color:#fff;">Annual Dividend</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:12px;color:rgba(255,255,255,0.45);margin-top:3px;">Declared at AGM based on cooperative profit.</div>
+          </div>
+        </div>
+
+        <!-- Share Quantity by Tier -->
+        <div style="border-top:0.5px solid rgba(255,255,255,0.08);padding-top:16px;margin-top:4px;">
+          <div style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:2px;color:rgba(201,168,76,0.85);margin-bottom:10px;">SHARE QUANTITY BY TIER</div>
+          <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:7px;">
+            <li style="font-family:'Source Sans 3',sans-serif;font-size:12px;color:rgba(255,255,255,0.55);display:flex;gap:8px;"><span style="color:rgba(201,168,76,0.6);">◆</span> KB — RM 200 minimum (1 share)</li>
+            <li style="font-family:'Source Sans 3',sans-serif;font-size:12px;color:rgba(255,255,255,0.55);display:flex;gap:8px;"><span style="color:rgba(201,168,76,0.6);">◆</span> KP / KL — Higher quantity, BOD-determined</li>
+            <li style="font-family:'Source Sans 3',sans-serif;font-size:12px;color:rgba(255,255,255,0.55);display:flex;gap:8px;"><span style="color:rgba(201,168,76,0.6);">◆</span> KI1 / KI2 / KI3 — Min 2% of investment value</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Stream 2: Capital Investment Programme -->
+      <div class="reveal" style="padding:32px 28px;background:rgba(201,168,76,0.06);border:0.5px solid rgba(201,168,76,0.4);border-radius:8px;position:relative;">
+        <!-- OPTIONAL badge -->
+        <div style="position:absolute;top:16px;right:16px;background:rgba(201,168,76,0.15);border:0.5px solid rgba(201,168,76,0.4);border-radius:100px;padding:3px 12px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:rgba(201,168,76,0.85);">OPTIONAL</div>
+
+        <div style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:3px;color:rgba(201,168,76,0.8);font-weight:600;margin-bottom:10px;">STREAM TWO</div>
+        <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:#fff;margin-bottom:6px;">Capital Investment Programme</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(201,168,76,0.8);margin-bottom:24px;">Pelaburan Modal · Fixed Return Arrangement</div>
+
+        <!-- Stat rows -->
+        <div style="border-top:0.5px solid rgba(201,168,76,0.15);padding:12px 0;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:2px;color:rgba(244,239,232,0.7);">MINIMUM</span>
+          <span style="font-family:'Source Sans 3',sans-serif;font-size:15px;font-weight:600;color:#fff;">RM 10,000</span>
+        </div>
+        <div style="border-top:0.5px solid rgba(201,168,76,0.15);padding:12px 0;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:2px;color:rgba(244,239,232,0.7);">RETURNS</span>
+          <span style="font-family:'Source Sans 3',sans-serif;font-size:15px;font-weight:600;color:#fff;">Competitive Fixed Return</span>
+        </div>
+        <div style="border-top:0.5px solid rgba(201,168,76,0.15);padding:12px 0;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:2px;color:rgba(244,239,232,0.7);">RATE</span>
+          <span style="font-family:'Source Sans 3',sans-serif;font-size:15px;font-weight:600;color:#fff;">BOD-Determined</span>
+        </div>
+        <div style="border-top:0.5px solid rgba(201,168,76,0.15);padding:12px 0;display:flex;justify-content:space-between;align-items:flex-start;">
+          <span style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:2px;color:rgba(244,239,232,0.7);">TERM</span>
+          <div style="text-align:right;">
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:15px;font-weight:600;color:#fff;">Up to 3 years</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:12px;color:rgba(255,255,255,0.45);margin-top:3px;">After term: auto-renew at BOD-reviewed rate, or capital returned to member.</div>
+          </div>
+        </div>
+
+        <!-- Tier reclassification -->
+        <div style="border-top:0.5px solid rgba(201,168,76,0.15);padding-top:16px;margin-top:4px;">
+          <div style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:2px;color:rgba(201,168,76,0.85);margin-bottom:10px;">VOLUME RECLASSIFIES TIER</div>
+          <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:7px;">
+            <li style="font-family:'Source Sans 3',sans-serif;font-size:12px;color:rgba(255,255,255,0.55);display:flex;gap:8px;"><span style="color:rgba(201,168,76,0.6);">◆</span> RM 10K – 100K → KI1 — Entry Partner</li>
+            <li style="font-family:'Source Sans 3',sans-serif;font-size:12px;color:rgba(255,255,255,0.55);display:flex;gap:8px;"><span style="color:rgba(201,168,76,0.6);">◆</span> RM 100K – 300K → KI2 — Growth Partner</li>
+            <li style="font-family:'Source Sans 3',sans-serif;font-size:12px;color:rgba(255,255,255,0.55);display:flex;gap:8px;"><span style="color:rgba(201,168,76,0.6);">◆</span> RM 300K – 1M → KI3 — Strategic Partner</li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- /streams-grid -->
+
+    <!-- Worked Examples -->
+    <div style="margin-bottom:24px;text-align:center;">
+      <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:0;">
+        <div style="width:1px;height:16px;background:rgba(201,168,76,0.4);"></div>
+        <span style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:3px;color:rgba(201,168,76,0.85);">WORKED EXAMPLES</span>
+        <div style="width:1px;height:16px;background:rgba(201,168,76,0.4);"></div>
+      </div>
+    </div>
+
+    <div class="examples-grid">
+
+      <!-- Example 1 -->
+      <div class="reveal" style="padding:28px 30px;background:linear-gradient(135deg,rgba(201,168,76,0.03) 0%,rgba(255,255,255,0.02) 100%);border:0.5px dashed rgba(201,168,76,0.3);border-radius:8px;">
+        <div style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:3px;color:rgba(201,168,76,0.95);margin-bottom:12px;">EXAMPLE 1 · MODEST ENTRY</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:rgba(244,239,232,0.9);margin-bottom:20px;line-height:1.5;">A KB member chooses to invest RM 50,000.</p>
+
+        <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:start;">
+          <!-- Before -->
+          <div style="background:rgba(255,255,255,0.03);border:0.5px solid rgba(255,255,255,0.1);border-radius:6px;padding:14px 12px;">
+            <div style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;color:rgba(244,239,232,0.7);margin-bottom:8px;">BEFORE</div>
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:13px;color:rgba(244,239,232,0.9);line-height:1.6;">KB<br>1 share<br>Dividend only</div>
+          </div>
+          <!-- Arrow -->
+          <div style="display:flex;align-items:center;justify-content:center;padding-top:30px;">
+            <span style="font-size:18px;color:rgba(201,168,76,0.6);">→</span>
+          </div>
+          <!-- After -->
+          <div style="background:rgba(201,168,76,0.05);border:0.5px solid rgba(201,168,76,0.25);border-radius:6px;padding:14px 12px;">
+            <div style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;color:rgba(201,168,76,0.85);margin-bottom:8px;">AFTER</div>
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:13px;color:rgba(244,239,232,0.9);line-height:1.6;">KI1<br>Investment RM 50K<br>Share top-up RM 1,000 (5 shares)<br>Total shares RM 1,200 (6 shares)<br>Income: Dividend + Fixed Return</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Example 2 -->
+      <div class="reveal" style="padding:28px 30px;background:linear-gradient(135deg,rgba(201,168,76,0.03) 0%,rgba(255,255,255,0.02) 100%);border:0.5px dashed rgba(201,168,76,0.3);border-radius:8px;">
+        <div style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:3px;color:rgba(201,168,76,0.95);margin-bottom:12px;">EXAMPLE 2 · STRATEGIC SCALE</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:rgba(244,239,232,0.9);margin-bottom:20px;line-height:1.5;">A KB member chooses to invest RM 300,000.</p>
+
+        <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:start;">
+          <!-- Before -->
+          <div style="background:rgba(255,255,255,0.03);border:0.5px solid rgba(255,255,255,0.1);border-radius:6px;padding:14px 12px;">
+            <div style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;color:rgba(244,239,232,0.7);margin-bottom:8px;">BEFORE</div>
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:13px;color:rgba(244,239,232,0.9);line-height:1.6;">KB<br>1 share<br>Dividend only</div>
+          </div>
+          <!-- Arrow -->
+          <div style="display:flex;align-items:center;justify-content:center;padding-top:30px;">
+            <span style="font-size:18px;color:rgba(201,168,76,0.6);">→</span>
+          </div>
+          <!-- After -->
+          <div style="background:rgba(201,168,76,0.05);border:0.5px solid rgba(201,168,76,0.25);border-radius:6px;padding:14px 12px;">
+            <div style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;color:rgba(201,168,76,0.85);margin-bottom:8px;">AFTER</div>
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:13px;color:rgba(244,239,232,0.9);line-height:1.6;">KI3<br>Investment RM 300K<br>Share top-up RM 6,000 (30 shares)<br>Total shares RM 6,200 (31 shares)<br>Income: Dividend + Fixed Return</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /examples-grid -->
+
+    <p style="text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:12px;color:rgba(244,239,232,0.65);margin-top:24px;line-height:1.7;">After 3 years: investment auto-renews at BOD-reviewed rate, or capital returns to member.</p>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 5 — SIX TIERS (Placeholder)
+══════════════════════════════════════ -->
+<section id="tiers" style="padding:80px 40px;background:#0A1628;border-bottom:0.5px solid rgba(201,168,76,0.1);text-align:center;">
+
+  <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:14px;">
+    <div style="width:1px;height:16px;background:rgba(201,168,76,0.4);"></div>
+    <span style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:4px;font-weight:500;color:rgba(201,168,76,0.85);">THE SIX TIERS</span>
+    <div style="width:1px;height:16px;background:rgba(201,168,76,0.4);"></div>
+  </div>
+
+  <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:30px;font-weight:600;color:#fff;margin:0 0 12px;letter-spacing:-0.3px;">Find Your Place.</h2>
+
+  <p class="reveal" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:13px;color:rgba(255,255,255,0.55);max-width:520px;margin:0 auto 36px;line-height:1.7;">Click any card to reveal full details — share requirement, capital programme eligibility, approval flow, and rights.</p>
+
+  <!-- TIER CAROUSEL (Build 2B) -->
+  <div id="tier-carousel" class="tier-carousel">
+    <div class="carousel-stage" id="carousel-stage">
+
+      <!-- CARD 0: KL — Division Leader -->
+      <div class="tier-card" data-tier="kl" data-index="0" style="background:linear-gradient(135deg,#5a3d08 0%,#7a5410 22%,#a07424 42%,#C9A84C 49%,#dabb5e 50%,#C9A84C 51%,#a07424 58%,#7a5410 78%,#5a3d08 100%);border:1px solid rgba(255,225,100,0.5);box-shadow:0 24px 60px rgba(0,0,0,0.65),0 0 30px rgba(255,228,150,0.4);">
+        <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.07" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="guillo-tc-kl" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="10" fill="none" stroke="#3a2c08" stroke-width="0.4"/><circle cx="0" cy="11" r="10" fill="none" stroke="#3a2c08" stroke-width="0.4"/><circle cx="22" cy="11" r="10" fill="none" stroke="#3a2c08" stroke-width="0.4"/><circle cx="11" cy="0" r="10" fill="none" stroke="#3a2c08" stroke-width="0.4"/><circle cx="11" cy="22" r="10" fill="none" stroke="#3a2c08" stroke-width="0.4"/></pattern></defs><rect width="100%" height="100%" fill="url(#guillo-tc-kl)"/></svg>
+        <div style="position:absolute;inset:8px;border:0.5px solid rgba(40,22,2,0.32);border-radius:10px;pointer-events:none;"></div>
+        <svg style="position:absolute;top:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 9 L2 2 L9 2" stroke="rgba(40,22,2,0.85)" stroke-width="0.8" fill="none"/><path d="M5 6 L5 4 L7 4" stroke="rgba(40,22,2,0.55)" stroke-width="0.5" fill="none"/></svg>
+        <svg style="position:absolute;top:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 2 L22 2 L22 9" stroke="rgba(40,22,2,0.85)" stroke-width="0.8" fill="none"/><path d="M17 4 L19 4 L19 6" stroke="rgba(40,22,2,0.55)" stroke-width="0.5" fill="none"/></svg>
+        <svg style="position:absolute;bottom:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 15 L2 22 L9 22" stroke="rgba(40,22,2,0.85)" stroke-width="0.8" fill="none"/><path d="M5 18 L5 20 L7 20" stroke="rgba(40,22,2,0.55)" stroke-width="0.5" fill="none"/></svg>
+        <svg style="position:absolute;bottom:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 22 L22 22 L22 15" stroke="rgba(40,22,2,0.85)" stroke-width="0.8" fill="none"/><path d="M17 20 L19 20 L19 18" stroke="rgba(40,22,2,0.55)" stroke-width="0.5" fill="none"/></svg>
+        <div style="position:absolute;top:24px;left:26px;display:flex;align-items:center;gap:10px;">
+          <svg width="24" height="24" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="rgba(40,22,2,0.55)" stroke-width="0.5"/><circle cx="20" cy="20" r="11" fill="none" stroke="rgba(40,22,2,0.75)" stroke-width="0.5"/><circle cx="20" cy="20" r="4" fill="rgba(22,12,2,0.85)"/><line x1="20" y1="20" x2="20" y2="6" stroke="rgba(40,22,2,0.75)" stroke-width="1"/><line x1="20" y1="20" x2="20" y2="34" stroke="rgba(40,22,2,0.75)" stroke-width="1"/><line x1="20" y1="20" x2="6" y2="20" stroke="rgba(40,22,2,0.75)" stroke-width="1"/><line x1="20" y1="20" x2="34" y2="20" stroke="rgba(40,22,2,0.75)" stroke-width="1"/><circle cx="20" cy="6" r="2" fill="rgba(22,12,2,0.85)"/><circle cx="20" cy="34" r="2" fill="rgba(22,12,2,0.85)"/><circle cx="6" cy="20" r="2" fill="rgba(22,12,2,0.85)"/><circle cx="34" cy="20" r="2" fill="rgba(22,12,2,0.85)"/></svg>
+          <div><div style="font-family:'Cinzel',serif;font-size:15px;font-weight:700;letter-spacing:3px;color:rgba(22,12,2,0.85);">KOPIT</div><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:2.5px;margin-top:3px;color:rgba(40,22,2,0.55);">EST · MMXXII</div></div>
+        </div>
+        <div style="position:absolute;top:24px;right:26px;text-align:right;">
+          <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:12px;color:rgba(22,12,2,0.92);line-height:1;">Ahmad Faizal</div>
+          <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:2px;color:rgba(40,22,2,0.55);margin-top:4px;">MEMBER SINCE</div>
+          <div style="font-family:'Playfair Display',Georgia,serif;font-size:13px;letter-spacing:3px;font-weight:600;color:rgba(22,12,2,0.85);margin-top:1px;">2022</div>
+        </div>
+        <div style="position:absolute;top:88px;left:0;right:0;text-align:center;">
+          <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:5px;color:rgba(40,22,2,0.7);margin-bottom:8px;">◆ AHLI PERKHIDMATAN · LEAD ◆</div>
+          <div style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:600;letter-spacing:-0.3px;color:#1a0f02;text-shadow:0 0 12px rgba(255,228,150,0.4);">Division Leader</div>
+          <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:3px;color:rgba(40,22,2,0.75);margin-top:4px;">Ketua Bahagian</div>
+        </div>
+        <div style="position:absolute;bottom:50px;left:26px;right:26px;display:flex;align-items:center;gap:10px;">
+          <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(22,12,2,0.45) 20%,rgba(22,12,2,0.45) 80%,transparent 100%);"></div>
+          <svg width="9" height="9" viewBox="0 0 9 9"><path d="M4.5 0 L9 4.5 L4.5 9 L0 4.5 Z" fill="rgba(40,22,2,0.75)"/></svg>
+          <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(22,12,2,0.45) 20%,rgba(22,12,2,0.45) 80%,transparent 100%);"></div>
+        </div>
+        <div style="position:absolute;bottom:22px;left:26px;right:26px;display:flex;justify-content:space-between;align-items:flex-end;">
+          <div><div style="font-family:'Courier New',monospace;font-size:10px;letter-spacing:1.5px;color:rgba(40,22,2,0.55);line-height:1;">SERIAL</div><div style="font-family:'Courier New',monospace;font-size:11px;letter-spacing:2px;color:rgba(22,12,2,0.92);margin-top:3px;">KL·0001·MY</div></div>
+          <div style="text-align:right;"><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:1.5px;color:rgba(40,22,2,0.55);line-height:1;">CERTIFIED BY</div><div style="font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:2px;font-weight:600;color:rgba(22,12,2,0.85);margin-top:3px;">BOD APPROVED</div></div>
+        </div>
+        <div style="position:absolute;bottom:6px;left:0;right:0;text-align:center;font-family:'Courier New',monospace;font-size:8px;letter-spacing:0.5px;color:rgba(40,22,2,0.32);">KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT</div>
+      </div>
+
+      <!-- CARD 1: KP — Division Member -->
+      <div class="tier-card" data-tier="kp" data-index="1" style="background:linear-gradient(135deg,#0d1828 0%,#142035 22%,#1a2a40 42%,#5a4520 49%,#7a5510 50%,#5a4520 51%,#1a2a40 58%,#142035 78%,#0d1828 100%);border:1px solid rgba(201,168,76,0.4);box-shadow:0 24px 60px rgba(0,0,0,0.65),0 0 30px rgba(201,168,76,0.25);">
+        <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.04" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="guillo-tc-kp" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/><circle cx="0" cy="11" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/><circle cx="22" cy="11" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/><circle cx="11" cy="0" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/><circle cx="11" cy="22" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/></pattern></defs><rect width="100%" height="100%" fill="url(#guillo-tc-kp)"/></svg>
+        <div style="position:absolute;inset:8px;border:0.5px solid rgba(201,168,76,0.28);border-radius:10px;pointer-events:none;"></div>
+        <svg style="position:absolute;top:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 9 L2 2 L9 2" stroke="rgba(201,168,76,0.78)" stroke-width="0.8" fill="none"/><path d="M5 6 L5 4 L7 4" stroke="rgba(201,168,76,0.5)" stroke-width="0.5" fill="none"/></svg>
+        <svg style="position:absolute;top:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 2 L22 2 L22 9" stroke="rgba(201,168,76,0.78)" stroke-width="0.8" fill="none"/><path d="M17 4 L19 4 L19 6" stroke="rgba(201,168,76,0.5)" stroke-width="0.5" fill="none"/></svg>
+        <svg style="position:absolute;bottom:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 15 L2 22 L9 22" stroke="rgba(201,168,76,0.78)" stroke-width="0.8" fill="none"/><path d="M5 18 L5 20 L7 20" stroke="rgba(201,168,76,0.5)" stroke-width="0.5" fill="none"/></svg>
+        <svg style="position:absolute;bottom:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 22 L22 22 L22 15" stroke="rgba(201,168,76,0.78)" stroke-width="0.8" fill="none"/><path d="M17 20 L19 20 L19 18" stroke="rgba(201,168,76,0.5)" stroke-width="0.5" fill="none"/></svg>
+        <div style="position:absolute;top:24px;left:26px;display:flex;align-items:center;gap:10px;">
+          <svg width="24" height="24" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="rgba(201,168,76,0.5)" stroke-width="0.5"/><circle cx="20" cy="20" r="11" fill="none" stroke="rgba(201,168,76,0.7)" stroke-width="0.5"/><circle cx="20" cy="20" r="4" fill="rgba(255,228,150,0.85)"/><line x1="20" y1="20" x2="20" y2="6" stroke="rgba(201,168,76,0.7)" stroke-width="1"/><line x1="20" y1="20" x2="20" y2="34" stroke="rgba(201,168,76,0.7)" stroke-width="1"/><line x1="20" y1="20" x2="6" y2="20" stroke="rgba(201,168,76,0.7)" stroke-width="1"/><line x1="20" y1="20" x2="34" y2="20" stroke="rgba(201,168,76,0.7)" stroke-width="1"/><circle cx="20" cy="6" r="2" fill="rgba(201,168,76,0.85)"/><circle cx="20" cy="34" r="2" fill="rgba(201,168,76,0.85)"/><circle cx="6" cy="20" r="2" fill="rgba(201,168,76,0.85)"/><circle cx="34" cy="20" r="2" fill="rgba(201,168,76,0.85)"/></svg>
+          <div><div style="font-family:'Cinzel',serif;font-size:15px;font-weight:700;letter-spacing:3px;color:rgba(255,228,150,0.85);">KOPIT</div><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:2.5px;margin-top:3px;color:rgba(201,168,76,0.5);">EST · MMXXII</div></div>
+        </div>
+        <div style="position:absolute;top:24px;right:26px;text-align:right;">
+          <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:12px;color:rgba(255,252,240,0.92);line-height:1;">Priya Krishnan</div>
+          <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:2px;color:rgba(201,168,76,0.5);margin-top:4px;">MEMBER SINCE</div>
+          <div style="font-family:'Playfair Display',Georgia,serif;font-size:13px;letter-spacing:3px;font-weight:600;color:rgba(201,168,76,0.85);margin-top:1px;">2023</div>
+        </div>
+        <div style="position:absolute;top:88px;left:0;right:0;text-align:center;">
+          <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:5px;color:rgba(201,168,76,0.85);margin-bottom:8px;">◆ AHLI PERKHIDMATAN · MEMBER ◆</div>
+          <div style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:600;letter-spacing:-0.3px;color:#ffffff;text-shadow:0 0 12px rgba(201,168,76,0.25);">Division Member</div>
+          <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:3px;color:rgba(201,168,76,0.7);margin-top:4px;">Ahli Bahagian</div>
+        </div>
+        <div style="position:absolute;bottom:50px;left:26px;right:26px;display:flex;align-items:center;gap:10px;">
+          <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(201,168,76,0.45) 20%,rgba(201,168,76,0.45) 80%,transparent 100%);"></div>
+          <svg width="9" height="9" viewBox="0 0 9 9"><path d="M4.5 0 L9 4.5 L4.5 9 L0 4.5 Z" fill="rgba(201,168,76,0.7)"/></svg>
+          <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(201,168,76,0.45) 20%,rgba(201,168,76,0.45) 80%,transparent 100%);"></div>
+        </div>
+        <div style="position:absolute;bottom:22px;left:26px;right:26px;display:flex;justify-content:space-between;align-items:flex-end;">
+          <div><div style="font-family:'Courier New',monospace;font-size:10px;letter-spacing:1.5px;color:rgba(201,168,76,0.5);line-height:1;">SERIAL</div><div style="font-family:'Courier New',monospace;font-size:11px;letter-spacing:2px;color:rgba(201,168,76,0.92);margin-top:3px;">KP·0012·MY</div></div>
+          <div style="text-align:right;"><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:1.5px;color:rgba(201,168,76,0.5);line-height:1;">CERTIFIED BY</div><div style="font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:2px;font-weight:600;color:rgba(201,168,76,0.85);margin-top:3px;">MGT APPROVED</div></div>
+        </div>
+        <div style="position:absolute;bottom:6px;left:0;right:0;text-align:center;font-family:'Courier New',monospace;font-size:8px;letter-spacing:0.5px;color:rgba(201,168,76,0.22);">KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT</div>
+      </div>
+
+      <!-- CARD 2: KI1 — Entry Partner -->
+      <div class="tier-card" data-tier="ki1" data-index="2" style="background:linear-gradient(135deg,#2a1205 0%,#3a1a08 22%,#5c2e10 42%,#8a4820 49%,#a05828 50%,#8a4820 51%,#5c2e10 58%,#3a1a08 78%,#2a1205 100%);border:1px solid rgba(200,120,64,0.55);box-shadow:0 24px 60px rgba(0,0,0,0.65),0 0 30px rgba(220,150,90,0.3);">
+        <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.05" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="guillo-tc-ki1" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="10" fill="none" stroke="#c87840" stroke-width="0.4"/><circle cx="0" cy="11" r="10" fill="none" stroke="#c87840" stroke-width="0.4"/><circle cx="22" cy="11" r="10" fill="none" stroke="#c87840" stroke-width="0.4"/><circle cx="11" cy="0" r="10" fill="none" stroke="#c87840" stroke-width="0.4"/><circle cx="11" cy="22" r="10" fill="none" stroke="#c87840" stroke-width="0.4"/></pattern></defs><rect width="100%" height="100%" fill="url(#guillo-tc-ki1)"/></svg>
+        <div style="position:absolute;inset:8px;border:0.5px solid rgba(200,120,64,0.32);border-radius:10px;pointer-events:none;"></div>
+        <svg style="position:absolute;top:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 9 L2 2 L9 2" stroke="rgba(255,200,140,0.85)" stroke-width="0.8" fill="none"/><path d="M5 6 L5 4 L7 4" stroke="rgba(220,150,90,0.55)" stroke-width="0.5" fill="none"/></svg>
+        <svg style="position:absolute;top:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 2 L22 2 L22 9" stroke="rgba(255,200,140,0.85)" stroke-width="0.8" fill="none"/><path d="M17 4 L19 4 L19 6" stroke="rgba(220,150,90,0.55)" stroke-width="0.5" fill="none"/></svg>
+        <svg style="position:absolute;bottom:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 15 L2 22 L9 22" stroke="rgba(255,200,140,0.85)" stroke-width="0.8" fill="none"/><path d="M5 18 L5 20 L7 20" stroke="rgba(220,150,90,0.55)" stroke-width="0.5" fill="none"/></svg>
+        <svg style="position:absolute;bottom:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 22 L22 22 L22 15" stroke="rgba(255,200,140,0.85)" stroke-width="0.8" fill="none"/><path d="M17 20 L19 20 L19 18" stroke="rgba(220,150,90,0.55)" stroke-width="0.5" fill="none"/></svg>
+        <div style="position:absolute;top:24px;left:26px;display:flex;align-items:center;gap:10px;">
+          <svg width="24" height="24" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="rgba(220,150,90,0.55)" stroke-width="0.5"/><circle cx="20" cy="20" r="11" fill="none" stroke="rgba(220,160,95,0.75)" stroke-width="0.5"/><circle cx="20" cy="20" r="4" fill="rgba(255,200,140,0.85)"/><line x1="20" y1="20" x2="20" y2="6" stroke="rgba(220,160,95,0.75)" stroke-width="1"/><line x1="20" y1="20" x2="20" y2="34" stroke="rgba(220,160,95,0.75)" stroke-width="1"/><line x1="20" y1="20" x2="6" y2="20" stroke="rgba(220,160,95,0.75)" stroke-width="1"/><line x1="20" y1="20" x2="34" y2="20" stroke="rgba(220,160,95,0.75)" stroke-width="1"/><circle cx="20" cy="6" r="2" fill="rgba(230,165,105,0.85)"/><circle cx="20" cy="34" r="2" fill="rgba(230,165,105,0.85)"/><circle cx="6" cy="20" r="2" fill="rgba(230,165,105,0.85)"/><circle cx="34" cy="20" r="2" fill="rgba(230,165,105,0.85)"/></svg>
+          <div><div style="font-family:'Cinzel',serif;font-size:15px;font-weight:700;letter-spacing:3px;color:rgba(255,200,140,0.85);">KOPIT</div><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:2.5px;margin-top:3px;color:rgba(220,150,90,0.55);">EST · MMXXII</div></div>
+        </div>
+        <div style="position:absolute;top:24px;right:26px;text-align:right;">
+          <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:12px;color:rgba(255,210,165,0.92);line-height:1;">Siti Hajar</div>
+          <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:2px;color:rgba(220,150,90,0.55);margin-top:4px;">MEMBER SINCE</div>
+          <div style="font-family:'Playfair Display',Georgia,serif;font-size:13px;letter-spacing:3px;font-weight:600;color:rgba(230,165,105,0.85);margin-top:1px;">2023</div>
+        </div>
+        <div style="position:absolute;top:88px;left:0;right:0;text-align:center;">
+          <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:5px;color:rgba(220,150,90,0.7);margin-bottom:8px;">◆ AHLI PELABUR · TIER I ◆</div>
+          <div style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:600;letter-spacing:-0.3px;color:#ffe4cc;text-shadow:0 0 12px rgba(220,150,90,0.3);">Entry Partner</div>
+          <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:3px;color:rgba(220,160,95,0.75);margin-top:4px;">Rakan Modal</div>
+        </div>
+        <div style="position:absolute;bottom:50px;left:26px;right:26px;display:flex;align-items:center;gap:10px;">
+          <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(220,150,90,0.5) 20%,rgba(220,150,90,0.5) 80%,transparent 100%);"></div>
+          <svg width="9" height="9" viewBox="0 0 9 9"><path d="M4.5 0 L9 4.5 L4.5 9 L0 4.5 Z" fill="rgba(220,160,95,0.75)"/></svg>
+          <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(220,150,90,0.5) 20%,rgba(220,150,90,0.5) 80%,transparent 100%);"></div>
+        </div>
+        <div style="position:absolute;bottom:22px;left:26px;right:26px;display:flex;justify-content:space-between;align-items:flex-end;">
+          <div><div style="font-family:'Courier New',monospace;font-size:10px;letter-spacing:1.5px;color:rgba(220,150,90,0.55);line-height:1;">SERIAL</div><div style="font-family:'Courier New',monospace;font-size:11px;letter-spacing:2px;color:rgba(230,170,110,0.92);margin-top:3px;">KI1·0005·MY</div></div>
+          <div style="text-align:right;"><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:1.5px;color:rgba(220,150,90,0.55);line-height:1;">CERTIFIED BY</div><div style="font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:2px;font-weight:600;color:rgba(230,165,105,0.85);margin-top:3px;">BOD APPROVED</div></div>
+        </div>
+        <div style="position:absolute;bottom:6px;left:0;right:0;text-align:center;font-family:'Courier New',monospace;font-size:8px;letter-spacing:0.5px;color:rgba(220,150,90,0.25);">KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT</div>
+      </div>
+
+      <!-- CARD 3: KI2 — Growth Partner -->
+      <div class="tier-card" data-tier="ki2" data-index="3" style="background:linear-gradient(135deg,#141820 0%,#1c2330 22%,#252d38 42%,#3a4555 49%,#4a5868 50%,#3a4555 51%,#252d38 58%,#1c2330 78%,#141820 100%);border:1px solid rgba(160,185,210,0.55);box-shadow:0 24px 60px rgba(0,0,0,0.65),0 0 30px rgba(160,185,210,0.3);">
+        <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.05" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="guillo-tc-ki2" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="10" fill="none" stroke="#aac5e0" stroke-width="0.4"/><circle cx="0" cy="11" r="10" fill="none" stroke="#aac5e0" stroke-width="0.4"/><circle cx="22" cy="11" r="10" fill="none" stroke="#aac5e0" stroke-width="0.4"/><circle cx="11" cy="0" r="10" fill="none" stroke="#aac5e0" stroke-width="0.4"/><circle cx="11" cy="22" r="10" fill="none" stroke="#aac5e0" stroke-width="0.4"/></pattern></defs><rect width="100%" height="100%" fill="url(#guillo-tc-ki2)"/></svg>
+        <div style="position:absolute;inset:8px;border:0.5px solid rgba(160,185,210,0.32);border-radius:10px;pointer-events:none;"></div>
+        <svg style="position:absolute;top:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 9 L2 2 L9 2" stroke="rgba(195,215,238,0.85)" stroke-width="0.8" fill="none"/><path d="M5 6 L5 4 L7 4" stroke="rgba(160,185,210,0.55)" stroke-width="0.5" fill="none"/></svg>
+        <svg style="position:absolute;top:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 2 L22 2 L22 9" stroke="rgba(195,215,238,0.85)" stroke-width="0.8" fill="none"/><path d="M17 4 L19 4 L19 6" stroke="rgba(160,185,210,0.55)" stroke-width="0.5" fill="none"/></svg>
+        <svg style="position:absolute;bottom:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 15 L2 22 L9 22" stroke="rgba(195,215,238,0.85)" stroke-width="0.8" fill="none"/><path d="M5 18 L5 20 L7 20" stroke="rgba(160,185,210,0.55)" stroke-width="0.5" fill="none"/></svg>
+        <svg style="position:absolute;bottom:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 22 L22 22 L22 15" stroke="rgba(195,215,238,0.85)" stroke-width="0.8" fill="none"/><path d="M17 20 L19 20 L19 18" stroke="rgba(160,185,210,0.55)" stroke-width="0.5" fill="none"/></svg>
+        <div style="position:absolute;top:24px;left:26px;display:flex;align-items:center;gap:10px;">
+          <svg width="24" height="24" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="rgba(160,185,210,0.55)" stroke-width="0.5"/><circle cx="20" cy="20" r="11" fill="none" stroke="rgba(170,195,222,0.75)" stroke-width="0.5"/><circle cx="20" cy="20" r="4" fill="rgba(180,205,228,0.85)"/><line x1="20" y1="20" x2="20" y2="6" stroke="rgba(170,195,222,0.75)" stroke-width="1"/><line x1="20" y1="20" x2="20" y2="34" stroke="rgba(170,195,222,0.75)" stroke-width="1"/><line x1="20" y1="20" x2="6" y2="20" stroke="rgba(170,195,222,0.75)" stroke-width="1"/><line x1="20" y1="20" x2="34" y2="20" stroke="rgba(170,195,222,0.75)" stroke-width="1"/><circle cx="20" cy="6" r="2" fill="rgba(190,215,238,0.85)"/><circle cx="20" cy="34" r="2" fill="rgba(190,215,238,0.85)"/><circle cx="6" cy="20" r="2" fill="rgba(190,215,238,0.85)"/><circle cx="34" cy="20" r="2" fill="rgba(190,215,238,0.85)"/></svg>
+          <div><div style="font-family:'Cinzel',serif;font-size:15px;font-weight:700;letter-spacing:3px;color:rgba(180,205,228,0.85);">KOPIT</div><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:2.5px;margin-top:3px;color:rgba(160,185,210,0.55);">EST · MMXXII</div></div>
+        </div>
+        <div style="position:absolute;top:24px;right:26px;text-align:right;">
+          <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:12px;color:rgba(195,215,238,0.92);line-height:1;">Rajesh Kumar</div>
+          <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:2px;color:rgba(160,185,210,0.55);margin-top:4px;">MEMBER SINCE</div>
+          <div style="font-family:'Playfair Display',Georgia,serif;font-size:13px;letter-spacing:3px;font-weight:600;color:rgba(190,215,238,0.85);margin-top:1px;">2024</div>
+        </div>
+        <div style="position:absolute;top:88px;left:0;right:0;text-align:center;">
+          <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:5px;color:rgba(160,185,210,0.7);margin-bottom:8px;">◆ AHLI PELABUR · TIER II ◆</div>
+          <div style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:600;letter-spacing:-0.3px;color:#e8f0fa;text-shadow:0 0 12px rgba(160,185,210,0.3);">Growth Partner</div>
+          <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:3px;color:rgba(170,195,222,0.75);margin-top:4px;">Pelabur Teras</div>
+        </div>
+        <div style="position:absolute;bottom:50px;left:26px;right:26px;display:flex;align-items:center;gap:10px;">
+          <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(160,185,210,0.5) 20%,rgba(160,185,210,0.5) 80%,transparent 100%);"></div>
+          <svg width="9" height="9" viewBox="0 0 9 9"><path d="M4.5 0 L9 4.5 L4.5 9 L0 4.5 Z" fill="rgba(170,195,222,0.75)"/></svg>
+          <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(160,185,210,0.5) 20%,rgba(160,185,210,0.5) 80%,transparent 100%);"></div>
+        </div>
+        <div style="position:absolute;bottom:22px;left:26px;right:26px;display:flex;justify-content:space-between;align-items:flex-end;">
+          <div><div style="font-family:'Courier New',monospace;font-size:10px;letter-spacing:1.5px;color:rgba(160,185,210,0.55);line-height:1;">SERIAL</div><div style="font-family:'Courier New',monospace;font-size:11px;letter-spacing:2px;color:rgba(190,215,238,0.92);margin-top:3px;">KI2·0003·MY</div></div>
+          <div style="text-align:right;"><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:1.5px;color:rgba(160,185,210,0.55);line-height:1;">CERTIFIED BY</div><div style="font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:2px;font-weight:600;color:rgba(190,215,238,0.85);margin-top:3px;">BOD APPROVED</div></div>
+        </div>
+        <div style="position:absolute;bottom:6px;left:0;right:0;text-align:center;font-family:'Courier New',monospace;font-size:8px;letter-spacing:0.5px;color:rgba(160,185,210,0.25);">KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT</div>
+      </div>
+
+      <!-- CARD 4: KI3 — Strategic Partner (active default) -->
+      <div class="tier-card active" data-tier="ki3" data-index="4" style="background:linear-gradient(135deg,#1a1d22 0%,#252a32 22%,#363c46 42%,#494f5a 49%,#5c6371 50%,#494f5a 51%,#363c46 58%,#252a32 78%,#1a1d22 100%);border:1px solid rgba(180,195,215,0.55);box-shadow:0 30px 70px rgba(0,0,0,0.7),0 0 35px rgba(200,220,250,0.4),inset 0 1px 0 rgba(220,235,255,0.18),inset 0 -1px 0 rgba(0,0,0,0.6);">
+        <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.05" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="guillo-tc-ki3" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="10" fill="none" stroke="#aabbd0" stroke-width="0.4"/><circle cx="0" cy="11" r="10" fill="none" stroke="#aabbd0" stroke-width="0.4"/><circle cx="22" cy="11" r="10" fill="none" stroke="#aabbd0" stroke-width="0.4"/><circle cx="11" cy="0" r="10" fill="none" stroke="#aabbd0" stroke-width="0.4"/><circle cx="11" cy="22" r="10" fill="none" stroke="#aabbd0" stroke-width="0.4"/></pattern></defs><rect width="100%" height="100%" fill="url(#guillo-tc-ki3)"/></svg>
+        <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.20;pointer-events:none;" viewBox="0 0 440 275" preserveAspectRatio="none"><defs><pattern id="tc-ki3-brush" x="0" y="0" width="2" height="275" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="275" stroke="#aabbd0" stroke-width="0.4"/><line x1="1" y1="0" x2="1" y2="275" stroke="#000" stroke-width="0.3"/></pattern></defs><rect width="440" height="275" fill="url(#tc-ki3-brush)"/></svg>
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,rgba(220,235,255,0.6) 30%,rgba(255,255,255,0.85) 50%,rgba(220,235,255,0.6) 70%,transparent);pointer-events:none;"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(0,0,0,0.7) 30%,rgba(0,0,0,0.85) 50%,rgba(0,0,0,0.7) 70%,transparent);pointer-events:none;"></div>
+        <div style="position:absolute;inset:8px;border:0.5px solid rgba(180,195,215,0.3);border-radius:10px;pointer-events:none;"></div>
+        <svg style="position:absolute;top:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 9 L2 2 L9 2" stroke="rgba(220,235,255,0.95)" stroke-width="0.8" fill="none"/><path d="M5 6 L5 4 L7 4" stroke="rgba(220,235,255,0.6)" stroke-width="0.5" fill="none"/></svg>
+        <svg style="position:absolute;top:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 2 L22 2 L22 9" stroke="rgba(220,235,255,0.95)" stroke-width="0.8" fill="none"/><path d="M17 4 L19 4 L19 6" stroke="rgba(220,235,255,0.6)" stroke-width="0.5" fill="none"/></svg>
+        <svg style="position:absolute;bottom:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 15 L2 22 L9 22" stroke="rgba(220,235,255,0.95)" stroke-width="0.8" fill="none"/><path d="M5 18 L5 20 L7 20" stroke="rgba(220,235,255,0.6)" stroke-width="0.5" fill="none"/></svg>
+        <svg style="position:absolute;bottom:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 22 L22 22 L22 15" stroke="rgba(220,235,255,0.95)" stroke-width="0.8" fill="none"/><path d="M17 20 L19 20 L19 18" stroke="rgba(220,235,255,0.6)" stroke-width="0.5" fill="none"/></svg>
+        <div style="position:absolute;top:24px;left:26px;display:flex;align-items:center;gap:10px;">
+          <svg width="24" height="24" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="rgba(220,235,255,0.6)" stroke-width="0.5"/><circle cx="20" cy="20" r="11" fill="none" stroke="rgba(220,235,255,0.75)" stroke-width="0.5"/><circle cx="20" cy="20" r="4" fill="rgba(255,255,255,1)"/><line x1="20" y1="20" x2="20" y2="6" stroke="rgba(220,235,255,0.75)" stroke-width="1"/><line x1="20" y1="20" x2="20" y2="34" stroke="rgba(220,235,255,0.75)" stroke-width="1"/><line x1="20" y1="20" x2="6" y2="20" stroke="rgba(220,235,255,0.75)" stroke-width="1"/><line x1="20" y1="20" x2="34" y2="20" stroke="rgba(220,235,255,0.75)" stroke-width="1"/><circle cx="20" cy="6" r="2" fill="rgba(255,255,255,0.98)"/><circle cx="20" cy="34" r="2" fill="rgba(255,255,255,0.98)"/><circle cx="6" cy="20" r="2" fill="rgba(255,255,255,0.98)"/><circle cx="34" cy="20" r="2" fill="rgba(255,255,255,0.98)"/></svg>
+          <div><div style="font-family:'Cinzel',serif;font-size:15px;font-weight:700;letter-spacing:4px;color:rgba(255,255,255,1);text-shadow:0 1px 1px rgba(0,0,0,0.85),0 -0.5px 0 rgba(255,255,255,0.25),0 0 6px rgba(180,200,225,0.3);">KOPIT</div><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:11px;letter-spacing:3px;margin-top:3px;color:rgba(220,235,255,0.7);text-shadow:0 1px 0 rgba(0,0,0,0.6);">EST · MMXXII</div></div>
+        </div>
+        <div style="position:absolute;top:24px;right:26px;text-align:right;">
+          <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:12px;color:rgba(255,255,255,1);letter-spacing:0.2px;line-height:1;text-shadow:0 1px 1px rgba(0,0,0,0.8),0 -0.5px 0 rgba(255,255,255,0.2);">Dato' Lee Chong</div>
+          <div style="font-family:'Cinzel',serif;font-weight:500;font-size:10px;letter-spacing:3px;color:rgba(220,235,255,0.7);margin-top:4px;text-shadow:0 1px 0 rgba(0,0,0,0.6);">MEMBER SINCE</div>
+          <div style="font-family:'Cinzel',serif;font-weight:600;font-size:13px;letter-spacing:4px;color:rgba(255,255,255,1);margin-top:1px;text-shadow:0 1px 1px rgba(0,0,0,0.8),0 -0.5px 0 rgba(255,255,255,0.2);">2024</div>
+        </div>
+        <div style="position:absolute;top:60px;left:0;right:0;text-align:center;"><span style="font-family:'Cinzel',serif;font-weight:500;font-size:9px;letter-spacing:5px;color:rgba(245,250,255,0.92);padding:3px 14px;border-top:0.5px solid rgba(220,235,255,0.4);border-bottom:0.5px solid rgba(220,235,255,0.4);text-shadow:0 1px 0 rgba(0,0,0,0.7),0 -0.5px 0 rgba(255,255,255,0.2);">EDITION 001 / 050</span></div>
+        <div style="position:absolute;top:90px;left:0;right:0;text-align:center;">
+          <div style="font-family:'Playfair Display',Georgia,serif;font-size:14px;color:rgba(245,250,255,0.95);margin-bottom:4px;text-shadow:0 1px 1px rgba(0,0,0,0.7),0 -0.5px 0 rgba(255,255,255,0.3),0 0 10px rgba(200,220,250,0.4);">◆</div>
+          <div style="font-family:'Cinzel',serif;font-weight:500;font-size:9px;letter-spacing:6px;color:rgba(220,235,255,0.78);margin-bottom:8px;text-shadow:0 1px 0 rgba(0,0,0,0.6);">— AHLI PELABUR · TIER III —</div>
+          <div style="font-family:'Playfair Display',Georgia,serif;font-size:30px;font-weight:700;letter-spacing:-0.5px;line-height:1;color:rgba(255,255,255,1);text-shadow:0 2px 2px rgba(0,0,0,0.85),0 -1px 0 rgba(255,255,255,0.35),0 0 18px rgba(200,220,250,0.4);">Strategic Partner</div>
+          <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:11px;letter-spacing:2.5px;color:rgba(245,250,255,0.88);margin-top:5px;text-shadow:0 1px 1px rgba(0,0,0,0.75),0 -0.5px 0 rgba(255,255,255,0.2);">Pelabur Agung</div>
+        </div>
+        <div style="position:absolute;bottom:42px;left:26px;right:26px;display:flex;align-items:center;gap:10px;">
+          <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(220,235,255,0.55) 20%,rgba(220,235,255,0.55) 80%,transparent 100%);"></div>
+          <svg width="9" height="9" viewBox="0 0 9 9" style="filter:drop-shadow(0 1px 0 rgba(0,0,0,0.5));"><path d="M4.5 0 L9 4.5 L4.5 9 L0 4.5 Z" fill="rgba(255,255,255,0.95)"/></svg>
+          <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(220,235,255,0.55) 20%,rgba(220,235,255,0.55) 80%,transparent 100%);"></div>
+        </div>
+        <div style="position:absolute;bottom:18px;left:26px;right:26px;display:flex;justify-content:space-between;align-items:flex-end;">
+          <div><div style="font-family:'Cinzel',serif;font-weight:500;font-size:10px;letter-spacing:2.5px;color:rgba(220,235,255,0.7);line-height:1;text-shadow:0 1px 0 rgba(0,0,0,0.6);">SERIAL</div><div style="font-family:'Cinzel',serif;font-weight:600;font-size:11px;letter-spacing:3px;color:rgba(255,255,255,1);margin-top:3px;text-shadow:0 1px 1px rgba(0,0,0,0.8),0 -0.5px 0 rgba(255,255,255,0.2);">KI3·0001·MY</div></div>
+          <div style="text-align:right;"><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:10px;letter-spacing:2px;color:rgba(220,235,255,0.7);line-height:1;text-shadow:0 1px 0 rgba(0,0,0,0.6);">CERTIFIED BY</div><div style="font-family:'Cinzel',serif;font-weight:600;font-size:10px;letter-spacing:3px;color:rgba(255,255,255,1);margin-top:3px;text-shadow:0 1px 1px rgba(0,0,0,0.8),0 -0.5px 0 rgba(255,255,255,0.2);">BOD · CHAIRMAN</div></div>
+        </div>
+        <div style="position:absolute;bottom:5px;left:0;right:0;text-align:center;font-family:'Cinzel',serif;font-weight:500;font-size:8px;letter-spacing:1px;color:rgba(220,235,255,0.32);">KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT</div>
+      </div>
+
+      <!-- CARD 5: KB — General Member -->
+      <div class="tier-card" data-tier="kb" data-index="5" style="background:linear-gradient(135deg,#0a1628 0%,#0f1d33 22%,#152540 42%,#1f3050 49%,#2a3a5a 50%,#1f3050 51%,#152540 58%,#0f1d33 78%,#0a1628 100%);border:1px solid rgba(201,168,76,0.28);box-shadow:0 24px 60px rgba(0,0,0,0.65),0 0 30px rgba(201,168,76,0.18);">
+        <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.035" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="guillo-tc-kb" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/><circle cx="0" cy="11" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/><circle cx="22" cy="11" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/><circle cx="11" cy="0" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/><circle cx="11" cy="22" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/></pattern></defs><rect width="100%" height="100%" fill="url(#guillo-tc-kb)"/></svg>
+        <div style="position:absolute;inset:8px;border:0.5px solid rgba(201,168,76,0.22);border-radius:10px;pointer-events:none;"></div>
+        <svg style="position:absolute;top:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 9 L2 2 L9 2" stroke="rgba(201,168,76,0.7)" stroke-width="0.8" fill="none"/><path d="M5 6 L5 4 L7 4" stroke="rgba(201,168,76,0.45)" stroke-width="0.5" fill="none"/></svg>
+        <svg style="position:absolute;top:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 2 L22 2 L22 9" stroke="rgba(201,168,76,0.7)" stroke-width="0.8" fill="none"/><path d="M17 4 L19 4 L19 6" stroke="rgba(201,168,76,0.45)" stroke-width="0.5" fill="none"/></svg>
+        <svg style="position:absolute;bottom:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 15 L2 22 L9 22" stroke="rgba(201,168,76,0.7)" stroke-width="0.8" fill="none"/><path d="M5 18 L5 20 L7 20" stroke="rgba(201,168,76,0.45)" stroke-width="0.5" fill="none"/></svg>
+        <svg style="position:absolute;bottom:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 22 L22 22 L22 15" stroke="rgba(201,168,76,0.7)" stroke-width="0.8" fill="none"/><path d="M17 20 L19 20 L19 18" stroke="rgba(201,168,76,0.45)" stroke-width="0.5" fill="none"/></svg>
+        <div style="position:absolute;top:24px;left:26px;display:flex;align-items:center;gap:10px;">
+          <svg width="24" height="24" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="rgba(201,168,76,0.45)" stroke-width="0.5"/><circle cx="20" cy="20" r="11" fill="none" stroke="rgba(201,168,76,0.65)" stroke-width="0.5"/><circle cx="20" cy="20" r="4" fill="rgba(201,168,76,0.75)"/><line x1="20" y1="20" x2="20" y2="6" stroke="rgba(201,168,76,0.65)" stroke-width="1"/><line x1="20" y1="20" x2="20" y2="34" stroke="rgba(201,168,76,0.65)" stroke-width="1"/><line x1="20" y1="20" x2="6" y2="20" stroke="rgba(201,168,76,0.65)" stroke-width="1"/><line x1="20" y1="20" x2="34" y2="20" stroke="rgba(201,168,76,0.65)" stroke-width="1"/><circle cx="20" cy="6" r="2" fill="rgba(201,168,76,0.78)"/><circle cx="20" cy="34" r="2" fill="rgba(201,168,76,0.78)"/><circle cx="6" cy="20" r="2" fill="rgba(201,168,76,0.78)"/><circle cx="34" cy="20" r="2" fill="rgba(201,168,76,0.78)"/></svg>
+          <div><div style="font-family:'Cinzel',serif;font-size:15px;font-weight:700;letter-spacing:3px;color:rgba(201,168,76,0.75);">KOPIT</div><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:2.5px;margin-top:3px;color:rgba(201,168,76,0.45);">EST · MMXXII</div></div>
+        </div>
+        <div style="position:absolute;top:24px;right:26px;text-align:right;">
+          <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:12px;color:rgba(255,252,240,0.88);line-height:1;">David Lim</div>
+          <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:2px;color:rgba(201,168,76,0.45);margin-top:4px;">MEMBER SINCE</div>
+          <div style="font-family:'Playfair Display',Georgia,serif;font-size:13px;letter-spacing:3px;font-weight:600;color:rgba(201,168,76,0.78);margin-top:1px;">2024</div>
+        </div>
+        <div style="position:absolute;top:88px;left:0;right:0;text-align:center;">
+          <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:5px;color:rgba(201,168,76,0.85);margin-bottom:8px;">◆ WARGA KOPIT · GENERAL ◆</div>
+          <div style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:600;letter-spacing:-0.3px;color:#ffffff;text-shadow:0 0 12px rgba(201,168,76,0.18);">General Member</div>
+          <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:3px;color:rgba(201,168,76,0.65);margin-top:4px;">Warga KOPIT</div>
+        </div>
+        <div style="position:absolute;bottom:50px;left:26px;right:26px;display:flex;align-items:center;gap:10px;">
+          <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(201,168,76,0.4) 20%,rgba(201,168,76,0.4) 80%,transparent 100%);"></div>
+          <svg width="9" height="9" viewBox="0 0 9 9"><path d="M4.5 0 L9 4.5 L4.5 9 L0 4.5 Z" fill="rgba(201,168,76,0.65)"/></svg>
+          <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(201,168,76,0.4) 20%,rgba(201,168,76,0.4) 80%,transparent 100%);"></div>
+        </div>
+        <div style="position:absolute;bottom:22px;left:26px;right:26px;display:flex;justify-content:space-between;align-items:flex-end;">
+          <div><div style="font-family:'Courier New',monospace;font-size:10px;letter-spacing:1.5px;color:rgba(201,168,76,0.45);line-height:1;">SERIAL</div><div style="font-family:'Courier New',monospace;font-size:11px;letter-spacing:2px;color:rgba(201,168,76,0.85);margin-top:3px;">KB·0048·MY</div></div>
+          <div style="text-align:right;"><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:1.5px;color:rgba(201,168,76,0.45);line-height:1;">CERTIFIED BY</div><div style="font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:2px;font-weight:600;color:rgba(201,168,76,0.78);margin-top:3px;">MGT APPROVED</div></div>
+        </div>
+        <div style="position:absolute;bottom:6px;left:0;right:0;text-align:center;font-family:'Courier New',monospace;font-size:8px;letter-spacing:0.5px;color:rgba(201,168,76,0.18);">KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT</div>
+      </div>
+
+    </div><!-- end carousel-stage -->
+    <button class="carousel-arrow carousel-arrow-left" id="carousel-prev" aria-label="Previous tier">&#8249;</button>
+    <button class="carousel-arrow carousel-arrow-right" id="carousel-next" aria-label="Next tier">&#8250;</button>
+    <div class="carousel-dots" id="carousel-dots">
+      <button class="dot" data-index="0" aria-label="KL — Division Leader"></button>
+      <button class="dot" data-index="1" aria-label="KP — Division Member"></button>
+      <button class="dot" data-index="2" aria-label="KI1 — Entry Partner"></button>
+      <button class="dot" data-index="3" aria-label="KI2 — Growth Partner"></button>
+      <button class="dot active" data-index="4" aria-label="KI3 — Strategic Partner"></button>
+      <button class="dot" data-index="5" aria-label="KB — General Member"></button>
+    </div>
+  </div>
+
+</section>
+
+<!-- VAULT MODAL (Build 2B) -->
+<div id="vault-modal" class="vault-modal" role="dialog" aria-modal="true" aria-labelledby="vault-title" aria-hidden="true">
+  <div class="vault-backdrop" id="vault-backdrop"></div>
+  <div class="vault-content">
+    <button class="vault-close" id="vault-close" aria-label="Close tier detail">&#215;</button>
+    <div class="vault-header">
+      <div class="vault-eyebrow" id="vault-eyebrow">— TIER DETAIL —</div>
+      <h2 class="vault-title" id="vault-title"></h2>
+      <div class="vault-subtitle" id="vault-subtitle"></div>
+    </div>
+    <div class="vault-card-back" id="vault-card-back"></div>
+    <div class="vault-cta">
+      <div class="vault-cta-prompt">Interested in this tier?</div>
+      <a href="#" class="vault-cta-button" id="vault-cta-button">Express Interest &#8594;</a>
+    </div>
+    <div class="vault-dismiss-hint">ESC · CLICK BACKDROP · X TO CLOSE</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SECTION 6 — TIER COMPARISON (Placeholder)
+══════════════════════════════════════ -->
+<section id="compare" style="padding:80px 40px;background:linear-gradient(180deg,#0A1628 0%,#0D1A30 50%,#0A1628 100%);border-bottom:0.5px solid rgba(201,168,76,0.1);text-align:center;">
+
+  <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:14px;">
+    <div style="width:1px;height:16px;background:rgba(201,168,76,0.4);"></div>
+    <span style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:4px;font-weight:500;color:rgba(201,168,76,0.85);">SIDE BY SIDE</span>
+    <div style="width:1px;height:16px;background:rgba(201,168,76,0.4);"></div>
+  </div>
+
+  <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:30px;font-weight:600;color:#fff;margin:0 0 36px;letter-spacing:-0.3px;">Tier Comparison.</h2>
+
+  <!-- TIER COMPARISON TABLE (Build 2C) -->
+  <div class="comparison-wrapper">
+    <div class="comparison-scroll">
+      <table class="tier-comparison" id="tier-comparison-table">
+        <thead>
+          <tr>
+            <th class="comparison-cell comparison-row-label"></th>
+            <th class="comparison-cell tier-header">KL</th>
+            <th class="comparison-cell tier-header">KP</th>
+            <th class="comparison-cell tier-header">KI1</th>
+            <th class="comparison-cell tier-header">KI2</th>
+            <th class="comparison-cell tier-header">KI3</th>
+            <th class="comparison-cell tier-header">KB</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="comparison-cell comparison-row-label">CATEGORY</td>
+            <td class="comparison-cell">Service</td>
+            <td class="comparison-cell">Service</td>
+            <td class="comparison-cell">Funder</td>
+            <td class="comparison-cell">Funder</td>
+            <td class="comparison-cell">Funder</td>
+            <td class="comparison-cell">General</td>
+          </tr>
+          <tr>
+            <td class="comparison-cell comparison-row-label">SHARE CAPITAL</td>
+            <td class="comparison-cell comparison-multiline">BOD-Set Higher Qty</td>
+            <td class="comparison-cell comparison-multiline">BOD-Set Higher Qty</td>
+            <td class="comparison-cell comparison-multiline">Min 2% of Investment</td>
+            <td class="comparison-cell comparison-multiline">Min 2% of Investment</td>
+            <td class="comparison-cell comparison-multiline">Min 2% of Investment</td>
+            <td class="comparison-cell">RM 200 (1 share)</td>
+          </tr>
+          <tr>
+            <td class="comparison-cell comparison-row-label">INVESTMENT BRACKET</td>
+            <td class="comparison-cell comparison-empty">—</td>
+            <td class="comparison-cell comparison-empty">—</td>
+            <td class="comparison-cell">RM 10K – 100K</td>
+            <td class="comparison-cell">RM 100K – 300K</td>
+            <td class="comparison-cell">RM 300K – 1M</td>
+            <td class="comparison-cell comparison-empty">—</td>
+          </tr>
+          <tr>
+            <td class="comparison-cell comparison-row-label">APPROVED BY</td>
+            <td class="comparison-cell comparison-gold">BOD</td>
+            <td class="comparison-cell comparison-gold">BOD</td>
+            <td class="comparison-cell comparison-gold">BOD</td>
+            <td class="comparison-cell comparison-gold">BOD</td>
+            <td class="comparison-cell comparison-gold comparison-multiline">BOD + Chairman</td>
+            <td class="comparison-cell comparison-gold">BOD</td>
+          </tr>
+          <tr>
+            <td class="comparison-cell comparison-row-label">INCOME STREAMS</td>
+            <td class="comparison-cell comparison-multiline">Dividend + Profit Sharing</td>
+            <td class="comparison-cell comparison-multiline">Dividend + Profit Sharing</td>
+            <td class="comparison-cell comparison-multiline">Dividend + Fixed Return</td>
+            <td class="comparison-cell comparison-multiline">Dividend + Fixed Return</td>
+            <td class="comparison-cell comparison-multiline">Dividend + Fixed Return</td>
+            <td class="comparison-cell">Dividend</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="comparison-scroll-hint" id="comparison-scroll-hint">&#8592; swipe to compare &#8594;</div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 7 — HOW TO APPLY
+══════════════════════════════════════ -->
+<section id="apply" style="padding:80px 40px;background:#0A1628;border-bottom:0.5px solid rgba(201,168,76,0.1);">
+  <div style="max-width:900px;margin:0 auto;text-align:center;">
+
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:18px;">
+      <div style="width:1px;height:16px;background:rgba(201,168,76,0.4);"></div>
+      <span style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:4px;font-weight:500;color:rgba(201,168,76,0.85);">THE PATHWAY</span>
+      <div style="width:1px;height:16px;background:rgba(201,168,76,0.4);"></div>
+    </div>
+
+    <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:30px;font-weight:600;color:#fff;margin:0 0 12px;letter-spacing:-0.3px;">How To Apply.</h2>
+
+    <p class="reveal" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(255,255,255,0.55);margin:0 auto 48px;max-width:500px;line-height:1.7;">Membership is by invitation. To express interest, follow this pathway:</p>
+
+    <div class="steps-wrap">
+      <div class="conn-line"></div>
+      <div class="steps-grid">
+
+        <!-- Step 1 -->
+        <div class="reveal" style="text-align:center;">
+          <div class="step-circle">
+            <span style="font-family:'Cinzel',serif;font-size:26px;font-weight:700;color:#C9A84C;">1</span>
+          </div>
+          <div style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:3px;color:rgba(201,168,76,0.95);margin-bottom:8px;">EXPRESS INTEREST</div>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:14px;color:rgba(244,239,232,0.8);line-height:1.6;">Submit inquiry through contact form or WhatsApp.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="reveal" style="text-align:center;">
+          <div class="step-circle">
+            <span style="font-family:'Cinzel',serif;font-size:26px;font-weight:700;color:#C9A84C;">2</span>
+          </div>
+          <div style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:3px;color:rgba(201,168,76,0.95);margin-bottom:8px;">INITIAL DIALOGUE</div>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:14px;color:rgba(244,239,232,0.8);line-height:1.6;">Conversation with KOPIT representative.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="reveal" style="text-align:center;">
+          <div class="step-circle">
+            <span style="font-family:'Cinzel',serif;font-size:26px;font-weight:700;color:#C9A84C;">3</span>
+          </div>
+          <div style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:3px;color:rgba(201,168,76,0.95);margin-bottom:8px;">BOD REVIEW</div>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:14px;color:rgba(244,239,232,0.8);line-height:1.6;">Application reviewed by Board of Directors.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="reveal" style="text-align:center;">
+          <div class="step-circle">
+            <span style="font-family:'Cinzel',serif;font-size:26px;font-weight:700;color:#C9A84C;">4</span>
+          </div>
+          <div style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:3px;color:rgba(201,168,76,0.95);margin-bottom:8px;">INVITATION</div>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:14px;color:rgba(244,239,232,0.8);line-height:1.6;">Successful applicants receive formal invitation.</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 8 — FINAL CTA BAND
+══════════════════════════════════════ -->
+<section style="padding:90px 40px;background:linear-gradient(135deg,#0A1628 0%,#0F1D33 50%,#0A1628 100%);text-align:center;position:relative;overflow:hidden;">
+  <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.04;pointer-events:none;" viewBox="0 0 800 400">
+    <defs>
+      <pattern id="ctaGrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#C9A84C" stroke-width="0.5"/>
+      </pattern>
+    </defs>
+    <rect width="800" height="400" fill="url(#ctaGrid)"/>
+  </svg>
+
+  <div style="position:relative;z-index:1;">
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:20px;">
+      <div style="width:1px;height:16px;background:rgba(201,168,76,0.5);"></div>
+      <span style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:4px;font-weight:600;color:rgba(201,168,76,0.85);">EXPRESS INTEREST</span>
+      <div style="width:1px;height:16px;background:rgba(201,168,76,0.5);"></div>
+    </div>
+
+    <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:36px;font-weight:600;color:#fff;margin:0 0 16px;letter-spacing:-0.5px;line-height:1.2;">Ready To <span class="italic-accent">Begin The Conversation?</span></h2>
+
+    <p class="reveal" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:rgba(244,239,232,0.8);margin:0 auto 36px;max-width:480px;line-height:1.7;">Tell us about you. The Board reviews every inquiry personally.</p>
+
+    <div class="reveal" style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;">
+      <a href="contact.html?subject=membership" style="background:#C9A84C;color:#0A1628;padding:14px 30px;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;border-radius:4px;text-decoration:none;transition:all .2s ease;" onmouseover="this.style.background='#A8862A'" onmouseout="this.style.background='#C9A84C'">Express Your Interest →</a>
+      <a href="https://wa.me/60105122561?text=Hello%20KOPIT%2C%20I%27d%20like%20to%20express%20interest%20in%20membership." target="_blank" rel="noopener" style="background:rgba(37,211,102,0.95);color:#fff;padding:14px 30px;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;border-radius:4px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s ease;" onmouseover="this.style.background='rgba(37,211,102,1)'" onmouseout="this.style.background='rgba(37,211,102,0.95)'">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp Direct →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="wrap">
+      <div class="footer-grid">
+
+        <!-- LEFT: SVG logo + info -->
+        <div>
+          <div class="f-svg-wrap">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="KOPIT node network logo">
+              <circle cx="28" cy="28" r="4.5" fill="#C9A84C"/>
+              <circle cx="28" cy="8"  r="3" fill="#C9A84C" opacity=".9"/>
+              <circle cx="46" cy="18" r="3" fill="#C9A84C" opacity=".9"/>
+              <circle cx="46" cy="38" r="3" fill="#C9A84C" opacity=".9"/>
+              <circle cx="28" cy="48" r="3" fill="#C9A84C" opacity=".9"/>
+              <circle cx="10" cy="38" r="3" fill="#C9A84C" opacity=".9"/>
+              <circle cx="10" cy="18" r="3" fill="#C9A84C" opacity=".9"/>
+              <line x1="28" y1="28" x2="28" y2="11"  stroke="#C9A84C" stroke-width="1" opacity=".45"/>
+              <line x1="28" y1="28" x2="43" y2="20"  stroke="#C9A84C" stroke-width="1" opacity=".45"/>
+              <line x1="28" y1="28" x2="43" y2="36"  stroke="#C9A84C" stroke-width="1" opacity=".45"/>
+              <line x1="28" y1="28" x2="28" y2="45"  stroke="#C9A84C" stroke-width="1" opacity=".45"/>
+              <line x1="28" y1="28" x2="13" y2="36"  stroke="#C9A84C" stroke-width="1" opacity=".45"/>
+              <line x1="28" y1="28" x2="13" y2="20"  stroke="#C9A84C" stroke-width="1" opacity=".45"/>
+              <line x1="28" y1="11" x2="43" y2="20"  stroke="#C9A84C" stroke-width=".8" opacity=".25"/>
+              <line x1="43" y1="20" x2="43" y2="36"  stroke="#C9A84C" stroke-width=".8" opacity=".25"/>
+              <line x1="43" y1="36" x2="28" y2="45"  stroke="#C9A84C" stroke-width=".8" opacity=".25"/>
+              <line x1="28" y1="45" x2="13" y2="36"  stroke="#C9A84C" stroke-width=".8" opacity=".25"/>
+              <line x1="13" y1="36" x2="13" y2="20"  stroke="#C9A84C" stroke-width=".8" opacity=".25"/>
+              <line x1="13" y1="20" x2="28" y2="11"  stroke="#C9A84C" stroke-width=".8" opacity=".25"/>
+            </svg>
+          </div>
+          <div class="f-logo-name">KOPIT</div>
+          <p class="f-tagline" data-en="Koperasi Usahawan Informasi Teknologi Malaysia Berhad" data-bm="Koperasi Usahawan Informasi Teknologi Malaysia Berhad">Koperasi Usahawan Informasi Teknologi Malaysia Berhad</p>
+          <p class="f-premier" data-en="Malaysia's Premier IT Koperasi" data-bm="Koperasi IT Terulung Malaysia">Malaysia's Premier IT Koperasi</p>
+          <div class="footer-credentials" style="margin-top:16px;font-family:'Source Sans 3',sans-serif;font-size:12px;line-height:1.7;color:rgba(255,255,255,0.55);">
+            <div style="margin-bottom:14px;">Registered under Suruhanjaya Koperasi Malaysia (SKM)</div>
+            <div style="margin-bottom:14px;">
+              <div>E-Perolehan Registered Vendor</div>
+              <div style="margin-top:4px;font-family:'Cinzel',serif;font-size:14px;letter-spacing:1.5px;font-weight:500;color:rgba(201,168,76,0.85);">No. Rujukan Pendaftaran: 357-0002365635</div>
+            </div>
+            <div style="font-family:'Cinzel',serif;font-size:14px;letter-spacing:2px;font-weight:500;color:rgba(201,168,76,0.85);">Est. 2022</div>
+          </div>
+        </div>
+
+        <!-- CENTRE: Quick links -->
+        <div>
+          <h4 class="f-head" data-en="Quick Links" data-bm="Pautan Pantas">Quick Links</h4>
+          <ul class="f-nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="divisions.html">Divisions</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- RIGHT: Contact -->
+        <div>
+          <h4 class="f-head" data-en="Get In Touch" data-bm="Hubungi Kami">Get In Touch</h4>
+          <a href="https://wa.me/60105122561" class="f-wa" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366" style="flex-shrink:0">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            010-5122561
+          </a>
+          <p class="f-hours" data-en="Available Mon – Fri, 9am – 6pm" data-bm="Isnin – Jumaat, 9pg – 6ptg">Available Mon – Fri, 9am – 6pm</p>
+          <div class="f-email">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span style="font-size:.82rem;color:rgba(255,255,255,.38)">Email: <a href="mailto:admin@kopit.com.my" style="color:inherit;text-decoration:none;">admin@kopit.com.my</a></span>
+          </div>
+          <a href="contact.html" class="f-contact-btn">Send Us a Message</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <div class="wrap">
+      <div class="footer-bar-inner">
+        <p>© 2025 KOPIT. All rights reserved. · <a href="privacy.html" class="bar-legal">Privacy Policy</a> · <a href="terms.html" class="bar-legal">Terms of Service</a></p>
+        <p class="bar-r" data-en="Malaysia's Premier IT Koperasi" data-bm="Koperasi IT Terulung Malaysia">Malaysia's Premier IT Koperasi</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════
+   KOPIT — Membership Page JavaScript
+   1. Language System
+   2. Canvas Logo Animation
+   3. Navbar + Mobile Menu
+   4. Scroll Reveal
+   5. Sticky In-Page Nav
+═══════════════════════════════════════════ */
+
+/* ── 1. LANGUAGE SYSTEM ── */
+var currentLang = localStorage.getItem('kopitLang') || 'en';
+
+function applyLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('kopitLang', lang);
+  document.querySelectorAll('[data-en]').forEach(function(el) {
+    var val = lang === 'bm' ? el.getAttribute('data-bm') : el.getAttribute('data-en');
+    if (val !== null) el.innerHTML = val;
+  });
+  document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+  document.getElementById('btnBM').classList.toggle('active', lang === 'bm');
+  document.documentElement.lang = lang === 'bm' ? 'ms' : 'en';
+}
+
+function setLang(lang) { applyLanguage(lang); }
+
+
+/* ── 2. CANVAS LOGO ANIMATION — KOPIT Genesis 3D ── */
+(function(){
+  const cv = document.getElementById('kopitLogo');
+  if(!cv) return;
+  const ctx = cv.getContext('2d');
+  const W = cv.width, H = cv.height;
+  const CX = W/2, CY = H/2;
+
+  const GOLD='#C9A84C', EMR='#2ebf84', SAP='#5a9ef5', PLT='#ccdcee';
+
+  const NODES = [
+    {x:0, y:0, z:0, t:'hub', c:GOLD},
+    {x:0, y:-22, z:6, t:'blk', c:PLT},
+    {x:0, y:18, z:-4, t:'cir', c:EMR},
+    {x:-22, y:0, z:3, t:'cir', c:SAP},
+    {x:16, y:0, z:-6, t:'blk', c:EMR},
+    {x:-14, y:-14, z:8, t:'blk', c:SAP},
+    {x:19, y:-15, z:-3, t:'cir', c:PLT},
+    {x:-13, y:14, z:-7, t:'blk', c:EMR},
+    {x:18, y:18, z:4, t:'cir', c:SAP},
+  ];
+  const EDGES = [[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[0,8]];
+
+  let aY = 0, fT = 0, tt = 0;
+  const aX = 0.15;
+
+  function rY(x,y,z,a){return{x:x*Math.cos(a)+z*Math.sin(a),y,z:-x*Math.sin(a)+z*Math.cos(a)};}
+  function rX(x,y,z,a){return{x,y:y*Math.cos(a)-z*Math.sin(a),z:y*Math.sin(a)+z*Math.cos(a)};}
+  function proj(x,y,z){const f=85/(85+z+45);return{sx:CX+x*f,sy:CY+y*f,sc:f};}
+  function rgb(h){return[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)];}
+  function ra(h,a){const[r,g,b]=rgb(h);return`rgba(${r},${g},${b},${a})`;}
+
+  function glow(x,y,r,col,str){
+    [2,1].forEach((m,i)=>{
+      const g=ctx.createRadialGradient(x,y,0,x,y,r*m);
+      g.addColorStop(0,ra(col,str*(0.5-i*0.2)));
+      g.addColorStop(1,ra(col,0));
+      ctx.beginPath();ctx.arc(x,y,r*m,0,Math.PI*2);
+      ctx.fillStyle=g;ctx.fill();
+    });
+  }
+
+  function box(x,y,w,h,r){
+    ctx.beginPath();
+    ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);
+    ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+    ctx.lineTo(x+w,y+h-r);
+    ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+    ctx.lineTo(x+r,y+h);
+    ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+    ctx.lineTo(x,y+r);
+    ctx.quadraticCurveTo(x,y,x+r,y);
+    ctx.closePath();
+  }
+
+  function drawHub(n,p){
+    const s = 9*n.sc;
+    glow(n.sx,n.sy,s*1.5,GOLD,0.15*p);
+    box(n.sx-s,n.sy-s,s*2,s*2,2.5*n.sc);
+    ctx.fillStyle='rgba(8,5,1,0.95)';ctx.fill();
+    ctx.strokeStyle=ra(GOLD,0.85);
+    ctx.lineWidth=1.2*n.sc;ctx.stroke();
+    ctx.fillStyle=ra(GOLD,0.95);
+    ctx.font=`700 ${7*n.sc}px 'Playfair Display'`;
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText('K',n.sx,n.sy);
+  }
+
+  function drawBlk(n,p){
+    const s = 3*n.sc;
+    glow(n.sx,n.sy,s*2.5,n.c,0.25*p);
+    box(n.sx-s,n.sy-s,s*2,s*2,1*n.sc);
+    const[r,g,b]=rgb(n.c);
+    ctx.fillStyle=`rgba(${Math.round(r*0.15)},${Math.round(g*0.15)},${Math.round(b*0.15)},0.95)`;
+    ctx.fill();
+    ctx.strokeStyle=ra(n.c,0.9);
+    ctx.lineWidth=0.8*n.sc;ctx.stroke();
+  }
+
+  function drawCir(n,p){
+    const r = 3*n.sc;
+    glow(n.sx,n.sy,r*2.5,n.c,0.25*p);
+    ctx.beginPath();ctx.arc(n.sx,n.sy,r,0,Math.PI*2);
+    const[rv,gv,bv]=rgb(n.c);
+    ctx.fillStyle=`rgba(${Math.round(rv*0.15)},${Math.round(gv*0.15)},${Math.round(bv*0.15)},0.95)`;
+    ctx.fill();
+    ctx.strokeStyle=ra(n.c,0.9);
+    ctx.lineWidth=0.8*n.sc;ctx.stroke();
+    ctx.beginPath();ctx.arc(n.sx,n.sy,1*n.sc,0,Math.PI*2);
+    ctx.fillStyle=ra(n.c,0.9);ctx.fill();
+  }
+
+  function frame(){
+    ctx.clearRect(0,0,W,H);
+    fT += 0.006; aY += 0.008; tt += 0.012;
+    const pulse = 0.7 + 0.3*Math.sin(tt*1.5);
+    const fo = Math.sin(fT)*2;
+    const tX = aX + Math.sin(fT*0.4)*0.03;
+
+    const nodes = NODES.map(n => {
+      let p = rY(n.x,n.y,n.z,aY);
+      p = rX(p.x,p.y,p.z,tX);
+      const pj = proj(p.x,p.y+fo,p.z);
+      return {...n, ...pj, tz:p.z};
+    });
+
+    EDGES.forEach(([i,j]) => {
+      const a = nodes[i], b = nodes[j];
+      const lg = ctx.createLinearGradient(a.sx,a.sy,b.sx,b.sy);
+      lg.addColorStop(0,ra(GOLD,0.4));
+      lg.addColorStop(1,ra(b.c,0.7));
+      ctx.beginPath();
+      ctx.moveTo(a.sx,a.sy);ctx.lineTo(b.sx,b.sy);
+      ctx.strokeStyle=ra(b.c,0.08*pulse);
+      ctx.lineWidth=2.5*(a.sc+b.sc)/2;ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(a.sx,a.sy);ctx.lineTo(b.sx,b.sy);
+      ctx.strokeStyle=lg;
+      ctx.lineWidth=0.7*(a.sc+b.sc)/2;ctx.stroke();
+    });
+
+    [...nodes].sort((a,b)=>a.tz-b.tz).forEach(n => {
+      if(n.t==='hub') drawHub(n,pulse);
+      else if(n.t==='blk') drawBlk(n,pulse);
+      else drawCir(n,pulse);
+    });
+
+    requestAnimationFrame(frame);
+  }
+
+  frame();
+})();
+
+
+/* ── 3. NAVBAR + MOBILE MENU ── */
+var navbar    = document.querySelector('.navbar');
+var hamburger = document.getElementById('hamburger');
+var navLinks  = document.getElementById('navLinks');
+
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 80) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+}, { passive: true });
+
+hamburger.addEventListener('click', function() {
+  hamburger.classList.toggle('open');
+  navLinks.classList.toggle('open');
+  document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+});
+
+navLinks.querySelectorAll('.nl').forEach(function(link) {
+  link.addEventListener('click', function() {
+    hamburger.classList.remove('open');
+    navLinks.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+document.addEventListener('click', function(e) {
+  if (navLinks.classList.contains('open') &&
+      !navLinks.contains(e.target) &&
+      !hamburger.contains(e.target)) {
+    hamburger.classList.remove('open');
+    navLinks.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+
+
+/* ── 4. SCROLL REVEAL ── */
+var revealEls = document.querySelectorAll('.reveal');
+
+var revealObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('vis');
+      revealObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+revealEls.forEach(function(el) { revealObs.observe(el); });
+
+
+/* ── 5. STICKY IN-PAGE NAV ── */
+(function() {
+  var pageNav = document.getElementById('page-nav');
+  var hero    = document.getElementById('hero');
+
+  function updateStickyNav() {
+    var heroBottom = hero.getBoundingClientRect().bottom;
+    if (heroBottom < 70) {
+      pageNav.style.opacity = '1';
+      pageNav.style.pointerEvents = 'auto';
+    } else {
+      pageNav.style.opacity = '0';
+      pageNav.style.pointerEvents = 'none';
+    }
+  }
+
+  window.addEventListener('scroll', updateStickyNav, { passive: true });
+  updateStickyNav();
+
+  document.querySelectorAll('.page-nav-link').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var targetId = link.getAttribute('href').substring(1);
+      var target = document.getElementById(targetId);
+      if (target) {
+        var offset = 130;
+        var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  });
+
+  var sections = ['philosophy', 'governance', 'capital', 'tiers', 'compare', 'apply'];
+
+  function updateActiveAnchor() {
+    var activeIndex = 0;
+    sections.forEach(function(id, i) {
+      var el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top < 200) activeIndex = i;
+    });
+    document.querySelectorAll('.page-nav-link').forEach(function(link, i) {
+      if (i === activeIndex) link.classList.add('active');
+      else link.classList.remove('active');
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveAnchor, { passive: true });
+  updateActiveAnchor();
+})();
+
+
+/* ── 6. INIT LANGUAGE ON LOAD ── */
+document.addEventListener('DOMContentLoaded', function() {
+  applyLanguage(currentLang);
+});
+
+
+/* ── 7. TIER CAROUSEL (Build 2B) ── */
+(function() {
+  var cards = Array.from(document.querySelectorAll('.tier-card'));
+  var dots  = Array.from(document.querySelectorAll('#carousel-dots .dot'));
+  var prevBtn = document.getElementById('carousel-prev');
+  var nextBtn = document.getElementById('carousel-next');
+  var stage   = document.getElementById('carousel-stage');
+  var current = 4; // KI3 default
+  var touchStartX = 0;
+
+  function setActive(i) {
+    if (i < 0) i = cards.length - 1;
+    if (i >= cards.length) i = 0;
+    current = i;
+    cards.forEach(function(c, idx) { c.classList.toggle('active', idx === current); });
+    dots.forEach(function(d, idx)  { d.classList.toggle('active', idx === current); });
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', function() { setActive(current - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', function() { setActive(current + 1); });
+
+  dots.forEach(function(d) {
+    d.addEventListener('click', function() {
+      setActive(parseInt(d.getAttribute('data-index'), 10));
+    });
+  });
+
+  cards.forEach(function(c) {
+    c.addEventListener('click', function() {
+      var tier = c.getAttribute('data-tier');
+      if (window.openVault) window.openVault(tier);
+    });
+  });
+
+  if (stage) {
+    stage.addEventListener('touchstart', function(e) {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    stage.addEventListener('touchend', function(e) {
+      var dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 40) setActive(dx < 0 ? current + 1 : current - 1);
+    }, { passive: true });
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (window.vaultIsOpen && window.vaultIsOpen()) return;
+    if (e.key === 'ArrowLeft')  setActive(current - 1);
+    if (e.key === 'ArrowRight') setActive(current + 1);
+  });
+
+  var params    = new URLSearchParams(window.location.search);
+  var tierParam = params.get('tier');
+  if (tierParam) {
+    var codes     = ['kl','kp','ki1','ki2','ki3','kb'];
+    var tierIndex = codes.indexOf(tierParam.toLowerCase());
+    if (tierIndex !== -1) {
+      setActive(tierIndex);
+      setTimeout(function() {
+        var tiersEl = document.getElementById('tiers');
+        if (tiersEl) tiersEl.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(function() {
+          if (window.openVault) window.openVault(tierParam.toLowerCase());
+        }, 700);
+      }, 300);
+    }
+  }
+
+  window.__carousel = { setActive: setActive, getCurrent: function() { return current; } };
+  setActive(4);
+})();
+
+
+/* ── 8. VAULT MODAL (Build 2B) ── */
+(function() {
+  var modal    = document.getElementById('vault-modal');
+  var backdrop = document.getElementById('vault-backdrop');
+  var closeBtn = document.getElementById('vault-close');
+  var eyebrow  = document.getElementById('vault-eyebrow');
+  var titleEl  = document.getElementById('vault-title');
+  var subtitle = document.getElementById('vault-subtitle');
+  var cardBack = document.getElementById('vault-card-back');
+  var ctaBtn   = document.getElementById('vault-cta-button');
+
+  if (!modal) return;
+
+  var tierData = {
+    kl: {
+      eyebrow: '— TIER DETAIL · KL —',
+      title: 'Division Leader',
+      subtitle: 'Ketua Bahagian',
+      sections: [
+        {
+          heading: 'FINANCIAL STRUCTURE',
+          stats: [
+            { label: 'APPROVED BY',              value: 'BOD',                                   highlight: true },
+            { label: 'SHARE REQUIREMENT',        value: 'Higher quantity, BOD-determined',       note: 'Reflects leadership commitment' },
+            { label: 'INCOME STREAMS',           value: 'Dividend + Profit Sharing',             note: 'Profit share Mgt-determined per project · No salary base' },
+            { label: 'CAPITAL PROGRAMME · OPTIONAL', value: 'Eligible · RM 10,000 minimum',     note: 'Standard Fixed Return Arrangement' }
+          ]
+        },
+        {
+          heading: 'STRATEGIC BENEFITS',
+          stats: [
+            { label: 'LEADERSHIP RIGHTS',           value: 'Lead Division · Full Tender Access · Higher Profit Share', highlight: true },
+            { label: 'MEMBER INTRODUCER PROGRAMME', value: 'Senior Tier Commission Rate',        note: 'Earn commissions on introduced members and capital · Rates BOD-determined per arrangement', highlight: true },
+            { label: 'PROMOTION PATH',              value: 'BOD-Appointed Strategic Roles',      highlight: true }
+          ]
+        }
+      ],
+      privileges: [
+        'AGM voting rights · 1 member, 1 vote',
+        'Member-Only Pricing on KOPIT division services · Tier-determined',
+        'Free technology training & upskilling courses',
+        'Hardware & software member procurement rates',
+        'Insurance & Takaful discount programme · Tier rate',
+        'Annual KOPIT gathering · Networking events'
+      ],
+      portalAccess: 'Leadership Dashboard'
+    },
+    kp: {
+      eyebrow: '— TIER DETAIL · KP —',
+      title: 'Division Member',
+      subtitle: 'Ahli Bahagian',
+      sections: [
+        {
+          heading: 'FINANCIAL STRUCTURE',
+          stats: [
+            { label: 'APPROVED BY',              value: 'BOD',                                   highlight: true },
+            { label: 'SHARE REQUIREMENT',        value: 'Higher quantity, BOD-determined' },
+            { label: 'INCOME STREAMS',           value: 'Dividend + Profit Sharing',             note: 'Profit share Mgt-determined per project · No salary base' },
+            { label: 'CAPITAL PROGRAMME · OPTIONAL', value: 'Eligible · RM 10,000 minimum' }
+          ]
+        },
+        {
+          heading: 'STRATEGIC BENEFITS',
+          stats: [
+            { label: 'MEMBER RIGHTS',               value: 'Deliver Work · Refer Clients · Move Divisions', highlight: true },
+            { label: 'MEMBER INTRODUCER PROGRAMME', value: 'Standard Tier Commission Rate',     note: 'Earn commissions on introduced members · Rates BOD-determined per arrangement', highlight: true },
+            { label: 'PROMOTION PATH',              value: 'Can Become Division Leader',        highlight: true }
+          ]
+        }
+      ],
+      privileges: [
+        'AGM voting rights · 1 member, 1 vote',
+        'Member-Only Pricing on KOPIT division services · Tier-determined',
+        'Free technology training & upskilling courses',
+        'Hardware & software member procurement rates',
+        'Insurance & Takaful discount programme · Tier rate',
+        'Annual KOPIT gathering'
+      ],
+      portalAccess: 'Member Dashboard'
+    },
+    ki1: {
+      eyebrow: '— TIER DETAIL · KI1 —',
+      title: 'Entry Partner',
+      subtitle: 'Rakan Modal',
+      sections: [
+        {
+          heading: 'FINANCIAL STRUCTURE',
+          stats: [
+            { label: 'INVESTMENT BRACKET',   value: 'RM 10,000 – RM 100,000' },
+            { label: 'SHARE REQUIREMENT',    value: 'Min 2% of investment value',  note: 'BOD may require higher quantity' },
+            { label: 'APPROVED BY',          value: 'BOD',                         highlight: true },
+            { label: 'CAPITAL PROGRAMME',    value: 'Fixed Return Arrangement',    note: 'BOD-determined rate · Up to 3 years · Auto-renew or capital returned after term' }
+          ]
+        },
+        {
+          heading: 'STRATEGIC BENEFITS',
+          stats: [
+            { label: 'MEMBER INTRODUCER PROGRAMME', value: 'Entry Tier Commission Rate', note: 'Earn commissions on introduced capital · Rates BOD-determined per arrangement', highlight: true }
+          ]
+        }
+      ],
+      privileges: [
+        'AGM voting rights · 1 member, 1 vote',
+        'Member-Only Pricing on KOPIT division services · Tier-determined',
+        'Free technology training & upskilling courses',
+        'Hardware & software member procurement rates',
+        'Insurance & Takaful discount programme · Tier rate',
+        'Annual KOPIT gathering'
+      ],
+      portalAccess: 'Investment Dashboard'
+    },
+    ki2: {
+      eyebrow: '— TIER DETAIL · KI2 —',
+      title: 'Growth Partner',
+      subtitle: 'Pelabur Teras',
+      sections: [
+        {
+          heading: 'FINANCIAL STRUCTURE',
+          stats: [
+            { label: 'INVESTMENT BRACKET',   value: 'RM 100,000 – RM 300,000' },
+            { label: 'SHARE REQUIREMENT',    value: 'Min 2% of investment value',  note: 'BOD may require higher quantity' },
+            { label: 'APPROVED BY',          value: 'BOD',                         highlight: true },
+            { label: 'CAPITAL PROGRAMME',    value: 'Fixed Return Arrangement',    note: 'BOD-determined rate · Up to 3 years · Auto-renew or capital returned after term' }
+          ]
+        },
+        {
+          heading: 'STRATEGIC BENEFITS',
+          stats: [
+            { label: 'SUBSIDIARY ACCESS',           value: 'Eligible for Subsidiary Investment Rounds', note: 'Decided per arrangement by BOD', highlight: true },
+            { label: 'EXECUTIVE BRIEFINGS',         value: 'Quarterly Reports + Investor Calls',        highlight: true },
+            { label: 'MEMBER INTRODUCER PROGRAMME', value: 'Growth Tier Commission Rate',              note: 'Higher rate than KI1 · Rates BOD-determined per arrangement', highlight: true }
+          ]
+        }
+      ],
+      privileges: [
+        'AGM voting rights · 1 member, 1 vote',
+        'Member-Only Pricing on KOPIT division services · Tier-determined',
+        'Free technology training & upskilling courses',
+        'Hardware & software member procurement rates',
+        'Insurance & Takaful discount programme · Tier rate',
+        'Annual KOPIT gathering · Networking events'
+      ],
+      portalAccess: 'Quarterly Reports + Dashboard'
+    },
+    ki3: {
+      eyebrow: '— TIER DETAIL · KI3 —',
+      title: 'Strategic Partner',
+      subtitle: 'Pelabur Agung',
+      sections: [
+        {
+          heading: 'FINANCIAL STRUCTURE',
+          stats: [
+            { label: 'INVESTMENT BRACKET',   value: 'RM 300,000 – RM 1,000,000' },
+            { label: 'SHARE REQUIREMENT',    value: 'Min 2% of investment value',  note: 'BOD may require higher quantity' },
+            { label: 'APPROVED BY',          value: 'BOD + Chairman',              highlight: true },
+            { label: 'CAPITAL PROGRAMME',    value: 'Fixed Return Arrangement',    note: 'BOD-determined rate · Up to 3 years · Auto-renew or capital returned after term' }
+          ]
+        },
+        {
+          heading: 'STRATEGIC BENEFITS',
+          stats: [
+            { label: 'SUBSIDIARY ACCESS',           value: 'Priority Allocation · Co-Investment Eligible', note: 'Priority access to subsidiary investment opportunities, decided per arrangement by BOD', highlight: true },
+            { label: 'CHAIRMAN ACCESS',             value: 'Direct Line · Private Dinners · Strategic Retreats', note: 'Real engagement with KOPIT leadership on strategic direction', highlight: true },
+            { label: 'MEMBER INTRODUCER PROGRAMME', value: 'Highest Tier Commission Rate', note: 'Earn commissions on introduced members and capital · Rates BOD-determined per arrangement', highlight: true },
+            { label: 'EDITION CARD',                value: 'Engraved Strategic Partner Card', note: 'Limited to 50 numbered editions · Members receive a physical KOPIT card', highlight: true }
+          ]
+        }
+      ],
+      privileges: [
+        'AGM voting rights · 1 member, 1 vote',
+        'Member-Only Pricing on KOPIT division services · Tier-determined',
+        'Free technology training & upskilling courses',
+        'Hardware & software member procurement rates',
+        'Insurance & Takaful discount programme · Tier rate',
+        'Annual KOPIT gathering · Strategic retreats'
+      ],
+      portalAccess: 'Full Real-Time Dashboard + Direct BOD Access'
+    },
+    kb: {
+      eyebrow: '— TIER DETAIL · KB —',
+      title: 'General Member',
+      subtitle: 'Warga KOPIT',
+      sections: [
+        {
+          heading: 'FINANCIAL STRUCTURE',
+          stats: [
+            { label: 'SHARE CAPITAL',    value: 'RM 200 minimum (1 share)' },
+            { label: 'PROCESSING FEE',   value: 'RM 20 one-time' },
+            { label: 'APPROVED BY',      value: 'BOD',                        highlight: true },
+            { label: 'INCOME',           value: 'Annual Dividend',             note: 'Declared at AGM based on cooperative profit' }
+          ]
+        },
+        {
+          heading: 'STRATEGIC BENEFITS',
+          stats: [
+            { label: 'CAPITAL PROGRAMME ACCESS',    value: 'Eligible from RM 10,000',    note: 'Volume can upgrade tier classification (KI1/KI2/KI3)', highlight: true },
+            { label: 'MEMBER INTRODUCER PROGRAMME', value: 'Entry Commission Rate',       note: 'Earn commissions on introduced members · Rates BOD-determined per arrangement', highlight: true },
+            { label: 'PATH FORWARD',                value: 'May Upgrade To KP/KL/KI Tiers Via Approval', highlight: true }
+          ]
+        }
+      ],
+      privileges: [
+        'AGM voting rights · 1 member, 1 vote',
+        'Member-Only Pricing on KOPIT division services · Tier-determined',
+        'Free technology training & upskilling courses',
+        'Hardware & software member procurement rates',
+        'Insurance & Takaful discount programme · Tier rate',
+        'Annual KOPIT gathering'
+      ],
+      portalAccess: 'Member Dashboard'
+    }
+  };
+
+  function openVault(tier) {
+    var data = tierData[tier];
+    if (!data) return;
+    eyebrow.textContent  = data.eyebrow;
+    titleEl.textContent  = data.title;
+    subtitle.textContent = data.subtitle;
+
+    var html = '';
+    data.sections.forEach(function(section) {
+      html += '<div class="vault-section">';
+      html += '<div class="vault-section-heading">— ' + section.heading + ' —</div>';
+      section.stats.forEach(function(stat) {
+        var cls      = 'vault-stat-row' + (stat.highlight ? ' highlight' : '');
+        var noteHtml = stat.note ? '<div class="vault-stat-note">' + stat.note + '</div>' : '';
+        html += '<div class="' + cls + '"><div class="vault-stat-label">' + stat.label + '</div><div class="vault-stat-value">' + stat.value + '</div>' + noteHtml + '</div>';
+      });
+      html += '</div>';
+    });
+
+    if (data.privileges && data.privileges.length) {
+      html += '<div class="vault-section"><div class="vault-section-heading">— MEMBER PRIVILEGES —</div><div class="vault-privileges-box">';
+      data.privileges.forEach(function(p) {
+        html += '<div class="vault-privilege-item"><span class="vault-privilege-mark">◆</span><span>' + p + '</span></div>';
+      });
+      html += '</div></div>';
+    }
+
+    if (data.portalAccess) {
+      html += '<div class="vault-stat-row highlight portal-access"><div class="vault-stat-label">PORTAL ACCESS</div><div class="vault-stat-value">' + data.portalAccess + '</div></div>';
+    }
+
+    cardBack.innerHTML = html;
+    ctaBtn.textContent = 'Express Interest in ' + tier.toUpperCase() + ' →';
+    ctaBtn.setAttribute('href', 'contact.html?subject=membership&tier=' + tier);
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function() { if (closeBtn) closeBtn.focus(); }, 100);
+  }
+
+  function closeVault() {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function vaultIsOpen() { return modal.classList.contains('active'); }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeVault);
+  if (backdrop) backdrop.addEventListener('click', closeVault);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && vaultIsOpen()) closeVault();
+  });
+
+  window.openVault   = openVault;
+  window.closeVault  = closeVault;
+  window.vaultIsOpen = vaultIsOpen;
+})();
+
+
+
+/* ── 9. MEMBER LOGIN INTERCEPT (Build 2C) ── */
+(function() {
+  var modal    = document.getElementById('member-login-modal');
+  if (!modal) return;
+  var backdrop = document.getElementById('member-login-backdrop');
+  var closeBtn = document.getElementById('member-login-close');
+
+  function openLogin(e) {
+    if (e) e.preventDefault();
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLogin() {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('a').forEach(function(link) {
+    var text = link.textContent.trim().toLowerCase();
+    if (text === 'member login' || text === 'login' || text === 'log in' || text === 'member portal' || text === 'log masuk ahli') {
+      link.addEventListener('click', openLogin);
+    }
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeLogin);
+  if (backdrop) backdrop.addEventListener('click', closeLogin);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('active')) closeLogin();
+  });
+})();
+
+</script>
+
+<!-- MEMBER LOGIN MODAL (Build 2C) -->
+<div id="member-login-modal" class="vault-modal" role="dialog" aria-modal="true" aria-labelledby="member-login-title" aria-hidden="true">
+  <div class="vault-backdrop" id="member-login-backdrop"></div>
+  <div class="vault-content member-login-content">
+    <button class="vault-close" id="member-login-close" aria-label="Close">&#215;</button>
+    <div class="vault-header" style="margin-bottom:32px;">
+      <div class="vault-eyebrow">— MEMBER PORTAL —</div>
+      <h2 class="vault-title" id="member-login-title">Coming Soon</h2>
+      <div class="vault-subtitle">Pelantar Ahli</div>
+    </div>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:rgba(244,239,232,0.8);line-height:1.7;text-align:center;margin:0 auto 28px;max-width:480px;">The KOPIT Member Portal is currently in development. Existing members will receive direct access via email when launched.</p>
+    <div style="text-align:center;margin-bottom:24px;">
+      <a href="https://wa.me/60105122561?text=Hello%20KOPIT%2C%20I'm%20a%20member%20requesting%20portal%20access%20update." target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:rgba(37,211,102,0.95);color:#fff;padding:14px 30px;font-family:'Source Sans 3',sans-serif;font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;border-radius:4px;text-decoration:none;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.6.1-1-.5-1.6-.9-2.4-2-.2-.3.2-.3.5-.9.1-.2 0-.3 0-.4 0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3 0 1.4 1 2.7 1.2 2.9.1.2 2 3 4.8 4.2 1.7.7 2.4.8 3.2.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.5-.3M12 2C6.5 2 2 6.5 2 12c0 1.7.5 3.4 1.3 4.9L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2"/></svg>
+        WhatsApp Support &#8594;
+      </a>
+    </div>
+    <div class="vault-dismiss-hint">ESC · CLICK BACKDROP · X TO CLOSE</div>
+  </div>
+</div>
+
+</body>
+</html>

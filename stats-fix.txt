@@ -1,0 +1,127 @@
+URGENT FIX — REMOVE FAKE STATS BAR
+
+The current stats bar shows false 
+information that must be removed:
+- "500+ Active Members" — WE HAVE 98
+- "12 Years of Excellence" — WE ARE 3
+- "RM 2M+ Projects Delivered" — NO 
+  PROJECTS DELIVERED YET
+- "3 Active Divisions" — WE HAVE 7
+
+This stats bar damages credibility 
+if government or funder visitors verify 
+the claims.
+
+═══════════════════════════════════════
+DELETE THE STATS BAR ENTIRELY
+═══════════════════════════════════════
+Find the section with the 4 numbers 
+"500+", "12", "RM 2M+", "3" and 
+DELETE it completely.
+
+═══════════════════════════════════════
+REPLACE WITH 4 IDENTITY STATEMENT BOXES
+═══════════════════════════════════════
+Layout: 4 boxes in a row.
+Background: navy #0A1628 (matches hero)
+Padding: 60px vertical
+Container: max-width 1500px, margin 
+auto, padding 0 60px
+
+Each box style:
+- Background: rgba(255,255,255,0.02)
+- Border: 0.5px solid rgba(201,168,76,0.18)
+- Border-top: 2px solid #C9A84C 
+  (gold top accent)
+- Border-radius: 6px
+- Padding: 32px 24px
+- Hover: border colour brightens to 
+  rgba(201,168,76,0.5), subtle lift -3px
+
+Box content structure:
+- Title (Cambria bold, 18px, color #fff, 
+  margin-bottom 8px)
+- Subtitle (Calibri, 11px, color 
+  rgba(255,255,255,0.55), letter-spacing 
+  0.4px, line-height 1.6)
+
+═══════════════════════════════════════
+THE 4 BOXES
+═══════════════════════════════════════
+
+BOX 1:
+Title: "E-Perolehan Registered"
+Subtitle: "Government-grade vendor 
+status. Federal procurement ready."
+
+BOX 2:
+Title: "SKM Registered Cooperative"
+Subtitle: "Member-owned. Member-governed. 
+Member-grown."
+
+BOX 3:
+Title: "7 Divisions. One Vision."
+Subtitle: "From code to capital. From AI to solar."
+
+BOX 4:
+Title: "4 Revenue Channels"
+Subtitle: "Government. Private. Member. 
+Community."
+
+═══════════════════════════════════════
+GRID LAYOUT
+═══════════════════════════════════════
+.identity-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .identity-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .identity-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+═══════════════════════════════════════
+SECTION HEADING (small, above the boxes)
+═══════════════════════════════════════
+Optional small label above the boxes:
+
+Text: "WHO WE ARE"
+Style:
+- Centred
+- Font: Calibri 9px
+- Letter-spacing: 4px
+- Colour: rgba(201,168,76,0.6)
+- Margin-bottom: 32px
+- Above text — small gold dot ⬡ or 
+  vertical line ornament
+
+═══════════════════════════════════════
+VERIFICATION CHECKLIST
+═══════════════════════════════════════
+After implementation:
+1. NO "500+", "12", "RM 2M+", or "3" 
+   numbers anywhere on the page
+2. 4 Identity Statement boxes visible
+3. Each box has gold top border accent
+4. Boxes hover with subtle lift
+5. Mobile responsive — collapses to 
+   2 columns then 1 column
+6. All text matches exact wording above
+
+After fixing — refresh browser and 
+screenshot the section. Bring back 
+for review.
+
+DO NOT touch the navbar.
+DO NOT touch the hero section.
+DO NOT touch any section below this 
+one yet.

@@ -1,0 +1,95 @@
+Fix the navbar sizing only. 
+Touch nothing else on the page.
+
+EXACT NEW SPECS:
+
+NAVBAR HEIGHT:
+- Expanded (top of page): 95px
+- Compact (scrolled 80px+): 65px
+- Smooth transition 0.35s ease
+
+LOGO CANVAS:
+- Expanded: 75x75px
+- Compact: 55x55px
+- Animation continues running in both states
+
+KOPIT TEXT (Line 1):
+- Font: Cambria bold
+- Size: 28px
+- Colour: #ffffff
+- Letter spacing: 2px
+- Margin bottom: 2px
+
+FULL REGISTERED NAME (Line 2):
+- Text: "Koperasi Usahawan Informasi Teknologi Malaysia Berhad"
+- Font: Calibri
+- Size: 10px
+- Colour: rgba(255,255,255,0.5)
+- Letter spacing: 0.4px
+- White-space: nowrap
+- Margin bottom: 2px
+- WHEN SCROLLED: opacity 0, height 0, 
+  margin 0, overflow hidden — hides entirely
+
+TAGLINE (Line 3):
+- Text: "Malaysia's Premier IT Koperasi"
+- Font: Calibri italic
+- Size: 11px
+- Colour: rgba(201,168,76,0.85)
+- Letter spacing: 0.5px
+
+NAV LINKS:
+- Font: Calibri
+- Size: 15px
+- Letter spacing: 0.3px
+- Spacing between links: 28px
+- Hover: gold colour transition
+
+EN/BM TOGGLE:
+- Size: 11px
+- Padding: 5px 12px
+- Letter spacing: 1.5px
+
+MEMBER LOGIN BUTTON:
+- Font: Calibri 14px
+- Padding: 10px 22px
+- Background: gold filled #C9A84C (not outlined)
+- Text colour: navy #0A1628
+- Hover: slightly darker gold
+- Border radius: 4px
+
+CSS TRANSITIONS:
+.navbar { 
+  transition: height 0.35s ease, padding 0.35s ease; 
+}
+.navbar.scrolled .full-registered-name { 
+  opacity: 0; 
+  height: 0; 
+  margin: 0;
+  overflow: hidden;
+}
+.navbar.scrolled #kopitLogo {
+  width: 55px;
+  height: 55px;
+  transition: all 0.35s ease;
+}
+.navbar.scrolled .kopit-text {
+  font-size: 22px;
+  transition: font-size 0.35s ease;
+}
+
+JAVASCRIPT (verify it exists or add):
+window.addEventListener('scroll', () => {
+  const navbar = document.querySelector('.navbar');
+  if(window.scrollY > 80) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+
+After fixing — refresh browser. 
+Take screenshot showing the navbar 
+in expanded state.
+Then scroll down 200px and screenshot 
+again to confirm compact state works.

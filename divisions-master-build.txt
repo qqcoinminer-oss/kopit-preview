@@ -1,0 +1,801 @@
+COMPREHENSIVE BUILD — DIVISIONS SECTION 
++ NEW 8TH DIVISION SECTION 
++ CONSTELLATION COLOUR + TOOLTIP UPDATE
++ HUB CENTRE FIX + NODE LABEL FIX
++ TOOLTIP BUG INVESTIGATION
+
+Read carefully. Execute every fix below.
+SIX TOTAL FIXES.
+
+═══════════════════════════════════════
+FIX 1 — INSERT NEW DIVISIONS SECTION
+═══════════════════════════════════════
+Insert AFTER the "OUR FOUNDATION" 
+section and BEFORE wherever the next 
+section begins.
+
+Background: navy radial gradient
+Padding: 60px vertical
+Container: max-width 1400px
+
+SECTION HEADER:
+Section label (centred, top):
+- Vertical gold line ornament 1px x 18px
+- Below: "OUR DIVISIONS"
+- Source Sans 3, 9px, letter-spacing 4px,
+  rgba(201,168,76,0.65), weight 500
+
+Heading (centred):
+"Seven Divisions. <span class='gold'>Satu Koperasi.</span>"
+- Playfair Display, 38px, weight 600
+- Color #ffffff
+- Letter-spacing -0.3px
+- .gold class: color #C9A84C, italic, 
+  weight 400
+
+Subtext (centred):
+"Built for the AI era. Engineered for 
+Malaysian enterprise."
+- Source Sans 3, 14px
+- Color rgba(255,255,255,0.55)
+- Margin-bottom 55px
+
+GRID LAYOUT — 3 + 4 ROWS:
+Top row:
+- max-width 1080px, centred
+- grid-template-columns repeat(3, 1fr)
+- gap 18px
+- 3 cards: Wira Digital, Bijak AI, Hijau
+
+Bottom row:
+- max-width 1400px, centred
+- grid-template-columns repeat(4, 1fr)  
+- gap 18px
+- margin-top 18px
+- 4 cards: Blockchain, Dana Sejahtera, 
+  Angkasa Build, Arif Advisory
+
+Top row cards are slightly bigger:
+- padding 30px 26px (vs 26px 22px bottom)
+- medallion 80px (vs 72px bottom)
+
+CARD DESIGN — FILLED MEDALLION STYLE:
+Card base:
+- Background: linear-gradient(135deg,
+  rgba(15,30,53,0.6), rgba(10,22,40,0.45))
+- Border: 0.5px solid rgba(201,168,76,0.2)
+- Border-radius: 10px
+- Backdrop-filter: blur(6px)
+- Cursor: pointer
+- Transition: transform 0.4s, 
+  border-color 0.4s, box-shadow 0.4s
+
+Top accent line (CSS pseudo ::before):
+- Position absolute top, full width
+- Height 1.5px
+- Linear-gradient transparent → division colour → transparent
+- Opacity 0.5, transitions to 1 on hover
+- Height grows to 2.5px on hover/expanded
+
+HOVER state:
+- transform: translateY(-8px)
+- border-color: division colour
+- box-shadow: 0 18px 44px rgba(0,0,0,0.45),
+  0 0 32px division glow soft
+
+EXPANDED state:
+- Same as hover but with:
+  box-shadow: 0 18px 44px rgba(0,0,0,0.5),
+  0 0 36px division glow soft
+
+MEDALLION (THE FILLED COIN):
+Wrapper: flex centre, margin-bottom 18px
+
+Medallion (72x72 default, 80x80 priority):
+- Position relative
+- Transition transform 0.4s ease
+
+Aura (CSS layer, expands on hover):
+- Position absolute, inset -10px
+- Border-radius 50%
+- Background: radial-gradient(circle, 
+  division-aura-color 0%, transparent 65%)
+- Opacity 0.65
+- On hover: opacity 1, inset -20px
+
+Coin (the main filled circle):
+- 100% width/height
+- Border-radius 50%
+- Background: radial-gradient(circle at 
+  30% 25%, division-light 0%, division 
+  45%, division-dark 100%)
+- Box-shadow:
+  inset 0 -4px 10px rgba(0,0,0,0.35),
+  inset 0 3px 6px rgba(255,255,255,0.25),
+  0 6px 16px rgba(0,0,0,0.5)
+
+Outer rim (white sheen):
+- Position absolute, inset 0
+- Border-radius 50%
+- Border: 1.5px solid rgba(255,255,255,0.4)
+- Box-shadow: 0 0 14px division-glow-soft
+
+Inner rim:
+- Position absolute, inset 6px
+- Border: 0.5px solid rgba(255,255,255,0.25)
+
+Coin top sheen (::before):
+- Position absolute, top 5%, left 18%, 
+  right 18%, height 38%
+- Border-radius 50%
+- Background: radial-gradient(ellipse at 
+  50% 0%, rgba(255,255,255,0.45) 0%, 
+  transparent 70%)
+
+Coin bottom shadow (::after):
+- Position absolute, bottom 0, left 0, 
+  right 0, height 35%
+- Background: linear-gradient(to top, 
+  rgba(0,0,0,0.25) 0%, transparent 100%)
+
+Icon centre:
+- Position absolute, inset 0
+- Flex centre
+- SVG with division-specific stroke colour
+- Filter: drop-shadow(0 2px 4px 
+  rgba(0,0,0,0.4))
+
+═══════════════════════════════════════
+THE 7 DIVISIONS — EXACT DATA
+═══════════════════════════════════════
+
+DIV 1 — KOPIT WIRA DIGITAL (Position 1, top row)
+Name BM: ICT & Sistem Berasaskan AI
+Teaser: The AI-powered IT backbone for 
+  Malaysian enterprise.
+Body: We build intelligent systems, 
+  automate critical operations, and 
+  integrate AI across legacy 
+  infrastructure — turning IT cost 
+  centres into AI-driven competitive 
+  advantage.
+Services:
+  - AI-Powered IT Operations (AIOps)
+  - Intelligent Process Automation
+  - AI-Enhanced Cybersecurity
+  - Cloud AI & MLOps Integration
+Colours:
+  col: #FFC857 (Royal Gold)
+  col_light: #FFE0A0
+  col_dark: #B07F1A
+  icon_color: #3D2400 (dark for contrast)
+Icon SVG path:
+  <path d="M8 9l-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/>
+
+DIV 2 — KOPIT BIJAK AI (Position 2, top row)
+Name BM: AI · IoT · Pengawasan Pintar
+Teaser: Our flagship AI division — 
+  production-grade systems that see, 
+  decide, and act.
+Body: From computer vision and 
+  intelligent surveillance to enterprise 
+  AI deployment, we deliver 
+  production-grade AI systems that 
+  solve real Malaysian business 
+  problems.
+Services:
+  - Custom AI Model Development
+  - Computer Vision & Smart Surveillance
+  - IoT + AI Integration
+  - Predictive Analytics & ML
+Colours:
+  col: #00D9FF (Electric Cyan)
+  col_light: #A0F0FF
+  col_dark: #0085A8
+  icon_color: #FFFFFF (white for contrast)
+Icon SVG paths:
+  <circle cx="12" cy="12" r="3"/>
+  <circle cx="5" cy="6" r="1.5"/>
+  <circle cx="19" cy="6" r="1.5"/>
+  <circle cx="5" cy="18" r="1.5"/>
+  <circle cx="19" cy="18" r="1.5"/>
+  <line x1="6.5" y1="7" x2="10" y2="11"/>
+  <line x1="17.5" y1="7" x2="14" y2="11"/>
+  <line x1="6.5" y1="17" x2="10" y2="13"/>
+  <line x1="17.5" y1="17" x2="14" y2="13"/>
+
+DIV 3 — KOPIT HIJAU (Position 3, top row)
+Name BM: Tenaga Lestari & Teknologi Hijau
+Teaser: AI-optimised renewable energy 
+  and intelligent battery systems.
+Body: Sustainable energy meets 
+  artificial intelligence. We engineer 
+  Malaysia's green transition with 
+  smart, data-driven infrastructure — 
+  from solar to storage to carbon 
+  analytics.
+Services:
+  - AI-Optimised Solar Design
+  - Smart Battery Energy Storage
+  - Predictive Energy Management
+  - Carbon Analytics & ESG Tech
+Colours:
+  col: #3DDC84 (Vivid Emerald)
+  col_light: #A0F0BC
+  col_dark: #1F8048
+  icon_color: #0F2A1F (dark for contrast)
+Icon SVG paths:
+  <circle cx="12" cy="12" r="3"/>
+  <path d="M12 2v4M12 18v4M4 12h4M16 12h4
+    M6 6l3 3M15 15l3 3M6 18l3-3M15 9l3-3"/>
+
+DIV 4 — KOPIT BLOCKCHAIN (Position 1, bottom row)
+Name BM: Teknologi Lejar Teragih
+Teaser: Distributed ledger technology 
+  engineered for institutional trust.
+Body: We design tokenisation 
+  infrastructure, smart contracts, and 
+  AI-blockchain hybrid systems for the 
+  next generation of digital assets and 
+  institutional finance.
+Services:
+  - Smart Contract Development
+  - Tokenisation Infrastructure
+  - AI-Blockchain Integration
+  - Crypto & DeFi Systems
+Colours:
+  col: #7B61FF (Indigo Violet)
+  col_light: #C8B8FF
+  col_dark: #4A33B0
+  icon_color: #FFFFFF (white for contrast)
+Icon SVG paths:
+  <rect x="3" y="3" width="7" height="7" rx="1"/>
+  <rect x="14" y="3" width="7" height="7" rx="1"/>
+  <rect x="3" y="14" width="7" height="7" rx="1"/>
+  <rect x="14" y="14" width="7" height="7" rx="1"/>
+  <line x1="10" y1="6.5" x2="14" y2="6.5"/>
+  <line x1="10" y1="17.5" x2="14" y2="17.5"/>
+  <line x1="6.5" y1="10" x2="6.5" y2="14"/>
+  <line x1="17.5" y1="10" x2="17.5" y2="14"/>
+
+DIV 5 — KOPIT DANA SEJAHTERA (Position 2, bottom row)
+Name BM: InsurTech & Kewangan Pintar
+Teaser: Financial intelligence for the 
+  cooperative era.
+Body: AI-powered InsurTech, intelligent 
+  capital management, and smart member 
+  finance — combining traditional 
+  financial discipline with modern 
+  algorithmic precision.
+Services:
+  - AI-Powered InsurTech
+  - Intelligent Capital Management
+  - Member Finance Platforms
+  - Risk Analytics & Modelling
+Colours:
+  col: #FFA552 (Warm Amber)
+  col_light: #FFD0A0
+  col_dark: #B85F18
+  icon_color: #3D1F00 (dark for contrast)
+Icon SVG paths:
+  <ellipse cx="12" cy="6" rx="6" ry="2"/>
+  <path d="M6 6v3c0 1.1 2.7 2 6 2s6-.9 6-2V6"/>
+  <path d="M6 11v3c0 1.1 2.7 2 6 2s6-.9 6-2v-3"/>
+  <path d="M6 16v3c0 1.1 2.7 2 6 2s6-.9 6-2v-3"/>
+
+DIV 6 — KOPIT ANGKASA BUILD (Position 3, bottom row)
+Name BM: Dron AI & PropTech
+Teaser: Aerial intelligence meets the 
+  built environment.
+Body: From AI drone mapping and 
+  inspection to smart building 
+  automation, we use AI to see, 
+  measure, and manage Malaysia's 
+  physical infrastructure from the 
+  sky down.
+Services:
+  - AI Drone Survey & Mapping
+  - AI Drone Inspection & Analytics
+  - Aerial Photogrammetry & Digital Twins
+  - Smart Building Automation
+Colours:
+  col: #4A9EFF (Sky Sapphire)
+  col_light: #B0D2FF
+  col_dark: #1F60B8
+  icon_color: #FFFFFF (white for contrast)
+Icon SVG paths (rocket):
+  <path d="M12 2c-1.5 2.5-3 5-3 8.5 0 1.5
+    .5 2.8 1.2 3.8h3.6c.7-1 1.2-2.3 1.2-
+    3.8C15 7 13.5 4.5 12 2z"/>
+  <circle cx="12" cy="9" r="1.3"/>
+  <path d="M9 14l-2 2v3l3-1M15 14l2 2v3l-3-1"/>
+  <path d="M10.5 18.5L9 22M13.5 18.5L15 22
+    M12 19v3"/>
+
+DIV 7 — KOPIT ARIF ADVISORY (Position 4, bottom row)
+Name BM: Strategi & Tadbir Urus AI
+Teaser: Malaysia's strategic AI 
+  advisory partner.
+Body: We guide enterprises through AI 
+  adoption, governance, and digital 
+  transformation — translating AI 
+  ambition into measurable business 
+  execution and regulatory readiness.
+Services:
+  - AI Strategy & Adoption Roadmap
+  - AI Readiness Assessment
+  - Generative AI Implementation
+  - AI Governance & Compliance
+Colours:
+  col: #7FE3C5 (Sage Mint)
+  col_light: #C0F0DC
+  col_dark: #3D8C70
+  icon_color: #0F2A22 (dark for contrast)
+Icon SVG paths:
+  <circle cx="12" cy="12" r="9"/>
+  <path d="M12 3v9l5 3"/>
+
+CARD CONTENT BELOW MEDALLION:
+Name English:
+- Playfair Display, 18px, weight 600
+- Color #fff
+- Centred, letter-spacing -0.2px
+
+Name Malay (BM):
+- Source Sans 3, 10px, italic, weight 500
+- Color: division colour
+- Centred, letter-spacing 0.5px
+
+Gold accent line:
+- 36px wide, 1px tall
+- Gradient transparent → division → transparent
+- Margin: 14px auto 12px
+- Hover: width grows to 60px
+
+Teaser:
+- Source Sans 3, 12px, line-height 1.6
+- Color rgba(255,255,255,0.65)
+- Centred
+
+EXPANDED CONTENT (CLICK TO EXPAND):
+.expand-area:
+- max-height 0 default
+- Transition max-height 0.5s 
+  cubic-bezier(0.4,0,0.2,1)
+- On .expanded: max-height 600px
+
+Body paragraph:
+- Source Sans 3, 12.5px, line-height 1.7
+- Color rgba(255,255,255,0.7)
+- Margin-top 14px
+
+"KEY SERVICES" label:
+- Source Sans 3, 8.5px caps
+- Letter-spacing 2.5px, weight 600
+- Color: division colour
+- Margin-top 18px, margin-bottom 10px
+- Centred
+
+Service items:
+- Display flex, gap 8px, align centre
+- Source Sans 3, 11.5px
+- Color rgba(255,255,255,0.78)
+- Padding 5px 0
+- Arrow ▸ in division colour
+
+"HIRE THIS DIVISION →" button:
+- Display flex centre, margin 18px auto 0
+- Padding 9px 18px
+- Background rgba(255,255,255,0.04)
+- Border 0.5px solid division colour
+- Color: division colour
+- Source Sans 3, 9.5px caps
+- Letter-spacing 1.5px, weight 600
+- Hover: bg becomes division colour, 
+  text becomes #0A1628
+
+Click hint (default state, hidden when expanded):
+- Source Sans 3, 8px caps
+- Letter-spacing 2px
+- Color: division colour at 0.55 opacity
+- Pulsing dot in division colour
+- Text "CLICK TO EXPAND"
+
+JAVASCRIPT — CLICK TO EXPAND:
+On click any card:
+- If clicked element is .hire-btn, return
+- Check if card is already expanded
+- Remove .expanded from ALL cards
+- If card was NOT expanded, add 
+  .expanded class to it
+
+BOTTOM CTA — EXPLORE ALL DIVISIONS:
+Below the 7 cards (margin-top 50px):
+- Centred
+- Button "Explore All Divisions →"
+- Padding 14px 32px
+- Border: 1px solid #C9A84C
+- Background: transparent
+- Color: #C9A84C
+- Source Sans 3, 11px, weight 600
+- Letter-spacing 2px, uppercase
+- Border-radius 4px
+- Hover: bg #C9A84C, color #0A1628
+- Link to /divisions.html (placeholder)
+
+═══════════════════════════════════════
+FIX 2 — INSERT THE 8TH DIVISION SECTION
+═══════════════════════════════════════
+After the Explore button, insert a NEW 
+standalone section.
+
+Container:
+- Margin-top 90px
+- Padding 60px 30px
+- Text-align centre
+- Position relative
+
+Top divider line (CSS pseudo ::before):
+- Position absolute, top 0, left 50%
+- Transform translateX(-50%)
+- Width 380px, height 1px
+- Background: linear-gradient(to right, 
+  transparent, rgba(201,168,76,0.25), 
+  transparent)
+
+Ornament row (centred, margin-bottom 36px):
+- Two horizontal gold gradient lines 60px wide
+- Centre ⬡ symbol gold #C9A84C 14px
+- Display flex, gap 14px, justify centre
+
+TONE A — PHILOSOPHICAL HEADLINE:
+"The Next Division <span class='gold'>Hasn't Been Written.</span>"
+- Playfair Display, 32px, weight 600, italic
+- Color #ffffff
+- Letter-spacing -0.3px
+- Line-height 1.3
+- Margin-bottom 24px
+- Centred
+- .gold class: color #C9A84C
+
+TONE C — VISIONARY SUBTITLE:
+"Tomorrow's KOPIT is decided by today's members"
+- Source Sans 3, 13px, weight 600
+- Color rgba(201,168,76,0.85)
+- Letter-spacing 3px, uppercase
+- Margin-bottom 18px
+- Position relative, padding 0 24px
+- Display inline-block
+- Side marks via ::before and ::after:
+  Width 14px, height 0.5px
+  Background rgba(201,168,76,0.45)
+  Position absolute top 50%
+  ::before left 0, ::after right 0
+
+TONE B — PRACTICAL BODY:
+"Don't see your specialty? KOPIT grows 
+with its members. When a member 
+identifies a need, builds the case, 
+and rallies the cooperative behind 
+it — a new division is born."
+- Source Sans 3, 14px
+- Color rgba(255,255,255,0.62)
+- Line-height 1.75
+- Max-width 560px
+- Margin 0 auto 32px
+- Letter-spacing 0.2px
+- Centred
+
+PROPOSE CTA BUTTON:
+"Propose A New Division →"
+- Display inline-flex, gap 10px
+- Padding 14px 32px
+- Background rgba(201,168,76,0.08)
+- Border 1px solid #C9A84C
+- Color #C9A84C
+- Source Sans 3, 11px, weight 600
+- Letter-spacing 2px, uppercase
+- Border-radius 4px
+- Hover: bg #C9A84C, color #0A1628
+- Link to /contact.html for now
+
+AMBIENT GOLD DOTS (4 pulsing):
+4 absolutely positioned dots inside 
+the section:
+- Width/height 3px, border-radius 50%
+- Background rgba(201,168,76,0.4)
+- Box-shadow: 0 0 8px rgba(201,168,76,0.4)
+- Animation: dotPulse 3s ease-in-out 
+  infinite (different delays)
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.85; }
+}
+
+Positions:
+- Dot 1: top 20%, left 18%, delay 0s
+- Dot 2: top 35%, right 20%, delay 0.8s
+- Dot 3: bottom 30%, left 22%, delay 1.6s
+- Dot 4: bottom 25%, right 18%, delay 2.4s
+
+═══════════════════════════════════════
+FIX 3 — UPDATE CONSTELLATION COLOURS
+═══════════════════════════════════════
+In the existing hero Living Constellation 
+JavaScript builder, find the NODES array.
+
+Update the colour values for each node 
+to match the new division palette:
+
+Node 1 (Wira Digital, top): 
+  color '255,200,87' (was 201,168,76)
+
+Node 2 (Bijak AI, top-right): 
+  color '0,217,255' (was 46,191,132)
+
+Node 3 (Blockchain, right): 
+  color '123,97,255' (was 90,158,245)
+
+Node 4 (Angkasa Build, bottom-right): 
+  color '74,158,255' (was 204,220,238)
+
+Node 5 (Dana Sejahtera, bottom): 
+  color '255,165,82' (was 201,168,76)
+
+Node 6 (Hijau, bottom-left): 
+  color '61,220,132' (was 46,191,132)
+
+Node 7 (Arif Advisory, top-left): 
+  color '127,227,197' (was 90,158,245)
+
+The lines, gradients, and particle 
+flow colours derive from the node 
+color, so they will auto-update when 
+the colour values change. Verify 
+visually after rebuild.
+
+Also update the SVG icon stroke 
+colours inline in each node's icon 
+to match the new node colours:
+- Wira: stroke="#FFC857"
+- Bijak: stroke="#00D9FF"
+- Blockchain: stroke="#7B61FF"
+- Angkasa: stroke="#4A9EFF"
+- Dana: stroke="#FFA552"
+- Hijau: stroke="#3DDC84"
+- Arif: stroke="#7FE3C5"
+
+═══════════════════════════════════════
+FIX 4 — UPDATE CONSTELLATION TOOLTIPS
+═══════════════════════════════════════
+In the same NODES array, update 
+the 'tip' field for each node:
+
+Node 1 (Wira Digital):
+  NEW: "The AI-powered IT backbone"
+
+Node 2 (Bijak AI):
+  NEW: "Production-grade AI systems"
+
+Node 3 (Blockchain):
+  NEW: "Distributed ledger for institutional trust"
+
+Node 4 (Angkasa Build):
+  NEW: "Aerial intelligence + built environment"
+
+Node 5 (Dana Sejahtera):
+  NEW: "Financial intelligence for cooperatives"
+
+Node 6 (Hijau):
+  NEW: "AI-optimised renewable energy"
+
+Node 7 (Arif Advisory):
+  NEW: "Malaysia's strategic AI advisory partner"
+
+═══════════════════════════════════════
+FIX 5 — INVESTIGATE & FIX TOOLTIP BUG
+═══════════════════════════════════════
+CRITICAL — There is a current bug in 
+the Living Constellation: tooltips 
+for Bijak AI, Angkasa Build, and 
+Hijau nodes do NOT appear on hover, 
+while tooltips for the other 4 nodes 
+work correctly.
+
+Investigate the constellation builder 
+JavaScript. The bug appears to affect 
+nodes at positions 2, 4, and 6 
+(even-indexed positions) consistently.
+
+Possible causes to check:
+1. Tooltip HTML may not be created 
+   for these specific nodes
+2. Hover event listeners may only 
+   attach to alternating nodes
+3. CSS pointer-events or z-index issues
+4. Tooltip positioning placing them 
+   off-screen for these positions
+5. Loop logic in the builder skipping 
+   tooltip creation on certain iterations
+
+REQUIRED OUTCOME:
+ALL 7 nodes must show their tooltip 
+on hover. Verify by hovering each 
+node one by one after the fix.
+
+═══════════════════════════════════════
+FIX 6 — HUB CENTRE + NODE LABEL FIX
+═══════════════════════════════════════
+
+PART A — HUB CENTRE FIXES:
+
+In the centre KOPIT GENESIS hub block:
+
+A1) REMOVE the gold horizontal line 
+that currently divides "KOPIT" from 
+the bottom subtext. Find and DELETE:
+- The .hub-line element (or equivalent 
+  horizontal divider)
+- Its associated CSS rules
+
+A2) CHANGE the bottom subtext from 
+"GENESIS" to "MALAYSIA":
+- Find the .hub-sub element
+- Change text content from "GENESIS" 
+  to "MALAYSIA"
+
+A3) ADJUST vertical spacing inside 
+hub block. With the line gone, set:
+- Gap between "KOPIT" and "MALAYSIA": 
+  6px margin
+- "KOPIT" stays at top with current 
+  font (Cinzel 20px, weight 700)
+- "MALAYSIA" font: Source Sans 3, 9px, 
+  weight 700, letter-spacing 4.5px,
+  color #C9A84C, text-shadow same as 
+  current
+
+The hub should now read:
+   KOPIT
+  MALAYSIA
+With clean spacing, no line.
+
+PART B — NODE LABEL FIXES:
+
+For each of the 7 nodes in the 
+constellation:
+
+B1) REMOVE the "KOPIT" prefix from 
+each node label.
+
+Currently labels read like:
+"KOPIT<br>Wira Digital"
+"KOPIT<br>Bijak AI"
+etc.
+
+Change to just the division name:
+"Wira Digital"
+"Bijak AI"
+"Hijau"
+"Blockchain"
+"Dana Sejahtera"
+"Angkasa Build"
+"Arif Advisory"
+
+B2) INCREASE the .node-label CSS 
+font-size from 7px to 10px
+
+B3) ADJUST line-height from 1.2 to 
+1.25 (slight breathing room)
+
+B4) Verify text fits inside each 
+node coin (88px diameter). For 
+longer names like "Dana Sejahtera" 
+and "Angkasa Build", text will wrap 
+to 2 lines — that's fine and 
+acceptable. Text should NOT be 
+cut off.
+
+═══════════════════════════════════════
+WHAT NOT TO TOUCH
+═══════════════════════════════════════
+PRESERVE these unchanged:
+- Navbar logo and animation
+- Navbar 3-line text
+- Hero headline and CTA buttons
+- Hero subtext
+- Constellation orbital rings (3 rings)
+- Constellation hub float animation
+- Constellation node positions and 
+  layout (51.43° spread)
+- Star background twinkle
+- WHO WE ARE section (manifesto + 
+  credentials box)
+- OUR FOUNDATION 4 boxes
+- Gold divider between sections
+- All Style E fonts (Playfair Display, 
+  Source Sans 3, Cinzel)
+
+═══════════════════════════════════════
+VERIFICATION CHECKLIST
+═══════════════════════════════════════
+
+DIVISIONS SECTION:
+1. ✓ Heading: "Seven Divisions. 
+   Satu Koperasi."
+2. ✓ Top row: 3 cards (Wira, Bijak, Hijau)
+3. ✓ Bottom row: 4 cards (Blockchain, 
+   Dana, Angkasa, Arif)
+4. ✓ Each card has FILLED coloured 
+   medallion (not dark coin with rim)
+5. ✓ Icon contrasts properly with 
+   medallion colour
+6. ✓ NO "PRIORITY" tag anywhere
+7. ✓ Hover lifts card -8px, glow expands
+8. ✓ NO rotation on medallion hover
+9. ✓ Click expands card showing 
+   description, services, hire button
+10. ✓ Other cards collapse when one opens
+
+8TH DIVISION SECTION:
+11. ✓ Top divider line visible
+12. ✓ ⬡ ornament centred
+13. ✓ Italic headline "The Next 
+    Division Hasn't Been Written."
+14. ✓ Gold uppercase visionary 
+    subtitle with side marks
+15. ✓ Practical body paragraph
+16. ✓ "Propose A New Division →" 
+    gold outlined CTA
+17. ✓ 4 pulsing ambient gold dots
+
+CONSTELLATION (HERO):
+18. ✓ Wira Digital node now Royal 
+    Gold (#FFC857)
+19. ✓ Bijak AI node now Electric 
+    Cyan (#00D9FF)
+20. ✓ Hijau node now Vivid Emerald 
+    (#3DDC84)
+21. ✓ Blockchain node now Indigo 
+    Violet (#7B61FF)
+22. ✓ Dana Sejahtera node now Warm 
+    Amber (#FFA552)
+23. ✓ Angkasa Build node now Sky 
+    Sapphire (#4A9EFF)
+24. ✓ Arif Advisory node now Sage 
+    Mint (#7FE3C5)
+25. ✓ All 7 tooltips updated to 
+    new teaser text
+26. ✓ ALL 7 tooltips appear on 
+    hover (Bijak, Angkasa, Hijau 
+    fixed)
+
+HUB CENTRE:
+27. ✓ NO gold horizontal line in 
+    hub block
+28. ✓ Bottom subtext shows "MALAYSIA" 
+    (not "GENESIS")
+29. ✓ Clean spacing between "KOPIT" 
+    and "MALAYSIA"
+
+NODE LABELS:
+30. ✓ Labels show only division name 
+    (no "KOPIT" prefix)
+31. ✓ Font size increased to 10px
+32. ✓ Text fits within each node coin
+33. ✓ Long names wrap to 2 lines 
+    cleanly without truncation
+
+After fixing — refresh browser. 
+Take FOUR screenshots:
+
+1. Constellation in hero (hover 
+   Bijak/Angkasa/Hijau to confirm 
+   tooltip works + new colours)
+2. Divisions section overview (all 
+   7 cards visible)
+3. One expanded card (any division)
+4. The 8th Division section
+
+Bring all 4 back for review.

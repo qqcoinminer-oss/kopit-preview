@@ -1,0 +1,1530 @@
+COMPREHENSIVE BUILD — MEMBERSHIP 
+PAGE 2C · COMPARISON TABLE + 
+ENRICHED VAULT BENEFITS + 
+MEMBER LOGIN MODAL + MOBILE POLISH
+
+This is BUILD 2C of 3 (FINAL) for 
+the membership page. After this 
+build, the membership page is 
+COMPLETE.
+
+═══════════════════════════════════════
+FILE TO MODIFY
+═══════════════════════════════════════
+
+C:\Projects\KOPIT-Website\
+membership.html
+
+DO NOT MODIFY:
+- index.html
+- contact.html
+- css/style.css existing rules
+
+═══════════════════════════════════════
+WHAT THIS BUILD DOES
+═══════════════════════════════════════
+
+PART 1 — Replace comparison table 
+placeholder with full 6-tier 
+comparison table (5 rows). Includes 
+business corrections: KP approved 
+by BOD, no salary mentioned, 
+profit-sharing wording.
+
+PART 2 — Update vault modal data to 
+new three-section architecture for 
+all 6 tiers (Financial Structure / 
+Strategic Benefits / Member 
+Privileges).
+
+PART 3 — Add Member Login coming-
+soon modal (intercepts navbar 
+Member Login click).
+
+PART 4 — Mobile responsive polish 
+across the entire membership page.
+
+═══════════════════════════════════════
+PART 1 — TIER COMPARISON TABLE
+═══════════════════════════════════════
+
+Find this placeholder in 
+membership.html:
+
+<div id="comparison-placeholder" 
+ style="padding:50px 30px;
+ background:rgba(255,255,255,0.02);
+ border:0.5px dashed 
+ rgba(201,168,76,0.3);
+ border-radius:8px;...">
+  <p>...Tier Comparison Table...
+  [Build 2C will replace...]</p>
+</div>
+
+REPLACE with this comparison table 
+HTML:
+
+<div class="comparison-wrapper">
+  <div class="comparison-scroll">
+    <table class="tier-comparison" 
+     id="tier-comparison-table">
+      
+      <thead>
+        <tr>
+          <th class="comparison-cell 
+           comparison-row-label"></th>
+          <th class="comparison-cell 
+           tier-header">KL</th>
+          <th class="comparison-cell 
+           tier-header">KP</th>
+          <th class="comparison-cell 
+           tier-header">KI1</th>
+          <th class="comparison-cell 
+           tier-header">KI2</th>
+          <th class="comparison-cell 
+           tier-header">KI3</th>
+          <th class="comparison-cell 
+           tier-header">KB</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <tr>
+          <td class="comparison-cell 
+           comparison-row-label">
+           CATEGORY</td>
+          <td class="comparison-cell">
+           Service</td>
+          <td class="comparison-cell">
+           Service</td>
+          <td class="comparison-cell">
+           Funder</td>
+          <td class="comparison-cell">
+           Funder</td>
+          <td class="comparison-cell">
+           Funder</td>
+          <td class="comparison-cell">
+           General</td>
+        </tr>
+        
+        <tr>
+          <td class="comparison-cell 
+           comparison-row-label">
+           SHARE CAPITAL</td>
+          <td class="comparison-cell 
+           comparison-multiline">
+           BOD-Set Higher Qty</td>
+          <td class="comparison-cell 
+           comparison-multiline">
+           BOD-Set Higher Qty</td>
+          <td class="comparison-cell 
+           comparison-multiline">
+           Min 2% of Investment</td>
+          <td class="comparison-cell 
+           comparison-multiline">
+           Min 2% of Investment</td>
+          <td class="comparison-cell 
+           comparison-multiline">
+           Min 2% of Investment</td>
+          <td class="comparison-cell">
+           RM 200 (1 share)</td>
+        </tr>
+        
+        <tr>
+          <td class="comparison-cell 
+           comparison-row-label">
+           INVESTMENT BRACKET</td>
+          <td class="comparison-cell 
+           comparison-empty">—</td>
+          <td class="comparison-cell 
+           comparison-empty">—</td>
+          <td class="comparison-cell">
+           RM 10K – 100K</td>
+          <td class="comparison-cell">
+           RM 100K – 300K</td>
+          <td class="comparison-cell">
+           RM 300K – 1M</td>
+          <td class="comparison-cell 
+           comparison-empty">—</td>
+        </tr>
+        
+        <tr>
+          <td class="comparison-cell 
+           comparison-row-label">
+           APPROVED BY</td>
+          <td class="comparison-cell 
+           comparison-gold">BOD</td>
+          <td class="comparison-cell 
+           comparison-gold">BOD</td>
+          <td class="comparison-cell 
+           comparison-gold">BOD</td>
+          <td class="comparison-cell 
+           comparison-gold">BOD</td>
+          <td class="comparison-cell 
+           comparison-gold 
+           comparison-multiline">
+           BOD + Chairman</td>
+          <td class="comparison-cell 
+           comparison-gold">BOD</td>
+        </tr>
+        
+        <tr>
+          <td class="comparison-cell 
+           comparison-row-label">
+           INCOME STREAMS</td>
+          <td class="comparison-cell 
+           comparison-multiline">
+           Dividend + Profit Sharing
+           </td>
+          <td class="comparison-cell 
+           comparison-multiline">
+           Dividend + Profit Sharing
+           </td>
+          <td class="comparison-cell 
+           comparison-multiline">
+           Dividend + Fixed Return
+           </td>
+          <td class="comparison-cell 
+           comparison-multiline">
+           Dividend + Fixed Return
+           </td>
+          <td class="comparison-cell 
+           comparison-multiline">
+           Dividend + Fixed Return
+           </td>
+          <td class="comparison-cell">
+           Dividend</td>
+        </tr>
+      </tbody>
+      
+    </table>
+  </div>
+  
+  <div class="comparison-scroll-hint" 
+   id="comparison-scroll-hint">
+   ← swipe to compare →</div>
+</div>
+
+═══════════════════════════════════════
+COMPARISON TABLE CSS
+═══════════════════════════════════════
+
+.comparison-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.comparison-scroll {
+  background: rgba(255, 255, 255, 
+    0.025);
+  border: 0.5px solid 
+    rgba(201, 168, 76, 0.2);
+  border-radius: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.comparison-scroll-hint {
+  display: none;
+  text-align: center;
+  margin-top: 14px;
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: rgba(201, 168, 76, 0.65);
+}
+
+.tier-comparison {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+  font-family: 'Source Sans 3', 
+    sans-serif;
+  font-size: 13px;
+}
+
+.tier-comparison thead {
+  background: rgba(201, 168, 76, 
+    0.08);
+}
+
+.comparison-cell {
+  padding: 16px 14px;
+  border-right: 0.5px solid 
+    rgba(201, 168, 76, 0.12);
+  border-bottom: 0.5px solid 
+    rgba(201, 168, 76, 0.1);
+  text-align: center;
+  vertical-align: middle;
+  color: rgba(244, 239, 232, 0.85);
+  line-height: 1.5;
+}
+
+.comparison-cell:last-child {
+  border-right: none;
+}
+
+.tier-comparison tbody tr:last-child 
+.comparison-cell {
+  border-bottom: none;
+}
+
+.tier-header {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: rgba(201, 168, 76, 0.95);
+  font-weight: 600;
+}
+
+.comparison-row-label {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: rgba(201, 168, 76, 0.85);
+  font-weight: 600;
+  text-align: left;
+  padding-left: 18px;
+  background: rgba(201, 168, 76, 
+    0.04);
+  white-space: nowrap;
+}
+
+.comparison-multiline {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.comparison-empty {
+  color: rgba(244, 239, 232, 0.35);
+}
+
+.comparison-gold {
+  color: #D4B97A;
+  font-weight: 600;
+}
+
+═══════════════════════════════════════
+PART 2 — UPDATE VAULT MODAL DATA
+═══════════════════════════════════════
+
+In the existing JavaScript inside 
+membership.html, find the 
+tierData object that contains 
+data for each tier.
+
+REPLACE the existing tierData with 
+the enriched three-section data 
+below.
+
+For each tier, the data structure 
+is:
+{
+  eyebrow: '...',
+  title: '...',
+  subtitle: '...',
+  sections: [
+    { 
+      heading: 'FINANCIAL STRUCTURE',
+      stats: [...]
+    },
+    { 
+      heading: 'STRATEGIC BENEFITS',
+      stats: [...]
+    }
+  ],
+  privileges: [
+    'bullet 1',
+    'bullet 2',
+    ...
+  ],
+  portalAccess: '...'
+}
+
+═══ KL — DIVISION LEADER ═══
+
+{
+  eyebrow: '— TIER DETAIL · KL —',
+  title: 'Division Leader',
+  subtitle: 'Ketua Bahagian',
+  sections: [
+    {
+      heading: 'FINANCIAL STRUCTURE',
+      stats: [
+        { 
+          label: 'APPROVED BY', 
+          value: 'BOD',
+          highlight: true
+        },
+        { 
+          label: 'SHARE REQUIREMENT',
+          value: 'Higher quantity, '
+            + 'BOD-determined',
+          note: 'Reflects '
+            + 'leadership '
+            + 'commitment'
+        },
+        { 
+          label: 'INCOME STREAMS',
+          value: 'Dividend + Profit '
+            + 'Sharing',
+          note: 'Profit share '
+            + 'Mgt-determined per '
+            + 'project · No salary '
+            + 'base'
+        },
+        { 
+          label: 'CAPITAL '
+            + 'PROGRAMME · '
+            + 'OPTIONAL',
+          value: 'Eligible · '
+            + 'RM 10,000 minimum',
+          note: 'Standard Fixed '
+            + 'Return Arrangement'
+        }
+      ]
+    },
+    {
+      heading: 'STRATEGIC '
+        + 'BENEFITS',
+      stats: [
+        { 
+          label: 'LEADERSHIP RIGHTS',
+          value: 'Lead Division · '
+            + 'Full Tender Access · '
+            + 'Higher Profit Share',
+          highlight: true
+        },
+        { 
+          label: 'MEMBER INTRODUCER '
+            + 'PROGRAMME',
+          value: 'Senior Tier '
+            + 'Commission Rate',
+          note: 'Earn commissions '
+            + 'on introduced '
+            + 'members and capital '
+            + '· Rates '
+            + 'BOD-determined per '
+            + 'arrangement',
+          highlight: true
+        },
+        { 
+          label: 'PROMOTION PATH',
+          value: 'BOD-Appointed '
+            + 'Strategic Roles',
+          highlight: true
+        }
+      ]
+    }
+  ],
+  privileges: [
+    'AGM voting rights · '
+      + '1 member, 1 vote',
+    'Member-Only Pricing on KOPIT '
+      + 'division services · '
+      + 'Tier-determined',
+    'Free technology training '
+      + '& upskilling courses',
+    'Hardware & software member '
+      + 'procurement rates',
+    'Insurance & Takaful discount '
+      + 'programme · Tier rate',
+    'Annual KOPIT gathering · '
+      + 'Networking events'
+  ],
+  portalAccess: 'Leadership '
+    + 'Dashboard'
+}
+
+═══ KP — DIVISION MEMBER ═══
+
+{
+  eyebrow: '— TIER DETAIL · KP —',
+  title: 'Division Member',
+  subtitle: 'Ahli Bahagian',
+  sections: [
+    {
+      heading: 'FINANCIAL STRUCTURE',
+      stats: [
+        { 
+          label: 'APPROVED BY',
+          value: 'BOD',
+          highlight: true
+        },
+        { 
+          label: 'SHARE REQUIREMENT',
+          value: 'Higher quantity, '
+            + 'BOD-determined'
+        },
+        { 
+          label: 'INCOME STREAMS',
+          value: 'Dividend + Profit '
+            + 'Sharing',
+          note: 'Profit share '
+            + 'Mgt-determined per '
+            + 'project · No salary '
+            + 'base'
+        },
+        { 
+          label: 'CAPITAL '
+            + 'PROGRAMME · '
+            + 'OPTIONAL',
+          value: 'Eligible · '
+            + 'RM 10,000 minimum'
+        }
+      ]
+    },
+    {
+      heading: 'STRATEGIC '
+        + 'BENEFITS',
+      stats: [
+        { 
+          label: 'MEMBER RIGHTS',
+          value: 'Deliver Work · '
+            + 'Refer Clients · '
+            + 'Move Divisions',
+          highlight: true
+        },
+        { 
+          label: 'MEMBER INTRODUCER '
+            + 'PROGRAMME',
+          value: 'Standard Tier '
+            + 'Commission Rate',
+          note: 'Earn commissions '
+            + 'on introduced '
+            + 'members · Rates '
+            + 'BOD-determined per '
+            + 'arrangement',
+          highlight: true
+        },
+        { 
+          label: 'PROMOTION PATH',
+          value: 'Can Become '
+            + 'Division Leader',
+          highlight: true
+        }
+      ]
+    }
+  ],
+  privileges: [
+    'AGM voting rights · '
+      + '1 member, 1 vote',
+    'Member-Only Pricing on KOPIT '
+      + 'division services · '
+      + 'Tier-determined',
+    'Free technology training '
+      + '& upskilling courses',
+    'Hardware & software member '
+      + 'procurement rates',
+    'Insurance & Takaful discount '
+      + 'programme · Tier rate',
+    'Annual KOPIT gathering'
+  ],
+  portalAccess: 'Member Dashboard'
+}
+
+═══ KI1 — ENTRY PARTNER ═══
+
+{
+  eyebrow: '— TIER DETAIL · KI1 —',
+  title: 'Entry Partner',
+  subtitle: 'Rakan Modal',
+  sections: [
+    {
+      heading: 'FINANCIAL STRUCTURE',
+      stats: [
+        { 
+          label: 'INVESTMENT '
+            + 'BRACKET',
+          value: 'RM 10,000 – '
+            + 'RM 100,000'
+        },
+        { 
+          label: 'SHARE REQUIREMENT',
+          value: 'Min 2% of '
+            + 'investment value',
+          note: 'BOD may require '
+            + 'higher quantity'
+        },
+        { 
+          label: 'APPROVED BY',
+          value: 'BOD',
+          highlight: true
+        },
+        { 
+          label: 'CAPITAL '
+            + 'PROGRAMME',
+          value: 'Fixed Return '
+            + 'Arrangement',
+          note: 'BOD-determined '
+            + 'rate · Up to 3 '
+            + 'years · Auto-renew '
+            + 'or capital returned '
+            + 'after term'
+        }
+      ]
+    },
+    {
+      heading: 'STRATEGIC '
+        + 'BENEFITS',
+      stats: [
+        { 
+          label: 'MEMBER INTRODUCER '
+            + 'PROGRAMME',
+          value: 'Entry Tier '
+            + 'Commission Rate',
+          note: 'Earn commissions '
+            + 'on introduced '
+            + 'capital · Rates '
+            + 'BOD-determined per '
+            + 'arrangement',
+          highlight: true
+        }
+      ]
+    }
+  ],
+  privileges: [
+    'AGM voting rights · '
+      + '1 member, 1 vote',
+    'Member-Only Pricing on KOPIT '
+      + 'division services · '
+      + 'Tier-determined',
+    'Free technology training '
+      + '& upskilling courses',
+    'Hardware & software member '
+      + 'procurement rates',
+    'Insurance & Takaful discount '
+      + 'programme · Tier rate',
+    'Annual KOPIT gathering'
+  ],
+  portalAccess: 'Investment '
+    + 'Dashboard'
+}
+
+═══ KI2 — GROWTH PARTNER ═══
+
+{
+  eyebrow: '— TIER DETAIL · KI2 —',
+  title: 'Growth Partner',
+  subtitle: 'Pelabur Teras',
+  sections: [
+    {
+      heading: 'FINANCIAL STRUCTURE',
+      stats: [
+        { 
+          label: 'INVESTMENT '
+            + 'BRACKET',
+          value: 'RM 100,000 – '
+            + 'RM 300,000'
+        },
+        { 
+          label: 'SHARE REQUIREMENT',
+          value: 'Min 2% of '
+            + 'investment value',
+          note: 'BOD may require '
+            + 'higher quantity'
+        },
+        { 
+          label: 'APPROVED BY',
+          value: 'BOD',
+          highlight: true
+        },
+        { 
+          label: 'CAPITAL '
+            + 'PROGRAMME',
+          value: 'Fixed Return '
+            + 'Arrangement',
+          note: 'BOD-determined '
+            + 'rate · Up to 3 '
+            + 'years · Auto-renew '
+            + 'or capital returned '
+            + 'after term'
+        }
+      ]
+    },
+    {
+      heading: 'STRATEGIC '
+        + 'BENEFITS',
+      stats: [
+        { 
+          label: 'SUBSIDIARY '
+            + 'ACCESS',
+          value: 'Eligible for '
+            + 'Subsidiary '
+            + 'Investment Rounds',
+          note: 'Decided per '
+            + 'arrangement by BOD',
+          highlight: true
+        },
+        { 
+          label: 'EXECUTIVE '
+            + 'BRIEFINGS',
+          value: 'Quarterly '
+            + 'Reports + Investor '
+            + 'Calls',
+          highlight: true
+        },
+        { 
+          label: 'MEMBER INTRODUCER '
+            + 'PROGRAMME',
+          value: 'Growth Tier '
+            + 'Commission Rate',
+          note: 'Higher rate than '
+            + 'KI1 · Rates '
+            + 'BOD-determined per '
+            + 'arrangement',
+          highlight: true
+        }
+      ]
+    }
+  ],
+  privileges: [
+    'AGM voting rights · '
+      + '1 member, 1 vote',
+    'Member-Only Pricing on KOPIT '
+      + 'division services · '
+      + 'Tier-determined',
+    'Free technology training '
+      + '& upskilling courses',
+    'Hardware & software member '
+      + 'procurement rates',
+    'Insurance & Takaful discount '
+      + 'programme · Tier rate',
+    'Annual KOPIT gathering · '
+      + 'Networking events'
+  ],
+  portalAccess: 'Quarterly '
+    + 'Reports + Dashboard'
+}
+
+═══ KI3 — STRATEGIC PARTNER ═══
+
+{
+  eyebrow: '— TIER DETAIL · KI3 —',
+  title: 'Strategic Partner',
+  subtitle: 'Pelabur Agung',
+  sections: [
+    {
+      heading: 'FINANCIAL STRUCTURE',
+      stats: [
+        { 
+          label: 'INVESTMENT '
+            + 'BRACKET',
+          value: 'RM 300,000 – '
+            + 'RM 1,000,000'
+        },
+        { 
+          label: 'SHARE REQUIREMENT',
+          value: 'Min 2% of '
+            + 'investment value',
+          note: 'BOD may require '
+            + 'higher quantity'
+        },
+        { 
+          label: 'APPROVED BY',
+          value: 'BOD + Chairman',
+          highlight: true
+        },
+        { 
+          label: 'CAPITAL '
+            + 'PROGRAMME',
+          value: 'Fixed Return '
+            + 'Arrangement',
+          note: 'BOD-determined '
+            + 'rate · Up to 3 '
+            + 'years · Auto-renew '
+            + 'or capital returned '
+            + 'after term'
+        }
+      ]
+    },
+    {
+      heading: 'STRATEGIC '
+        + 'BENEFITS',
+      stats: [
+        { 
+          label: 'SUBSIDIARY '
+            + 'ACCESS',
+          value: 'Priority '
+            + 'Allocation · '
+            + 'Co-Investment '
+            + 'Eligible',
+          note: 'Priority access '
+            + 'to subsidiary '
+            + 'investment '
+            + 'opportunities, '
+            + 'decided per '
+            + 'arrangement by BOD',
+          highlight: true
+        },
+        { 
+          label: 'CHAIRMAN ACCESS',
+          value: 'Direct Line · '
+            + 'Private Dinners · '
+            + 'Strategic Retreats',
+          note: 'Real engagement '
+            + 'with KOPIT '
+            + 'leadership on '
+            + 'strategic direction',
+          highlight: true
+        },
+        { 
+          label: 'MEMBER INTRODUCER '
+            + 'PROGRAMME',
+          value: 'Highest Tier '
+            + 'Commission Rate',
+          note: 'Earn commissions '
+            + 'on introduced '
+            + 'members and '
+            + 'capital · Rates '
+            + 'BOD-determined per '
+            + 'arrangement',
+          highlight: true
+        },
+        { 
+          label: 'EDITION CARD',
+          value: 'Engraved '
+            + 'Strategic Partner '
+            + 'Card',
+          note: 'Limited to 50 '
+            + 'numbered editions '
+            + '· Members receive '
+            + 'a physical KOPIT '
+            + 'card',
+          highlight: true
+        }
+      ]
+    }
+  ],
+  privileges: [
+    'AGM voting rights · '
+      + '1 member, 1 vote',
+    'Member-Only Pricing on KOPIT '
+      + 'division services · '
+      + 'Tier-determined',
+    'Free technology training '
+      + '& upskilling courses',
+    'Hardware & software member '
+      + 'procurement rates',
+    'Insurance & Takaful discount '
+      + 'programme · Tier rate',
+    'Annual KOPIT gathering · '
+      + 'Strategic retreats'
+  ],
+  portalAccess: 'Full Real-Time '
+    + 'Dashboard + Direct BOD '
+    + 'Access'
+}
+
+═══ KB — GENERAL MEMBER ═══
+
+{
+  eyebrow: '— TIER DETAIL · KB —',
+  title: 'General Member',
+  subtitle: 'Warga KOPIT',
+  sections: [
+    {
+      heading: 'FINANCIAL STRUCTURE',
+      stats: [
+        { 
+          label: 'SHARE CAPITAL',
+          value: 'RM 200 minimum '
+            + '(1 share)'
+        },
+        { 
+          label: 'PROCESSING FEE',
+          value: 'RM 20 one-time'
+        },
+        { 
+          label: 'APPROVED BY',
+          value: 'BOD',
+          highlight: true
+        },
+        { 
+          label: 'INCOME',
+          value: 'Annual Dividend',
+          note: 'Declared at AGM '
+            + 'based on '
+            + 'cooperative profit'
+        }
+      ]
+    },
+    {
+      heading: 'STRATEGIC '
+        + 'BENEFITS',
+      stats: [
+        { 
+          label: 'CAPITAL '
+            + 'PROGRAMME ACCESS',
+          value: 'Eligible from '
+            + 'RM 10,000',
+          note: 'Volume can '
+            + 'upgrade tier '
+            + 'classification '
+            + '(KI1/KI2/KI3)',
+          highlight: true
+        },
+        { 
+          label: 'MEMBER INTRODUCER '
+            + 'PROGRAMME',
+          value: 'Entry Commission '
+            + 'Rate',
+          note: 'Earn commissions '
+            + 'on introduced '
+            + 'members · Rates '
+            + 'BOD-determined per '
+            + 'arrangement',
+          highlight: true
+        },
+        { 
+          label: 'PATH FORWARD',
+          value: 'May Upgrade To '
+            + 'KP/KL/KI Tiers Via '
+            + 'Approval',
+          highlight: true
+        }
+      ]
+    }
+  ],
+  privileges: [
+    'AGM voting rights · '
+      + '1 member, 1 vote',
+    'Member-Only Pricing on KOPIT '
+      + 'division services · '
+      + 'Tier-determined',
+    'Free technology training '
+      + '& upskilling courses',
+    'Hardware & software member '
+      + 'procurement rates',
+    'Insurance & Takaful discount '
+      + 'programme · Tier rate',
+    'Annual KOPIT gathering'
+  ],
+  portalAccess: 'Member Dashboard'
+}
+
+═══════════════════════════════════════
+UPDATE OPENVAULT FUNCTION
+═══════════════════════════════════════
+
+The existing openVault function 
+needs updating to render the new 
+three-section architecture. Replace 
+the function with:
+
+function openVault(tier) {
+  const data = tierData[tier];
+  if (!data) return;
+  
+  eyebrow.textContent = data.eyebrow;
+  title.textContent = data.title;
+  subtitle.textContent = data.subtitle;
+  
+  // Build three-section content
+  let html = '';
+  
+  // Sections (Financial Structure + 
+  // Strategic Benefits)
+  data.sections.forEach(section => {
+    html += `<div 
+     class="vault-section">`;
+    html += `<div 
+     class="vault-section-heading">
+     — ${section.heading} —</div>`;
+    
+    section.stats.forEach(stat => {
+      const cls = stat.highlight 
+        ? 'vault-stat-row highlight' 
+        : 'vault-stat-row';
+      const note = stat.note 
+        ? `<div 
+         class="vault-stat-note">
+         ${stat.note}</div>` 
+        : '';
+      html += `<div class="${cls}">
+        <div 
+         class="vault-stat-label">
+         ${stat.label}</div>
+        <div 
+         class="vault-stat-value">
+         ${stat.value}</div>
+        ${note}
+      </div>`;
+    });
+    
+    html += `</div>`;
+  });
+  
+  // Member Privileges section
+  if (data.privileges 
+    && data.privileges.length) {
+    html += `<div 
+     class="vault-section">`;
+    html += `<div 
+     class="vault-section-heading">
+     — MEMBER PRIVILEGES —</div>`;
+    html += `<div 
+     class="vault-privileges-box">`;
+    data.privileges.forEach(p => {
+      html += `<div 
+       class="vault-privilege-item">
+       <span 
+        class="vault-privilege-mark">
+        ◆</span><span>${p}</span>
+       </div>`;
+    });
+    html += `</div></div>`;
+  }
+  
+  // Portal Access (highlighted)
+  if (data.portalAccess) {
+    html += `<div 
+     class="vault-stat-row 
+     highlight portal-access">`;
+    html += `<div 
+     class="vault-stat-label">
+     PORTAL ACCESS</div>`;
+    html += `<div 
+     class="vault-stat-value">
+     ${data.portalAccess}</div>`;
+    html += `</div>`;
+  }
+  
+  cardBack.innerHTML = html;
+  
+  // Set CTA href
+  ctaBtn.href = 'contact.html?'
+    + 'subject=membership&tier=' 
+    + tier;
+  ctaBtn.textContent = 
+    'Express Interest in ' 
+    + tier.toUpperCase() + ' →';
+  
+  // Show modal
+  modal.classList.add('active');
+  modal.setAttribute(
+    'aria-hidden', 'false');
+  document.body.style.overflow = 
+    'hidden';
+  
+  setTimeout(() => 
+    closeBtn.focus(), 100);
+}
+
+═══════════════════════════════════════
+ADDITIONAL VAULT CSS
+═══════════════════════════════════════
+
+Add to existing vault CSS:
+
+.vault-section {
+  margin-bottom: 22px;
+}
+
+.vault-section-heading {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: rgba(201, 168, 76, 0.85);
+  font-weight: 600;
+  margin-bottom: 12px;
+  padding-left: 4px;
+}
+
+.vault-section:nth-of-type(2) 
+.vault-section-heading {
+  color: rgba(201, 168, 76, 0.95);
+}
+
+.vault-stat-row.highlight {
+  background: linear-gradient(135deg, 
+    rgba(201, 168, 76, 0.12) 0%, 
+    rgba(201, 168, 76, 0.06) 100%);
+  border: 0.5px solid 
+    rgba(201, 168, 76, 0.45);
+}
+
+.vault-stat-row.portal-access {
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.vault-privileges-box {
+  padding: 18px 22px;
+  background: rgba(10, 22, 40, 0.5);
+  border: 0.5px solid 
+    rgba(180, 195, 215, 0.25);
+  border-radius: 6px;
+  display: grid;
+  gap: 10px;
+}
+
+.vault-privilege-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-family: 'Source Sans 3', 
+    sans-serif;
+  font-size: 13px;
+  color: rgba(244, 239, 232, 0.85);
+  line-height: 1.5;
+}
+
+.vault-privilege-mark {
+  color: #D4B97A;
+  font-size: 11px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+═══════════════════════════════════════
+PART 3 — MEMBER LOGIN MODAL
+═══════════════════════════════════════
+
+Add this HTML to membership.html 
+just before the closing </body> tag 
+(after the vault modal):
+
+<div id="member-login-modal" 
+ class="vault-modal" 
+ role="dialog" 
+ aria-modal="true" 
+ aria-labelledby="member-login-title" 
+ aria-hidden="true">
+  
+  <div class="vault-backdrop" 
+   id="member-login-backdrop"></div>
+  
+  <div class="vault-content 
+   member-login-content">
+    
+    <button class="vault-close" 
+     id="member-login-close" 
+     aria-label="Close">×</button>
+    
+    <div class="vault-header" 
+     style="margin-bottom:32px;">
+      <div class="vault-eyebrow">
+        — MEMBER PORTAL —</div>
+      <h2 class="vault-title" 
+       id="member-login-title">
+        Coming Soon</h2>
+      <div class="vault-subtitle">
+        Pelantar Ahli</div>
+    </div>
+    
+    <p style="font-family:'Cormorant 
+     Garamond',serif;font-style:
+     italic;font-size:16px;color:
+     rgba(244,239,232,0.8);
+     line-height:1.7;text-align:
+     center;margin:0 0 28px;
+     max-width:480px;
+     margin-left:auto;
+     margin-right:auto;">
+      The KOPIT Member Portal is 
+      currently in development. 
+      Existing members will receive 
+      direct access via email when 
+      launched.
+    </p>
+    
+    <div style="text-align:center;
+     margin-bottom:24px;">
+      <a href="https://wa.me/
+       60105122561?text=
+       Hello%20KOPIT%2C%20I'm%20a
+       %20member%20requesting%20
+       portal%20access%20update." 
+       target="_blank" 
+       style="display:inline-block;
+       background:rgba(37,211,102,
+       0.95);color:#fff;padding:
+       14px 30px;font-family:
+       'Source Sans 3',sans-serif;
+       font-size:12px;font-weight:
+       600;letter-spacing:2.5px;
+       text-transform:uppercase;
+       border-radius:4px;
+       text-decoration:none;
+       display:inline-flex;
+       align-items:center;gap:8px;">
+        <svg width="14" height="14" 
+         viewBox="0 0 24 24" 
+         fill="#fff"><path d="M17.5 
+         14.4c-.3-.2-1.7-.9-2-1
+         -.3-.1-.4-.1-.6.1-.2.3-.7
+         .9-.8 1-.2.2-.3.2-.6.1-1
+         -.5-1.6-.9-2.4-2-.2-.3.2
+         -.3.5-.9.1-.2 0-.3 0-.4 
+         0-.1-.6-1.4-.8-1.9-.2-.5
+         -.4-.4-.6-.4h-.5c-.2 
+         0-.5.1-.7.3-.3.3-1 .9-1 
+         2.3 0 1.4 1 2.7 1.2 
+         2.9.1.2 2 3 4.8 4.2 
+         1.7.7 2.4.8 3.2.7.5-.1 
+         1.7-.7 1.9-1.4.2-.7.2
+         -1.3.2-1.4-.1-.1-.3-.2
+         -.5-.3M12 2C6.5 2 2 6.5 
+         2 12c0 1.7.5 3.4 1.3 
+         4.9L2 22l5.2-1.4c1.4.8 
+         3.1 1.2 4.8 1.2 5.5 0 
+         10-4.5 10-10S17.5 2 12 
+         2"/></svg>
+        WhatsApp Support →
+      </a>
+    </div>
+    
+    <div class="vault-dismiss-hint">
+      ESC · CLICK BACKDROP · X TO 
+      CLOSE
+    </div>
+    
+  </div>
+</div>
+
+═══════════════════════════════════════
+MEMBER LOGIN INTERCEPT JS
+═══════════════════════════════════════
+
+Add to existing <script> block:
+
+(function() {
+  // Find Member Login link in 
+  // navbar
+  const memberLoginLinks = document
+    .querySelectorAll(
+    'a[href*="member-login"], '
+    + 'a[href*="member.kopit"], '
+    + 'a[href="#member-login"]');
+  
+  // Also check by text content
+  const allLinks = document
+    .querySelectorAll('a');
+  allLinks.forEach(link => {
+    const text = link.textContent
+      .trim().toLowerCase();
+    if (text === 'member login' 
+      || text === 'login' 
+      || text === 'log in' 
+      || text === 'member portal') {
+      memberLoginLinks 
+        = Array.from(memberLoginLinks)
+        .concat([link]);
+    }
+  });
+  
+  const modal = document
+    .getElementById(
+    'member-login-modal');
+  if (!modal) return;
+  
+  const backdrop = document
+    .getElementById(
+    'member-login-backdrop');
+  const closeBtn = document
+    .getElementById(
+    'member-login-close');
+  
+  function openLogin(e) {
+    if (e) e.preventDefault();
+    modal.classList.add('active');
+    modal.setAttribute(
+      'aria-hidden', 'false');
+    document.body.style.overflow 
+      = 'hidden';
+  }
+  
+  function closeLogin() {
+    modal.classList.remove('active');
+    modal.setAttribute(
+      'aria-hidden', 'true');
+    document.body.style.overflow 
+      = '';
+  }
+  
+  memberLoginLinks.forEach(link => {
+    link.addEventListener('click', 
+      openLogin);
+  });
+  
+  closeBtn.addEventListener('click', 
+    closeLogin);
+  backdrop.addEventListener('click', 
+    closeLogin);
+  
+  document.addEventListener(
+    'keydown', e => {
+    if (e.key === 'Escape' 
+      && modal.classList
+      .contains('active')) {
+      closeLogin();
+    }
+  });
+})();
+
+═══════════════════════════════════════
+PART 4 — MOBILE RESPONSIVE POLISH
+═══════════════════════════════════════
+
+Add these mobile rules at the end 
+of the page CSS:
+
+@media (max-width: 900px) {
+  
+  /* Hero — scale down headlines */
+  #hero h1 {
+    font-size: 36px !important;
+  }
+  #hero p {
+    font-size: 16px !important;
+  }
+  
+  /* Sticky in-page nav — 
+  horizontal scroll */
+  #page-nav {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: 
+      touch;
+    justify-content: flex-start;
+    padding: 12px 20px;
+    gap: 22px;
+  }
+  
+  #page-nav::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .page-nav-link {
+    flex-shrink: 0;
+  }
+  
+  /* Capital Structure — stack */
+  #capital > div > div:first-of-type 
+  > div[style*="grid-template-"] {
+    grid-template-columns: 1fr 
+      !important;
+  }
+  
+  /* Worked examples — stack */
+  #capital > div 
+  > div:nth-of-type(2) 
+  > div[style*="grid-template-"] {
+    grid-template-columns: 1fr 
+      !important;
+  }
+  
+  /* How To Apply — stack steps */
+  #apply > div 
+  > div[style*="grid-template-"] {
+    grid-template-columns: 1fr 1fr 
+      !important;
+    gap: 24px !important;
+  }
+  
+  /* Hide horizontal connection 
+  line on mobile */
+  #apply > div 
+  > div[style*="grid-template-"] 
+  > div[style*="position:absolute"] {
+    display: none;
+  }
+  
+  /* Final CTA — scale */
+  section[style*="EXPRESS"] h2 {
+    font-size: 28px !important;
+  }
+  
+  /* Comparison table — 
+  show scroll hint */
+  .comparison-scroll-hint {
+    display: block;
+  }
+  
+  /* Sections — reduce padding */
+  section {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+  
+  /* Vault modal — full screen */
+  .vault-content {
+    padding: 36px 22px 26px 
+      !important;
+    max-width: 100% !important;
+  }
+  
+  .vault-title {
+    font-size: 26px !important;
+  }
+  
+  .vault-section-heading {
+    font-size: 10px !important;
+  }
+  
+  .vault-stat-row {
+    padding: 12px 14px !important;
+  }
+  
+  /* Member login modal */
+  .member-login-content {
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 600px) {
+  
+  /* Hero — even smaller */
+  #hero h1 {
+    font-size: 30px !important;
+  }
+  
+  /* How To Apply — single column 
+  on very small */
+  #apply > div 
+  > div[style*="grid-template-"] {
+    grid-template-columns: 1fr 
+      !important;
+  }
+  
+}
+
+═══════════════════════════════════════
+WHAT NOT TO TOUCH
+═══════════════════════════════════════
+
+DO NOT MODIFY:
+- Hero section structure
+- Philosophy section
+- Governance Pillar (BOD card)
+- Capital Structure section
+- Six Tiers Carousel (Build 2B)
+- How To Apply section structure
+- Final CTA structure
+- Navbar structure
+- Footer
+- index.html
+- contact.html
+- All locked typography and sizing
+
+═══════════════════════════════════════
+VERIFICATION CHECKLIST
+═══════════════════════════════════════
+
+After build:
+
+COMPARISON TABLE:
+1. ✓ #compare section now shows 
+   the comparison table
+2. ✓ Table has 5 rows: CATEGORY, 
+   SHARE CAPITAL, INVESTMENT 
+   BRACKET, APPROVED BY, INCOME 
+   STREAMS
+3. ✓ 6 columns: KL, KP, KI1, KI2, 
+   KI3, KB
+4. ✓ APPROVED BY row shows ALL 
+   tiers approved by BOD (KI3 
+   shows BOD + Chairman)
+5. ✓ INCOME STREAMS shows 
+   "Dividend + Profit Sharing" 
+   for KL/KP (NO salary)
+6. ✓ INCOME STREAMS shows 
+   "Dividend + Fixed Return" for 
+   KI1/KI2/KI3
+7. ✓ INCOME STREAMS shows 
+   "Dividend" for KB
+8. ✓ Investment Bracket row 
+   shows — for KL/KP/KB
+
+VAULT MODAL — KI3:
+9. ✓ Click KI3 card opens vault
+10. ✓ Three sections visible: 
+    FINANCIAL STRUCTURE, 
+    STRATEGIC BENEFITS, 
+    MEMBER PRIVILEGES
+11. ✓ Strategic Benefits section 
+    shows: Subsidiary Access, 
+    Chairman Access, Member 
+    Introducer Programme, 
+    Edition Card (all gold-
+    highlighted)
+12. ✓ Member Privileges shows 
+    bullet list with 6 items
+13. ✓ Portal Access at bottom 
+    (highlighted gold)
+
+VAULT MODAL — OTHER TIERS:
+14. ✓ KL: Income shows "Dividend 
+    + Profit Sharing", note says 
+    "no salary base"
+15. ✓ KP: Approved By shows BOD 
+    (corrected from Mgt)
+16. ✓ KI1: Strategic Benefits 
+    shows Member Introducer only
+17. ✓ KI2: Strategic Benefits 
+    shows Subsidiary + Briefings 
+    + Introducer
+18. ✓ KB: Strategic Benefits 
+    shows Capital Programme + 
+    Introducer + Path Forward
+
+MEMBER LOGIN MODAL:
+19. ✓ Click navbar "Member Login" 
+    link opens coming-soon modal
+20. ✓ Modal shows "Coming Soon" 
+    + "Pelantar Ahli" subtitle
+21. ✓ WhatsApp Support button 
+    visible
+22. ✓ ESC, X, backdrop dismiss
+
+MOBILE RESPONSIVE:
+23. ✓ At ~400px width, hero 
+    headline shrinks to 30px
+24. ✓ Sticky in-page nav scrolls 
+    horizontally
+25. ✓ Capital Structure boxes 
+    stack vertically
+26. ✓ Worked examples stack 
+    vertically
+27. ✓ How To Apply: 4 steps 
+    show as 2x2 grid (~600px) 
+    or 1x4 (~400px)
+28. ✓ Comparison table scrolls 
+    horizontally with "← swipe" 
+    hint visible
+29. ✓ Vault modal scales 
+    properly to small screens
+
+PRESERVATION:
+30. ✓ All other sections 
+    unchanged
+31. ✓ Carousel still works 
+    correctly
+32. ✓ Locked typography 
+    preserved
+
+After fixing — refresh browser. 
+Take EIGHT screenshots:
+
+1. /membership.html#compare 
+   showing comparison table 
+   with all corrections
+2. KI3 vault open showing the 
+   three-section architecture 
+   with all enriched benefits
+3. KL vault open showing 
+   corrected income (no salary)
+4. KP vault open showing BOD 
+   approval (corrected)
+5. KB vault open showing path 
+   forward to higher tiers
+6. Click "Member Login" in 
+   navbar — coming-soon modal 
+   visible
+7. Mobile view (~400px) of 
+   membership page hero
+8. Mobile view of comparison 
+   table with horizontal scroll
+
+Bring all 8 back for review.

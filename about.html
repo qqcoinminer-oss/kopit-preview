@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — KOPIT · Malaysia's Premier IT Koperasi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Source+Sans+3:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,300;1,400;1,500&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   1. RESET & BASE
+═══════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Source Sans 3',sans-serif;color:#F4EFE8;background:#0A1628 url('images/about/flywheel-cosmos.jpg') center/cover no-repeat fixed;overflow-x:hidden;line-height:1.6}
+a{text-decoration:none;color:inherit;transition:all .25s ease}
+ul{list-style:none}
+img{max-width:100%;display:block}
+
+/* 2. VARIABLES */
+:root{
+  --navy:#0A1628;
+  --navy-dk:#060D1A;
+  --gold:#C9A84C;
+  --gold-dk:#A8862A;
+  --gold-lt:#DEC06A;
+  --pearl:#F4EFE8;
+  --soft-gold:#D4B97A;
+  --cw:1160px;
+  --nav-h:95px;
+}
+
+/* 3. LAYOUT */
+.wrap{max-width:var(--cw);margin:0 auto;padding:0 44px}
+
+/* ══════════════════════════════════════════
+   4. NAVBAR
+══════════════════════════════════════════ */
+.navbar{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:var(--nav-h);background:var(--navy);
+  box-shadow:0 2px 20px rgba(0,0,0,.35);
+  display:flex;align-items:center;
+  transition:height .35s ease, padding .35s ease, box-shadow .35s ease;
+}
+.navbar.scrolled{height:65px}
+.nav-inner{
+  max-width:1600px;margin:0 auto;padding:0 32px;
+  display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:center;width:100%;
+}
+.nav-right{display:flex;align-items:center;justify-content:flex-end;gap:12px}
+#kopitLogo{
+  background:transparent;display:block;flex-shrink:0;
+  width:75px;height:75px;
+  transition:width .35s ease, height .35s ease;
+}
+.navbar.scrolled #kopitLogo{width:55px;height:55px}
+.logo-unit{display:flex;align-items:center;gap:11px;flex-shrink:0;cursor:pointer}
+.logo-text-block{display:flex;flex-direction:column;justify-content:center}
+.lt-1{
+  font-family:'Cinzel','Playfair Display',serif;font-size:30px;font-weight:700;
+  color:#ffffff;letter-spacing:4px;margin-bottom:2px;display:block;line-height:1;
+  transition:font-size .35s ease;
+}
+.navbar.scrolled .lt-1{font-size:24px}
+.lt-2{
+  font-family:'Source Sans 3',sans-serif;font-size:10px;
+  color:rgba(255,255,255,0.5);letter-spacing:.4px;white-space:nowrap;
+  display:block;overflow:hidden;
+  max-height:18px;opacity:1;margin-bottom:2px;line-height:1.4;
+  transition:opacity .35s ease, max-height .35s ease, margin-bottom .35s ease;
+}
+.lt-3{
+  font-family:'Source Sans 3',sans-serif;font-size:11px;font-style:italic;
+  color:rgba(201,168,76,.85);letter-spacing:.5px;display:block;line-height:1;
+}
+.navbar.scrolled .lt-2{opacity:0;max-height:0;margin-bottom:0;overflow:hidden}
+.nav-links{display:flex;align-items:center;justify-content:center;gap:24px}
+.nl{
+  font-family:'Source Sans 3',sans-serif;font-size:15px;font-weight:600;
+  letter-spacing:.3px;color:rgba(255,255,255,.75);
+  padding:4px 2px;border-radius:4px;transition:all .2s ease;
+}
+.nl:hover,.nl.active{color:var(--gold);background:transparent}
+.lang-toggle{display:none}
+.lang-btn{
+  font-family:Arial,sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:1.5px;padding:5px 12px;border-radius:3px;
+  cursor:pointer;transition:all .2s ease;border:1.5px solid var(--gold);
+  background:transparent;color:var(--gold);
+}
+.lang-btn.active{background:var(--gold);color:var(--navy-dk)}
+.lang-btn:hover:not(.active){background:rgba(201,168,76,.12)}
+.nav-cta{
+  font-family:'Source Sans 3',sans-serif;font-size:14px;font-weight:700;
+  letter-spacing:.04em;background:var(--gold);color:var(--navy);
+  border:none;padding:10px 24px;border-radius:4px;flex-shrink:0;
+  transition:all .2s ease;
+}
+.nav-cta:hover{background:var(--gold-dk);color:var(--navy)}
+.hamburger{
+  display:none;flex-direction:column;gap:5px;
+  background:none;border:none;cursor:pointer;padding:4px;margin-left:8px;
+}
+.hamburger span{
+  display:block;width:22px;height:2px;
+  background:var(--gold);border-radius:2px;transition:all .25s ease;
+}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-links.open{right:0 !important}
+
+/* ══════════════════════════════════════════
+   5. ANIMATIONS
+══════════════════════════════════════════ */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes hubPulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 18px rgba(255,200,100,0.6)); }
+  50% { transform: scale(1.04); filter: drop-shadow(0 0 32px rgba(255,200,100,0.95)); }
+}
+@keyframes nodeGlow {
+  0%, 100% { opacity: 0.8; filter: drop-shadow(0 0 6px rgba(255,200,100,0.5)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 18px rgba(255,200,100,1)); }
+}
+@keyframes beamPulse {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.85; }
+}
+
+/* ══════════════════════════════════════════
+   6. SECTION 1 — HERO
+══════════════════════════════════════════ */
+.about-hero{
+  position:relative;width:100%;
+  min-height:600px;height:100vh;max-height:100vh;
+  overflow:hidden;background:transparent;
+}
+.hero-overlay{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  background:
+    radial-gradient(ellipse at center,transparent 0%,rgba(0,0,0,0.12) 100%),
+    linear-gradient(to bottom,rgba(0,0,0,0.15) 0%,rgba(0,0,0,0) 35%,rgba(0,0,0,0) 70%,rgba(5,12,24,0.25) 100%);
+  z-index:2;pointer-events:none;
+}
+.hero-content{
+  position:relative;z-index:5;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  width:100%;height:100%;padding:0 24px;text-align:center;
+}
+.hero-ornament{
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:34px;animation:fadeInUp 1.5s ease-out 0s both;
+}
+.hero-ornament span.line{
+  width:30px;height:1px;background:rgba(212,185,122,0.7);display:inline-block;
+}
+.hero-ornament span.label{
+  padding:0 12px;font-family:'Cinzel',serif;font-size:11px;font-weight:600;
+  letter-spacing:5px;color:rgba(255,220,150,0.95);
+  text-shadow:0 2px 8px rgba(0,0,0,0.7);
+}
+.hero-headline-1{
+  font-family:'Playfair Display',serif;font-size:62px;font-weight:600;
+  color:#F4EFE8;letter-spacing:-1.5px;line-height:1.05;
+  text-shadow:0 4px 24px rgba(0,0,0,0.9);
+  animation:fadeInUp 1.2s ease-out 0.3s both;
+}
+.hero-headline-2{
+  font-family:'Playfair Display',serif;font-size:62px;font-weight:600;
+  color:#F0CC85;font-style:italic;letter-spacing:-1.5px;line-height:1.05;
+  text-shadow:0 4px 24px rgba(0,0,0,0.9);margin-top:6px;
+  animation:fadeInUp 1.2s ease-out 0.7s both;
+}
+.hero-tagline{
+  margin-top:28px;font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:18px;color:rgba(255,240,210,0.92);
+  text-shadow:0 2px 12px rgba(0,0,0,0.8);max-width:640px;
+  animation:fadeInUp 1.2s ease-out 1.1s both;
+}
+.hero-scroll-hint{
+  position:absolute;bottom:24px;left:50%;transform:translateX(-50%);
+  z-index:5;display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+.hero-scroll-hint span{
+  font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;font-weight:600;
+  color:rgba(244,239,232,0.55);
+}
+.hero-scroll-hint i{
+  display:block;width:1px;height:24px;
+  background:linear-gradient(to bottom,rgba(212,185,122,0.7),transparent);
+}
+
+/* ══════════════════════════════════════════
+   7. SECTION 2 — STATEMENT REVEAL
+══════════════════════════════════════════ */
+.statement-section{padding:80px 30px;background:rgba(8,16,28,0.5);text-align:center;}
+.statement-inner{max-width:600px;margin:0 auto;}
+.statement-h1{
+  font-family:'Playfair Display',serif;font-size:36px;font-weight:500;
+  color:rgba(244,239,232,0.85);line-height:1.3;
+}
+.statement-h1 .dim-italic{
+  display:block;color:rgba(244,239,232,0.4);font-style:italic;font-weight:400;
+}
+.statement-arrow{display:flex;justify-content:center;margin:32px 0;}
+.statement-h2{
+  font-family:'Playfair Display',serif;font-size:36px;font-weight:600;
+  color:#D4B97A;font-style:italic;line-height:1.3;
+}
+.statement-hairline{
+  width:60px;height:1px;background:rgba(201,168,76,0.5);
+  margin:32px auto 24px;
+}
+.statement-stamp{
+  font-family:'Cinzel',serif;font-size:14px;letter-spacing:6px;
+  color:#F4EFE8;font-weight:600;
+}
+
+/* ══════════════════════════════════════════
+   8. SECTION 3 — LIVING CONSTELLATION
+══════════════════════════════════════════ */
+.constellation-section{
+  position:relative;padding:80px 30px;text-align:center;
+}
+.constellation-section::before{
+  content:'';position:absolute;inset:0;
+  background:rgba(5,12,24,0.25);z-index:0;
+}
+.constellation-inner{position:relative;z-index:1;max-width:880px;margin:0 auto;}
+.const-eyebrow{
+  font-family:'Cinzel',serif;font-size:11px;letter-spacing:4px;font-weight:600;
+  color:rgba(212,185,122,0.95);margin-bottom:14px;
+  text-shadow:0 2px 8px rgba(0,0,0,0.7);
+}
+.const-headline{
+  font-family:'Playfair Display',serif;font-size:32px;font-weight:600;
+  color:#F4EFE8;line-height:1.25;margin-bottom:28px;
+  text-shadow:0 2px 14px rgba(0,0,0,0.7);
+}
+.const-svg-wrap{display:flex;justify-content:center;margin:0 auto;}
+.const-svg{display:block;width:720px;max-width:100%;height:auto;}
+.const-caption{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;
+  color:rgba(244,239,232,0.85);max-width:480px;margin:24px auto 0;
+  text-shadow:0 2px 10px rgba(0,0,0,0.7);line-height:1.55;
+}
+.hub-c{animation:hubPulse 4s ease-in-out infinite;transform-origin:center;transform-box:fill-box;}
+.node-c1,.node-c2,.node-c3,.node-c4,.node-c5,.node-c6{
+  animation:nodeGlow 5s ease-in-out infinite;transform-origin:center;transform-box:fill-box;
+}
+.node-c1{animation-delay:0s;}
+.node-c2{animation-delay:0.83s;}
+.node-c3{animation-delay:1.66s;}
+.node-c4{animation-delay:2.5s;}
+.node-c5{animation-delay:3.33s;}
+.node-c6{animation-delay:4.16s;}
+.beam-c1,.beam-c2,.beam-c3,.beam-c4,.beam-c5,.beam-c6{
+  animation:beamPulse 3s ease-in-out infinite;
+}
+.beam-c1{animation-delay:0s;}
+.beam-c2{animation-delay:0.4s;}
+.beam-c3{animation-delay:0.8s;}
+.beam-c4{animation-delay:1.2s;}
+.beam-c5{animation-delay:1.6s;}
+.beam-c6{animation-delay:2s;}
+
+/* ══════════════════════════════════════════
+   9. SECTION 4 — FIVE PILLARS
+══════════════════════════════════════════ */
+.pillars-section{padding:80px 30px;background:rgba(8,16,28,0.5);text-align:center;}
+.pillars-inner{max-width:760px;margin:0 auto;}
+.pillars-eyebrow{
+  font-family:'Cinzel',serif;font-size:11px;letter-spacing:4px;font-weight:600;
+  color:rgba(212,185,122,0.95);margin-bottom:14px;
+}
+.pillars-headline{
+  font-family:'Playfair Display',serif;font-size:32px;font-weight:600;
+  color:#F4EFE8;line-height:1.25;margin-bottom:36px;
+}
+.pillars-grid{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:8px;
+  max-width:680px;margin:0 auto;
+}
+.pillar-card-a{
+  padding:24px 10px;background:rgba(10,22,40,0.5);
+  border:0.5px solid rgba(201,168,76,0.2);border-radius:6px;text-align:center;
+}
+.pillar-card-a.highlight{border-color:rgba(201,168,76,0.4);}
+.pillar-icon-circle{
+  width:38px;height:38px;border-radius:50%;
+  background:rgba(201,168,76,0.15);border:0.5px solid rgba(201,168,76,0.5);
+  margin:0 auto 14px;display:flex;align-items:center;justify-content:center;
+}
+.pillar-card-a.highlight .pillar-icon-circle{
+  background:rgba(201,168,76,0.2);border-color:rgba(201,168,76,0.7);
+}
+.pillar-icon-circle svg{display:block;}
+.pillar-card-a.highlight .pillar-icon-circle svg{stroke:rgba(212,185,122,1);}
+.pillar-label-a{
+  font-family:'Cinzel',serif;font-size:9px;letter-spacing:1.8px;
+  color:#D4B97A;font-weight:600;line-height:1.4;
+}
+
+/* ══════════════════════════════════════════
+   10. SECTION 5 — TONGGAK KOPIT (HERITAGE PASSPORT GLOBE)
+══════════════════════════════════════════ */
+.tonggak-sec{
+  background:radial-gradient(ellipse 90% 70% at 50% 30%,rgba(15,30,55,0.75) 0%,rgba(10,22,40,0.85) 60%,rgba(5,12,24,0.92) 100%);
+  padding:90px 0 110px;
+  position:relative;
+  overflow:hidden;
+}
+.tonggak-header{
+  text-align:center;max-width:780px;margin:0 auto 50px;
+  padding:0 30px;position:relative;z-index:2;
+}
+.tonggak-eyebrow{display:inline-flex;align-items:center;justify-content:center;gap:14px;margin-bottom:18px;}
+.tonggak-eyebrow::before,.tonggak-eyebrow::after{content:'';width:60px;height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,0.7),transparent);}
+.tonggak-eyebrow span{font-family:'Cinzel',serif;font-size:11px;font-weight:600;letter-spacing:0.4em;color:rgba(201,168,76,0.85);}
+.headline-top{font-family:'Playfair Display',serif;font-weight:600;color:#F4EFE8;margin:0 0 8px;line-height:1.15;letter-spacing:-0.5px;font-size:42px;}
+.headline-bottom{font-family:'Playfair Display',serif;font-weight:500;color:#D4B97A;margin:0 0 22px;line-height:1.15;letter-spacing:-0.4px;font-size:32px;font-style:italic;}
+.tonggak-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:rgba(244,239,232,0.65);letter-spacing:0.3px;line-height:1.65;max-width:580px;margin:0 auto;}
+.passport-stage{
+  position:relative;max-width:1400px;margin:0 auto;padding:0 30px;
+  z-index:2;perspective:2200px;perspective-origin:50% 50%;
+}
+.passport-viewport{
+  position:relative;height:680px;
+  user-select:none;-webkit-user-select:none;
+  transform-style:preserve-3d;cursor:grab;
+}
+.passport-globe{
+  position:relative;width:920px;height:580px;margin:0 auto;top:20px;
+  transform-style:preserve-3d;
+  transition:transform 1.1s cubic-bezier(0.45,0.05,0.25,1);
+  will-change:transform;
+}
+.passport-card{
+  position:absolute;top:0;left:0;width:920px;height:580px;
+  transform-origin:center center;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  transition:opacity 0.6s ease, filter 0.6s ease;
+  background:radial-gradient(ellipse 100% 100% at 30% 30%,#F8F1DE 0%,#EFE6CB 35%,#E8DCB8 60%,#DCCCA0 100%);
+  border:1px solid rgba(123,90,31,0.28);border-radius:6px;
+  box-shadow:0 30px 80px rgba(0,0,0,0.55),0 0 60px rgba(201,168,76,0.10),inset 0 1px 0 rgba(255,255,255,0.4),inset 0 -2px 0 rgba(123,90,31,0.18);
+  overflow:hidden;border-left:6px solid #1a2845;
+}
+.passport-card::before{
+  content:'';position:absolute;top:0;bottom:0;left:-6px;width:6px;
+  background-image:repeating-linear-gradient(to bottom,rgba(0,0,0,0.18) 0,rgba(0,0,0,0.18) 8px,rgba(255,255,255,0.06) 8px,rgba(255,255,255,0.06) 9px,rgba(0,0,0,0.25) 9px,rgba(0,0,0,0.25) 18px);
+  pointer-events:none;
+}
+.passport-card::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(circle at 20% 30%,rgba(123,90,31,0.045) 0%,transparent 30%),radial-gradient(circle at 80% 70%,rgba(123,90,31,0.045) 0%,transparent 30%),repeating-linear-gradient(0deg,transparent 0,transparent 4px,rgba(123,90,31,0.025) 4px,rgba(123,90,31,0.025) 5px),repeating-linear-gradient(90deg,transparent 0,transparent 4px,rgba(123,90,31,0.025) 4px,rgba(123,90,31,0.025) 5px);
+}
+.passport-card[data-state="active"]{opacity:1;filter:brightness(1) saturate(1);}
+.passport-card[data-state="adjacent"]{opacity:0;filter:brightness(0.6) saturate(0.7) blur(2px);}
+.passport-card[data-state="far"]{opacity:0;filter:brightness(0.4) saturate(0.5) blur(4px);}
+.passport-card[data-state="back"]{opacity:0;filter:none;}
+.passport-globe.rotating .passport-card[data-state="adjacent"]{opacity:0.35;}
+.passport-globe.rotating .passport-card[data-state="far"]{opacity:0.10;}
+.card-inner{
+  position:relative;z-index:3;height:100%;
+  padding:38px 50px 32px 60px;
+  display:grid;grid-template-columns:280px 1fr;gap:48px;align-items:start;
+}
+.portrait-side{position:relative;display:flex;flex-direction:column;align-items:center;}
+.page-header{text-align:center;margin-bottom:18px;width:100%;}
+.page-header .label{font-family:'Cinzel',serif;font-size:8.5px;font-weight:700;letter-spacing:0.4em;color:#7B5A1F;margin-bottom:4px;}
+.page-header .num{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:14px;font-weight:500;color:#A8862A;letter-spacing:0.15em;}
+.photo-area{
+  position:relative;width:240px;height:320px;
+  background:linear-gradient(135deg,#0a1828 0%,#1a2d4a 40%,#243859 60%,#1a2845 100%);
+  border:1px solid rgba(0,0,0,0.25);
+  box-shadow:inset 0 0 0 4px #F8F1DE,inset 0 0 0 5px rgba(123,90,31,0.4),0 6px 20px rgba(0,0,0,0.3);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+}
+.photo-area::after{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(45deg,transparent 0,transparent 8px,rgba(201,168,76,0.04) 8px,rgba(201,168,76,0.04) 9px);
+  pointer-events:none;
+}
+/* When a real photo is present, drop the diagonal hatching so the image reads cleanly */
+.photo-area:has(img.tonggak-photo)::after{display:none;}
+/* When a real photo is present, hide the placeholder monogram letter */
+.photo-area:has(img.tonggak-photo) .portrait-monogram{display:none;}
+.photo-area img.tonggak-photo{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1;
+}
+.corner-mount{
+  position:absolute;width:36px;height:36px;
+  background:linear-gradient(135deg,#DCCCA0 0%,#E8DCB8 45%,#C9A84C 50%,#B89730 55%,#7B5A1F 100%);
+  box-shadow:inset 0 0 0 1px rgba(123,90,31,0.25),0 2px 4px rgba(0,0,0,0.25);
+}
+.corner-mount.tl{top:-8px;left:-8px;clip-path:polygon(0 0,100% 0,0 100%);}
+.corner-mount.tr{top:-8px;right:-8px;clip-path:polygon(0 0,100% 0,100% 100%);}
+.corner-mount.bl{bottom:-8px;left:-8px;clip-path:polygon(0 0,0 100%,100% 100%);}
+.corner-mount.br{bottom:-8px;right:-8px;clip-path:polygon(100% 0,100% 100%,0 100%);}
+.portrait-monogram{
+  font-family:'Playfair Display',Georgia,serif;font-size:104px;font-weight:500;
+  color:rgba(255,228,150,0.55);letter-spacing:-3px;line-height:1;
+  text-shadow:0 2px 12px rgba(255,228,150,0.2);
+  position:relative;z-index:2;transition:color 0.3s ease;
+}
+.tier-officer .portrait-monogram{color:rgba(255,228,150,0.55);text-shadow:0 2px 12px rgba(255,228,150,0.2);}
+.tier-lead .portrait-monogram{color:rgba(232,184,110,0.55);text-shadow:0 2px 12px rgba(232,184,110,0.22);}
+.tier-advisor .portrait-monogram{color:rgba(212,201,154,0.55);text-shadow:0 2px 12px rgba(212,201,154,0.18);}
+.id-strip{
+  margin-top:18px;width:100%;text-align:center;
+  border-top:1px dashed rgba(123,90,31,0.45);border-bottom:1px dashed rgba(123,90,31,0.45);
+  padding:6px 0;
+  font-family:'Special Elite','Courier New',monospace;
+  font-size:10px;letter-spacing:0.18em;color:#5C3F10;
+}
+.id-strip .lt{color:#A8862A;}
+.content-side{position:relative;padding-top:8px;}
+.authority-bar{
+  display:flex;align-items:center;gap:12px;
+  padding-bottom:14px;border-bottom:1px solid rgba(123,90,31,0.3);margin-bottom:20px;
+}
+.authority-emblem{
+  width:44px;height:44px;border-radius:50%;border:1px solid #7B5A1F;
+  background:radial-gradient(circle at 35% 30%,#F8F1DE 0%,#E8DCB8 60%,#B89730 100%);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  box-shadow:inset 0 0 0 3px rgba(248,241,222,0.5),0 2px 6px rgba(0,0,0,0.18);
+}
+.authority-emblem svg{width:26px;height:26px;}
+.authority-text{flex:1;}
+.authority-text .top{font-family:'Cinzel',serif;font-size:9px;font-weight:700;letter-spacing:0.4em;color:#7B5A1F;margin-bottom:3px;}
+.authority-text .bot{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:13px;color:#5C3F10;letter-spacing:0.05em;}
+.authority-num{font-family:'Special Elite','Courier New',monospace;font-size:11px;letter-spacing:0.15em;color:#A8862A;text-align:right;line-height:1.5;}
+.authority-num strong{display:block;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:14px;font-weight:600;color:#7B5A1F;letter-spacing:0.1em;}
+.role-line{font-family:'Cinzel',serif;font-size:9.5px;font-weight:700;letter-spacing:0.4em;color:#7B5A1F;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.role-line::after{content:'';flex:1;height:1px;background:linear-gradient(to right,rgba(123,90,31,0.5),transparent);}
+.pillar-name{font-family:'Playfair Display',Georgia,serif;font-size:38px;font-weight:600;color:#1A1410;letter-spacing:-0.5px;line-height:1.05;margin-bottom:4px;}
+.pillar-bm{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;font-weight:500;color:#7B5A1F;letter-spacing:0.3px;margin-bottom:18px;}
+.pillar-bio{font-family:'Source Sans 3',sans-serif;font-size:13.5px;color:#3a2a10;line-height:1.7;letter-spacing:0.1px;margin-bottom:18px;max-width:480px;}
+.pillar-quote{
+  position:relative;padding:10px 0 10px 22px;border-left:3px double #C9A84C;
+  font-family:'Playfair Display',Georgia,serif;font-style:italic;
+  font-size:15px;line-height:1.55;color:#5C3F10;max-width:480px;letter-spacing:0.15px;
+}
+.pillar-quote::before{
+  content:'\201C';font-family:'Playfair Display',Georgia,serif;font-size:38px;
+  color:rgba(123,90,31,0.5);position:absolute;top:-2px;left:6px;font-style:italic;line-height:1;
+}
+.official-stamp{
+  position:absolute;bottom:18px;right:30px;width:160px;height:160px;
+  display:flex;align-items:center;justify-content:center;
+  transform:rotate(-12deg);opacity:0.85;pointer-events:none;z-index:4;
+}
+.official-stamp svg{width:100%;height:100%;}
+.official-stamp .stamp-ink{fill:none;stroke:#a82820;stroke-width:2.5;opacity:0.78;}
+.official-stamp .stamp-text{font-family:'Cinzel',serif;font-size:9px;font-weight:700;letter-spacing:0.35em;fill:#a82820;opacity:0.78;}
+.official-stamp .stamp-center{font-family:'Cinzel',serif;font-size:14px;font-weight:700;letter-spacing:0.2em;fill:#a82820;opacity:0.85;text-anchor:middle;}
+.official-stamp .stamp-year{font-family:'Special Elite','Courier New',monospace;font-size:10px;fill:#a82820;opacity:0.7;text-anchor:middle;}
+.passport-stage::before,.passport-stage::after{
+  content:'';position:absolute;top:0;bottom:0;width:180px;z-index:3;pointer-events:none;
+}
+.passport-stage::before{left:0;background:linear-gradient(to right,rgba(10,22,40,0.95) 0%,rgba(10,22,40,0.5) 50%,transparent 100%);}
+.passport-stage::after{right:0;background:linear-gradient(to left,rgba(10,22,40,0.95) 0%,rgba(10,22,40,0.5) 50%,transparent 100%);}
+.passport-nav{
+  display:flex;justify-content:center;align-items:center;gap:14px;
+  margin-top:36px;position:relative;z-index:6;
+}
+.passport-arrow{
+  width:46px;height:46px;border-radius:50%;
+  border:1px solid rgba(201,168,76,0.5);
+  background:rgba(10,22,40,0.85);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  color:#C9A84C;cursor:pointer;font-size:22px;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.25s ease;font-family:'Source Sans 3',sans-serif;font-weight:300;
+}
+.passport-arrow:hover{background:rgba(201,168,76,0.18);border-color:rgba(201,168,76,0.85);color:#FFE89A;}
+.stamp-pagination{display:flex;align-items:center;gap:6px;}
+.stamp-page{
+  cursor:pointer;width:28px;height:28px;
+  border:1px solid rgba(201,168,76,0.35);border-radius:50%;
+  background:rgba(10,22,40,0.4);color:rgba(201,168,76,0.55);
+  font-family:'Cinzel',serif;font-size:10px;font-weight:600;letter-spacing:0.05em;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.25s ease;padding:0;
+}
+.stamp-page:hover{border-color:rgba(201,168,76,0.7);color:rgba(255,232,154,0.85);transform:rotate(-3deg);}
+.stamp-page.active{
+  background:rgba(201,168,76,0.28);border-color:#FFE89A;color:#FFE89A;
+  transform:rotate(-3deg);box-shadow:0 0 12px rgba(201,168,76,0.4);
+}
+.passport-meta{
+  text-align:center;margin-top:14px;
+  font-family:'Cinzel',serif;font-size:10px;font-weight:500;letter-spacing:0.32em;
+  color:rgba(201,168,76,0.5);text-transform:uppercase;
+}
+.passport-meta .sep{color:rgba(201,168,76,0.3);margin:0 8px;}
+@media (max-width:1000px){
+  .passport-stage{perspective:1500px;}
+  .passport-globe{width:760px;height:560px;}
+  .passport-card{width:760px;height:560px;}
+  .card-inner{padding:30px 36px 28px 46px;}
+  .photo-area{width:220px;height:293px;}
+}
+@media (max-width:780px){
+  .passport-stage{perspective:none;}
+  .passport-viewport{height:auto;overflow:hidden;transform-style:flat;}
+  .passport-globe{width:100%;height:auto;transform-style:flat;top:0;}
+  .passport-card{width:100%;height:auto;min-height:780px;backface-visibility:visible;}
+  .card-inner{grid-template-columns:1fr;gap:30px;padding:30px 28px;}
+  .photo-area{width:200px;height:267px;margin:0 auto;}
+  .portrait-monogram{font-size:84px;}
+  .pillar-name{font-size:30px;}
+  .headline-top{font-size:34px;}
+  .headline-bottom{font-size:26px;}
+  .official-stamp{width:120px;height:120px;bottom:14px;right:14px;}
+  .passport-stage::before,.passport-stage::after{width:60px;}
+  .passport-card[data-state="adjacent"],
+  .passport-card[data-state="far"],
+  .passport-card[data-state="back"]{opacity:1;filter:none;}
+  .passport-globe.rotating .passport-card[data-state="adjacent"],
+  .passport-globe.rotating .passport-card[data-state="far"]{opacity:1;}
+}
+
+/* ══════════════════════════════════════════
+   11. SECTION 6 — REGULATORY ANCHOR
+══════════════════════════════════════════ */
+.regulatory-section{
+  padding:60px 30px;background:rgba(5,12,24,0.6);
+  border-top:0.5px solid rgba(201,168,76,0.2);text-align:center;
+}
+.reg-eyebrow{
+  font-family:'Cinzel',serif;font-size:11px;letter-spacing:4px;font-weight:600;
+  color:rgba(201,168,76,0.85);margin-bottom:24px;
+}
+.reg-pills{
+  display:flex;justify-content:center;align-items:stretch;flex-wrap:wrap;
+  max-width:600px;margin:0 auto 18px;
+}
+.reg-pill{
+  padding:14px 26px;background:rgba(201,168,76,0.12);
+  border:0.5px solid rgba(201,168,76,0.6);
+  font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;
+  color:#D4B97A;font-weight:600;
+}
+.reg-pill.first{border-radius:3px 0 0 3px;border-right:none;}
+.reg-pill.middle{border-left:none;border-right:none;border-radius:0;}
+.reg-pill.last{border-radius:0 3px 3px 0;border-left:none;}
+.reg-subtext{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;
+  color:rgba(244,239,232,0.5);max-width:480px;margin:0 auto;
+}
+
+/* ══════════════════════════════════════════
+   12. SECTION 7 — FINAL CTA
+══════════════════════════════════════════ */
+.cta-section{
+  padding:90px 30px;text-align:center;
+  background:linear-gradient(180deg,rgba(8,16,28,0.5) 0%,rgba(15,28,50,0.7) 100%);
+  border-top:0.5px solid rgba(201,168,76,0.2);
+}
+.cta-h1{
+  font-family:'Playfair Display',serif;font-size:54px;font-weight:600;
+  color:#F4EFE8;letter-spacing:-1.5px;line-height:1.05;
+}
+.cta-h2{
+  font-family:'Playfair Display',serif;font-size:54px;font-weight:600;
+  color:#D4B97A;font-style:italic;letter-spacing:-1.5px;line-height:1.05;
+}
+.cta-sub{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;
+  color:rgba(212,185,122,0.85);margin:24px 0 36px;
+}
+.cta-buttons{
+  display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;
+}
+.cta-btn-primary{
+  display:inline-block;background:#C9A84C;color:#0A1628;
+  padding:14px 28px;font-family:'Source Sans 3',sans-serif;font-size:11px;
+  font-weight:600;letter-spacing:2.5px;text-transform:uppercase;
+  border-radius:4px;text-decoration:none;transition:background .2s ease;
+}
+.cta-btn-primary:hover{background:#D4B97A;color:#0A1628;}
+.cta-btn-secondary{
+  display:inline-block;background:transparent;color:#D4B97A;
+  padding:14px 28px;border:0.5px solid rgba(201,168,76,0.5);
+  border-radius:4px;font-family:'Source Sans 3',sans-serif;font-size:11px;
+  font-weight:600;letter-spacing:2.5px;text-transform:uppercase;
+  text-decoration:none;transition:background .2s ease, border-color .2s ease;
+}
+.cta-btn-secondary:hover{background:rgba(201,168,76,0.1);border-color:rgba(201,168,76,0.85);}
+
+/* ══════════════════════════════════════════
+   13. FOOTER
+══════════════════════════════════════════ */
+.footer{background:var(--navy);border-top:1px solid rgba(201,168,76,.14)}
+.footer-main{padding:80px 0 60px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1.2fr;gap:52px;}
+.f-svg-wrap{margin-bottom:18px}
+.f-logo-name{
+  font-family:'Cinzel',serif;font-size:1.22rem;letter-spacing:4px;
+  font-weight:700;color:var(--gold);margin-bottom:4px;
+}
+.f-tagline{
+  font-family:'Source Sans 3',sans-serif;font-size:.84rem;
+  color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:14px;
+}
+.f-premier{
+  font-family:'Source Sans 3',sans-serif;font-size:.78rem;font-style:italic;
+  color:rgba(255,255,255,.38);margin-bottom:14px;
+}
+.f-head{
+  font-family:'Source Sans 3',sans-serif;font-size:.66rem;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:22px;
+}
+.f-nav-list{display:flex;flex-direction:column;gap:9px}
+.f-nav-list li a{
+  display:flex;align-items:center;gap:9px;
+  font-family:'Source Sans 3',sans-serif;font-size:.88rem;
+  color:rgba(255,255,255,.52);transition:all .2s ease;
+}
+.f-nav-list li a::before{
+  content:'';width:13px;height:1px;background:var(--gold);
+  opacity:.35;flex-shrink:0;transition:all .2s ease;
+}
+.f-nav-list li a:hover{color:var(--gold-lt);padding-left:5px}
+.f-nav-list li a:hover::before{width:18px;opacity:1}
+.f-wa{
+  display:inline-flex;align-items:center;gap:11px;
+  font-family:'Source Sans 3',sans-serif;font-size:1.18rem;
+  font-weight:700;color:var(--gold-lt);letter-spacing:.04em;
+  margin-bottom:6px;transition:all .2s ease;
+}
+.f-wa:hover{color:#EDD47E}
+.f-hours{font-family:'Source Sans 3',sans-serif;font-size:.76rem;color:rgba(255,255,255,.36);margin-bottom:18px}
+.f-email{
+  display:flex;align-items:center;gap:9px;
+  font-family:'Source Sans 3',sans-serif;font-size:.86rem;
+  color:rgba(255,255,255,.48);margin-bottom:22px;
+}
+.f-contact-btn{
+  display:inline-block;font-family:'Source Sans 3',sans-serif;font-size:.8rem;
+  font-weight:700;color:var(--navy-dk);
+  background:linear-gradient(135deg,var(--gold),var(--gold-lt));
+  padding:10px 24px;border-radius:4px;transition:all .2s ease;
+}
+.f-contact-btn:hover{transform:translateY(-1px);box-shadow:0 5px 20px rgba(201,168,76,.35)}
+.footer-bar{border-top:1px solid rgba(255,255,255,.055);padding:20px 0}
+.footer-bar-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;
+}
+.footer-bar-inner p{
+  font-family:'Source Sans 3',sans-serif;font-size:.74rem;color:rgba(255,255,255,.28);
+}
+.bar-r{font-size:.7rem !important;color:rgba(201,168,76,.6) !important;white-space:nowrap}
+.bar-legal{color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s ease;}
+.bar-legal:hover{color:#C9A84C;}
+
+/* ══════════════════════════════════════════
+   14. RESPONSIVE
+══════════════════════════════════════════ */
+@media(max-width:1024px){
+  .nl{padding:6px 9px;font-size:.76rem}
+}
+@media(max-width:768px){
+  :root{--nav-h:72px}
+  body{background-attachment:scroll;}
+  .wrap{padding:0 22px}
+  .hamburger{display:flex}
+  .nav-cta{display:none}
+  .nav-links{
+    position:fixed;top:0;right:-100%;width:268px;height:100vh;
+    background:var(--navy-dk);flex-direction:column;align-items:flex-start;
+    padding:80px 26px 36px;gap:3px;
+    border-left:1px solid rgba(201,168,76,.14);
+    transition:right .38s ease;z-index:999;
+    box-shadow:-18px 0 55px rgba(0,0,0,.38);
+  }
+  .nav-links.open{right:0}
+  .nl{font-size:.92rem;padding:11px 14px;width:100%}
+  .footer-grid{grid-template-columns:1fr;gap:36px}
+  .footer-bar-inner{flex-direction:column;align-items:flex-start;gap:5px}
+  .footer-main{padding:56px 0 44px}
+  .lt-2{display:none}
+}
+@media(max-width:700px){
+  .hero-headline-1,.hero-headline-2{font-size:38px;}
+  .statement-h1,.statement-h2{font-size:24px;}
+  .const-headline{font-size:24px;}
+  .pillars-headline,.worlds-headline{font-size:24px;}
+  .pillars-grid{grid-template-columns:repeat(6,1fr);}
+  .pillar-card-a{grid-column:span 2;}
+  .pillar-card-a:nth-child(4){grid-column-start:2;}
+  .worlds-grid{grid-template-columns:1fr;}
+  .cta-h1,.cta-h2{font-size:36px;}
+  .cta-buttons{flex-direction:column;gap:12px;align-items:stretch;}
+  .cta-btn-primary,.cta-btn-secondary{width:100%;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════ -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" aria-label="KOPIT Home">
+      <div class="logo-unit">
+        <canvas id="kopitLogo" width="60" height="60" style="display:block;flex-shrink:0;"></canvas>
+        <div class="logo-text-block">
+          <span class="lt-1">KOPIT</span>
+          <span class="lt-2">Koperasi Usahawan Informasi Teknologi Malaysia Berhad</span>
+          <span class="lt-3">Malaysia's Premier IT Koperasi</span>
+        </div>
+      </div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html"      class="nl"        data-en="Home"       data-bm="Utama">Home</a></li>
+      <li><a href="about.html"      class="nl active" data-en="About"      data-bm="Tentang">About</a></li>
+      <li><a href="divisions.html"  class="nl"        data-en="Divisions"  data-bm="Bahagian">Divisions</a></li>
+      <li><a href="projects.html"   class="nl"        data-en="Projects"   data-bm="Projek">Projects</a></li>
+      <li><a href="membership.html" class="nl"        data-en="Membership" data-bm="Keahlian">Membership</a></li>
+      <li><a href="news.html"       class="nl"        data-en="News"       data-bm="Berita">News</a></li>
+      <li><a href="contact.html"    class="nl"        data-en="Contact"    data-bm="Hubungi">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btnEN" onclick="setLang('en')">EN</button>
+        <button class="lang-btn"        id="btnBM" onclick="setLang('bm')">BM</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="membership.html" class="nav-cta"
+         data-en="Member Login" data-bm="Log Masuk Ahli">Member Login</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════
+     SECTION 1 — HERO
+══════════════════════════════════════ -->
+<section class="about-hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-ornament">
+      <span class="line"></span>
+      <span class="label">A MALAYSIAN TECHNOLOGY COOPERATIVE</span>
+      <span class="line"></span>
+    </div>
+    <div class="hero-headline-1">We Build Wealth.</div>
+    <div class="hero-headline-2">Together.</div>
+    <p class="hero-tagline">Members own what we build. Members earn what we deliver.</p>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>SCROLL TO DISCOVER</span>
+    <i></i>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 2 — STATEMENT REVEAL
+══════════════════════════════════════ -->
+<section class="statement-section">
+  <div class="statement-inner">
+    <h2 class="statement-h1">
+      Where corporations
+      <span class="dim-italic">concentrate ownership...</span>
+    </h2>
+    <div class="statement-arrow">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(212,185,122,0.7)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 5v14M19 12l-7 7-7-7"/>
+      </svg>
+    </div>
+    <h2 class="statement-h2">
+      Cooperatives<br>distribute it.
+    </h2>
+    <div class="statement-hairline"></div>
+    <div class="statement-stamp">THIS IS KOPIT.</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 3 — LIVING CONSTELLATION
+══════════════════════════════════════ -->
+<section class="constellation-section">
+  <div class="constellation-inner">
+    <div class="const-eyebrow">— THE COOPERATIVE CONSTELLATION —</div>
+    <h2 class="const-headline">Members At The Centre Of Gravity.</h2>
+
+    <div class="const-svg-wrap">
+      <svg class="const-svg" viewBox="0 0 520 440" xmlns="http://www.w3.org/2000/svg" aria-labelledby="const-title">
+        <title id="const-title">Cooperative Constellation: Members at the gravitational centre</title>
+        <defs>
+          <radialGradient id="hub-glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(255,220,140,0.95)"/>
+            <stop offset="40%" stop-color="rgba(212,185,122,0.5)"/>
+            <stop offset="100%" stop-color="rgba(212,185,122,0)"/>
+          </radialGradient>
+          <radialGradient id="node-glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(255,220,140,0.85)"/>
+            <stop offset="100%" stop-color="rgba(212,185,122,0)"/>
+          </radialGradient>
+          <radialGradient id="node-glow-bright" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(255,235,170,0.95)"/>
+            <stop offset="100%" stop-color="rgba(212,185,122,0)"/>
+          </radialGradient>
+        </defs>
+
+        <!-- HEXAGON OUTLINE (static dashed connector ring) -->
+        <line x1="160" y1="80"  x2="380" y2="60"  stroke="rgba(212,185,122,0.5)" stroke-width="0.6" stroke-dasharray="2,4" opacity="0.5"/>
+        <line x1="380" y1="60"  x2="430" y2="220" stroke="rgba(212,185,122,0.5)" stroke-width="0.6" stroke-dasharray="2,4" opacity="0.5"/>
+        <line x1="430" y1="220" x2="380" y2="380" stroke="rgba(212,185,122,0.5)" stroke-width="0.6" stroke-dasharray="2,4" opacity="0.5"/>
+        <line x1="380" y1="380" x2="160" y2="380" stroke="rgba(212,185,122,0.5)" stroke-width="0.6" stroke-dasharray="2,4" opacity="0.5"/>
+        <line x1="160" y1="380" x2="90"  y2="220" stroke="rgba(212,185,122,0.5)" stroke-width="0.6" stroke-dasharray="2,4" opacity="0.5"/>
+        <line x1="90"  y1="220" x2="160" y2="80"  stroke="rgba(212,185,122,0.5)" stroke-width="0.6" stroke-dasharray="2,4" opacity="0.5"/>
+
+        <!-- BEAMS (each wrapped in <g> with class for opacity animation) -->
+        <g class="beam-c1"><line x1="260" y1="220" x2="160" y2="80"  stroke="rgba(255,200,100,0.6)" stroke-width="1.4" stroke-linecap="round"/></g>
+        <g class="beam-c2"><line x1="260" y1="220" x2="380" y2="60"  stroke="rgba(255,200,100,0.6)" stroke-width="1.4" stroke-linecap="round"/></g>
+        <g class="beam-c3"><line x1="260" y1="220" x2="430" y2="220" stroke="rgba(255,200,100,0.6)" stroke-width="1.4" stroke-linecap="round"/></g>
+        <g class="beam-c4"><line x1="260" y1="220" x2="380" y2="380" stroke="rgba(255,200,100,0.6)" stroke-width="1.4" stroke-linecap="round"/></g>
+        <g class="beam-c5"><line x1="260" y1="220" x2="160" y2="380" stroke="rgba(255,200,100,0.6)" stroke-width="1.4" stroke-linecap="round"/></g>
+        <g class="beam-c6"><line x1="260" y1="220" x2="90"  y2="220" stroke="rgba(255,200,100,0.6)" stroke-width="1.4" stroke-linecap="round"/></g>
+
+        <!-- NODE 1 — CAPITAL (top-left) -->
+        <g class="node-c1">
+          <circle cx="160" cy="80" r="32" fill="url(#node-glow)"/>
+          <circle cx="160" cy="80" r="4" fill="rgba(255,240,200,1)"/>
+        </g>
+        <text x="160" y="138" text-anchor="middle" font-family="Cinzel,serif" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="2.5">CAPITAL</text>
+        <text x="160" y="151" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="10" fill="rgba(212,185,122,0.9)">contributed</text>
+
+        <!-- NODE 2 — DIVISIONS (top-right) -->
+        <g class="node-c2">
+          <circle cx="380" cy="60" r="32" fill="url(#node-glow)"/>
+          <circle cx="380" cy="60" r="4" fill="rgba(255,240,200,1)"/>
+        </g>
+        <text x="380" y="118" text-anchor="middle" font-family="Cinzel,serif" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="2.5">DIVISIONS</text>
+        <text x="380" y="131" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="10" fill="rgba(212,185,122,0.9)">deliver</text>
+
+        <!-- NODE 3 — PROJECTS (right) -->
+        <g class="node-c3">
+          <circle cx="430" cy="220" r="32" fill="url(#node-glow)"/>
+          <circle cx="430" cy="220" r="4" fill="rgba(255,240,200,1)"/>
+        </g>
+        <text x="430" y="278" text-anchor="middle" font-family="Cinzel,serif" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="2.5">PROJECTS</text>
+        <text x="430" y="291" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="10" fill="rgba(212,185,122,0.9)">build assets</text>
+
+        <!-- NODE 4 — RETURNS (bottom-right) -->
+        <g class="node-c4">
+          <circle cx="380" cy="380" r="32" fill="url(#node-glow)"/>
+          <circle cx="380" cy="380" r="4" fill="rgba(255,240,200,1)"/>
+        </g>
+        <text x="380" y="320" text-anchor="middle" font-family="Cinzel,serif" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="2.5">RETURNS</text>
+        <text x="380" y="333" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="10" fill="rgba(212,185,122,0.9)">generated</text>
+
+        <!-- NODE 5 — DIVIDENDS (bottom-left) -->
+        <g class="node-c5">
+          <circle cx="160" cy="380" r="32" fill="url(#node-glow)"/>
+          <circle cx="160" cy="380" r="4" fill="rgba(255,240,200,1)"/>
+        </g>
+        <text x="160" y="320" text-anchor="middle" font-family="Cinzel,serif" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="2.5">DIVIDENDS</text>
+        <text x="160" y="333" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="10" fill="rgba(212,185,122,0.9)">distributed</text>
+
+        <!-- NODE 6 — WEALTH (left, brighter gold) -->
+        <g class="node-c6">
+          <circle cx="90" cy="220" r="32" fill="url(#node-glow-bright)"/>
+          <circle cx="90" cy="220" r="4" fill="#D4B97A"/>
+        </g>
+        <text x="90" y="278" text-anchor="middle" font-family="Cinzel,serif" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="2.5">WEALTH</text>
+        <text x="90" y="291" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="10" fill="rgba(212,185,122,0.9)">to members</text>
+
+        <!-- CENTER HUB — MEMBERS (rendered last so it sits on top) -->
+        <g class="hub-c">
+          <circle cx="260" cy="220" r="62" fill="url(#hub-glow)"/>
+          <circle cx="260" cy="220" r="46" fill="rgba(8,16,28,0.92)" stroke="rgba(255,200,100,1)" stroke-width="1.5"/>
+          <text x="260" y="216" text-anchor="middle" font-family="Cinzel,serif" font-size="13" font-weight="700" fill="#FFD27A" letter-spacing="3">MEMBERS</text>
+          <text x="260" y="231" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="10" fill="rgba(244,239,232,0.8)">centre of gravity</text>
+        </g>
+      </svg>
+    </div>
+
+    <p class="const-caption">Like stars in deep cosmos · Each node a cooperative outcome · Members the gravitational centre · Wealth flows in beams of light</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 4 — FIVE PILLARS
+══════════════════════════════════════ -->
+<section class="pillars-section">
+  <div class="pillars-inner">
+    <div class="pillars-eyebrow">— FIVE PILLARS —</div>
+    <h2 class="pillars-headline">What Holds Us Together.</h2>
+
+    <div class="pillars-grid">
+      <!-- 1. VOLUNTARY MEMBERSHIP — three person silhouettes -->
+      <div class="pillar-card-a">
+        <div class="pillar-icon-circle">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(212,185,122,0.95)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="6" cy="8" r="2.5"/><path d="M2 18c0-2.5 2-4.5 4-4.5s4 2 4 4.5"/>
+            <circle cx="12" cy="6" r="2.8"/><path d="M7.5 18c0-3 2-5.2 4.5-5.2s4.5 2.2 4.5 5.2"/>
+            <circle cx="18" cy="8" r="2.5"/><path d="M14 18c0-2.5 2-4.5 4-4.5s4 2 4 4.5"/>
+          </svg>
+        </div>
+        <div class="pillar-label-a">VOLUNTARY<br>MEMBERSHIP</div>
+      </div>
+
+      <!-- 2. DEMOCRATIC GOVERNANCE — circle in 4 quadrants -->
+      <div class="pillar-card-a">
+        <div class="pillar-icon-circle">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(212,185,122,0.95)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="12" y1="3" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <div class="pillar-label-a">DEMOCRATIC<br>GOVERNANCE</div>
+      </div>
+
+      <!-- 3. ECONOMIC PARTICIPATION — stacked layers (HIGHLIGHTED) -->
+      <div class="pillar-card-a highlight">
+        <div class="pillar-icon-circle">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(212,185,122,0.95)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="14" width="16" height="4" rx="0.5"/>
+            <rect x="4" y="9"  width="16" height="4" rx="0.5"/>
+            <rect x="4" y="4"  width="16" height="4" rx="0.5"/>
+          </svg>
+        </div>
+        <div class="pillar-label-a">ECONOMIC<br>PARTICIPATION</div>
+      </div>
+
+      <!-- 4. AUTONOMY AND INDEPENDENCE — shield -->
+      <div class="pillar-card-a">
+        <div class="pillar-icon-circle">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(212,185,122,0.95)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2.5l8 3.2v6.6c0 4.5-3.4 8.5-8 9.7-4.6-1.2-8-5.2-8-9.7V5.7l8-3.2z"/>
+          </svg>
+        </div>
+        <div class="pillar-label-a">AUTONOMY &amp;<br>INDEPENDENCE</div>
+      </div>
+
+      <!-- 5. COOPERATIVE COMMUNITY — globe with longitude/latitude -->
+      <div class="pillar-card-a">
+        <div class="pillar-icon-circle">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(212,185,122,0.95)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <ellipse cx="12" cy="12" rx="4" ry="9"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+          </svg>
+        </div>
+        <div class="pillar-label-a">COOPERATIVE<br>COMMUNITY</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 5 — TONGGAK KOPIT (HERITAGE PASSPORT GLOBE)
+══════════════════════════════════════ -->
+<section class="tonggak-sec" id="tonggak-kopit">
+  <div class="tonggak-header">
+    <div class="tonggak-eyebrow"><span>THE EIGHT TONGGAK</span></div>
+    <h2 class="headline-top">Tonggak KOPIT</h2>
+    <h2 class="headline-bottom">Bersama Kita Berdiri.</h2>
+    <p class="tonggak-sub">Eight pillars hold the cooperative together &mdash; each entered into the record as a diplomatic credential of the cooperative&rsquo;s service.</p>
+  </div>
+  <div class="passport-stage">
+    <div class="passport-viewport">
+      <div class="passport-globe" id="passportGlobe">
+        <!-- ═══ PILLAR 01 · CHAIRMAN · TIER OFFICER ═══ -->
+        <article class="passport-card tier-officer">
+          <div class="card-inner">
+            <div class="portrait-side">
+              <div class="page-header"><div class="label">PASSPORT &middot; KOPIT</div><div class="num">Page I of VIII</div></div>
+              <div class="photo-area">
+                <img class="tonggak-photo" src="images/tonggak/tonggak-01-michael-ong.jpg" alt="Michael Ong, Chairman of KOPIT">
+                <span class="corner-mount tl"></span><span class="corner-mount tr"></span>
+                <span class="corner-mount bl"></span><span class="corner-mount br"></span>
+                <div class="portrait-monogram">M</div>
+              </div>
+              <div class="id-strip"><span class="lt">NO. AHLI</span> K00001</div>
+            </div>
+            <div class="content-side">
+              <div class="authority-bar">
+                <div class="authority-emblem"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" fill="none" stroke="#7B5A1F" stroke-width="0.8"/><circle cx="20" cy="20" r="10" fill="none" stroke="#7B5A1F" stroke-width="0.5"/><circle cx="20" cy="20" r="3" fill="#7B5A1F"/><path d="M20 6 L20 14 M20 26 L20 34 M6 20 L14 20 M26 20 L34 20" stroke="#7B5A1F" stroke-width="0.8"/><circle cx="20" cy="6" r="1.5" fill="#7B5A1F"/><circle cx="20" cy="34" r="1.5" fill="#7B5A1F"/><circle cx="6" cy="20" r="1.5" fill="#7B5A1F"/><circle cx="34" cy="20" r="1.5" fill="#7B5A1F"/></svg></div>
+                <div class="authority-text"><div class="top">ISSUED BY THE COOPERATIVE</div><div class="bot">Koperasi Usahawan Informasi Teknologi Malaysia</div></div>
+                <div class="authority-num">ISSUED<strong>2023</strong></div>
+              </div>
+              <div class="role-line">TONGGAK &middot; CHAIRMAN</div>
+              <h3 class="pillar-name">Michael Ong</h3>
+              <div class="pillar-bm">Pengerusi Eksekutif</div>
+              <p class="pillar-bio">Founder of KOPIT and the architect of its tech-first cooperative model. Believes that talent, not capital, is the rarest asset in modern Malaysia &mdash; and that a koperasi built on engineers, builders, and operators can outlast any single market cycle. Restless and creative, he is currently developing Off-Grid Digital Hubs: self-powered compute and connectivity nodes that bring digital sovereignty to underserved communities.</p>
+              <div class="pillar-quote">A koperasi built on talent outlasts one built on capital. We are not raising funds &mdash; we are raising a generation of builders who will own what they build.</div>
+            </div>
+            <div class="official-stamp">
+              <svg viewBox="0 0 160 160">
+                <circle cx="80" cy="80" r="74" class="stamp-ink"/><circle cx="80" cy="80" r="62" class="stamp-ink" style="stroke-width:1.2"/>
+                <path id="t1" d="M 22 80 A 58 58 0 0 1 138 80" fill="none"/><path id="b1" d="M 22 80 A 58 58 0 0 0 138 80" fill="none"/>
+                <text class="stamp-text"><textPath href="#t1" startOffset="50%" text-anchor="middle">CERTIFIED &middot; KOPIT &middot; MEMBER REGISTERED</textPath></text>
+                <text class="stamp-text"><textPath href="#b1" startOffset="50%" text-anchor="middle">★ MALAYSIA ★ 2023 ★</textPath></text>
+                <text class="stamp-center" x="80" y="78">APPROVED</text><text class="stamp-year" x="80" y="94">16 / 03 / 2023</text>
+              </svg>
+            </div>
+          </div>
+        </article>
+        <!-- ═══ PILLAR 02 · DIRECTOR · S.W. TAN · TIER OFFICER ═══ -->
+        <article class="passport-card tier-officer">
+          <div class="card-inner">
+            <div class="portrait-side">
+              <div class="page-header"><div class="label">PASSPORT &middot; KOPIT</div><div class="num">Page II of VIII</div></div>
+              <div class="photo-area"><img class="tonggak-photo" src="images/tonggak/tonggak-02-sw-tan.jpg" alt="S.W. Tan, Director and Blockchain Lead"><span class="corner-mount tl"></span><span class="corner-mount tr"></span><span class="corner-mount bl"></span><span class="corner-mount br"></span><div class="portrait-monogram">S</div></div>
+              <div class="id-strip"><span class="lt">NO. AHLI</span> K00017</div>
+            </div>
+            <div class="content-side">
+              <div class="authority-bar">
+                <div class="authority-emblem"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" fill="none" stroke="#7B5A1F" stroke-width="0.8"/><circle cx="20" cy="20" r="10" fill="none" stroke="#7B5A1F" stroke-width="0.5"/><circle cx="20" cy="20" r="3" fill="#7B5A1F"/><path d="M20 6 L20 14 M20 26 L20 34 M6 20 L14 20 M26 20 L34 20" stroke="#7B5A1F" stroke-width="0.8"/><circle cx="20" cy="6" r="1.5" fill="#7B5A1F"/><circle cx="20" cy="34" r="1.5" fill="#7B5A1F"/><circle cx="6" cy="20" r="1.5" fill="#7B5A1F"/><circle cx="34" cy="20" r="1.5" fill="#7B5A1F"/></svg></div>
+                <div class="authority-text"><div class="top">ISSUED BY THE COOPERATIVE</div><div class="bot">Koperasi Usahawan Informasi Teknologi Malaysia</div></div>
+                <div class="authority-num">ISSUED<strong>2023</strong></div>
+              </div>
+              <div class="role-line">TONGGAK &middot; AHLI LEMBAGA</div>
+              <h3 class="pillar-name">S.W. Tan</h3>
+              <div class="pillar-bm">Ahli Lembaga &middot; Ketua Bahagian Blockchain</div>
+              <p class="pillar-bio">A board member who carries his own toolkit. S.W. Tan leads KOPIT&rsquo;s Blockchain division while serving on its board &mdash; a rare combination of governance and hands-on execution. Years of building business networks across China have given him an unusual gift: he can find the right component, the right partner, the right protocol, often before the rest of us know we need it. Loyal to the cooperative, watchful for opportunity, quietly hardworking in a way that compounds.</p>
+              <div class="pillar-quote">Networks are not built in a season. They are tended for years &mdash; and the value shows up only when the cooperative needs it most.</div>
+            </div>
+            <div class="official-stamp">
+              <svg viewBox="0 0 160 160"><circle cx="80" cy="80" r="74" class="stamp-ink"/><circle cx="80" cy="80" r="62" class="stamp-ink" style="stroke-width:1.2"/><path id="t2" d="M 22 80 A 58 58 0 0 1 138 80" fill="none"/><path id="b2" d="M 22 80 A 58 58 0 0 0 138 80" fill="none"/>
+                <text class="stamp-text"><textPath href="#t2" startOffset="50%" text-anchor="middle">CERTIFIED &middot; KOPIT &middot; MEMBER REGISTERED</textPath></text>
+                <text class="stamp-text"><textPath href="#b2" startOffset="50%" text-anchor="middle">★ MALAYSIA ★ 2023 ★</textPath></text>
+                <text class="stamp-center" x="80" y="78">APPROVED</text><text class="stamp-year" x="80" y="94">04 / 04 / 2023</text></svg>
+            </div>
+          </div>
+        </article>
+        <!-- ═══ PILLAR 03 · SECRETARY · TIER OFFICER ═══ -->
+        <article class="passport-card tier-officer">
+          <div class="card-inner">
+            <div class="portrait-side">
+              <div class="page-header"><div class="label">PASSPORT &middot; KOPIT</div><div class="num">Page III of VIII</div></div>
+              <div class="photo-area"><img class="tonggak-photo" src="images/tonggak/tonggak-03-cs-ting.jpg" alt="C.S. Ting, Secretary General"><span class="corner-mount tl"></span><span class="corner-mount tr"></span><span class="corner-mount bl"></span><span class="corner-mount br"></span><div class="portrait-monogram">T</div></div>
+              <div class="id-strip"><span class="lt">NO. AHLI</span> K00006</div>
+            </div>
+            <div class="content-side">
+              <div class="authority-bar">
+                <div class="authority-emblem"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" fill="none" stroke="#7B5A1F" stroke-width="0.8"/><circle cx="20" cy="20" r="10" fill="none" stroke="#7B5A1F" stroke-width="0.5"/><circle cx="20" cy="20" r="3" fill="#7B5A1F"/><path d="M20 6 L20 14 M20 26 L20 34 M6 20 L14 20 M26 20 L34 20" stroke="#7B5A1F" stroke-width="0.8"/><circle cx="20" cy="6" r="1.5" fill="#7B5A1F"/><circle cx="20" cy="34" r="1.5" fill="#7B5A1F"/><circle cx="6" cy="20" r="1.5" fill="#7B5A1F"/><circle cx="34" cy="20" r="1.5" fill="#7B5A1F"/></svg></div>
+                <div class="authority-text"><div class="top">ISSUED BY THE COOPERATIVE</div><div class="bot">Koperasi Usahawan Informasi Teknologi Malaysia</div></div>
+                <div class="authority-num">ISSUED<strong>2023</strong></div>
+              </div>
+              <div class="role-line">TONGGAK &middot; SECRETARY GENERAL</div>
+              <h3 class="pillar-name">C.S. Ting</h3>
+              <div class="pillar-bm">Setiausaha Agung</div>
+              <p class="pillar-bio">The cooperative&rsquo;s institutional memory, and the steward of every promise it has ever made on paper. C.S. Ting moves through KOPIT&rsquo;s governance structure with the quiet authority of someone who has read every minute of every meeting &mdash; and remembers what was said in the rooms in between. He is the keeper of the cooperative&rsquo;s word, and one of the pillars that holds the whole structure upright.</p>
+              <div class="pillar-quote">What is written becomes binding. What is remembered becomes culture. A cooperative needs both &mdash; and a Secretary keeps the bridge between them.</div>
+            </div>
+            <div class="official-stamp"><svg viewBox="0 0 160 160"><circle cx="80" cy="80" r="74" class="stamp-ink"/><circle cx="80" cy="80" r="62" class="stamp-ink" style="stroke-width:1.2"/><path id="t3" d="M 22 80 A 58 58 0 0 1 138 80" fill="none"/><path id="b3" d="M 22 80 A 58 58 0 0 0 138 80" fill="none"/><text class="stamp-text"><textPath href="#t3" startOffset="50%" text-anchor="middle">CERTIFIED &middot; KOPIT &middot; MEMBER REGISTERED</textPath></text><text class="stamp-text"><textPath href="#b3" startOffset="50%" text-anchor="middle">★ MALAYSIA ★ 2023 ★</textPath></text><text class="stamp-center" x="80" y="78">APPROVED</text><text class="stamp-year" x="80" y="94">17 / 03 / 2023</text></svg></div>
+          </div>
+        </article>
+        <!-- ═══ PILLAR 04 · TREASURER · TIER OFFICER ═══ -->
+        <article class="passport-card tier-officer">
+          <div class="card-inner">
+            <div class="portrait-side">
+              <div class="page-header"><div class="label">PASSPORT &middot; KOPIT</div><div class="num">Page IV of VIII</div></div>
+              <div class="photo-area"><img class="tonggak-photo" src="images/tonggak/tonggak-04-erica-hou.jpg" alt="Erica Hou, Bendahari"><span class="corner-mount tl"></span><span class="corner-mount tr"></span><span class="corner-mount bl"></span><span class="corner-mount br"></span><div class="portrait-monogram">E</div></div>
+              <div class="id-strip"><span class="lt">NO. AHLI</span> K00002</div>
+            </div>
+            <div class="content-side">
+              <div class="authority-bar">
+                <div class="authority-emblem"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" fill="none" stroke="#7B5A1F" stroke-width="0.8"/><circle cx="20" cy="20" r="10" fill="none" stroke="#7B5A1F" stroke-width="0.5"/><circle cx="20" cy="20" r="3" fill="#7B5A1F"/><path d="M20 6 L20 14 M20 26 L20 34 M6 20 L14 20 M26 20 L34 20" stroke="#7B5A1F" stroke-width="0.8"/><circle cx="20" cy="6" r="1.5" fill="#7B5A1F"/><circle cx="20" cy="34" r="1.5" fill="#7B5A1F"/><circle cx="6" cy="20" r="1.5" fill="#7B5A1F"/><circle cx="34" cy="20" r="1.5" fill="#7B5A1F"/></svg></div>
+                <div class="authority-text"><div class="top">ISSUED BY THE COOPERATIVE</div><div class="bot">Koperasi Usahawan Informasi Teknologi Malaysia</div></div>
+                <div class="authority-num">ISSUED<strong>2023</strong></div>
+              </div>
+              <div class="role-line">TONGGAK &middot; TREASURER</div>
+              <h3 class="pillar-name">Erica Hou</h3>
+              <div class="pillar-bm">Bendahari Kehormat</div>
+              <p class="pillar-bio">Quiet, exacting, and impossibly steady. Erica is the reason KOPIT can take big swings &mdash; every ambitious idea rests on the foundation of her ledger, kept honest down to the last ringgit. To her, accounting isn&rsquo;t paperwork; it&rsquo;s how a cooperative keeps faith with its members, line by line. Where others see spreadsheets, she sees a living record of every promise the cooperative has made.</p>
+              <div class="pillar-quote">Discipline is not the opposite of ambition. It is what makes ambition affordable &mdash; every audacious project rests on quiet, accurate books.</div>
+            </div>
+            <div class="official-stamp"><svg viewBox="0 0 160 160"><circle cx="80" cy="80" r="74" class="stamp-ink"/><circle cx="80" cy="80" r="62" class="stamp-ink" style="stroke-width:1.2"/><path id="t4" d="M 22 80 A 58 58 0 0 1 138 80" fill="none"/><path id="b4" d="M 22 80 A 58 58 0 0 0 138 80" fill="none"/><text class="stamp-text"><textPath href="#t4" startOffset="50%" text-anchor="middle">CERTIFIED &middot; KOPIT &middot; MEMBER REGISTERED</textPath></text><text class="stamp-text"><textPath href="#b4" startOffset="50%" text-anchor="middle">★ MALAYSIA ★ 2023 ★</textPath></text><text class="stamp-center" x="80" y="78">APPROVED</text><text class="stamp-year" x="80" y="94">16 / 03 / 2023</text></svg></div>
+          </div>
+        </article>
+        <!-- ═══ PILLAR 05 · BIJAK AI · LEE RU PIN · TIER LEAD ═══ -->
+        <article class="passport-card tier-lead">
+          <div class="card-inner">
+            <div class="portrait-side">
+              <div class="page-header"><div class="label">PASSPORT &middot; KOPIT</div><div class="num">Page V of VIII</div></div>
+              <div class="photo-area"><img class="tonggak-photo" src="images/tonggak/tonggak-05-lee-rp.jpg" alt="Lee R.P., Director and Bijak AI Lead"><span class="corner-mount tl"></span><span class="corner-mount tr"></span><span class="corner-mount bl"></span><span class="corner-mount br"></span><div class="portrait-monogram">L</div></div>
+              <div class="id-strip"><span class="lt">NO. AHLI</span> K00004</div>
+            </div>
+            <div class="content-side">
+              <div class="authority-bar">
+                <div class="authority-emblem"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" fill="none" stroke="#7B5A1F" stroke-width="0.8"/><circle cx="20" cy="20" r="10" fill="none" stroke="#7B5A1F" stroke-width="0.5"/><circle cx="20" cy="20" r="3" fill="#7B5A1F"/><path d="M20 6 L20 14 M20 26 L20 34 M6 20 L14 20 M26 20 L34 20" stroke="#7B5A1F" stroke-width="0.8"/><circle cx="20" cy="6" r="1.5" fill="#7B5A1F"/><circle cx="20" cy="34" r="1.5" fill="#7B5A1F"/><circle cx="6" cy="20" r="1.5" fill="#7B5A1F"/><circle cx="34" cy="20" r="1.5" fill="#7B5A1F"/></svg></div>
+                <div class="authority-text"><div class="top">ISSUED BY THE COOPERATIVE</div><div class="bot">Koperasi Usahawan Informasi Teknologi Malaysia</div></div>
+                <div class="authority-num">ISSUED<strong>2023</strong></div>
+              </div>
+              <div class="role-line">TONGGAK &middot; BIJAK AI</div>
+              <h3 class="pillar-name">Lee R.P.</h3>
+              <div class="pillar-bm">Ahli Lembaga &middot; Ketua Bahagian Bijak AI</div>
+              <p class="pillar-bio">Leads Bijak AI and serves on the board, with a portfolio spanning CCTV, smart-home automation, and intelligent security systems. Lee R.P.&rsquo;s signature is reliability without drama &mdash; projects that come back perfect on the first delivery, clients who never need to call twice. He doesn&rsquo;t talk through the work; he completes it, exactly as planned. In a cooperative full of ambitious voices, his is the steady hand the others quietly count on.</p>
+              <div class="pillar-quote">The plan is the promise. Follow it carefully and the work speaks for itself &mdash; better than any words I could add.</div>
+            </div>
+            <div class="official-stamp"><svg viewBox="0 0 160 160"><circle cx="80" cy="80" r="74" class="stamp-ink"/><circle cx="80" cy="80" r="62" class="stamp-ink" style="stroke-width:1.2"/><path id="t5" d="M 22 80 A 58 58 0 0 1 138 80" fill="none"/><path id="b5" d="M 22 80 A 58 58 0 0 0 138 80" fill="none"/><text class="stamp-text"><textPath href="#t5" startOffset="50%" text-anchor="middle">CERTIFIED &middot; KOPIT &middot; MEMBER REGISTERED</textPath></text><text class="stamp-text"><textPath href="#b5" startOffset="50%" text-anchor="middle">★ MALAYSIA ★ 2023 ★</textPath></text><text class="stamp-center" x="80" y="78">APPROVED</text><text class="stamp-year" x="80" y="94">16 / 03 / 2023</text></svg></div>
+          </div>
+        </article>
+        <!-- ═══ PILLAR 06 · HIJAU ENERGY · TIER LEAD ═══ -->
+        <article class="passport-card tier-lead">
+          <div class="card-inner">
+            <div class="portrait-side">
+              <div class="page-header"><div class="label">PASSPORT &middot; KOPIT</div><div class="num">Page VI of VIII</div></div>
+              <div class="photo-area"><img class="tonggak-photo" src="images/tonggak/tonggak-06-colen-lau.jpg" alt="Colen Lau, Hijau Energy Lead"><span class="corner-mount tl"></span><span class="corner-mount tr"></span><span class="corner-mount bl"></span><span class="corner-mount br"></span><div class="portrait-monogram">C</div></div>
+              <div class="id-strip"><span class="lt">NO. AHLI</span> K00046</div>
+            </div>
+            <div class="content-side">
+              <div class="authority-bar">
+                <div class="authority-emblem"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" fill="none" stroke="#7B5A1F" stroke-width="0.8"/><circle cx="20" cy="20" r="10" fill="none" stroke="#7B5A1F" stroke-width="0.5"/><circle cx="20" cy="20" r="3" fill="#7B5A1F"/><path d="M20 6 L20 14 M20 26 L20 34 M6 20 L14 20 M26 20 L34 20" stroke="#7B5A1F" stroke-width="0.8"/><circle cx="20" cy="6" r="1.5" fill="#7B5A1F"/><circle cx="20" cy="34" r="1.5" fill="#7B5A1F"/><circle cx="6" cy="20" r="1.5" fill="#7B5A1F"/><circle cx="34" cy="20" r="1.5" fill="#7B5A1F"/></svg></div>
+                <div class="authority-text"><div class="top">ISSUED BY THE COOPERATIVE</div><div class="bot">Koperasi Usahawan Informasi Teknologi Malaysia</div></div>
+                <div class="authority-num">ISSUED<strong>2023</strong></div>
+              </div>
+              <div class="role-line">TONGGAK &middot; HIJAU ENERGY</div>
+              <h3 class="pillar-name">Colen Lau</h3>
+              <div class="pillar-bm">Ketua Bahagian Hijau Energy</div>
+              <p class="pillar-bio">Two decades in renewable energy, and he still works it like the first day. Colen reads power systems the way a composer reads a score &mdash; each panel, each battery, each dispatch curve a voice to be tuned. The hardest worker on the team, and the one most likely to find an elegant answer where the rest of us see only constraints. Every megawatt KOPIT will ever own bears his fingerprint.</p>
+              <div class="pillar-quote">Engineering is patience disguised as craft. We don&rsquo;t generate megawatts &mdash; we earn them, one sunrise at a time.</div>
+            </div>
+            <div class="official-stamp"><svg viewBox="0 0 160 160"><circle cx="80" cy="80" r="74" class="stamp-ink"/><circle cx="80" cy="80" r="62" class="stamp-ink" style="stroke-width:1.2"/><path id="t6" d="M 22 80 A 58 58 0 0 1 138 80" fill="none"/><path id="b6" d="M 22 80 A 58 58 0 0 0 138 80" fill="none"/><text class="stamp-text"><textPath href="#t6" startOffset="50%" text-anchor="middle">CERTIFIED &middot; KOPIT &middot; MEMBER REGISTERED</textPath></text><text class="stamp-text"><textPath href="#b6" startOffset="50%" text-anchor="middle">★ MALAYSIA ★ 2023 ★</textPath></text><text class="stamp-center" x="80" y="78">APPROVED</text><text class="stamp-year" x="80" y="94">29 / 06 / 2023</text></svg></div>
+          </div>
+        </article>
+        <!-- ═══ PILLAR 07 · DIRECTOR · ALBERT BUN · TIER OFFICER ═══ -->
+        <article class="passport-card tier-officer">
+          <div class="card-inner">
+            <div class="portrait-side">
+              <div class="page-header"><div class="label">PASSPORT &middot; KOPIT</div><div class="num">Page VII of VIII</div></div>
+              <div class="photo-area"><img class="tonggak-photo" src="images/tonggak/tonggak-07-albert-bun.jpg" alt="Albert Bun, Director and Joint Hijau Lead"><span class="corner-mount tl"></span><span class="corner-mount tr"></span><span class="corner-mount bl"></span><span class="corner-mount br"></span><div class="portrait-monogram">A</div></div>
+              <div class="id-strip"><span class="lt">NO. AHLI</span> K00019</div>
+            </div>
+            <div class="content-side">
+              <div class="authority-bar">
+                <div class="authority-emblem"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" fill="none" stroke="#7B5A1F" stroke-width="0.8"/><circle cx="20" cy="20" r="10" fill="none" stroke="#7B5A1F" stroke-width="0.5"/><circle cx="20" cy="20" r="3" fill="#7B5A1F"/><path d="M20 6 L20 14 M20 26 L20 34 M6 20 L14 20 M26 20 L34 20" stroke="#7B5A1F" stroke-width="0.8"/><circle cx="20" cy="6" r="1.5" fill="#7B5A1F"/><circle cx="20" cy="34" r="1.5" fill="#7B5A1F"/><circle cx="6" cy="20" r="1.5" fill="#7B5A1F"/><circle cx="34" cy="20" r="1.5" fill="#7B5A1F"/></svg></div>
+                <div class="authority-text"><div class="top">ISSUED BY THE COOPERATIVE</div><div class="bot">Koperasi Usahawan Informasi Teknologi Malaysia</div></div>
+                <div class="authority-num">ISSUED<strong>2023</strong></div>
+              </div>
+              <div class="role-line">TONGGAK &middot; AHLI LEMBAGA</div>
+              <h3 class="pillar-name">Albert Bun</h3>
+              <div class="pillar-bm">Ahli Lembaga &middot; Joint Lead Hijau Energy</div>
+              <p class="pillar-bio">Came to KOPIT not for a position but for the vision &mdash; and brought a career&rsquo;s worth of M&amp;E expertise with him. Albert joint-leads Hijau Energy alongside Colen Lau, where his sourcing networks unlock the supply chains that off-grid renewable energy depends on. Direct, plainspoken, and deeply honest, he is the kind of board member who tells you what is true before he tells you what is convenient. The cooperative is stronger for it.</p>
+              <div class="pillar-quote">No nonsense, no shortcuts. The best engineering and the best honesty share one habit &mdash; both refuse to pretend a problem isn&rsquo;t there.</div>
+            </div>
+            <div class="official-stamp"><svg viewBox="0 0 160 160"><circle cx="80" cy="80" r="74" class="stamp-ink"/><circle cx="80" cy="80" r="62" class="stamp-ink" style="stroke-width:1.2"/><path id="t7" d="M 22 80 A 58 58 0 0 1 138 80" fill="none"/><path id="b7" d="M 22 80 A 58 58 0 0 0 138 80" fill="none"/><text class="stamp-text"><textPath href="#t7" startOffset="50%" text-anchor="middle">CERTIFIED &middot; KOPIT &middot; MEMBER REGISTERED</textPath></text><text class="stamp-text"><textPath href="#b7" startOffset="50%" text-anchor="middle">★ MALAYSIA ★ 2023 ★</textPath></text><text class="stamp-center" x="80" y="78">APPROVED</text><text class="stamp-year" x="80" y="94">06 / 04 / 2023</text></svg></div>
+          </div>
+        </article>
+        <!-- ═══ PILLAR 08 · FOUNDING ADVISOR · MAT ZAHAIRI · TIER ADVISOR ═══ -->
+        <article class="passport-card tier-advisor">
+          <div class="card-inner">
+            <div class="portrait-side">
+              <div class="page-header"><div class="label">PASSPORT &middot; KOPIT</div><div class="num">Page VIII of VIII</div></div>
+              <div class="photo-area"><img class="tonggak-photo" src="images/tonggak/tonggak-08-mat-zahairi.jpg" alt="Mat Zahairi Bin Ayub Raimee, Founding Advisor"><span class="corner-mount tl"></span><span class="corner-mount tr"></span><span class="corner-mount bl"></span><span class="corner-mount br"></span><div class="portrait-monogram">M</div></div>
+              <div class="id-strip"><span class="lt">NO. AHLI</span> K00070</div>
+            </div>
+            <div class="content-side">
+              <div class="authority-bar">
+                <div class="authority-emblem"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" fill="none" stroke="#7B5A1F" stroke-width="0.8"/><circle cx="20" cy="20" r="10" fill="none" stroke="#7B5A1F" stroke-width="0.5"/><circle cx="20" cy="20" r="3" fill="#7B5A1F"/><path d="M20 6 L20 14 M20 26 L20 34 M6 20 L14 20 M26 20 L34 20" stroke="#7B5A1F" stroke-width="0.8"/><circle cx="20" cy="6" r="1.5" fill="#7B5A1F"/><circle cx="20" cy="34" r="1.5" fill="#7B5A1F"/><circle cx="6" cy="20" r="1.5" fill="#7B5A1F"/><circle cx="34" cy="20" r="1.5" fill="#7B5A1F"/></svg></div>
+                <div class="authority-text"><div class="top">ISSUED BY THE COOPERATIVE</div><div class="bot">Koperasi Usahawan Informasi Teknologi Malaysia</div></div>
+                <div class="authority-num">ISSUED<strong>2025</strong></div>
+              </div>
+              <div class="role-line">TONGGAK &middot; ADVISOR</div>
+              <h3 class="pillar-name">Mat Zahairi Bin Ayub Raimee</h3>
+              <div class="pillar-bm">Penasihat Pengasas</div>
+              <p class="pillar-bio">A veteran of Malaysian government affairs whose value is measured not in introductions but in the right introduction at the right moment. Mat Zahairi keeps a steady eye on the policy horizon &mdash; anticipating opportunity, opening doors that others don&rsquo;t even see. Sincere by nature and respected across the corridors of officialdom, he counsels KOPIT not as a strategist but as a friend who knows the terrain better than most.</p>
+              <div class="pillar-quote">In government affairs, sincerity travels further than ambition. The doors that matter most open slowly &mdash; and only for those who arrive with respect.</div>
+            </div>
+            <div class="official-stamp"><svg viewBox="0 0 160 160"><circle cx="80" cy="80" r="74" class="stamp-ink"/><circle cx="80" cy="80" r="62" class="stamp-ink" style="stroke-width:1.2"/><path id="t8" d="M 22 80 A 58 58 0 0 1 138 80" fill="none"/><path id="b8" d="M 22 80 A 58 58 0 0 0 138 80" fill="none"/><text class="stamp-text"><textPath href="#t8" startOffset="50%" text-anchor="middle">CERTIFIED &middot; KOPIT &middot; MEMBER REGISTERED</textPath></text><text class="stamp-text"><textPath href="#b8" startOffset="50%" text-anchor="middle">★ MALAYSIA ★ 2025 ★</textPath></text><text class="stamp-center" x="80" y="78">APPROVED</text><text class="stamp-year" x="80" y="94">06 / 09 / 2025</text></svg></div>
+          </div>
+        </article>
+      </div>
+    </div>
+    <div class="passport-nav">
+      <button class="passport-arrow" id="passportPrev" aria-label="Previous">&#8249;</button>
+      <div class="stamp-pagination" id="stampPagination"></div>
+      <button class="passport-arrow" id="passportNext" aria-label="Next">&#8250;</button>
+    </div>
+    <div class="passport-meta">DRAG <span class="sep">&middot;</span> ARROW KEYS <span class="sep">&middot;</span> OR TAP STAMPS TO ROTATE THE GLOBE</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 6 — REGULATORY ANCHOR
+══════════════════════════════════════ -->
+<section class="regulatory-section">
+  <div class="reg-eyebrow">— REGULATORY ANCHOR —</div>
+  <div class="reg-pills">
+    <div class="reg-pill first">SKM REGISTERED</div>
+    <div class="reg-pill middle">BOD GOVERNED</div>
+    <div class="reg-pill last">AGM ACCOUNTABLE</div>
+  </div>
+  <p class="reg-subtext">Suruhanjaya Koperasi Malaysia · Malaysia's federal cooperative regulator.</p>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 7 — FINAL CTA
+══════════════════════════════════════ -->
+<section class="cta-section">
+  <h2 class="cta-h1">The Door</h2>
+  <h2 class="cta-h2">Is Open.</h2>
+  <p class="cta-sub">Membership is earned, not bought.</p>
+  <div class="cta-buttons">
+    <a href="membership.html" class="cta-btn-primary">Explore Membership &#8594;</a>
+    <a href="contact.html" class="cta-btn-secondary">Begin A Conversation &#8594;</a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="wrap">
+      <div class="footer-grid">
+
+        <!-- LEFT: SVG logo + info -->
+        <div>
+          <div class="f-svg-wrap">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="KOPIT node network logo">
+              <circle cx="28" cy="28" r="4.5" fill="#C9A84C"/>
+              <circle cx="28" cy="8"  r="3" fill="#C9A84C" opacity=".9"/>
+              <circle cx="46" cy="18" r="3" fill="#C9A84C" opacity=".9"/>
+              <circle cx="46" cy="38" r="3" fill="#C9A84C" opacity=".9"/>
+              <circle cx="28" cy="48" r="3" fill="#C9A84C" opacity=".9"/>
+              <circle cx="10" cy="38" r="3" fill="#C9A84C" opacity=".9"/>
+              <circle cx="10" cy="18" r="3" fill="#C9A84C" opacity=".9"/>
+              <line x1="28" y1="28" x2="28" y2="11"  stroke="#C9A84C" stroke-width="1" opacity=".45"/>
+              <line x1="28" y1="28" x2="43" y2="20"  stroke="#C9A84C" stroke-width="1" opacity=".45"/>
+              <line x1="28" y1="28" x2="43" y2="36"  stroke="#C9A84C" stroke-width="1" opacity=".45"/>
+              <line x1="28" y1="28" x2="28" y2="45"  stroke="#C9A84C" stroke-width="1" opacity=".45"/>
+              <line x1="28" y1="28" x2="13" y2="36"  stroke="#C9A84C" stroke-width="1" opacity=".45"/>
+              <line x1="28" y1="28" x2="13" y2="20"  stroke="#C9A84C" stroke-width="1" opacity=".45"/>
+              <line x1="28" y1="11" x2="43" y2="20"  stroke="#C9A84C" stroke-width=".8" opacity=".25"/>
+              <line x1="43" y1="20" x2="43" y2="36"  stroke="#C9A84C" stroke-width=".8" opacity=".25"/>
+              <line x1="43" y1="36" x2="28" y2="45"  stroke="#C9A84C" stroke-width=".8" opacity=".25"/>
+              <line x1="28" y1="45" x2="13" y2="36"  stroke="#C9A84C" stroke-width=".8" opacity=".25"/>
+              <line x1="13" y1="36" x2="13" y2="20"  stroke="#C9A84C" stroke-width=".8" opacity=".25"/>
+              <line x1="13" y1="20" x2="28" y2="11"  stroke="#C9A84C" stroke-width=".8" opacity=".25"/>
+            </svg>
+          </div>
+          <div class="f-logo-name">KOPIT</div>
+          <p class="f-tagline"
+             data-en="Koperasi Usahawan Informasi Teknologi Malaysia Berhad"
+             data-bm="Koperasi Usahawan Informasi Teknologi Malaysia Berhad">
+            Koperasi Usahawan Informasi Teknologi Malaysia Berhad
+          </p>
+          <p class="f-premier"
+             data-en="Malaysia's Premier IT Koperasi"
+             data-bm="Koperasi IT Terulung Malaysia">
+            Malaysia's Premier IT Koperasi
+          </p>
+          <div class="footer-credentials" style="margin-top:16px;font-family:'Source Sans 3',sans-serif;font-size:12px;line-height:1.7;color:rgba(255,255,255,0.55);">
+            <div style="margin-bottom:14px;">Registered under Suruhanjaya Koperasi Malaysia (SKM)</div>
+            <div style="margin-bottom:14px;">
+              <div>E-Perolehan Registered Vendor</div>
+              <div style="margin-top:4px;font-family:'Cinzel',serif;font-size:14px;letter-spacing:1.5px;font-weight:500;color:rgba(201,168,76,0.85);">No. Rujukan Pendaftaran: 357-0002365635</div>
+            </div>
+            <div style="font-family:'Cinzel',serif;font-size:14px;letter-spacing:2px;font-weight:500;color:rgba(201,168,76,0.85);">Est. 2022</div>
+          </div>
+        </div>
+
+        <!-- CENTRE: Quick links -->
+        <div>
+          <h4 class="f-head" data-en="Quick Links" data-bm="Pautan Pantas">Quick Links</h4>
+          <ul class="f-nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="divisions.html">Divisions</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- RIGHT: Contact -->
+        <div>
+          <h4 class="f-head" data-en="Get In Touch" data-bm="Hubungi Kami">Get In Touch</h4>
+          <a href="https://wa.me/60105122561" class="f-wa" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366" style="flex-shrink:0">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            010-5122561
+          </a>
+          <p class="f-hours" data-en="Available Mon – Fri, 9am – 6pm" data-bm="Isnin – Jumaat, 9pg – 6ptg">Available Mon – Fri, 9am – 6pm</p>
+          <div class="f-email">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span style="font-size:.82rem;color:rgba(255,255,255,.38)">Email: <a href="mailto:admin@kopit.com.my" style="color:inherit;text-decoration:none;">admin@kopit.com.my</a></span>
+          </div>
+          <a href="contact.html" class="f-contact-btn">Send Us a Message</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <div class="wrap">
+      <div class="footer-bar-inner">
+        <p>© 2025 KOPIT. All rights reserved. · <a href="privacy.html" class="bar-legal">Privacy Policy</a> · <a href="terms.html" class="bar-legal">Terms of Service</a></p>
+        <p class="bar-r"
+           data-en="Malaysia's Premier IT Koperasi"
+           data-bm="Koperasi IT Terulung Malaysia">Malaysia's Premier IT Koperasi</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── 1. LANGUAGE SYSTEM ── */
+var currentLang = localStorage.getItem('kopitLang') || 'en';
+
+function applyLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('kopitLang', lang);
+  document.querySelectorAll('[data-en]').forEach(function(el) {
+    var val = lang === 'bm' ? el.getAttribute('data-bm') : el.getAttribute('data-en');
+    if (val !== null) el.innerHTML = val;
+  });
+  document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+  document.getElementById('btnBM').classList.toggle('active', lang === 'bm');
+  document.documentElement.lang = lang === 'bm' ? 'ms' : 'en';
+}
+function setLang(lang) { applyLanguage(lang); }
+
+
+/* ── 2. CANVAS LOGO ANIMATION — KOPIT Genesis 3D ── */
+(function(){
+  const cv = document.getElementById('kopitLogo');
+  if(!cv) return;
+  const ctx = cv.getContext('2d');
+  const W = cv.width, H = cv.height;
+  const CX = W/2, CY = H/2;
+
+  const GOLD='#C9A84C', EMR='#2ebf84', SAP='#5a9ef5', PLT='#ccdcee';
+
+  const NODES = [
+    {x:0, y:0, z:0, t:'hub', c:GOLD},
+    {x:0, y:-22, z:6, t:'blk', c:PLT},
+    {x:0, y:18, z:-4, t:'cir', c:EMR},
+    {x:-22, y:0, z:3, t:'cir', c:SAP},
+    {x:16, y:0, z:-6, t:'blk', c:EMR},
+    {x:-14, y:-14, z:8, t:'blk', c:SAP},
+    {x:19, y:-15, z:-3, t:'cir', c:PLT},
+    {x:-13, y:14, z:-7, t:'blk', c:EMR},
+    {x:18, y:18, z:4, t:'cir', c:SAP},
+  ];
+  const EDGES = [[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[0,8]];
+
+  let aY = 0, fT = 0, tt = 0;
+  const aX = 0.15;
+
+  function rY(x,y,z,a){return{x:x*Math.cos(a)+z*Math.sin(a),y,z:-x*Math.sin(a)+z*Math.cos(a)};}
+  function rX(x,y,z,a){return{x,y:y*Math.cos(a)-z*Math.sin(a),z:y*Math.sin(a)+z*Math.cos(a)};}
+  function proj(x,y,z){const f=85/(85+z+45);return{sx:CX+x*f,sy:CY+y*f,sc:f};}
+  function rgb(h){return[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)];}
+  function ra(h,a){const[r,g,b]=rgb(h);return`rgba(${r},${g},${b},${a})`;}
+
+  function glow(x,y,r,col,str){
+    [2,1].forEach((m,i)=>{
+      const g=ctx.createRadialGradient(x,y,0,x,y,r*m);
+      g.addColorStop(0,ra(col,str*(0.5-i*0.2)));
+      g.addColorStop(1,ra(col,0));
+      ctx.beginPath();ctx.arc(x,y,r*m,0,Math.PI*2);
+      ctx.fillStyle=g;ctx.fill();
+    });
+  }
+
+  function box(x,y,w,h,r){
+    ctx.beginPath();
+    ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);
+    ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+    ctx.lineTo(x+w,y+h-r);
+    ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+    ctx.lineTo(x+r,y+h);
+    ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+    ctx.lineTo(x,y+r);
+    ctx.quadraticCurveTo(x,y,x+r,y);
+    ctx.closePath();
+  }
+
+  function drawHub(n,p){
+    const s = 9*n.sc;
+    glow(n.sx,n.sy,s*1.5,GOLD,0.15*p);
+    box(n.sx-s,n.sy-s,s*2,s*2,2.5*n.sc);
+    ctx.fillStyle='rgba(8,5,1,0.95)';ctx.fill();
+    ctx.strokeStyle=ra(GOLD,0.85);
+    ctx.lineWidth=1.2*n.sc;ctx.stroke();
+    ctx.fillStyle=ra(GOLD,0.95);
+    ctx.font=`700 ${7*n.sc}px 'Playfair Display'`;
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText('K',n.sx,n.sy);
+  }
+  function drawBlk(n,p){
+    const s = 3*n.sc;
+    glow(n.sx,n.sy,s*2.5,n.c,0.25*p);
+    box(n.sx-s,n.sy-s,s*2,s*2,1*n.sc);
+    const[r,g,b]=rgb(n.c);
+    ctx.fillStyle=`rgba(${Math.round(r*0.15)},${Math.round(g*0.15)},${Math.round(b*0.15)},0.95)`;
+    ctx.fill();
+    ctx.strokeStyle=ra(n.c,0.9);
+    ctx.lineWidth=0.8*n.sc;ctx.stroke();
+  }
+  function drawCir(n,p){
+    const r = 3*n.sc;
+    glow(n.sx,n.sy,r*2.5,n.c,0.25*p);
+    ctx.beginPath();ctx.arc(n.sx,n.sy,r,0,Math.PI*2);
+    const[rv,gv,bv]=rgb(n.c);
+    ctx.fillStyle=`rgba(${Math.round(rv*0.15)},${Math.round(gv*0.15)},${Math.round(bv*0.15)},0.95)`;
+    ctx.fill();
+    ctx.strokeStyle=ra(n.c,0.9);
+    ctx.lineWidth=0.8*n.sc;ctx.stroke();
+    ctx.beginPath();ctx.arc(n.sx,n.sy,1*n.sc,0,Math.PI*2);
+    ctx.fillStyle=ra(n.c,0.9);ctx.fill();
+  }
+
+  function frame(){
+    ctx.clearRect(0,0,W,H);
+    fT += 0.006; aY += 0.008; tt += 0.012;
+    const pulse = 0.7 + 0.3*Math.sin(tt*1.5);
+    const fo = Math.sin(fT)*2;
+    const tX = aX + Math.sin(fT*0.4)*0.03;
+
+    const nodes = NODES.map(n => {
+      let p = rY(n.x,n.y,n.z,aY);
+      p = rX(p.x,p.y,p.z,tX);
+      const pj = proj(p.x,p.y+fo,p.z);
+      return {...n, ...pj, tz:p.z};
+    });
+
+    EDGES.forEach(([i,j]) => {
+      const a = nodes[i], b = nodes[j];
+      const lg = ctx.createLinearGradient(a.sx,a.sy,b.sx,b.sy);
+      lg.addColorStop(0,ra(GOLD,0.4));
+      lg.addColorStop(1,ra(b.c,0.7));
+      ctx.beginPath();
+      ctx.moveTo(a.sx,a.sy);ctx.lineTo(b.sx,b.sy);
+      ctx.strokeStyle=ra(b.c,0.08*pulse);
+      ctx.lineWidth=2.5*(a.sc+b.sc)/2;ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(a.sx,a.sy);ctx.lineTo(b.sx,b.sy);
+      ctx.strokeStyle=lg;
+      ctx.lineWidth=0.7*(a.sc+b.sc)/2;ctx.stroke();
+    });
+
+    [...nodes].sort((a,b)=>a.tz-b.tz).forEach(n => {
+      if(n.t==='hub') drawHub(n,pulse);
+      else if(n.t==='blk') drawBlk(n,pulse);
+      else drawCir(n,pulse);
+    });
+
+    requestAnimationFrame(frame);
+  }
+  frame();
+})();
+
+
+/* ── 3. NAVBAR + MOBILE MENU ── */
+var navbar    = document.querySelector('.navbar');
+var hamburger = document.getElementById('hamburger');
+var navLinks  = document.getElementById('navLinks');
+
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 80) navbar.classList.add('scrolled');
+  else navbar.classList.remove('scrolled');
+}, { passive: true });
+
+hamburger.addEventListener('click', function() {
+  hamburger.classList.toggle('open');
+  navLinks.classList.toggle('open');
+  document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+});
+
+navLinks.querySelectorAll('.nl').forEach(function(link) {
+  link.addEventListener('click', function() {
+    hamburger.classList.remove('open');
+    navLinks.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+document.addEventListener('click', function(e) {
+  if (navLinks.classList.contains('open') &&
+      !navLinks.contains(e.target) &&
+      !hamburger.contains(e.target)) {
+    hamburger.classList.remove('open');
+    navLinks.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+
+
+/* ── 4. INIT LANGUAGE ON LOAD ── */
+document.addEventListener('DOMContentLoaded', function() {
+  applyLanguage(currentLang);
+});
+
+/* ── 5. TONGGAK KOPIT — HERITAGE PASSPORT GLOBE ── */
+(function(){
+  const globe   = document.getElementById('passportGlobe');
+  if(!globe) return;
+  const cards   = Array.from(globe.querySelectorAll('.passport-card'));
+  const prevBtn = document.getElementById('passportPrev');
+  const nextBtn = document.getElementById('passportNext');
+  const pagWrap = document.getElementById('stampPagination');
+  if(!cards.length || !prevBtn || !nextBtn || !pagWrap) return;
+  const N = cards.length;
+  const angleStep = 360 / N;
+  let cur = 0;
+  let rotation = 0;
+  let rotateTimer = null;
+  function isMobile(){ return window.innerWidth <= 780; }
+  function getRadius(){
+    if(window.innerWidth <= 1000) return 540;
+    return 680;
+  }
+  function positionCards(){
+    if(isMobile()){
+      cards.forEach(function(c, i){
+        c.style.transform = 'translateX(' + (i * 100) + '%)';
+      });
+    } else {
+      const R = getRadius();
+      cards.forEach(function(c, i){
+        c.style.transform = 'rotateY(' + (i * angleStep) + 'deg) translateZ(' + R + 'px)';
+      });
+    }
+  }
+  function toRoman(n){
+    const m = ['','I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII','XIII','XIV','XV','XVI','XVII','XVIII','XIX','XX'];
+    return m[n] || String(n);
+  }
+  // Auto-renumbers each card's "Page X of Y" line based on actual card count.
+  // Add or delete an <article> in the HTML — page numbers update on next load.
+  function setPageNumbers(){
+    const totalRoman = toRoman(N);
+    cards.forEach(function(c, i){
+      const numEl = c.querySelector('.page-header .num');
+      if(numEl) numEl.textContent = 'Page ' + toRoman(i+1) + ' of ' + totalRoman;
+    });
+  }
+  function buildPagination(){
+    pagWrap.innerHTML = '';
+    cards.forEach(function(c, i){
+      const btn = document.createElement('button');
+      btn.className = 'stamp-page' + (i===0?' active':'');
+      btn.textContent = toRoman(i+1);
+      btn.setAttribute('data-idx', i);
+      btn.setAttribute('aria-label', 'Go to pillar ' + (i+1));
+      btn.addEventListener('click', function(){ goTo(i); });
+      pagWrap.appendChild(btn);
+    });
+  }
+  function setStates(){
+    cards.forEach(function(c, i){
+      let d = Math.abs(i - cur);
+      if(d > N/2) d = N - d;
+      let state;
+      if(d === 0) state = 'active';
+      else if(d === 1) state = 'adjacent';
+      else if(d === 2) state = 'far';
+      else state = 'back';
+      c.setAttribute('data-state', state);
+      c.setAttribute('aria-hidden', state === 'active' ? 'false' : 'true');
+    });
+    Array.from(pagWrap.querySelectorAll('.stamp-page')).forEach(function(b, i){
+      b.classList.toggle('active', i === cur);
+    });
+  }
+  function applyRotation(){
+    if(isMobile()){
+      globe.style.transform = 'translateX(-' + (cur * 100) + '%)';
+    } else {
+      globe.style.transform = 'translateZ(-' + getRadius() + 'px) rotateY(' + rotation + 'deg)';
+    }
+    setStates();
+  }
+  function startRotateReveal(){
+    globe.classList.add('rotating');
+    if(rotateTimer) clearTimeout(rotateTimer);
+    rotateTimer = setTimeout(function(){
+      globe.classList.remove('rotating');
+      rotateTimer = null;
+    }, 1150);
+  }
+  function goTo(i){
+    const target = ((i % N) + N) % N;
+    let diff = target - cur;
+    if(diff > N/2) diff -= N;
+    if(diff < -N/2) diff += N;
+    if(diff === 0) return;
+    cur = target;
+    rotation -= diff * angleStep;
+    startRotateReveal();
+    applyRotation();
+  }
+  function next(){ goTo(cur + 1); }
+  function prev(){ goTo(cur - 1); }
+  buildPagination();
+  setPageNumbers();
+  positionCards();
+  applyRotation();
+  prevBtn.addEventListener('click', prev);
+  nextBtn.addEventListener('click', next);
+  document.addEventListener('keydown', function(e){
+    if(e.target && e.target.tagName === 'INPUT') return;
+    if(e.key === 'ArrowLeft')  prev();
+    if(e.key === 'ArrowRight') next();
+  });
+  let tStartX = 0, tStartY = 0;
+  globe.addEventListener('touchstart', function(e){
+    tStartX = e.changedTouches[0].clientX;
+    tStartY = e.changedTouches[0].clientY;
+  }, {passive:true});
+  globe.addEventListener('touchend', function(e){
+    const dx = e.changedTouches[0].clientX - tStartX;
+    const dy = e.changedTouches[0].clientY - tStartY;
+    if(Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50){
+      if(dx > 0) prev(); else next();
+    }
+  }, {passive:true});
+  let dStartX = 0, isDragging = false, dragMoved = false;
+  const stage = globe.parentElement;
+  stage.addEventListener('mousedown', function(e){
+    dStartX = e.clientX;
+    isDragging = true;
+    dragMoved = false;
+    stage.style.cursor = 'grabbing';
+  });
+  stage.addEventListener('mousemove', function(e){
+    if(!isDragging) return;
+    if(Math.abs(e.clientX - dStartX) > 8) dragMoved = true;
+  });
+  function endDrag(e){
+    if(!isDragging) return;
+    isDragging = false;
+    stage.style.cursor = 'grab';
+    if(!dragMoved) return;
+    const dx = e.clientX - dStartX;
+    if(dx > 50) prev();
+    if(dx < -50) next();
+  }
+  stage.addEventListener('mouseup', endDrag);
+  stage.addEventListener('mouseleave', endDrag);
+  stage.style.cursor = 'grab';
+  window.addEventListener('resize', function(){
+    positionCards();
+    applyRotation();
+  });
+})();
+</script>
+</body>
+</html>

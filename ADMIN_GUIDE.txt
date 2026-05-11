@@ -1,0 +1,103 @@
+═══════════════════════════════════════════════════════════════
+KOPIT NEWS · ADMIN PUBLISHING GUIDE
+═══════════════════════════════════════════════════════════════
+
+WORKFLOW (4 STEPS PER ARTICLE):
+
+1. PREPARE IMAGES
+   - Save your images in images/news/ folder
+   - Use lowercase names: k3-cover.jpg, event1.jpg, etc.
+   - Recommended: 1-9 images per article
+
+2. OPEN articles.json IN NOTEPAD
+   - This is the file that controls all news on the website
+   - Always make a backup before editing
+
+3. ADD A NEW ARTICLE
+   - Copy an existing article block (everything between { and })
+   - Paste it AT THE TOP of the array (so it's the newest)
+   - Edit the values:
+
+   {
+     "id": "unique-slug-here",                  <- short, lowercase, hyphens only
+     "title": "Your headline here",
+     "date": "2025-11-10",                       <- YYYY-MM-DD format
+     "type": "press-release",                    <- press-release / project-update / industry-insight
+     "division": "hijau-energy",                 <- which division wrote it
+     "author": "MS, Lead Software Engineer",     <- Initials, Role
+     "featured": true,                           <- true = big card with star badge
+     "compact": false,                           <- true = smaller card
+     "images": [
+       "your-cover-image.jpg",
+       "extra-image-1.jpg",
+       "extra-image-2.jpg"
+     ],
+     "excerpt": "Short summary, 1-2 sentences.",
+     "body": "<p>Full article HTML here.</p>"
+   },
+
+4. SAVE + UPLOAD
+   - Save articles.json
+   - Upload articles.json to the website root folder
+   - Upload any new images to images/news/ folder
+   - Done! Article appears on news page immediately.
+
+═══════════════════════════════════════════════════════════════
+DIVISION VALUES (use these EXACT strings):
+═══════════════════════════════════════════════════════════════
+- wira-digital
+- bijak-ai
+- hijau-energy
+- rantai-blockchain
+- dana-sejahtera
+- angkasa-build
+- arif-advisory
+
+═══════════════════════════════════════════════════════════════
+TYPE VALUES (use these EXACT strings):
+═══════════════════════════════════════════════════════════════
+- press-release       -> official KOPIT announcements
+- project-update      -> updates from Kolam, MySkills, etc.
+- industry-insight    -> thought leadership, analysis pieces
+
+═══════════════════════════════════════════════════════════════
+CARD VARIANTS (set with featured + compact flags):
+═══════════════════════════════════════════════════════════════
+- Featured (big card with star badge):  "featured": true,  "compact": false
+- Standard (medium card):                 "featured": false, "compact": false
+- Compact (small card):                   "featured": false, "compact": true
+
+═══════════════════════════════════════════════════════════════
+IMAGE LAYOUTS (auto-applied based on image count):
+═══════════════════════════════════════════════════════════════
+- 0 images: Shows "UPLOAD IMAGE" placeholder
+- 1 image:  Cover image side-by-side with content
+- 2-3 images: Cover top + pair below
+- 4-5 images: Cover banner + 4-image row
+- 6-9 images: Cover banner + 4x2 grid + clickable lightbox
+
+MAX 9 IMAGES per article. More is overwhelming for readers.
+
+═══════════════════════════════════════════════════════════════
+COMMON MISTAKES TO AVOID:
+═══════════════════════════════════════════════════════════════
+- DO NOT delete the [ ] brackets at start/end of articles.json
+- DO NOT forget commas between articles (each } needs a , after, except the last one)
+- DO NOT use uppercase or spaces in image filenames
+- DO NOT use double quotes inside strings -- escape them as \"
+- DO NOT publish without backing up articles.json first
+
+═══════════════════════════════════════════════════════════════
+NEED HELP?
+═══════════════════════════════════════════════════════════════
+Use any free JSON validator (jsonlint.com) to check your file
+before uploading. If the page shows "Could not load stories"
+your JSON has a syntax error -- paste it into jsonlint.com to
+find the issue.
+
+NOTE: When opening news.html locally via file://, articles.json
+may fail to load due to browser CORS rules. Test by serving
+the folder via a local HTTP server (e.g. `python -m http.server`)
+or upload to your hosting environment to verify.
+
+═══════════════════════════════════════════════════════════════

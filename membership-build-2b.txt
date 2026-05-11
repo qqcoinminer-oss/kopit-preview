@@ -1,0 +1,1325 @@
+COMPREHENSIVE BUILD — MEMBERSHIP 
+PAGE 2B · SIX TIERS CAROUSEL + 
+VAULT MODAL + URL PARAMETER HANDLING
+
+This is BUILD 2B of 3 for the 
+membership page. Replaces the 
+carousel placeholder div with full 
+3D globe carousel + interactive 
+vault modal.
+
+═══════════════════════════════════════
+FILE TO MODIFY
+═══════════════════════════════════════
+
+C:\Projects\KOPIT-Website\
+membership.html
+
+DO NOT MODIFY:
+- index.html
+- contact.html  
+- css/style.css existing rules
+
+═══════════════════════════════════════
+WHAT THIS BUILD DOES
+═══════════════════════════════════════
+
+1. REPLACE the carousel-placeholder 
+   div in the #tiers section
+2. INSERT 3D globe carousel with 
+   6 cards (KL, KP, KI1, KI2, KI3, KB)
+3. ADD vault modal HTML structure 
+   (hidden by default)
+4. ADD CSS for carousel + modal + 
+   card flip + backdrop blur
+5. ADD JavaScript for:
+   - Carousel rotation logic
+   - Drag gesture
+   - Dot navigation
+   - Hover-reveal arrows
+   - Card click → vault modal opens
+   - Modal dismiss handlers (X, ESC, 
+     backdrop)
+   - URL parameter ?tier= handling
+   - Mobile adaptive behaviour
+
+═══════════════════════════════════════
+SECTION TO REPLACE
+═══════════════════════════════════════
+
+Find this in membership.html:
+
+<div id="carousel-placeholder" 
+ style="padding:60px 30px;
+ background:rgba(255,255,255,0.02);
+ border:0.5px dashed 
+ rgba(201,168,76,0.3);
+ border-radius:8px;...">
+  <p>...Six Tiers Globe Carousel...
+  [Build 2B will replace...]</p>
+</div>
+
+REPLACE with the carousel HTML 
+described below.
+
+═══════════════════════════════════════
+CAROUSEL HTML STRUCTURE
+═══════════════════════════════════════
+
+<div id="tier-carousel" 
+ class="tier-carousel">
+  
+  <!-- 3D globe stage -->
+  <div class="carousel-stage" 
+   id="carousel-stage">
+    
+    <!-- 6 cards rendered here, one 
+    per tier -->
+    
+    <div class="tier-card" 
+     data-tier="kl" data-index="0">
+      [KL CARD HTML]
+    </div>
+    
+    <div class="tier-card" 
+     data-tier="kp" data-index="1">
+      [KP CARD HTML]
+    </div>
+    
+    <div class="tier-card" 
+     data-tier="ki1" data-index="2">
+      [KI1 CARD HTML]
+    </div>
+    
+    <div class="tier-card" 
+     data-tier="ki2" data-index="3">
+      [KI2 CARD HTML]
+    </div>
+    
+    <div class="tier-card active" 
+     data-tier="ki3" data-index="4">
+      [KI3 CARD HTML]
+    </div>
+    
+    <div class="tier-card" 
+     data-tier="kb" data-index="5">
+      [KB CARD HTML]
+    </div>
+    
+  </div>
+  
+  <!-- Hover-reveal arrows -->
+  <button class="carousel-arrow 
+   carousel-arrow-left" 
+   id="carousel-prev" 
+   aria-label="Previous tier">‹</button>
+  <button class="carousel-arrow 
+   carousel-arrow-right" 
+   id="carousel-next" 
+   aria-label="Next tier">›</button>
+  
+  <!-- Dot navigation -->
+  <div class="carousel-dots" 
+   id="carousel-dots">
+    <button class="dot" 
+     data-index="0"></button>
+    <button class="dot" 
+     data-index="1"></button>
+    <button class="dot" 
+     data-index="2"></button>
+    <button class="dot" 
+     data-index="3"></button>
+    <button class="dot active" 
+     data-index="4"></button>
+    <button class="dot" 
+     data-index="5"></button>
+  </div>
+  
+</div>
+
+═══════════════════════════════════════
+CARD DESIGNS (6 TIERS)
+═══════════════════════════════════════
+
+Each card uses the EXACT same design 
+pattern as the homepage carousel cards 
+but at 440x275px (bigger).
+
+Use the locked card designs:
+- KL: Full warm gold (Ahmad Faizal, 
+  2022, KL·0001·MY, BOD APPROVED)
+- KP: Navy + warm gold blend (Priya 
+  Krishnan, 2023, KP·0012·MY, MGT 
+  APPROVED)
+- KI1: Copper bronze (Siti Hajar, 
+  2023, KI1·0005·MY, BOD APPROVED)
+- KI2: Steel silver-blue (Rajesh 
+  Kumar, 2024, KI2·0003·MY, BOD 
+  APPROVED)
+- KI3: Engraved gunmetal titanium 
+  with EDITION 001/050 (Dato' Lee 
+  Chong, 2024, KI3·0001·MY, BOD · 
+  CHAIRMAN)
+- KB: Deep navy (David Lim, 2024, 
+  KB·0048·MY, MGT APPROVED)
+
+Copy the EXACT card HTML/CSS from 
+the homepage carousel. Card 
+dimensions 440x275px (vs homepage 
+380x235px). Same Etched Crest design 
+language with all locked elements.
+
+Each card includes:
+- KOPIT crest top-left
+- Member name top-right (italic, 
+  Cormorant)
+- EST · MMXXII tagline
+- MEMBER SINCE year
+- Diamond divider hairlines
+- Section caption with em-dashes
+- Main name (Playfair, English)
+- Malay subtitle (italic, smaller)
+- SERIAL bottom-left (Cinzel)
+- CERTIFIED BY bottom-right (Cinzel)
+- Micro-text strip "KOPIT·KOPIT" 
+  along bottom edge
+- 4 corner brackets
+- Guilloché security pattern overlay
+- Inner ornamental border
+- KI3 only: EDITION 001/050 banner + 
+  brushed grain + bevel highlights
+
+ALL CARDS get cursor:pointer and 
+data-tier attribute for vault modal.
+
+═══════════════════════════════════════
+CAROUSEL CSS
+═══════════════════════════════════════
+
+.tier-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 400px;
+  margin: 0 auto;
+  perspective: 1400px;
+  user-select: none;
+}
+
+.carousel-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s 
+    cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.tier-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 440px;
+  height: 275px;
+  margin: -137.5px 0 0 -220px;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  cursor: pointer;
+  transition: opacity 0.4s, 
+    filter 0.4s;
+  /* Position via JS based on 
+     globe rotation */
+}
+
+.tier-card:not(.active) {
+  opacity: 0.05;
+  pointer-events: none;
+  filter: blur(2px);
+}
+
+.tier-card.active {
+  opacity: 1;
+  pointer-events: auto;
+  filter: none;
+  z-index: 10;
+}
+
+/* Arrow buttons */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  background: rgba(10, 22, 40, 0.7);
+  border: 1px solid 
+    rgba(201, 168, 76, 0.4);
+  border-radius: 50%;
+  color: rgba(201, 168, 76, 0.85);
+  font-family: 'Playfair Display', 
+    serif;
+  font-size: 24px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+.carousel-arrow-left {
+  left: 30px;
+  transform: translateY(-50%);
+}
+
+.carousel-arrow-right {
+  right: 30px;
+  transform: translateY(-50%);
+}
+
+.tier-carousel:hover 
+.carousel-arrow {
+  opacity: 1;
+}
+
+/* Always visible on touch devices */
+@media (hover: none) {
+  .carousel-arrow {
+    opacity: 0.5;
+  }
+}
+
+/* Dots navigation */
+.carousel-dots {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(201, 168, 76, 
+    0.25);
+  border: none;
+  cursor: pointer;
+  transition: width 0.3s, 
+    background 0.3s;
+}
+
+.dot.active {
+  width: 24px;
+  border-radius: 4px;
+  background: #C9A84C;
+}
+
+═══════════════════════════════════════
+VAULT MODAL HTML
+═══════════════════════════════════════
+
+Add this AFTER the closing tag of 
+the #tiers section, before the 
+#compare section:
+
+<div id="vault-modal" 
+ class="vault-modal" 
+ role="dialog" 
+ aria-modal="true" 
+ aria-labelledby="vault-title" 
+ aria-hidden="true">
+  
+  <div class="vault-backdrop" 
+   id="vault-backdrop"></div>
+  
+  <div class="vault-content">
+    
+    <button class="vault-close" 
+     id="vault-close" 
+     aria-label="Close vault">×</button>
+    
+    <div class="vault-header">
+      <div class="vault-eyebrow" 
+       id="vault-eyebrow">
+       — TIER DETAIL · ___ —</div>
+      <h2 class="vault-title" 
+       id="vault-title">___</h2>
+      <div class="vault-subtitle" 
+       id="vault-subtitle">___</div>
+    </div>
+    
+    <div class="vault-card-back" 
+     id="vault-card-back">
+      <!-- JS injects tier-specific 
+      stat rows here -->
+    </div>
+    
+    <div class="vault-cta">
+      <div class="vault-cta-prompt">
+       Interested in this tier?</div>
+      <a href="#" 
+       class="vault-cta-button" 
+       id="vault-cta-button">
+       Express Interest →</a>
+    </div>
+    
+    <div class="vault-dismiss-hint">
+      ESC · CLICK BACKDROP · X 
+      TO CLOSE
+    </div>
+    
+  </div>
+  
+</div>
+
+═══════════════════════════════════════
+VAULT MODAL CSS
+═══════════════════════════════════════
+
+.vault-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.3s, 
+    opacity 0.3s;
+}
+
+.vault-modal.active {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.vault-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(5, 12, 24, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  cursor: pointer;
+}
+
+.vault-content {
+  position: relative;
+  background: rgba(8, 16, 28, 0.92);
+  border: 1px solid 
+    rgba(201, 168, 76, 0.35);
+  border-radius: 14px;
+  max-width: 640px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 50px 40px 36px;
+  z-index: 1;
+  transform: scale(0.95);
+  transition: transform 0.3s 
+    cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.vault-modal.active .vault-content {
+  transform: scale(1);
+}
+
+.vault-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(201, 168, 76, 0.1);
+  border: 0.5px solid 
+    rgba(201, 168, 76, 0.4);
+  color: rgba(201, 168, 76, 0.85);
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.vault-close:hover {
+  background: rgba(201, 168, 76, 
+    0.2);
+}
+
+.vault-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.vault-eyebrow {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: rgba(201, 168, 76, 0.85);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.vault-title {
+  font-family: 'Playfair Display', 
+    serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: #F4EFE8;
+  margin: 0 0 4px;
+  letter-spacing: -0.4px;
+}
+
+.vault-subtitle {
+  font-family: 'Cormorant Garamond', 
+    serif;
+  font-style: italic;
+  font-size: 16px;
+  color: #D4B97A;
+  letter-spacing: 1px;
+}
+
+.vault-card-back {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.vault-stat-row {
+  padding: 14px 18px;
+  background: rgba(10, 22, 40, 0.5);
+  border: 0.5px solid 
+    rgba(180, 195, 215, 0.25);
+  border-radius: 6px;
+}
+
+.vault-stat-row.highlight {
+  background: rgba(201, 168, 76, 
+    0.08);
+  border: 0.5px solid 
+    rgba(201, 168, 76, 0.4);
+}
+
+.vault-stat-label {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  color: rgba(220, 235, 255, 0.75);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.vault-stat-row.highlight 
+.vault-stat-label {
+  color: rgba(201, 168, 76, 0.95);
+}
+
+.vault-stat-value {
+  font-family: 'Playfair Display', 
+    serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #F4EFE8;
+}
+
+.vault-stat-note {
+  font-family: 'Cormorant Garamond', 
+    serif;
+  font-style: italic;
+  font-size: 13px;
+  color: rgba(220, 235, 255, 0.7);
+  margin-top: 4px;
+}
+
+.vault-cta {
+  text-align: center;
+}
+
+.vault-cta-prompt {
+  font-family: 'Cormorant Garamond', 
+    serif;
+  font-style: italic;
+  font-size: 14px;
+  color: rgba(244, 239, 232, 0.6);
+  margin-bottom: 14px;
+}
+
+.vault-cta-button {
+  display: inline-block;
+  background: #C9A84C;
+  color: #0A1628;
+  padding: 14px 32px;
+  font-family: 'Source Sans 3', 
+    sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.vault-cta-button:hover {
+  background: #D4B97A;
+}
+
+.vault-dismiss-hint {
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 0.5px solid 
+    rgba(201, 168, 76, 0.15);
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: rgba(244, 239, 232, 0.4);
+}
+
+═══════════════════════════════════════
+CAROUSEL JAVASCRIPT
+═══════════════════════════════════════
+
+Add inside the existing <script> 
+block at bottom of membership.html:
+
+(function() {
+  const stage = document
+    .getElementById('carousel-stage');
+  const cards = document
+    .querySelectorAll('.tier-card');
+  const dots = document
+    .querySelectorAll('.dot');
+  const prevBtn = document
+    .getElementById('carousel-prev');
+  const nextBtn = document
+    .getElementById('carousel-next');
+  
+  if (!stage || !cards.length) return;
+  
+  const totalCards = 6;
+  const angleStep = 360 / totalCards;
+    // 60 degrees per card
+  let activeIndex = 4; 
+    // Default to KI3
+  
+  function updateCarousel() {
+    cards.forEach((card, i) => {
+      const offset = i - activeIndex;
+      const cardAngle = offset 
+        * angleStep;
+      
+      if (i === activeIndex) {
+        card.classList.add('active');
+        card.style.transform = 
+          'translate(0, 0) rotateY(0)';
+        card.style.zIndex = 10;
+      } else {
+        card.classList.remove(
+          'active');
+        const tx = Math.sin(
+          cardAngle * Math.PI / 180) 
+          * 380;
+        const tz = -Math.abs(
+          Math.cos(cardAngle * 
+          Math.PI / 180)) * 200;
+        card.style.transform = 
+          `translate(${tx}px, 0) 
+           rotateY(${cardAngle}deg) 
+           translateZ(${tz}px)`;
+        card.style.zIndex = 1;
+      }
+    });
+    
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', 
+        i === activeIndex);
+    });
+  }
+  
+  function rotateCarousel(direction) 
+  {
+    activeIndex = (activeIndex 
+      + direction + totalCards) 
+      % totalCards;
+    updateCarousel();
+  }
+  
+  function setActiveByIndex(idx) {
+    if (idx >= 0 && idx 
+      < totalCards) {
+      activeIndex = idx;
+      updateCarousel();
+    }
+  }
+  
+  // Arrow click handlers
+  if (prevBtn) {
+    prevBtn.addEventListener(
+      'click', () => 
+      rotateCarousel(-1));
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener(
+      'click', () => 
+      rotateCarousel(1));
+  }
+  
+  // Dot click handlers
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', 
+      () => setActiveByIndex(i));
+  });
+  
+  // Drag/swipe gesture
+  let dragStart = null;
+  
+  stage.addEventListener(
+    'mousedown', e => {
+    dragStart = e.clientX;
+  });
+  
+  stage.addEventListener(
+    'mousemove', e => {
+    if (!dragStart) return;
+    const delta = e.clientX 
+      - dragStart;
+    if (Math.abs(delta) > 80) {
+      rotateCarousel(delta > 0 
+        ? -1 : 1);
+      dragStart = null;
+    }
+  });
+  
+  stage.addEventListener('mouseup', 
+    () => dragStart = null);
+  stage.addEventListener(
+    'mouseleave', () => 
+    dragStart = null);
+  
+  // Touch gesture for mobile
+  stage.addEventListener(
+    'touchstart', e => {
+    dragStart = e.touches[0]
+      .clientX;
+  });
+  
+  stage.addEventListener(
+    'touchmove', e => {
+    if (!dragStart) return;
+    const delta = e.touches[0]
+      .clientX - dragStart;
+    if (Math.abs(delta) > 50) {
+      rotateCarousel(delta > 0 
+        ? -1 : 1);
+      dragStart = null;
+    }
+  });
+  
+  stage.addEventListener(
+    'touchend', () => 
+    dragStart = null);
+  
+  // Keyboard navigation
+  document.addEventListener(
+    'keydown', e => {
+    if (vaultIsOpen()) return;
+    if (e.key === 'ArrowLeft') 
+      rotateCarousel(-1);
+    if (e.key === 'ArrowRight') 
+      rotateCarousel(1);
+  });
+  
+  // Card click → open vault
+  cards.forEach(card => {
+    card.addEventListener('click', 
+      e => {
+      if (card.classList.contains(
+        'active')) {
+        const tier = card.dataset
+          .tier;
+        openVault(tier);
+      } else {
+        // If clicking inactive 
+        // card, rotate to it
+        const idx = parseInt(
+          card.dataset.index);
+        setActiveByIndex(idx);
+      }
+    });
+  });
+  
+  // Initial render
+  updateCarousel();
+  
+  // URL parameter handling 
+  // (?tier=ki1 etc.)
+  const params = new URLSearchParams(
+    window.location.search);
+  const tierParam = params.get('tier');
+  if (tierParam) {
+    const tierMap = { kl: 0, kp: 1, 
+      ki1: 2, ki2: 3, ki3: 4, 
+      kb: 5 };
+    const idx = tierMap[
+      tierParam.toLowerCase()];
+    if (idx !== undefined) {
+      activeIndex = idx;
+      updateCarousel();
+      // Smooth scroll to carousel
+      setTimeout(() => {
+        document.getElementById(
+          'tiers').scrollIntoView({
+          behavior: 'smooth', 
+          block: 'start'
+        });
+      }, 200);
+    }
+  }
+  
+  // Expose helpers for vault
+  window.__carousel = {
+    setActiveByIndex,
+    getActiveIndex: () => activeIndex
+  };
+})();
+
+═══════════════════════════════════════
+VAULT MODAL JAVASCRIPT
+═══════════════════════════════════════
+
+Add to same <script> block:
+
+(function() {
+  const modal = document
+    .getElementById('vault-modal');
+  const backdrop = document
+    .getElementById('vault-backdrop');
+  const closeBtn = document
+    .getElementById('vault-close');
+  const eyebrow = document
+    .getElementById('vault-eyebrow');
+  const title = document
+    .getElementById('vault-title');
+  const subtitle = document
+    .getElementById(
+    'vault-subtitle');
+  const cardBack = document
+    .getElementById(
+    'vault-card-back');
+  const ctaBtn = document
+    .getElementById(
+    'vault-cta-button');
+  
+  if (!modal) return;
+  
+  // Tier data
+  const tierData = {
+    kl: {
+      eyebrow: '— TIER DETAIL · KL —',
+      title: 'Division Leader',
+      subtitle: 'Ketua Bahagian',
+      stats: [
+        { label: 'APPROVED BY', 
+          value: 'BOD', 
+          highlight: true },
+        { label: 'SHARE REQUIREMENT', 
+          value: 'Higher quantity, '
+          + 'BOD-determined',
+          note: 'Quantity reflects '
+          + 'leadership commitment' },
+        { label: 'RIGHTS', 
+          value: 'Lead Division · '
+          + 'Full Tender · Revenue '
+          + 'Share' },
+        { label: 'CAPITAL PROGRAMME', 
+          value: 'Eligible · '
+          + 'RM 10K minimum',
+          note: 'Optional Fixed '
+          + 'Return Arrangement' },
+        { label: 'PROMOTION PATH', 
+          value: 'BOD Appointed' },
+        { label: 'PORTAL ACCESS', 
+          value: 'Leadership '
+          + 'Dashboard',
+          highlight: true }
+      ]
+    },
+    kp: {
+      eyebrow: '— TIER DETAIL · KP —',
+      title: 'Division Member',
+      subtitle: 'Ahli Bahagian',
+      stats: [
+        { label: 'APPROVED BY', 
+          value: 'Management', 
+          highlight: true },
+        { label: 'SHARE REQUIREMENT', 
+          value: 'Higher quantity, '
+          + 'BOD-determined' },
+        { label: 'RIGHTS', 
+          value: 'Deliver · Refer '
+          + 'Clients · Move '
+          + 'Divisions' },
+        { label: 'CAPITAL PROGRAMME', 
+          value: 'Eligible · '
+          + 'RM 10K minimum',
+          note: 'Optional Fixed '
+          + 'Return Arrangement' },
+        { label: 'PROMOTION PATH', 
+          value: 'Can become '
+          + 'Division Leader' },
+        { label: 'PORTAL ACCESS', 
+          value: 'Member Dashboard',
+          highlight: true }
+      ]
+    },
+    ki1: {
+      eyebrow: '— TIER DETAIL · '
+        + 'KI1 —',
+      title: 'Entry Partner',
+      subtitle: 'Rakan Modal',
+      stats: [
+        { label: 'INVESTMENT '
+          + 'BRACKET', 
+          value: 'RM 10,000 – '
+          + 'RM 100,000' },
+        { label: 'SHARE REQUIREMENT', 
+          value: 'Min 2% of '
+          + 'investment value',
+          note: 'BOD may require '
+          + 'higher quantity' },
+        { label: 'APPROVED BY', 
+          value: 'BOD', 
+          highlight: true },
+        { label: 'CAPITAL PROGRAMME', 
+          value: 'Fixed Return '
+          + 'Arrangement',
+          note: 'BOD-determined '
+          + 'rate · Up to 3 years' },
+        { label: 'AFTER TERM', 
+          value: 'Auto-renew or '
+          + 'capital returned',
+          note: 'Member\'s choice '
+          + 'at BOD-reviewed rate' },
+        { label: 'PORTAL ACCESS', 
+          value: 'Investment '
+          + 'Dashboard',
+          highlight: true }
+      ]
+    },
+    ki2: {
+      eyebrow: '— TIER DETAIL · '
+        + 'KI2 —',
+      title: 'Growth Partner',
+      subtitle: 'Pelabur Teras',
+      stats: [
+        { label: 'INVESTMENT '
+          + 'BRACKET', 
+          value: 'RM 100,000 – '
+          + 'RM 300,000' },
+        { label: 'SHARE REQUIREMENT', 
+          value: 'Min 2% of '
+          + 'investment value',
+          note: 'BOD may require '
+          + 'higher quantity' },
+        { label: 'APPROVED BY', 
+          value: 'BOD', 
+          highlight: true },
+        { label: 'CAPITAL PROGRAMME', 
+          value: 'Fixed Return '
+          + 'Arrangement',
+          note: 'BOD-determined '
+          + 'rate · Up to 3 years' },
+        { label: 'AFTER TERM', 
+          value: 'Auto-renew or '
+          + 'capital returned',
+          note: 'Member\'s choice '
+          + 'at BOD-reviewed rate' },
+        { label: 'PORTAL ACCESS', 
+          value: 'Quarterly Reports '
+          + '+ Dashboard',
+          highlight: true }
+      ]
+    },
+    ki3: {
+      eyebrow: '— TIER DETAIL · '
+        + 'KI3 —',
+      title: 'Strategic Partner',
+      subtitle: 'Pelabur Agung',
+      stats: [
+        { label: 'INVESTMENT '
+          + 'BRACKET', 
+          value: 'RM 300,000 – '
+          + 'RM 1,000,000' },
+        { label: 'SHARE REQUIREMENT', 
+          value: 'Min 2% of '
+          + 'investment value',
+          note: 'BOD may require '
+          + 'higher quantity' },
+        { label: 'APPROVED BY', 
+          value: 'BOD + Chairman', 
+          highlight: true },
+        { label: 'CAPITAL PROGRAMME', 
+          value: 'Fixed Return '
+          + 'Arrangement',
+          note: 'BOD-determined '
+          + 'rate · Up to 3 years' },
+        { label: 'AFTER TERM', 
+          value: 'Auto-renew or '
+          + 'capital returned',
+          note: 'Member\'s choice '
+          + 'at BOD-reviewed rate' },
+        { label: 'PORTAL ACCESS', 
+          value: 'Full Dashboard + '
+          + 'Direct BOD Access',
+          highlight: true }
+      ]
+    },
+    kb: {
+      eyebrow: '— TIER DETAIL · KB —',
+      title: 'General Member',
+      subtitle: 'Warga KOPIT',
+      stats: [
+        { label: 'SHARE CAPITAL', 
+          value: 'RM 200 minimum '
+          + '(1 share)' },
+        { label: 'PROCESSING FEE', 
+          value: 'RM 20 one-time' },
+        { label: 'APPROVED BY', 
+          value: 'BOD', 
+          highlight: true },
+        { label: 'CAPITAL PROGRAMME', 
+          value: 'Eligible · '
+          + 'RM 10K minimum',
+          note: 'Volume can upgrade '
+          + 'tier classification' },
+        { label: 'RIGHTS', 
+          value: 'AGM · Dividends · '
+          + 'Portal Access' },
+        { label: 'PATH FORWARD', 
+          value: 'May upgrade to '
+          + 'KP/KL/KI tiers via '
+          + 'approval',
+          highlight: true }
+      ]
+    }
+  };
+  
+  function openVault(tier) {
+    const data = tierData[tier];
+    if (!data) return;
+    
+    eyebrow.textContent = 
+      data.eyebrow;
+    title.textContent = data.title;
+    subtitle.textContent = 
+      data.subtitle;
+    
+    // Build stat rows
+    cardBack.innerHTML = data.stats
+      .map(stat => {
+      const cls = stat.highlight 
+        ? 'vault-stat-row highlight' 
+        : 'vault-stat-row';
+      const note = stat.note 
+        ? `<div class="vault-stat-note">
+        ${stat.note}</div>` 
+        : '';
+      return `<div class="${cls}">
+        <div class="vault-stat-label">
+        ${stat.label}</div>
+        <div class="vault-stat-value">
+        ${stat.value}</div>
+        ${note}
+      </div>`;
+    }).join('');
+    
+    // Set CTA href
+    ctaBtn.href = 'contact.html?'
+      + 'subject=membership&tier=' 
+      + tier;
+    ctaBtn.textContent = 
+      `Express Interest in ${tier
+      .toUpperCase()} →`;
+    
+    // Show modal
+    modal.classList.add('active');
+    modal.setAttribute(
+      'aria-hidden', 'false');
+    document.body.style.overflow = 
+      'hidden';
+    
+    // Focus close button for 
+    // accessibility
+    setTimeout(() => closeBtn
+      .focus(), 100);
+  }
+  
+  function closeVault() {
+    modal.classList.remove('active');
+    modal.setAttribute(
+      'aria-hidden', 'true');
+    document.body.style.overflow = 
+      '';
+  }
+  
+  function vaultIsOpen() {
+    return modal.classList.contains(
+      'active');
+  }
+  
+  // Expose globals
+  window.openVault = openVault;
+  window.closeVault = closeVault;
+  window.vaultIsOpen = vaultIsOpen;
+  
+  // Close handlers
+  closeBtn.addEventListener('click', 
+    closeVault);
+  backdrop.addEventListener('click', 
+    closeVault);
+  
+  document.addEventListener(
+    'keydown', e => {
+    if (e.key === 'Escape' && 
+      vaultIsOpen()) {
+      closeVault();
+    }
+  });
+})();
+
+═══════════════════════════════════════
+MOBILE RESPONSIVE
+═══════════════════════════════════════
+
+Add @media query at end of CSS:
+
+@media (max-width: 900px) {
+  /* Carousel stacks vertically */
+  .tier-carousel {
+    height: auto;
+    perspective: none;
+  }
+  
+  .carousel-stage {
+    transform: none !important;
+    transform-style: flat;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+  }
+  
+  .tier-card {
+    position: static;
+    margin: 0;
+    width: 100%;
+    max-width: 380px;
+    height: 240px;
+    transform: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+    pointer-events: auto !important;
+  }
+  
+  .tier-card:not(.active) {
+    /* All cards visible on mobile */
+    opacity: 1 !important;
+    filter: none !important;
+  }
+  
+  .carousel-arrow {
+    display: none;
+  }
+  
+  .carousel-dots {
+    display: none;
+  }
+  
+  /* Vault modal mobile */
+  .vault-content {
+    max-width: 100%;
+    padding: 36px 24px 28px;
+    border-radius: 10px;
+  }
+  
+  .vault-title {
+    font-size: 26px;
+  }
+  
+  .vault-stat-row {
+    padding: 12px 14px;
+  }
+}
+
+═══════════════════════════════════════
+WHAT NOT TO TOUCH
+═══════════════════════════════════════
+
+DO NOT MODIFY:
+- Hero section
+- Philosophy section
+- Governance Pillar (BOD card)
+- Capital Structure section
+- How To Apply section
+- Final CTA
+- Navbar / Footer
+- Sticky in-page navigation
+- index.html
+- contact.html
+- All locked typography and sizing
+
+═══════════════════════════════════════
+VERIFICATION CHECKLIST
+═══════════════════════════════════════
+
+After build:
+
+CAROUSEL:
+1. ✓ #tiers section now shows 6 
+   tier cards in 3D globe layout
+2. ✓ KI3 (Strategic Partner) is 
+   default active card
+3. ✓ Other 5 cards are faded 
+   (5% opacity) at perspective 
+   angles
+4. ✓ 6 dots below, KI3's dot 
+   active (gold pill shape)
+5. ✓ Hover over carousel reveals 
+   left/right arrows
+6. ✓ Click left arrow → rotates 
+   to KI2
+7. ✓ Click right arrow → rotates 
+   to KB
+8. ✓ Click any dot → jumps to 
+   that tier
+9. ✓ Drag/swipe gesture rotates 
+   carousel
+10. ✓ Arrow keys (left/right) 
+    rotate carousel
+11. ✓ Active card has 
+    cursor:pointer
+
+VAULT MODAL:
+12. ✓ Click active KI3 card → 
+    vault modal opens
+13. ✓ Backdrop blur visible 
+    behind modal
+14. ✓ Modal shows "Strategic 
+    Partner" + "Pelabur Agung"
+15. ✓ Eyebrow shows "— TIER 
+    DETAIL · KI3 —"
+16. ✓ 6 stat rows visible:
+    INVESTMENT BRACKET / SHARE 
+    REQUIREMENT / APPROVED BY / 
+    CAPITAL PROGRAMME / AFTER 
+    TERM / PORTAL ACCESS
+17. ✓ APPROVED BY shows "BOD + 
+    Chairman" (highlighted gold 
+    background)
+18. ✓ PORTAL ACCESS shows "Full 
+    Dashboard + Direct BOD 
+    Access" (highlighted gold)
+19. ✓ Express Interest button 
+    visible at bottom
+20. ✓ Button reads "Express 
+    Interest in KI3 →"
+
+DISMISS HANDLERS:
+21. ✓ Click X button closes modal
+22. ✓ Press ESC key closes modal
+23. ✓ Click backdrop (outside 
+    modal) closes modal
+24. ✓ Body scroll restored after 
+    close
+
+URL PARAMETER:
+25. ✓ Visit /membership.html?
+    tier=ki1 — carousel positions 
+    to show KI1 active
+26. ✓ Page smooth-scrolls to 
+    #tiers section
+27. ✓ All 6 tier params work: 
+    kl, kp, ki1, ki2, ki3, kb
+
+CONTACT INTEGRATION:
+28. ✓ Click Express Interest in 
+    vault → routes to contact.html?
+    subject=membership&tier=ki3
+29. ✓ Contact page subject 
+    auto-selects "Membership 
+    Question"
+30. ✓ Contact page message 
+    pre-fills with KI3 mention
+
+EACH TIER VAULT TEST:
+31. ✓ KL vault shows correct data 
+    (Division Leader, Ketua 
+    Bahagian)
+32. ✓ KP vault shows correct data 
+    (Division Member, Ahli 
+    Bahagian)
+33. ✓ KI1 vault shows RM 10K – 
+    RM 100K bracket
+34. ✓ KI2 vault shows RM 100K – 
+    RM 300K bracket
+35. ✓ KI3 vault shows RM 300K – 
+    RM 1M bracket
+36. ✓ KB vault shows RM 200 + 
+    RM 20 fields
+
+MOBILE (~400px wide):
+37. ✓ All 6 cards stack 
+    vertically (no 3D)
+38. ✓ Arrows hidden
+39. ✓ Dots hidden
+40. ✓ Each card clickable to 
+    open vault
+41. ✓ Vault modal scales properly
+
+PRESERVATION:
+42. ✓ Hero section unchanged
+43. ✓ Capital Structure unchanged
+44. ✓ How To Apply unchanged
+45. ✓ Final CTA unchanged
+46. ✓ Sticky in-page nav still 
+    works
+
+After fixing — refresh browser. 
+Take EIGHT screenshots:
+
+1. /membership.html showing the 
+   #tiers section with KI3 active 
+   (default)
+2. After clicking left arrow — KI2 
+   now active
+3. KI3 vault modal open (full 
+   detail visible)
+4. KI1 vault modal open (showing 
+   Investment Bracket)
+5. KB vault modal open (showing 
+   share + processing fee)
+6. /membership.html?tier=ki1 — 
+   carousel positioned to KI1 
+   automatically
+7. Click Express Interest in KI3 
+   vault — contact page loads with 
+   pre-fills
+8. Mobile view (~400px) showing 
+   stacked cards
+
+Bring all 8 back for review.

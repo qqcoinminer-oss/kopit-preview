@@ -1,0 +1,989 @@
+COMPREHENSIVE BUILD — MEMBERSHIP TEASER SECTION
+GLOBE CAROUSEL · 7 PREMIUM ETCHED CREST CARDS
+
+This is a single section build — do not 
+modify any other section of the homepage.
+
+═══════════════════════════════════════
+PLACEMENT
+═══════════════════════════════════════
+Insert AFTER the "How KOPIT Works" 
+section (the one with 4 numbered steps 
+and "Satu Koperasi. Endless 
+opportunities." closing).
+
+Insert BEFORE wherever the next 
+section begins (currently there may 
+be no section after — that is 
+acceptable).
+
+═══════════════════════════════════════
+SECTION CONTAINER
+═══════════════════════════════════════
+Background: navy radial gradient
+  (matches existing dark sections)
+Padding: 90px 30px vertical
+Container: max-width 1200px
+Text-align: center
+
+═══════════════════════════════════════
+SECTION HEADER
+═══════════════════════════════════════
+
+Section label (centred, top):
+- Vertical gold ornament line 
+  1px x 14px (matches other sections)
+- Below: "MEMBERSHIP"
+- Font: Source Sans 3, 9px
+- Letter-spacing: 4px, weight 500
+- Color: rgba(201, 168, 76, 0.65)
+
+Heading (centred):
+"Membership Is <span class='gold'>By Invitation.</span>"
+- Font: Playfair Display, 38px
+- Weight: 600
+- Color: #ffffff
+- Letter-spacing: -0.3px
+- Line-height: 1.2
+- Margin-bottom: 14px
+- .gold class: color #C9A84C, italic, 
+  weight 400
+
+Subtext (centred):
+"Seven tiers. Curated by the cooperative.
+The Board of Directors reviews every 
+application."
+- Font: Source Sans 3, 14px
+- Color: rgba(255, 255, 255, 0.55)
+- Letter-spacing: 0.3px
+- Line-height: 1.7
+- Max-width: 600px
+- Margin: 0 auto 60px
+
+═══════════════════════════════════════
+GLOBE CAROUSEL — MECHANICS
+═══════════════════════════════════════
+
+Stage container:
+- Position: relative
+- Height: 280px
+- Display: flex
+- Align-items: center
+- Justify-content: center
+- Perspective: 1500px
+- Margin-bottom: 24px
+
+Globe inner (the rotating element):
+- Position: relative
+- Width: 360px
+- Height: 225px
+- Transform-style: preserve-3d
+- Transition: transform 0.9s 
+  cubic-bezier(0.32, 0.72, 0.35, 1)
+
+7 cards positioned around globe:
+- Each card absolute positioned
+- Width 360px height 225px
+- Transform-origin: center center
+- Each at: rotateY(i * 51.4286deg) 
+  translateZ(240px)
+- Where i = 0 to 6
+- Backface-visibility: hidden
+- -webkit-backface-visibility: hidden
+- Opacity transition: 0.4s
+
+Active card opacity: 1
+Non-active cards opacity: 0.25
+
+═══════════════════════════════════════
+NAVIGATION CONTROLS
+═══════════════════════════════════════
+
+Container below globe:
+- Display: flex
+- Align-items: center
+- Justify-content: center
+- Gap: 14px
+- Margin-bottom: 18px
+
+Previous button (left arrow ‹):
+- Width: 38px, height: 38px
+- Border-radius: 50%
+- Border: 1px solid 
+  rgba(201, 168, 76, 0.4)
+- Background: rgba(201, 168, 76, 0.05)
+- Color: #C9A84C
+- Cursor: pointer
+- Font-size: 18px
+- Display: flex centre
+- Hover: background rgba(201,168,76,0.12)
+  border-color #C9A84C
+
+Next button (right arrow ›):
+- Same as previous but right arrow
+
+Dot navigation (between buttons):
+- Display: flex, gap 6px
+- 7 dots total
+- Default dot: 5px x 5px circle
+  background rgba(201, 168, 76, 0.25)
+- Active dot: 18px wide x 5px tall
+  background #C9A84C
+  border-radius: 3px
+- Transition: all 0.3s
+- Click any dot: jumps to that card
+
+═══════════════════════════════════════
+INFO BAR (BELOW CONTROLS)
+═══════════════════════════════════════
+
+Container:
+- Min-height: 42px
+- Margin-bottom: 36px
+- Text-align: center
+- Transition: opacity 0.3s
+
+English role name (info-en):
+- Font: Playfair Display, 16px
+- Weight: 500
+- Color: rgba(255, 255, 255, 0.85)
+
+Malay role name (info-bm):
+- Font: Source Sans 3, 9px
+- Letter-spacing: 2px
+- Weight: 600
+- Margin-top: 5px
+- Color: rgba(201, 168, 76, 0.6)
+- text-transform: uppercase
+
+Both fade out (opacity 0) for 250ms 
+during card change, then fade back in 
+with new content.
+
+═══════════════════════════════════════
+CTA BUTTON (BELOW INFO BAR)
+═══════════════════════════════════════
+
+"Explore All Membership Tiers →"
+
+Button styling:
+- Display: inline-flex
+- Align-items: center
+- Gap: 8px
+- Padding: 13px 28px
+- Background: rgba(201, 168, 76, 0.06)
+- Border: 1px solid #C9A84C
+- Color: #C9A84C
+- Font: Source Sans 3, 11px
+- Weight: 600
+- Letter-spacing: 2px
+- Text-transform: uppercase
+- Border-radius: 4px
+- Transition: all 0.2s
+- href: /membership.html
+- Hover: background #C9A84C
+  color #0A1628
+
+═══════════════════════════════════════
+PREMIUM CARD DESIGN — ETCHED CREST
+═══════════════════════════════════════
+
+Each card: 360px x 225px
+Border-radius: 14px
+Position: relative
+Overflow: hidden
+
+CARD STRUCTURE (every card has 
+these layers):
+
+LAYER 1 — Gradient background
+LAYER 2 — Guilloché security pattern 
+  (SVG, 4-7% opacity)
+LAYER 3 — Inner ornamental border
+  (0.5px solid, inset 8px)
+LAYER 4 — Four corner brackets 
+  (SVG, top-left, top-right,
+  bottom-left, bottom-right)
+LAYER 5 — Top-left: KOPIT crest + 
+  EST · MMXXII tagline
+LAYER 6 — Top-right: Member name + 
+  MEMBER SINCE [year]
+LAYER 7 — Centre: Section caption + 
+  English role + Malay role
+LAYER 8 — Diamond divider with 
+  hairline gradients
+LAYER 9 — Bottom-left: SERIAL + 
+  serial number
+LAYER 10 — Bottom-right: CERTIFIED 
+  BY + authority line
+LAYER 11 — Bottom edge: Micro-text 
+  strip "KOPIT·KOPIT·KOPIT..."
+LAYER 12 (BOD ONLY) — ◆◆◆ ornament 
+  above title
+LAYER 13 (KI3 ONLY) — ◆ ornament 
+  above title
+
+═══════════════════════════════════════
+GUILLOCHÉ PATTERN (BACKGROUND)
+═══════════════════════════════════════
+
+SVG pattern definition:
+<defs>
+  <pattern id="guillo[N]" x="0" y="0" 
+   width="22" height="22" 
+   patternUnits="userSpaceOnUse">
+    <circle cx="11" cy="11" r="10" 
+     fill="none" stroke="[colour]" 
+     stroke-width="0.4"/>
+    <circle cx="0" cy="11" r="10" 
+     fill="none" stroke="[colour]" 
+     stroke-width="0.4"/>
+    <circle cx="22" cy="11" r="10" 
+     fill="none" stroke="[colour]" 
+     stroke-width="0.4"/>
+    <circle cx="11" cy="0" r="10" 
+     fill="none" stroke="[colour]" 
+     stroke-width="0.4"/>
+    <circle cx="11" cy="22" r="10" 
+     fill="none" stroke="[colour]" 
+     stroke-width="0.4"/>
+  </pattern>
+</defs>
+<rect width="360" height="225" 
+ fill="url(#guillo[N])"/>
+
+Use unique IDs per card (guillo1 to 
+guillo7) to prevent SVG conflicts.
+
+Opacity: 0.04 to 0.07 depending on tier.
+
+═══════════════════════════════════════
+CORNER BRACKETS (4 CORNERS)
+═══════════════════════════════════════
+
+Each corner: 24x24px SVG
+Position: absolute, 8px from each edge
+
+TOP-LEFT:
+<path d="M2 9 L2 2 L9 2" 
+ stroke="[strong]" stroke-width="0.8" 
+ fill="none"/>
+<path d="M5 6 L5 4 L7 4" 
+ stroke="[soft]" stroke-width="0.5" 
+ fill="none"/>
+
+TOP-RIGHT:
+<path d="M15 2 L22 2 L22 9" .../>
+<path d="M17 4 L19 4 L19 6" .../>
+
+BOTTOM-LEFT:
+<path d="M2 15 L2 22 L9 22" .../>
+<path d="M5 18 L5 20 L7 20" .../>
+
+BOTTOM-RIGHT:
+<path d="M15 22 L22 22 L22 15" .../>
+<path d="M17 20 L19 20 L19 18" .../>
+
+═══════════════════════════════════════
+INNER ORNAMENTAL BORDER
+═══════════════════════════════════════
+
+<div style="position:absolute; 
+ inset:8px; 
+ border:0.5px solid [borderInner]; 
+ border-radius:10px; 
+ pointer-events:none;"></div>
+
+═══════════════════════════════════════
+KOPIT CREST (TOP-LEFT)
+═══════════════════════════════════════
+
+Position: absolute, top 24px, 
+left 26px
+Display: flex
+Align-items: center
+Gap: 10px
+
+CREST SVG (24x24):
+<svg viewBox="0 0 40 40">
+  <circle cx="20" cy="20" r="15" 
+   fill="none" stroke="[cornerSoft]" 
+   stroke-width="0.5"/>
+  <circle cx="20" cy="20" r="11" 
+   fill="none" stroke="[sub]" 
+   stroke-width="0.5"/>
+  <circle cx="20" cy="20" r="4" 
+   fill="[text]"/>
+  <line x1="20" y1="20" x2="20" y2="6" 
+   stroke="[sub]" stroke-width="1"/>
+  <line x1="20" y1="20" x2="20" y2="34" 
+   stroke="[sub]" stroke-width="1"/>
+  <line x1="20" y1="20" x2="6" y2="20" 
+   stroke="[sub]" stroke-width="1"/>
+  <line x1="20" y1="20" x2="34" y2="20" 
+   stroke="[sub]" stroke-width="1"/>
+  <circle cx="20" cy="6" r="2" 
+   fill="[mGold2]"/>
+  <circle cx="20" cy="34" r="2" 
+   fill="[mGold2]"/>
+  <circle cx="6" cy="20" r="2" 
+   fill="[mGold2]"/>
+  <circle cx="34" cy="20" r="2" 
+   fill="[mGold2]"/>
+</svg>
+
+Beside crest:
+"KOPIT" — Cinzel, 14px, weight 700, 
+  letter-spacing 3px, color [text]
+"EST · MMXXII" — Playfair Display 
+  italic, 6.5px, letter-spacing 2.5px, 
+  margin-top 3px, color [mGold]
+
+═══════════════════════════════════════
+MEMBER IDENTITY (TOP-RIGHT)
+═══════════════════════════════════════
+
+Position: absolute, top 24px, 
+right 26px
+Text-align: right
+
+Member name:
+- Font: Playfair Display italic, 11px
+- Color: [mname]
+- Line-height: 1
+
+"MEMBER SINCE":
+- Font: Playfair Display italic, 6px
+- Letter-spacing: 2px
+- Color: [mGold]
+- Margin-top: 4px
+
+Year (e.g. "2022"):
+- Font: Playfair Display, 9px
+- Letter-spacing: 3px
+- Weight: 600
+- Color: [mGold2]
+- Margin-top: 1px
+
+═══════════════════════════════════════
+CENTRE SECTION (TITLE BLOCK)
+═══════════════════════════════════════
+
+Position: absolute, top 88px, 
+left 0, right 0
+Text-align: center
+
+[BOD ONLY] Triple diamond ornament:
+"◆ ◆ ◆"
+- Font: Source Sans 3, 9px
+- Letter-spacing: 6px
+- Color: rgba(255, 228, 150, 0.6)
+- Margin-bottom: 4px
+
+[KI3 ONLY] Single large diamond:
+"◆"
+- Font: Source Sans 3, 14px
+- Color: rgba(255, 228, 150, 0.85)
+- Margin-bottom: 4px
+
+Section caption:
+"◆ AHLI [TYPE] · TIER [N] ◆"
+- Font: Source Sans 3, 7px
+- Letter-spacing: 5px
+- Color: [caption]
+- Margin-bottom: 8px
+
+English role:
+- Font: Playfair Display, 26px
+- Weight: 600
+- Letter-spacing: -0.3px
+- Color: [title]
+- Text-shadow: 0 0 12px [glow]
+
+Malay role:
+- Font: Playfair Display italic, 9px
+- Letter-spacing: 3px
+- Color: [sub]
+- Margin-top: 4px
+
+═══════════════════════════════════════
+DIAMOND DIVIDER
+═══════════════════════════════════════
+
+Position: absolute, bottom 50px, 
+left 26px, right 26px
+Display: flex
+Align-items: center
+Gap: 10px
+
+Left line: flex 1, height 0.5px, 
+  linear-gradient (transparent → 
+  [hairline] 20% → [hairline] 80% → 
+  transparent)
+
+Centre diamond SVG (9x9):
+<svg viewBox="0 0 9 9">
+  <path d="M4.5 0 L9 4.5 L4.5 9 L0 4.5 Z" 
+   fill="[sub]"/>
+</svg>
+
+Right line: same as left line.
+
+═══════════════════════════════════════
+SERIAL & CERTIFICATION (BOTTOM)
+═══════════════════════════════════════
+
+Position: absolute, bottom 22px, 
+left 26px, right 26px
+Display: flex
+Justify-content: space-between
+Align-items: flex-end
+
+LEFT — Serial:
+"SERIAL"
+- Font: Courier New, 7px
+- Letter-spacing: 1.5px
+- Color: [mGold]
+- Line-height: 1
+
+[Serial number]
+- Font: Courier New, 11px
+- Letter-spacing: 2px
+- Color: [serialFn]
+- Margin-top: 3px
+
+RIGHT — Certification:
+"CERTIFIED BY"
+- Font: Playfair Display italic, 6.5px
+- Letter-spacing: 1.5px
+- Color: [mGold]
+- Line-height: 1
+
+[Authority line]
+- Font: Source Sans 3, 8px
+- Letter-spacing: 2px
+- Weight: 600
+- Color: [mGold2]
+- Margin-top: 3px
+
+═══════════════════════════════════════
+MICRO-TEXT STRIP (BOTTOM EDGE)
+═══════════════════════════════════════
+
+Position: absolute, bottom 6px, 
+left 0, right 0
+Text-align: center
+
+Text: "KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·
+KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·
+KOPIT·KOPIT" (repeat)
+- Font: Courier New, 4px
+- Letter-spacing: 0.5px
+- Color: [microStrip]
+
+═══════════════════════════════════════
+ALL 7 CARDS — DATA SHEET
+═══════════════════════════════════════
+
+CARD 1 — BOD (Governance)
+Background:
+linear-gradient(135deg,
+  #080808 0%,#121212 22%,#1a1400 42%,
+  #3a2c08 49%,#5a4410 50%,#3a2c08 51%,
+  #1a1400 58%,#121212 78%,#080808 100%)
+Border: 1px solid rgba(201,168,76,0.65)
+Box-shadow: 0 24px 60px rgba(0,0,0,0.65),
+  0 0 30px rgba(255,228,150,0.35)
+
+Member: Tan Sri Michael
+MEMBER SINCE: 2022
+Caption: ◆ LEMBAGA PENGARAH · GOVERNANCE ◆
+Role EN: Board of Directors
+Role BM: Lembaga Pengarah
+Serial: BOD·0001·MY
+Cert: AGM ELECTION
+ORNAMENT: ◆ ◆ ◆ (TRIPLE DIAMOND)
+
+Colour palette:
+text: rgba(255,228,150,0.95)
+title: #ffffff
+mname: rgba(255,248,220,0.92)
+caption: rgba(255,228,150,0.55)
+sub: rgba(255,228,150,0.7)
+mGold: rgba(255,228,150,0.5)
+mGold2: rgba(255,228,150,0.85)
+serialFn: rgba(255,228,150,0.92)
+hairline: rgba(255,228,150,0.5)
+microStrip: rgba(255,228,150,0.22)
+glow: rgba(255,228,150,0.35)
+cornerStrong: rgba(255,228,150,0.85)
+cornerSoft: rgba(255,228,150,0.55)
+borderInner: rgba(201,168,76,0.32)
+patternStroke: #f0d878
+patternOpacity: 0.05
+
+────────────────────────────────────
+
+CARD 2 — KL (Division Leader)
+Background:
+linear-gradient(135deg,
+  #5a3d08 0%,#7a5410 22%,#a07424 42%,
+  #C9A84C 49%,#dabb5e 50%,#C9A84C 51%,
+  #a07424 58%,#7a5410 78%,#5a3d08 100%)
+Border: 1px solid rgba(255,225,100,0.5)
+Box-shadow: 0 24px 60px rgba(0,0,0,0.65),
+  0 0 30px rgba(255,228,150,0.4)
+
+Member: Ahmad Faizal
+MEMBER SINCE: 2022
+Caption: ◆ AHLI PERKHIDMATAN · LEAD ◆
+Role EN: Division Leader
+Role BM: Ketua Bahagian
+Serial: KL·0001·MY
+Cert: BOD APPROVED
+
+Colour palette:
+text: rgba(22,12,2,0.85)
+title: #1a0f02
+mname: rgba(22,12,2,0.92)
+caption: rgba(40,22,2,0.7)
+sub: rgba(40,22,2,0.75)
+mGold: rgba(40,22,2,0.55)
+mGold2: rgba(22,12,2,0.85)
+serialFn: rgba(22,12,2,0.92)
+hairline: rgba(22,12,2,0.45)
+microStrip: rgba(40,22,2,0.32)
+glow: rgba(255,228,150,0.4)
+cornerStrong: rgba(40,22,2,0.85)
+cornerSoft: rgba(40,22,2,0.55)
+borderInner: rgba(40,22,2,0.32)
+patternStroke: #3a2c08
+patternOpacity: 0.07
+
+────────────────────────────────────
+
+CARD 3 — KP (Division Member)
+Background:
+linear-gradient(135deg,
+  #0d1828 0%,#142035 22%,#1a2a40 42%,
+  #5a4520 49%,#7a5510 50%,#5a4520 51%,
+  #1a2a40 58%,#142035 78%,#0d1828 100%)
+Border: 1px solid rgba(201,168,76,0.4)
+Box-shadow: 0 24px 60px rgba(0,0,0,0.65),
+  0 0 30px rgba(201,168,76,0.25)
+
+Member: Priya Krishnan
+MEMBER SINCE: 2023
+Caption: ◆ AHLI PERKHIDMATAN · MEMBER ◆
+Role EN: Division Member
+Role BM: Ahli Bahagian
+Serial: KP·0012·MY
+Cert: MGT APPROVED
+
+Colour palette:
+text: rgba(255,228,150,0.85)
+title: #ffffff
+mname: rgba(255,252,240,0.92)
+caption: rgba(201,168,76,0.6)
+sub: rgba(201,168,76,0.7)
+mGold: rgba(201,168,76,0.5)
+mGold2: rgba(201,168,76,0.85)
+serialFn: rgba(201,168,76,0.92)
+hairline: rgba(201,168,76,0.45)
+microStrip: rgba(201,168,76,0.22)
+glow: rgba(201,168,76,0.25)
+cornerStrong: rgba(201,168,76,0.78)
+cornerSoft: rgba(201,168,76,0.5)
+borderInner: rgba(201,168,76,0.28)
+patternStroke: #f0d878
+patternOpacity: 0.04
+
+────────────────────────────────────
+
+CARD 4 — KI1 (Entry Partner)
+Background:
+linear-gradient(135deg,
+  #2a1205 0%,#3a1a08 22%,#5c2e10 42%,
+  #8a4820 49%,#a05828 50%,#8a4820 51%,
+  #5c2e10 58%,#3a1a08 78%,#2a1205 100%)
+Border: 1px solid rgba(200,120,64,0.55)
+Box-shadow: 0 24px 60px rgba(0,0,0,0.65),
+  0 0 30px rgba(220,150,90,0.3)
+
+Member: Siti Hajar
+MEMBER SINCE: 2023
+Caption: ◆ AHLI PELABUR · TIER I ◆
+Role EN: Entry Partner
+Role BM: Rakan Modal
+Serial: KI1·0005·MY
+Cert: BOD APPROVED
+
+Colour palette:
+text: rgba(255,200,140,0.85)
+title: #ffe4cc
+mname: rgba(255,210,165,0.92)
+caption: rgba(220,150,90,0.7)
+sub: rgba(220,160,95,0.75)
+mGold: rgba(220,150,90,0.55)
+mGold2: rgba(230,165,105,0.85)
+serialFn: rgba(230,170,110,0.92)
+hairline: rgba(220,150,90,0.5)
+microStrip: rgba(220,150,90,0.25)
+glow: rgba(220,150,90,0.3)
+cornerStrong: rgba(255,200,140,0.85)
+cornerSoft: rgba(220,150,90,0.55)
+borderInner: rgba(200,120,64,0.32)
+patternStroke: #c87840
+patternOpacity: 0.05
+
+────────────────────────────────────
+
+CARD 5 — KI2 (Growth Partner)
+Background:
+linear-gradient(135deg,
+  #141820 0%,#1c2330 22%,#252d38 42%,
+  #3a4555 49%,#4a5868 50%,#3a4555 51%,
+  #252d38 58%,#1c2330 78%,#141820 100%)
+Border: 1px solid rgba(160,185,210,0.55)
+Box-shadow: 0 24px 60px rgba(0,0,0,0.65),
+  0 0 30px rgba(160,185,210,0.3)
+
+Member: Rajesh Kumar
+MEMBER SINCE: 2024
+Caption: ◆ AHLI PELABUR · TIER II ◆
+Role EN: Growth Partner
+Role BM: Pelabur Teras
+Serial: KI2·0003·MY
+Cert: BOD APPROVED
+
+Colour palette:
+text: rgba(180,205,228,0.85)
+title: #e8f0fa
+mname: rgba(195,215,238,0.92)
+caption: rgba(160,185,210,0.7)
+sub: rgba(170,195,222,0.75)
+mGold: rgba(160,185,210,0.55)
+mGold2: rgba(190,215,238,0.85)
+serialFn: rgba(190,215,238,0.92)
+hairline: rgba(160,185,210,0.5)
+microStrip: rgba(160,185,210,0.25)
+glow: rgba(160,185,210,0.3)
+cornerStrong: rgba(195,215,238,0.85)
+cornerSoft: rgba(160,185,210,0.55)
+borderInner: rgba(160,185,210,0.32)
+patternStroke: #aac5e0
+patternOpacity: 0.05
+
+────────────────────────────────────
+
+CARD 6 — KI3 (Strategic Partner)
+Background:
+linear-gradient(135deg,
+  #080808 0%,#121212 22%,#1a1400 42%,
+  #3a2c08 49%,#5a4410 50%,#3a2c08 51%,
+  #1a1400 58%,#121212 78%,#080808 100%)
+Border: 1px solid rgba(201,168,76,0.7)
+Box-shadow: 0 24px 60px rgba(0,0,0,0.65),
+  0 0 30px rgba(255,228,150,0.4)
+
+Member: Dato' Lee Chong
+MEMBER SINCE: 2024
+Caption: ◆ AHLI PELABUR · TIER III ◆
+Role EN: Strategic Partner
+Role BM: Pelabur Agung
+Serial: KI3·0001·MY
+Cert: BOD · CHAIRMAN
+ORNAMENT: ◆ (SINGLE LARGE DIAMOND)
+
+Colour palette: (same as BOD)
+text: rgba(255,228,150,0.95)
+title: #ffffff
+mname: rgba(255,248,220,0.92)
+caption: rgba(255,228,150,0.55)
+sub: rgba(255,228,150,0.7)
+mGold: rgba(255,228,150,0.5)
+mGold2: rgba(255,228,150,0.85)
+serialFn: rgba(255,228,150,0.92)
+hairline: rgba(255,228,150,0.5)
+microStrip: rgba(255,228,150,0.22)
+glow: rgba(255,228,150,0.4)
+cornerStrong: rgba(255,228,150,0.85)
+cornerSoft: rgba(255,228,150,0.55)
+borderInner: rgba(201,168,76,0.4)
+patternStroke: #f0d878
+patternOpacity: 0.05
+
+────────────────────────────────────
+
+CARD 7 — KB (General Member)
+Background:
+linear-gradient(135deg,
+  #0a1628 0%,#0f1d33 22%,#152540 42%,
+  #1f3050 49%,#2a3a5a 50%,#1f3050 51%,
+  #152540 58%,#0f1d33 78%,#0a1628 100%)
+Border: 1px solid rgba(201,168,76,0.28)
+Box-shadow: 0 24px 60px rgba(0,0,0,0.65),
+  0 0 30px rgba(201,168,76,0.18)
+
+Member: David Lim
+MEMBER SINCE: 2024
+Caption: ◆ WARGA KOPIT · GENERAL ◆
+Role EN: General Member
+Role BM: Warga KOPIT
+Serial: KB·0048·MY
+Cert: MGT APPROVED
+
+Colour palette:
+text: rgba(201,168,76,0.75)
+title: #ffffff
+mname: rgba(255,252,240,0.88)
+caption: rgba(201,168,76,0.55)
+sub: rgba(201,168,76,0.65)
+mGold: rgba(201,168,76,0.45)
+mGold2: rgba(201,168,76,0.78)
+serialFn: rgba(201,168,76,0.85)
+hairline: rgba(201,168,76,0.4)
+microStrip: rgba(201,168,76,0.18)
+glow: rgba(201,168,76,0.18)
+cornerStrong: rgba(201,168,76,0.7)
+cornerSoft: rgba(201,168,76,0.45)
+borderInner: rgba(201,168,76,0.22)
+patternStroke: #f0d878
+patternOpacity: 0.035
+
+═══════════════════════════════════════
+JAVASCRIPT — GLOBE ROTATION LOGIC
+═══════════════════════════════════════
+
+const N = 7;
+const angleStep = 360 / N; 
+  // ≈ 51.4286 degrees
+let cur = 0;
+let rotation = 0;
+
+Variables hold:
+- cur: current active card index 
+  (0 to 6)
+- rotation: total accumulated 
+  rotation in degrees (can be 
+  negative or positive)
+
+CLICK PREVIOUS button:
+cur = (cur - 1 + N) % N
+rotation += angleStep
+apply()
+
+CLICK NEXT button:
+cur = (cur + 1) % N
+rotation -= angleStep
+apply()
+
+CLICK DOT (with index i):
+const diff = i - cur
+const shortest = Math.abs(diff) > 
+  N / 2 ? diff - Math.sign(diff) * 
+  N : diff
+cur = i
+rotation -= shortest * angleStep
+apply()
+
+apply() function:
+- Set globe transform: 
+  rotateY(rotation deg)
+- Loop all cards: set opacity 1 
+  if i === cur, else 0.25
+- Loop all dots: active state 
+  styling (gold, 18px wide)
+- Fade info text (opacity 0), 
+  then 250ms later update text 
+  and fade back in (opacity 1)
+
+KEYBOARD support:
+document.addEventListener('keydown', 
+  e => {
+  if(e.key === 'ArrowLeft') 
+    prevButton.click()
+  if(e.key === 'ArrowRight') 
+    nextButton.click()
+});
+
+TOUCH SWIPE support:
+- Track touchstart X position
+- On touchend: calculate dx
+- If dx > 50: previous
+- If dx < -50: next
+
+═══════════════════════════════════════
+NO IDLE BEHAVIOUR (D4=B)
+═══════════════════════════════════════
+
+Globe stays still until user 
+interacts. No auto-rotation.
+No wobble animation.
+
+═══════════════════════════════════════
+NO ACTIVE CARD CLICK ROUTING (D5=B)
+═══════════════════════════════════════
+
+The active card itself is decorative.
+Only the "Explore All Membership 
+Tiers →" CTA button routes to 
+/membership.html.
+
+Do not add onClick handler to 
+active card.
+
+═══════════════════════════════════════
+MOBILE RESPONSIVE (D3=A)
+═══════════════════════════════════════
+
+@media (max-width: 768px) {
+  .globe-stage {
+    perspective: 1000px;
+    height: 220px;
+  }
+  
+  .globe-card {
+    width: 280px;
+    height: 175px;
+  }
+  
+  .globe-card transform updates to:
+    rotateY(angle) translateZ(190px)
+    (smaller radius)
+  
+  Section heading: 28px (was 38px)
+  Subtext max-width: 100%
+  
+  Cards stay 3D (no fallback to flat).
+}
+
+═══════════════════════════════════════
+WHAT NOT TO TOUCH
+═══════════════════════════════════════
+
+PRESERVE EVERY OTHER SECTION:
+- Navbar with KOPIT Genesis logo
+- Hero with Living Constellation
+- Who We Are manifesto + credentials
+- Our Foundation 4 boxes
+- Seven Divisions cards
+- The 8th Division section
+- How KOPIT Works section
+- Existing fonts (Playfair Display, 
+  Source Sans 3, Cinzel)
+- All animations and hover states
+
+═══════════════════════════════════════
+VERIFICATION CHECKLIST
+═══════════════════════════════════════
+
+After build, verify the following:
+
+SECTION HEADER:
+1. ✓ Section appears AFTER 
+   "How KOPIT Works"
+2. ✓ "MEMBERSHIP" label with vertical 
+   gold ornament
+3. ✓ "Membership Is By Invitation." 
+   heading
+4. ✓ Subtext mentions "Seven tiers. 
+   Curated by the cooperative."
+
+GLOBE CAROUSEL:
+5. ✓ Single card visible centred
+6. ✓ Side cards faded (opacity 25%)
+7. ✓ Click → arrow: globe rotates 
+   smoothly to next card
+8. ✓ Click ← arrow: globe rotates 
+   to previous card
+9. ✓ Click any dot: jumps directly 
+   to that card
+10. ✓ Keyboard arrow keys work
+11. ✓ Touch swipe works on mobile
+12. ✓ Animation smooth, no stuck 
+    or flicker
+
+CARD DESIGN — VISUAL ELEMENTS:
+13. ✓ All 4 corner brackets visible 
+    on every card
+14. ✓ Inner ornamental border visible
+15. ✓ Guilloché pattern subtle but 
+    visible at correct opacity
+16. ✓ KOPIT crest with concentric 
+    rings top-left
+17. ✓ "EST · MMXXII" tagline under 
+    KOPIT
+18. ✓ Member name top-right (italic)
+19. ✓ "MEMBER SINCE" + year top-right
+20. ✓ Section caption ◆...◆ centred
+21. ✓ English role title large
+22. ✓ Malay role title italic small 
+    below
+23. ✓ Diamond divider centred with 
+    hairlines
+24. ✓ SERIAL + serial number 
+    bottom-left
+25. ✓ CERTIFIED BY + authority 
+    bottom-right
+26. ✓ Micro-text "KOPIT·KOPIT..." 
+    along bottom edge
+
+ORNAMENTS:
+27. ✓ BOD card has ◆ ◆ ◆ above title
+28. ✓ KI3 card has ◆ above title
+29. ✓ Other 5 cards have NO ornament
+
+CARD CONTENT — EACH TIER:
+30. ✓ BOD: Tan Sri Michael, 2022, 
+    BOD·0001·MY, AGM ELECTION
+31. ✓ KL: Ahmad Faizal, 2022, 
+    KL·0001·MY, BOD APPROVED
+32. ✓ KP: Priya Krishnan, 2023, 
+    KP·0012·MY, MGT APPROVED
+33. ✓ KI1: Siti Hajar, 2023, 
+    KI1·0005·MY, BOD APPROVED
+34. ✓ KI2: Rajesh Kumar, 2024, 
+    KI2·0003·MY, BOD APPROVED
+35. ✓ KI3: Dato' Lee Chong, 2024, 
+    KI3·0001·MY, BOD · CHAIRMAN
+36. ✓ KB: David Lim, 2024, 
+    KB·0048·MY, MGT APPROVED
+
+NAVIGATION:
+37. ✓ Active dot is wider (18px) 
+    and gold
+38. ✓ Other 6 dots are small (5px) 
+    and dim
+39. ✓ Info bar updates with English 
+    + Malay name on card change
+
+CTA:
+40. ✓ "Explore All Membership 
+    Tiers →" button visible
+41. ✓ Button links to 
+    /membership.html
+42. ✓ Hover: button fills gold
+
+MOBILE:
+43. ✓ Cards smaller on mobile 
+    (280x175px)
+44. ✓ Globe still rotates in 3D
+45. ✓ Section heading 28px on mobile
+46. ✓ Layout doesn't break
+
+After fixing — refresh browser. 
+Take FIVE screenshots:
+
+1. Section heading + first card 
+   (BOD or current active)
+2. Second screenshot AFTER clicking 
+   right arrow once (different card 
+   showing)
+3. The KI3 card with single ◆ 
+   ornament
+4. The BOD card with ◆ ◆ ◆ ornament
+5. Mobile view (resize browser to 
+   ~400px wide)
+
+Bring all 5 back for review.

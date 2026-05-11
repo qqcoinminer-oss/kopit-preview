@@ -1,0 +1,1002 @@
+COMPREHENSIVE BUILD — MEMBERSHIP PAGE 
+2A · SKELETON + STATIC SECTIONS
+
+This is BUILD 2A of 3 for the 
+membership page. Creates the page 
+skeleton with all static sections. 
+Carousel + vault + comparison table 
+come in Build 2B and 2C.
+
+═══════════════════════════════════════
+FILES TO CREATE / MODIFY
+═══════════════════════════════════════
+
+CREATE: 
+C:\Projects\KOPIT-Website\membership.html
+
+MODIFY: 
+C:\Projects\KOPIT-Website\contact.html 
+(small JS update for new URL params)
+
+DO NOT MODIFY:
+- index.html
+- css/style.css existing rules 
+  (only add new rules if needed)
+
+═══════════════════════════════════════
+PART 1 — CREATE MEMBERSHIP.HTML
+═══════════════════════════════════════
+
+PAGE STRUCTURE TOP TO BOTTOM:
+1. <head> with meta + Google Fonts
+2. NAVBAR (copy EXACTLY from 
+   index.html with active state on 
+   "Membership" link)
+3. STICKY IN-PAGE NAVIGATION (NEW)
+4. SECTION 1 — HERO BAND
+5. SECTION 2 — PHILOSOPHY
+6. SECTION 3 — GOVERNANCE PILLAR (BOD)
+7. SECTION 4 — CAPITAL STRUCTURE 
+   (Two streams + 2 worked examples)
+8. SECTION 5 — SIX TIERS CAROUSEL 
+   (placeholder div for Build 2B)
+9. SECTION 6 — TIER COMPARISON 
+   (placeholder div for Build 2C)
+10. SECTION 7 — HOW TO APPLY 
+    (4 steps)
+11. SECTION 8 — FINAL CTA BAND
+12. FOOTER (copy EXACTLY from 
+    index.html)
+13. Inline JavaScript at bottom
+
+═══════════════════════════════════════
+HEAD SECTION
+═══════════════════════════════════════
+
+<title>Membership — KOPIT · Curated By 
+The Cooperative</title>
+
+Meta description:
+"Membership in KOPIT is by invitation. 
+Six tiers reviewed by the Board. 
+Discover the cooperative structure, 
+capital programme, and pathway to 
+membership."
+
+Same Google Fonts link as homepage 
+(Cinzel + Playfair Display + Cormorant 
+Garamond + Source Sans 3).
+
+Same CSS link to css/style.css.
+
+═══════════════════════════════════════
+NAVBAR (Copy from index.html)
+═══════════════════════════════════════
+
+Copy EXACTLY from index.html. Apply 
+class="nav-link active" to the 
+Membership link.
+
+═══════════════════════════════════════
+STICKY IN-PAGE NAVIGATION
+═══════════════════════════════════════
+
+Position immediately after the navbar 
+(but starts visible only after user 
+scrolls past the hero section).
+
+<nav id="page-nav" style="
+  position: sticky;
+  top: 70px; /* below main navbar */
+  background: rgba(10, 22, 40, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 0.5px solid 
+    rgba(201, 168, 76, 0.2);
+  padding: 14px 40px;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+">
+  <a href="#philosophy" 
+   data-anchor="philosophy" 
+   class="page-nav-link active">
+   PHILOSOPHY</a>
+  <a href="#governance" 
+   data-anchor="governance" 
+   class="page-nav-link">
+   GOVERNANCE</a>
+  <a href="#capital" 
+   data-anchor="capital" 
+   class="page-nav-link">
+   CAPITAL</a>
+  <a href="#tiers" 
+   data-anchor="tiers" 
+   class="page-nav-link">
+   SIX TIERS</a>
+  <a href="#compare" 
+   data-anchor="compare" 
+   class="page-nav-link">
+   COMPARE</a>
+  <a href="#apply" 
+   data-anchor="apply" 
+   class="page-nav-link">
+   APPLY</a>
+</nav>
+
+CSS for .page-nav-link:
+- Color: rgba(255, 255, 255, 0.5)
+- Font: Cinzel, 10px
+- Letter-spacing: 3px
+- Font-weight: 600
+- Text-decoration: none
+- Transition: color 0.2s
+
+CSS for .page-nav-link.active:
+- Color: rgba(201, 168, 76, 0.85)
+
+CSS for .page-nav-link:hover:
+- Color: rgba(201, 168, 76, 0.85)
+
+═══════════════════════════════════════
+SECTION 1 — HERO BAND
+═══════════════════════════════════════
+
+<section id="hero">
+
+Background:
+linear-gradient(135deg, #0A1628 0%, 
+  #0F1D33 50%, #0A1628 100%)
+
+Padding: 100px 30px 80px
+Text-align: center
+Position: relative
+Overflow: hidden
+Border-bottom: 0.5px solid 
+  rgba(201, 168, 76, 0.15)
+
+Subtle grid pattern overlay (same 
+SVG pattern as contact page hero):
+<svg style="position:absolute;inset:0;
+ width:100%;height:100%;opacity:0.04;
+ pointer-events:none;" 
+ viewBox="0 0 800 400">
+  <defs>
+    <pattern id="heroGrid" x="0" y="0" 
+     width="40" height="40" 
+     patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" 
+       fill="none" stroke="#C9A84C" 
+       stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="400" 
+   fill="url(#heroGrid)"/>
+</svg>
+
+LABEL "MEMBERSHIP":
+Vertical gold ornament 1px x 14px
+"MEMBERSHIP" — Source Sans 3, 9px, 
+  letter-spacing 4px, weight 500, 
+  rgba(201, 168, 76, 0.65)
+Margin-bottom: 20px
+
+HEADING (USE LOCKED TYPOGRAPHY):
+<h1 style="font-family:'Playfair 
+ Display',serif;font-size:48px;
+ font-weight:600;color:#fff;margin:
+ 0 0 18px;letter-spacing:-0.5px;
+ line-height:1.15;">
+  Membership Is 
+  <span class="italic-accent">
+  Earned, Not Bought.</span>
+</h1>
+
+SUBTEXT (CORMORANT ITALIC):
+<p style="font-family:'Cormorant 
+ Garamond',serif;font-style:italic;
+ font-weight:400;color:rgba(255,255,
+ 255,0.55);font-size:15px;
+ line-height:1.7;max-width:580px;
+ margin:0 auto;letter-spacing:0.2px;">
+  Curated by the cooperative. 
+  Reviewed by the Board.<br>
+  Six tiers. Two streams. One 
+  pathway.
+</p>
+
+═══════════════════════════════════════
+SECTION 2 — PHILOSOPHY
+═══════════════════════════════════════
+
+<section id="philosophy" style="
+  padding:80px 40px;
+  border-bottom:0.5px solid 
+    rgba(201,168,76,0.1);
+">
+  <div style="max-width:760px;
+   margin:0 auto;text-align:center;">
+
+Section label:
+"— THE PHILOSOPHY —"
+Cinzel, 9px, letter-spacing 4px, 
+weight 500, rgba(201,168,76,0.7), 
+margin-bottom 18px
+
+Section heading:
+<h2 style="font-family:'Playfair 
+ Display',serif;font-size:30px;
+ font-weight:600;color:#fff;margin:
+ 0 0 28px;letter-spacing:-0.3px;">
+  Curated by the cooperative.
+</h2>
+
+Italic philosophy paragraph:
+<p style="font-family:'Cormorant 
+ Garamond',serif;font-style:italic;
+ font-weight:400;font-size:16px;
+ color:rgba(255,255,255,0.7);
+ line-height:1.85;margin:0 0 16px;">
+  KOPIT does not chase membership 
+  numbers. We choose people who 
+  believe what we believe — that 
+  wealth, when built collectively, 
+  returns to those who built it.
+</p>
+
+Regular paragraph:
+<p style="font-family:'Source Sans 
+ 3',sans-serif;font-size:14px;
+ color:rgba(255,255,255,0.55);
+ line-height:1.85;margin:0;">
+  Every application — from the 
+  first share at RM 200 to the 
+  strategic partnership of RM 
+  1,000,000 — is reviewed by the 
+  Board of Directors. Approval is 
+  not transactional. It is a 
+  judgment of alignment.
+</p>
+
+═══════════════════════════════════════
+SECTION 3 — GOVERNANCE PILLAR (BOD)
+═══════════════════════════════════════
+
+<section id="governance" style="
+  padding:80px 40px;
+  background:linear-gradient(180deg,
+    #0A1628 0%,#0D1A30 50%,
+    #0A1628 100%);
+  border-bottom:0.5px solid 
+    rgba(201,168,76,0.1);
+">
+  <div style="max-width:1000px;
+   margin:0 auto;">
+
+Header block (centred):
+"— GOVERNANCE PILLAR —" gold label
+"The Board Is Not A Membership Tier." 
+  Playfair 28px white
+"The BOD governs the cooperative. 
+  Elected at AGM by members. You 
+  cannot apply for this — but every 
+  application passes through them."
+  13px Cormorant italic at 0.55 
+  opacity, max-width 560px
+
+BOD CARD (centred, single):
+
+This is the same locked BOD card 
+design from the homepage carousel — 
+black + soft gold stripe + ◆◆◆ 
+ornament. Use the EXACT same HTML/CSS 
+as the BOD card from index.html 
+homepage carousel.
+
+Member name: Tan Sri Michael
+Since: 2022
+Caption: ◆ LEMBAGA PENGARAH · 
+GOVERNANCE ◆
+Role EN: Board of Directors
+Role BM: Lembaga Pengarah
+Bottom labels: "AGM ELECTED" / 
+"NOT A TIER" (instead of serial/cert)
+
+Card sized 380x235px (same as 
+homepage), centered with 
+margin: 40px auto 0.
+
+═══════════════════════════════════════
+SECTION 4 — CAPITAL STRUCTURE (NEW)
+═══════════════════════════════════════
+
+<section id="capital" style="
+  padding:80px 40px;
+  background:#0A1628;
+  border-bottom:0.5px solid 
+    rgba(201,168,76,0.1);
+">
+  <div style="max-width:1100px;
+   margin:0 auto;">
+
+Header block (centred):
+"— CAPITAL STRUCTURE —" gold label
+"Two Streams. One Member." 
+  Playfair 30px white
+"Every member holds shares in the 
+  cooperative. Some choose to do more 
+  — extending capital to KOPIT under 
+  our SKM-approved Capital Investment 
+  Programme."
+  13px Cormorant italic, max-width 
+  600px
+
+═══ TWO STREAMS GRID ═══
+
+<div style="display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:24px;margin-bottom:36px;">
+
+STREAM 1 BOX — SHARE CAPITAL:
+Padding: 32px 28px
+Background: rgba(255,255,255,0.025)
+Border: 0.5px solid 
+  rgba(201,168,76,0.2)
+Border-radius: 8px
+Position: relative
+
+Inside:
+"STREAM ONE" Cinzel 9px gold caps
+"Share Capital" Playfair 22px white
+"Modal Saham · Permanent Equity" 
+  Cormorant italic 11px gold
+
+Then 3 stat rows separated by 
+hairlines:
+- VALUE PER SHARE | RM 200
+- RETURNS | Annual Dividend
+"Declared at AGM based on cooperative 
+  profit." italic Cormorant 12px
+
+Then "SHARE QUANTITY BY TIER" Cinzel 
+8px gold, with bullet list:
+- KB — RM 200 minimum (1 share)
+- KP / KL — Higher quantity, 
+  BOD-determined
+- KI1 / KI2 / KI3 — Min 2% of 
+  investment value
+
+STREAM 2 BOX — CAPITAL INVESTMENT 
+PROGRAMME:
+Same structure but:
+Background: rgba(201,168,76,0.06) 
+  (slight gold tint)
+Border: 0.5px solid 
+  rgba(201,168,76,0.4)
+Has "OPTIONAL" pill badge top-right
+
+Inside:
+"STREAM TWO" Cinzel 9px gold
+"Capital Investment Programme" 
+  Playfair 22px white
+"Pelaburan Modal · Fixed Return 
+  Arrangement" Cormorant italic 
+  11px gold
+
+Then stat rows:
+- MINIMUM | RM 10,000
+- RETURNS | Competitive Fixed Return
+- RATE | BOD-Determined
+- TERM | Up to 3 years
+"After term: auto-renew at 
+  BOD-reviewed rate, or capital 
+  returned to member." italic 
+  Cormorant 12px
+
+Then "VOLUME RECLASSIFIES TIER":
+- RM 10K – 100K → KI1 — Entry Partner
+- RM 100K – 300K → KI2 — Growth 
+  Partner
+- RM 300K – 1M → KI3 — Strategic 
+  Partner
+
+═══ WORKED EXAMPLES (TWO) ═══
+
+Below the two streams, add header:
+"— WORKED EXAMPLES —" Cinzel 9px gold 
+caps, margin-bottom 24px
+
+GRID 2 columns showing 2 examples:
+
+EXAMPLE 1 — KB → KI1 with RM 50,000
+<div style="padding:28px 30px;
+ background:linear-gradient(135deg,
+ rgba(201,168,76,0.03) 0%,
+ rgba(255,255,255,0.02) 100%);
+ border:0.5px dashed 
+ rgba(201,168,76,0.3);
+ border-radius:8px;">
+
+Header: "EXAMPLE 1 · MODEST ENTRY"
+Cinzel 8px gold
+
+Heading (Cormorant italic):
+"A KB member chooses to invest 
+  RM 50,000."
+
+Before/After mini-grid (3 columns: 
+before / arrow / after):
+BEFORE: KB · 1 share · Dividend only
+→
+AFTER: KI1 · Investment RM 50K · 
+  Share top-up RM 1,000 (5 shares) · 
+  Total shares RM 1,200 (6 shares) · 
+  Income: Dividend + Fixed Return
+
+EXAMPLE 2 — KB → KI3 with RM 300,000
+Same structure but:
+Header: "EXAMPLE 2 · STRATEGIC SCALE"
+Heading: "A KB member chooses to 
+  invest RM 300,000."
+
+Before: KB · 1 share · Dividend only
+After: KI3 · Investment RM 300K · 
+  Share top-up RM 6,000 (30 shares) · 
+  Total shares RM 6,200 (31 shares) · 
+  Income: Dividend + Fixed Return
+
+Below both examples (centred):
+"After 3 years: investment auto-
+renews at BOD-reviewed rate, or 
+capital returns to member."
+Cormorant italic 11px white 0.5
+
+═══════════════════════════════════════
+SECTION 5 — SIX TIERS CAROUSEL 
+PLACEHOLDER (Build 2B will fill this)
+═══════════════════════════════════════
+
+<section id="tiers" style="
+  padding:80px 40px;
+  background:#0A1628;
+  border-bottom:0.5px solid 
+    rgba(201,168,76,0.1);
+  text-align:center;
+">
+  <div style="font-family:'Cinzel',
+   serif;font-size:9px;letter-
+   spacing:4px;color:rgba(201,168,
+   76,0.7);font-weight:500;
+   margin-bottom:14px;">
+   — THE SIX TIERS —</div>
+   
+  <h2 style="font-family:'Playfair 
+   Display',serif;font-size:30px;
+   font-weight:600;color:#fff;
+   margin:0 0 12px;letter-spacing:
+   -0.3px;">Find Your Place.</h2>
+   
+  <p style="font-family:'Cormorant 
+   Garamond',serif;font-style:italic;
+   font-weight:400;font-size:13px;
+   color:rgba(255,255,255,0.55);
+   max-width:520px;margin:0 auto 
+   36px;line-height:1.7;">
+   Click any card to reveal full 
+   details — share requirement, 
+   capital programme eligibility, 
+   approval flow, and rights.</p>
+   
+  <!-- BUILD 2B PLACEHOLDER -->
+  <div id="carousel-placeholder" 
+   style="padding:60px 30px;
+   background:rgba(255,255,255,0.02);
+   border:0.5px dashed 
+   rgba(201,168,76,0.3);
+   border-radius:8px;max-width:700px;
+   margin:0 auto;">
+    <p style="font-family:'Cormorant 
+     Garamond',serif;font-style:
+     italic;color:rgba(255,255,255,
+     0.5);font-size:13px;
+     line-height:1.7;margin:0;">
+     Six Tiers Globe Carousel<br>
+     [Build 2B will replace this 
+     placeholder]
+    </p>
+  </div>
+</section>
+
+═══════════════════════════════════════
+SECTION 6 — TIER COMPARISON 
+PLACEHOLDER (Build 2C will fill this)
+═══════════════════════════════════════
+
+<section id="compare" style="
+  padding:80px 40px;
+  background:linear-gradient(180deg,
+    #0A1628 0%,#0D1A30 50%,
+    #0A1628 100%);
+  border-bottom:0.5px solid 
+    rgba(201,168,76,0.1);
+  text-align:center;
+">
+  <div style="font-family:'Cinzel',
+   serif;font-size:9px;letter-
+   spacing:4px;color:rgba(201,168,
+   76,0.7);font-weight:500;
+   margin-bottom:14px;">
+   — SIDE BY SIDE —</div>
+   
+  <h2 style="font-family:'Playfair 
+   Display',serif;font-size:30px;
+   font-weight:600;color:#fff;
+   margin:0 0 36px;letter-spacing:
+   -0.3px;">Tier Comparison.</h2>
+   
+  <!-- BUILD 2C PLACEHOLDER -->
+  <div id="comparison-placeholder" 
+   style="padding:50px 30px;
+   background:rgba(255,255,255,0.02);
+   border:0.5px dashed 
+   rgba(201,168,76,0.3);
+   border-radius:8px;max-width:700px;
+   margin:0 auto;">
+    <p style="font-family:'Cormorant 
+     Garamond',serif;font-style:
+     italic;color:rgba(255,255,255,
+     0.5);font-size:13px;
+     line-height:1.7;margin:0;">
+     Tier Comparison Table<br>
+     [Build 2C will replace this 
+     placeholder]
+    </p>
+  </div>
+</section>
+
+═══════════════════════════════════════
+SECTION 7 — HOW TO APPLY (4 Steps)
+═══════════════════════════════════════
+
+<section id="apply" style="
+  padding:80px 40px;
+  background:#0A1628;
+  border-bottom:0.5px solid 
+    rgba(201,168,76,0.1);
+">
+  <div style="max-width:900px;
+   margin:0 auto;">
+
+Header block (centred):
+"— THE PATHWAY —" gold label
+"How To Apply." Playfair 30px white
+"Membership is by invitation. To 
+  express interest, follow this 
+  pathway:"
+Cormorant italic 13px
+
+4-step grid:
+Display: grid
+Grid-template-columns: repeat(4, 1fr)
+Gap: 16px
+Position: relative
+
+Connection line (absolute 
+positioned):
+position: absolute
+top: 30px
+left: 60px
+right: 60px
+height: 1px
+background: linear-gradient(to right,
+  transparent, rgba(201,168,76,0.4) 
+  15%, rgba(201,168,76,0.4) 85%, 
+  transparent)
+z-index: 0
+
+Each step (4 total):
+- Circle 60x60px
+- Border-radius 50%
+- Background: radial-gradient(circle 
+  at 30% 25%, rgba(20,38,62,0.95) 0%, 
+  rgba(8,16,28,0.98) 100%)
+- Border: 1px solid 
+  rgba(201,168,76,0.45)
+- Margin: 0 auto 16px
+- Display flex centred
+- Step number inside (Cinzel 20px 
+  weight 700 gold)
+
+Below circle:
+- Label (Cinzel 8px gold caps)
+- Description (Source Sans 3 11px 
+  white 0.6)
+
+Steps:
+1. EXPRESS INTEREST — "Submit inquiry 
+   through contact form or WhatsApp."
+2. INITIAL DIALOGUE — "Conversation 
+   with KOPIT representative."
+3. BOD REVIEW — "Application reviewed 
+   by Board of Directors."
+4. INVITATION — "Successful applicants 
+   receive formal invitation."
+
+═══════════════════════════════════════
+SECTION 8 — FINAL CTA BAND
+═══════════════════════════════════════
+
+<section style="
+  padding:90px 40px;
+  background:linear-gradient(135deg,
+    #0A1628 0%,#0F1D33 50%,
+    #0A1628 100%);
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+">
+
+Subtle grid pattern overlay (same 
+as hero).
+
+Inside (centred):
+"— EXPRESS INTEREST —" gold label
+Cinzel 10px gold caps, weight 600
+
+Heading (USE LOCKED TYPOGRAPHY):
+<h2 style="font-family:'Playfair 
+ Display',serif;font-size:36px;
+ font-weight:600;color:#fff;margin:
+ 0 0 16px;letter-spacing:-0.5px;
+ line-height:1.2;">
+  Ready To 
+  <span class="italic-accent">
+  Begin The Conversation?</span>
+</h2>
+
+Subtext (Cormorant italic):
+"Tell us about you. The Board 
+reviews every inquiry personally."
+
+Two buttons (flex centred, gap 14px):
+
+Button 1 — Express Interest (gold):
+href="contact.html?subject=membership"
+Background: #C9A84C
+Color: #0A1628
+Padding: 14px 30px
+Font: Source Sans 3 11px weight 600
+Letter-spacing: 2.5px
+Text-transform: uppercase
+Border-radius: 4px
+Text: "Express Your Interest →"
+
+Button 2 — WhatsApp (green):
+href="https://wa.me/60105122561?text=
+Hello%20KOPIT%2C%20I%27d%20like%20to
+%20express%20interest%20in%20
+membership."
+Background: rgba(37,211,102,0.95)
+Color: #fff
+Same padding and styling
+With WhatsApp icon SVG before text
+Text: "WhatsApp Direct →"
+
+═══════════════════════════════════════
+FOOTER (Copy from index.html)
+═══════════════════════════════════════
+
+Copy EXACTLY from index.html. 
+No modifications.
+
+═══════════════════════════════════════
+JAVASCRIPT — INLINE AT BOTTOM
+═══════════════════════════════════════
+
+<script>
+(function() {
+  // 1. Sticky in-page nav: show 
+  // after passing hero
+  const pageNav = document
+    .getElementById('page-nav');
+  const hero = document
+    .getElementById('hero');
+  
+  function updateStickyNav() {
+    const heroBottom = hero
+      .getBoundingClientRect().bottom;
+    if (heroBottom < 70) {
+      pageNav.style.opacity = '1';
+      pageNav.style.pointerEvents = 
+        'auto';
+    } else {
+      pageNav.style.opacity = '0';
+      pageNav.style.pointerEvents = 
+        'none';
+    }
+  }
+  
+  window.addEventListener('scroll', 
+    updateStickyNav);
+  updateStickyNav();
+  
+  // 2. Smooth scroll for anchor links
+  document.querySelectorAll(
+    '.page-nav-link').forEach(link => {
+    link.addEventListener('click', 
+      e => {
+      e.preventDefault();
+      const targetId = link.getAttribute(
+        'href').substring(1);
+      const target = document
+        .getElementById(targetId);
+      if (target) {
+        const offset = 130; 
+          // navbar + sticky nav height
+        const top = target
+          .getBoundingClientRect().top 
+          + window.pageYOffset - offset;
+        window.scrollTo({ 
+          top, 
+          behavior: 'smooth' 
+        });
+      }
+    });
+  });
+  
+  // 3. Active state on sticky nav 
+  // (highlights current section)
+  const sections = ['philosophy', 
+    'governance', 'capital', 
+    'tiers', 'compare', 'apply'];
+  
+  function updateActiveAnchor() {
+    let activeIndex = 0;
+    sections.forEach((id, i) => {
+      const el = document.getElementById(
+        id);
+      if (el && el.getBoundingClientRect()
+        .top < 200) {
+        activeIndex = i;
+      }
+    });
+    
+    document.querySelectorAll(
+      '.page-nav-link').forEach((link, i) 
+      => {
+      if (i === activeIndex) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
+  
+  window.addEventListener('scroll', 
+    updateActiveAnchor);
+  updateActiveAnchor();
+})();
+</script>
+
+═══════════════════════════════════════
+PART 2 — UPDATE CONTACT.HTML
+═══════════════════════════════════════
+
+The contact page currently reads 
+?division= URL parameter. We need to 
+also read ?subject= and ?tier= 
+parameters.
+
+Find the existing JavaScript in 
+contact.html that handles URL 
+parameters. UPDATE the parameter 
+detection block to:
+
+const urlParams = new URLSearchParams(
+  window.location.search);
+const divisionParam = urlParams.get(
+  'division');
+const subjectParam = urlParams.get(
+  'subject');
+const tierParam = urlParams.get(
+  'tier');
+
+if (divisionParam) {
+  const divisionSelect = document
+    .getElementById('division-select');
+  if (divisionSelect) {
+    divisionSelect.value = divisionParam;
+  }
+  const subjectSelect = document
+    .querySelector(
+    'select[name="subject"]');
+  if (subjectSelect) {
+    subjectSelect.value = 
+      'Hire A Division';
+  }
+}
+
+// NEW: Handle subject parameter 
+if (subjectParam === 'membership') {
+  const subjectSelect = document
+    .querySelector(
+    'select[name="subject"]');
+  if (subjectSelect) {
+    subjectSelect.value = 
+      'Membership Question';
+  }
+}
+
+// NEW: Handle tier parameter 
+if (tierParam) {
+  const tierMap = {
+    'kb': 'KB — General Member',
+    'kp': 'KP — Division Member',
+    'kl': 'KL — Division Leader',
+    'ki1': 'KI1 — Entry Partner',
+    'ki2': 'KI2 — Growth Partner',
+    'ki3': 'KI3 — Strategic Partner'
+  };
+  const tierLabel = tierMap[
+    tierParam.toLowerCase()] || 
+    tierParam;
+  
+  // Pre-fill message field with 
+  // tier mention
+  const messageField = document
+    .querySelector(
+    'textarea[name="message"]');
+  if (messageField && !messageField
+    .value.trim()) {
+    messageField.value = 
+      'I\'m interested in learning more '
+      + 'about ' + tierLabel + '. ';
+    // Move cursor to end so user 
+    // continues writing
+    messageField.focus();
+    messageField.setSelectionRange(
+      messageField.value.length,
+      messageField.value.length
+    );
+  }
+}
+
+═══════════════════════════════════════
+WHAT NOT TO TOUCH
+═══════════════════════════════════════
+
+DO NOT MODIFY:
+- index.html
+- Any existing CSS rules 
+  (only add the .page-nav-link rules)
+- Membership card designs (locked 
+  from earlier homepage build)
+- Footer credentials
+- Any other section structure
+
+═══════════════════════════════════════
+VERIFICATION CHECKLIST
+═══════════════════════════════════════
+
+After build:
+
+PAGE STRUCTURE:
+1. ✓ /membership.html loads correctly
+2. ✓ Browser title says 
+   "Membership — KOPIT · Curated By 
+   The Cooperative"
+3. ✓ Navbar identical to homepage
+4. ✓ "Membership" navbar link shows 
+   active state (gold + underline)
+5. ✓ Footer identical to homepage
+
+STICKY IN-PAGE NAV:
+6. ✓ Hidden initially (during hero)
+7. ✓ Fades in after passing hero
+8. ✓ 6 anchors visible: PHILOSOPHY 
+   GOVERNANCE CAPITAL SIX TIERS 
+   COMPARE APPLY
+9. ✓ Click any anchor — smooth 
+   scrolls to section
+10. ✓ Active anchor highlights gold 
+    as user scrolls
+
+HERO BAND:
+11. ✓ "MEMBERSHIP" gold label at top
+12. ✓ "Membership Is Earned, Not 
+    Bought." with new italic 
+    typography (NO gold colour split)
+13. ✓ Subtext mentions "Two streams"
+
+PHILOSOPHY:
+14. ✓ "— THE PHILOSOPHY —" label
+15. ✓ "Curated by the cooperative." 
+    heading
+16. ✓ Italic philosophy paragraph
+17. ✓ Mentions RM 200 to RM 1,000,000 
+    range
+
+GOVERNANCE PILLAR:
+18. ✓ "— GOVERNANCE PILLAR —" label
+19. ✓ "The Board Is Not A Membership 
+    Tier." heading
+20. ✓ BOD card centered (black + gold 
+    + ◆◆◆)
+21. ✓ Card shows "AGM ELECTED" / 
+    "NOT A TIER"
+
+CAPITAL STRUCTURE:
+22. ✓ "— CAPITAL STRUCTURE —" label
+23. ✓ "Two Streams. One Member." 
+    heading
+24. ✓ Two side-by-side boxes 
+    (Stream 1 + Stream 2)
+25. ✓ Stream 2 has "OPTIONAL" pill 
+    badge
+26. ✓ Both worked examples visible 
+    (Example 1: KB→KI1 RM 50K, 
+    Example 2: KB→KI3 RM 300K)
+
+CAROUSEL PLACEHOLDER:
+27. ✓ "— THE SIX TIERS —" label
+28. ✓ "Find Your Place." heading
+29. ✓ Placeholder div with dashed 
+    border visible
+
+COMPARISON PLACEHOLDER:
+30. ✓ "— SIDE BY SIDE —" label
+31. ✓ "Tier Comparison." heading
+32. ✓ Placeholder div visible
+
+HOW TO APPLY:
+33. ✓ "— THE PATHWAY —" label
+34. ✓ "How To Apply." heading
+35. ✓ 4 step circles with gold 
+    connection line
+36. ✓ Steps: Express Interest, 
+    Initial Dialogue, BOD Review, 
+    Invitation
+
+FINAL CTA:
+37. ✓ "Ready To Begin The 
+    Conversation?" with new italic 
+    typography
+38. ✓ Two buttons: Express Interest 
+    (gold) + WhatsApp Direct (green)
+39. ✓ Express Interest links to 
+    contact.html?subject=membership
+
+CONTACT.HTML INTEGRATION TEST:
+40. ✓ Visit /contact.html?subject=
+    membership — Subject dropdown 
+    auto-selects "Membership Question"
+41. ✓ Visit /contact.html?tier=ki2 — 
+    Message field pre-fills with 
+    "I'm interested in learning more 
+    about KI2 — Growth Partner. "
+42. ✓ Visit /contact.html?subject=
+    membership&tier=ki3 — both work 
+    together
+
+After build — refresh browser. 
+Take SIX screenshots:
+
+1. /membership.html top portion 
+   showing hero with new typography
+2. /membership.html middle showing 
+   Capital Structure section with 
+   both worked examples
+3. /membership.html bottom showing 
+   Final CTA with new typography
+4. Sticky in-page nav visible 
+   (scroll past hero)
+5. /contact.html?subject=membership 
+   showing Subject dropdown 
+   auto-filled
+6. /contact.html?tier=ki2 showing 
+   Message field pre-filled
+
+Bring all 6 back for review.

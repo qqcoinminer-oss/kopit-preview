@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Divisions · KOPIT — Seven Divisions, Satu Koperasi</title>
+<meta name="description" content="KOPIT's seven cooperative divisions — Wira Digital, Bijak AI, Hijau Energy, Rantai Blockchain, Dana Sejahtera, Angkasa Build, Arif Advisory. Built for the AI era. Engineered for Malaysian enterprise.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Source+Sans+3:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   1. RESET & BASE
+═══════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Source Sans 3',sans-serif;color:#F4EFE8;background:#0A1628;overflow-x:hidden;line-height:1.6}
+a{text-decoration:none;color:inherit;transition:all .25s ease}
+ul{list-style:none}
+img{max-width:100%;display:block}
+
+:root{
+  --navy:#0A1628;--navy-dk:#060D1A;--gold:#C9A84C;--gold-dk:#A8862A;--gold-lt:#DEC06A;
+  --bg:#F8F6F1;--text:#2C2C2C;--white:#FFFFFF;--cw:1160px;--nav-h:95px;
+}
+.wrap{max-width:var(--cw);margin:0 auto;padding:0 44px}
+
+/* ══════════════════════════════════════════
+   NAVBAR
+══════════════════════════════════════════ */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);background:var(--navy);box-shadow:0 2px 20px rgba(0,0,0,.35);display:flex;align-items:center;transition:height .35s ease, padding .35s ease, box-shadow .35s ease;}
+.navbar.scrolled{height:65px}
+.nav-inner{max-width:1600px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;width:100%;}
+.nav-right{display:flex;align-items:center;justify-content:flex-end;gap:12px}
+#kopitLogo{background:transparent;display:block;flex-shrink:0;width:75px;height:75px;transition:width .35s ease, height .35s ease;}
+.navbar.scrolled #kopitLogo{width:55px;height:55px}
+.logo-unit{display:flex;align-items:center;gap:11px;flex-shrink:0;cursor:pointer}
+.logo-text-block{display:flex;flex-direction:column;justify-content:center}
+.lt-1{font-family:'Cinzel','Playfair Display',serif;font-size:30px;font-weight:700;color:#ffffff;letter-spacing:4px;margin-bottom:2px;display:block;line-height:1;transition:font-size .35s ease;}
+.navbar.scrolled .lt-1{font-size:24px}
+.lt-2{font-family:'Source Sans 3',sans-serif;font-size:10px;color:rgba(255,255,255,0.5);letter-spacing:.4px;white-space:nowrap;display:block;overflow:hidden;max-height:18px;opacity:1;margin-bottom:2px;line-height:1.4;transition:opacity .35s ease, max-height .35s ease, margin-bottom .35s ease;}
+.lt-3{font-family:'Source Sans 3',sans-serif;font-size:11px;font-style:italic;color:rgba(201,168,76,.85);letter-spacing:.5px;display:block;line-height:1;}
+.navbar.scrolled .lt-2{opacity:0;max-height:0;margin-bottom:0;overflow:hidden}
+.nav-links{display:flex;align-items:center;justify-content:center;gap:24px}
+.nl{font-family:'Source Sans 3',sans-serif;font-size:15px;font-weight:600;letter-spacing:.3px;color:rgba(255,255,255,.75);padding:4px 2px;border-radius:4px;transition:all .2s ease;}
+.nl:hover,.nl.active{color:var(--gold);background:transparent}
+.lang-toggle{display:none}
+.lang-btn{font-family:Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;padding:5px 12px;border-radius:3px;cursor:pointer;transition:all .2s ease;border:1.5px solid var(--gold);background:transparent;color:var(--gold);}
+.lang-btn.active{background:var(--gold);color:var(--navy-dk)}
+.lang-btn:hover:not(.active){background:rgba(201,168,76,.12)}
+.nav-cta{font-family:'Source Sans 3',sans-serif;font-size:14px;font-weight:700;letter-spacing:.04em;background:var(--gold);color:var(--navy);border:none;padding:10px 24px;border-radius:4px;flex-shrink:0;transition:all .2s ease;}
+.nav-cta:hover{background:var(--gold-dk);color:var(--navy)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;margin-left:8px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--gold);border-radius:2px;transition:all .25s ease;}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-links.open{right:0 !important}
+
+/* ══════════════════════════════════════════
+   ANIMATION KEYFRAMES + BINDINGS
+══════════════════════════════════════════ */
+@keyframes textShimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+@keyframes orbBreathe { 0%, 100% { filter: brightness(1.05); } 50% { filter: brightness(1.18); } }
+@keyframes auraPulse { 0%, 100% { transform: scale(1); opacity: 0.45; } 50% { transform: scale(1.18); opacity: 0.75; } }
+@keyframes shineSweep { 0%, 100% { transform: translate(-150%, -150%) rotate(35deg); } 50% { transform: translate(150%, 150%) rotate(35deg); } }
+@keyframes sparkle { 0%, 100% { opacity: 0; transform: scale(0.6); } 50% { opacity: 1; transform: scale(1.3); } }
+@keyframes nodeFloat { 0%, 100% { opacity: 0.7; } 50% { opacity: 1; } }
+@keyframes beam { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.8; } }
+@keyframes ctaGlow { 0%, 100% { box-shadow: 0 0 18px var(--dglow, rgba(201,168,76,0.25)); } 50% { box-shadow: 0 0 30px var(--dglow, rgba(201,168,76,0.45)); } }
+.dsec-orb-body { animation: orbBreathe 4s ease-in-out infinite; }
+.dsec-orb-aura { animation: auraPulse 4s ease-in-out infinite; }
+.dsec-orb-shine-band { animation: shineSweep 5s ease-in-out infinite; }
+.dsec-orb-spark { animation: sparkle 3s ease-in-out infinite; }
+.node-orb { animation: nodeFloat 4s ease-in-out infinite; }
+.beam-line { animation: beam 3s ease-in-out infinite; }
+.dsec-inquiry-btn { animation: ctaGlow 4s ease-in-out infinite; }
+.div-hero-shimmer{background:linear-gradient(90deg,#F4EFE8 0%,#FFE89A 25%,#F4EFE8 50%,#FFE89A 75%,#F4EFE8 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:textShimmer 6s linear infinite;}
+.div-section{scroll-margin-top:100px}
+
+/* ══════════════════════════════════════════
+   PREMIUM 3D ORB STRUCTURE
+══════════════════════════════════════════ */
+.dsec-orb{width:100px;height:100px;flex-shrink:0;position:relative;}
+.dsec-orb-aura{position:absolute;inset:-12px;border-radius:50%;pointer-events:none;}
+.dsec-orb-spark{position:absolute;border-radius:50%;pointer-events:none;}
+.dsec-orb-shadow{position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);width:75px;height:10px;background:radial-gradient(ellipse,rgba(0,0,0,0.6) 0%,transparent 70%);filter:blur(3px);}
+.dsec-orb-body{width:100px;height:100px;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.dsec-orb-shine{position:absolute;inset:0;overflow:hidden;border-radius:50%;pointer-events:none;}
+.dsec-orb-shine-band{position:absolute;top:0;left:0;width:60%;height:60%;background:linear-gradient(135deg,transparent 35%,rgba(255,255,255,0.5) 50%,transparent 65%);}
+.dsec-orb-gloss{position:absolute;top:8%;left:18%;width:38%;height:30%;background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,0.85) 0%,rgba(255,255,255,0.4) 30%,transparent 70%);border-radius:50%;filter:blur(1px);}
+.dsec-orb-icon{position:relative;z-index:2;}
+
+/* ══════════════════════════════════════════
+   HERO
+══════════════════════════════════════════ */
+.div-hero{background:var(--navy);padding:120px 0 60px;text-align:center;position:relative;overflow:hidden;}
+.div-hero-label-wrap{display:inline-flex;align-items:center;gap:14px;margin-bottom:20px;}
+.div-hero-label-line{width:30px;height:1px;background:rgba(201,168,76,0.6);}
+.div-hero-label-wrap::after{content:'';width:30px;height:1px;background:rgba(201,168,76,0.6);}
+.div-hero-label{font-family:'Cinzel',serif;font-size:12px;letter-spacing:4px;color:rgba(201,168,76,0.85);font-weight:600;}
+.div-hero-headline{font-family:'Playfair Display',serif;font-size:60px;font-weight:600;letter-spacing:-0.6px;line-height:1.1;margin:0 0 16px;}
+.div-hero-italic{color:var(--gold);font-style:italic;}
+.div-hero-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:rgba(244,239,232,0.7);max-width:640px;margin:0 auto;line-height:1.55;}
+
+/* ══════════════════════════════════════════
+   IDENTITY DECLARATION STRIP
+══════════════════════════════════════════ */
+.div-identity{background:var(--navy);padding:30px 0 60px;}
+.div-identity-strip{max-width:1100px;margin:0 auto;background:linear-gradient(135deg,rgba(201,168,76,0.18),rgba(201,168,76,0.05));border:0.5px solid rgba(201,168,76,0.5);border-radius:10px;padding:36px 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.div-identity-box{text-align:center;border-right:0.5px solid rgba(201,168,76,0.2);padding:0 14px;transition:transform 0.3s ease;}
+.div-identity-box:last-child{border-right:none;}
+.div-identity-box:hover{transform:translateY(-2px);}
+.div-identity-word{font-family:'Playfair Display',serif;font-size:26px;font-weight:600;color:#C9A84C;line-height:1.1;font-style:italic;}
+.div-identity-sub{font-family:'Cormorant Garamond',serif;font-size:15px;color:rgba(244,239,232,0.85);margin-top:8px;font-style:italic;line-height:1.4;}
+
+/* ══════════════════════════════════════════
+   HONEYCOMB TEASER (REAL SVG HEXAGONS)
+══════════════════════════════════════════ */
+.div-honeycomb-teaser{background:var(--navy);padding:40px 0 60px;}
+.div-honeycomb-eyebrow{font-family:'Cinzel',serif;font-size:12px;letter-spacing:4px;color:rgba(201,168,76,0.85);font-weight:600;text-align:center;margin-bottom:14px;}
+.div-honeycomb-title{font-family:'Playfair Display',serif;font-size:32px;font-weight:600;color:#F4EFE8;text-align:center;letter-spacing:-0.4px;margin:0 0 32px;font-style:italic;}
+.div-honeycomb-stage{max-width:1180px;margin:0 auto;}
+.div-honeycomb-stage svg{width:100%;height:auto;display:block;overflow:visible;}
+.div-honeycomb-hint{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(244,239,232,0.55);text-align:center;margin:30px 0 0;}
+
+/* SVG honeycomb interactions + animations */
+.div-hc-card{transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);cursor:pointer;transform-origin:center;transform-box:fill-box;text-decoration:none;}
+.div-hc-card:hover{transform:scale(1.07) translateY(-6px);}
+.div-hc-card:hover .div-hc-bg{filter:brightness(1.25);}
+.div-hc-card:hover .div-hc-glow{opacity:1!important;}
+.div-hc-glow{animation:auraPulse 3.5s ease-in-out infinite;transform-origin:center;transform-box:fill-box;}
+.div-hc-border{animation:hexBorderBreathe 4s ease-in-out infinite;}
+.div-hc-orb{animation:hexOrbBreathe 4s ease-in-out infinite;transform-origin:center;transform-box:fill-box;}
+.div-hc-shine-1{animation:hexShineSweep 6s ease-in-out infinite;animation-delay:0s;}
+.div-hc-shine-2{animation:hexShineSweep 6s ease-in-out infinite;animation-delay:0.8s;}
+.div-hc-shine-3{animation:hexShineSweep 6s ease-in-out infinite;animation-delay:1.6s;}
+.div-hc-shine-4{animation:hexShineSweep 6s ease-in-out infinite;animation-delay:2.4s;}
+.div-hc-shine-5{animation:hexShineSweep 6s ease-in-out infinite;animation-delay:3.2s;}
+.div-hc-shine-6{animation:hexShineSweep 6s ease-in-out infinite;animation-delay:4.0s;}
+.div-hc-shine-7{animation:hexShineSweep 6s ease-in-out infinite;animation-delay:4.8s;}
+@keyframes hexShineSweep{0%{transform:translateX(-200px) rotate(25deg);opacity:0;}10%{opacity:0.85;}50%{opacity:0.85;}90%{opacity:0.85;}100%{transform:translateX(200px) rotate(25deg);opacity:0;}}
+@keyframes hexBorderBreathe{0%,100%{stroke-opacity:0.6;stroke-width:1.5;}50%{stroke-opacity:1;stroke-width:2;}}
+@keyframes hexOrbBreathe{0%,100%{filter:brightness(1.05) drop-shadow(0 0 16px var(--g)) drop-shadow(0 0 28px var(--g2));}50%{filter:brightness(1.2) drop-shadow(0 0 26px var(--g)) drop-shadow(0 0 44px var(--g2));}}
+
+/* ══════════════════════════════════════════
+   DIVISION SECTION
+══════════════════════════════════════════ */
+.div-section{padding:60px 0;border-top:0.5px solid rgba(var(--dcol-rgb),0.2);}
+.div-section:nth-of-type(odd){background:linear-gradient(180deg,rgba(15,22,38,0.4) 0%,rgba(10,22,40,0.6) 100%);}
+.div-section:nth-of-type(even){background:linear-gradient(180deg,rgba(10,22,40,0.6) 0%,rgba(15,22,38,0.4) 100%);}
+
+.dsec-header{display:flex;align-items:center;gap:24px;margin-bottom:28px;}
+.dsec-title-row{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:8px;}
+.dsec-name{font-family:'Playfair Display',serif;font-size:38px;font-weight:600;color:#F4EFE8;margin:0;letter-spacing:-0.4px;}
+.dsec-bm{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:var(--dcol);}
+.dsec-desc{font-family:'Cormorant Garamond',serif;font-size:16px;color:rgba(244,239,232,0.75);margin:0;line-height:1.55;font-style:italic;}
+
+.dsec-anchor-box{background:rgba(8,16,28,0.6);border:0.5px solid rgba(var(--dcol-rgb),0.4);border-radius:10px;padding:24px 28px;margin-bottom:24px;}
+.dsec-anchor-statement{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;color:#F4EFE8;margin:0 0 18px;line-height:1.5;text-align:center;font-weight:500;}
+.dsec-anchor-statement .accent{color:var(--dcol);}
+.dsec-tags{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;padding-top:14px;border-top:0.5px solid rgba(var(--dcol-rgb),0.15);}
+.dsec-tag{background:rgba(var(--dcol-rgb),0.18);border:0.5px solid rgba(var(--dcol-rgb),0.55);color:var(--dcol);font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;font-weight:600;padding:7px 16px;border-radius:3px;}
+
+.dsec-twocol{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;}
+.dsec-col-label{font-family:'Cinzel',serif;font-size:12px;letter-spacing:3px;color:var(--dcol);font-weight:600;margin-bottom:12px;}
+.dsec-services,.dsec-whatwedo{background:rgba(8,16,28,0.4);border:0.5px solid rgba(var(--dcol-rgb),0.15);border-radius:8px;height:280px;position:relative;overflow:hidden;}
+.dsec-whatwedo{padding:20px 22px;display:flex;flex-direction:column;justify-content:center;}
+.dsec-intro{font-family:'Cormorant Garamond',serif;font-size:14.5px;color:rgba(244,239,232,0.85);line-height:1.55;margin:0 0 14px;}
+.dsec-intro .accent{color:var(--dcol);font-weight:500;}
+.dsec-bullets{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px;}
+.dsec-bullets li{font-family:'Cormorant Garamond',serif;font-size:14.5px;color:rgba(244,239,232,0.85);display:flex;gap:10px;align-items:flex-start;}
+.dsec-bullets li .accent{color:var(--dcol);font-weight:500;}
+.bullet-num{color:var(--dcol);flex-shrink:0;font-weight:700;font-family:'Cinzel',serif;font-size:13px;}
+
+/* PLATFORM PARTNERS STRIP (Arif Advisory only) */
+.dsec-platforms{background:linear-gradient(135deg,rgba(var(--dcol-rgb),0.1),rgba(var(--dcol-rgb),0.02));border:0.5px solid rgba(var(--dcol-rgb),0.25);border-radius:8px;padding:18px 22px;margin-bottom:24px;}
+.dsec-platforms-label{font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:var(--dcol);font-weight:600;margin-bottom:10px;text-align:center;}
+.dsec-platforms-grid{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+.dsec-platform-chip{background:rgba(var(--dcol-rgb),0.12);border:0.5px solid rgba(var(--dcol-rgb),0.45);border-radius:6px;padding:10px 18px;text-align:center;min-width:120px;transition:all 0.3s ease;}
+.dsec-platform-chip:hover{background:rgba(var(--dcol-rgb),0.25);transform:translateY(-1px);}
+.dsec-platform-name{font-family:'Playfair Display',serif;font-size:14px;font-weight:600;color:var(--dcol-light);margin-bottom:2px;}
+.dsec-platform-desc{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;color:rgba(244,239,232,0.65);}
+
+/* MEMBERS */
+.dsec-members{margin-bottom:24px;}
+.dsec-members-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.dsec-member-card{background:rgba(8,16,28,0.6);border:0.5px solid rgba(var(--dcol-rgb),0.25);border-radius:8px;padding:18px 16px;display:flex;align-items:center;gap:14px;transition:transform 0.3s ease;}
+.dsec-member-card:hover{transform:translateY(-3px);}
+.dsec-member-avatar{width:54px;height:54px;border-radius:50%;background:radial-gradient(circle at 30% 30%,var(--dcol-light),var(--dcol) 60%,var(--dcol-mid));display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--navy);box-shadow:0 0 12px rgba(var(--dcol-rgb),0.3);}
+.dsec-member-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:#F4EFE8;line-height:1.2;margin-bottom:3px;}
+.dsec-member-role{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:12.5px;color:rgba(var(--dcol-rgb),0.95);line-height:1.3;margin-bottom:6px;}
+.dsec-member-tier{display:inline-block;background:rgba(var(--dcol-rgb),0.18);border:0.5px solid rgba(var(--dcol-rgb),0.4);color:var(--dcol);font-family:'Cinzel',serif;font-size:8px;letter-spacing:1.5px;font-weight:600;padding:3px 8px;border-radius:2px;}
+
+/* INQUIRY BOX */
+.dsec-inquiry{background:linear-gradient(135deg,rgba(var(--dcol-rgb),0.15),rgba(var(--dcol-rgb),0.04));border:0.5px solid rgba(var(--dcol-rgb),0.5);border-radius:10px;padding:24px 28px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+.dsec-inquiry-text{display:flex;align-items:center;gap:18px;flex:1;min-width:280px;}
+.dsec-inquiry-icon{width:58px;height:58px;border-radius:50%;background:rgba(var(--dcol-rgb),0.18);border:0.5px solid rgba(var(--dcol-rgb),0.5);color:var(--dcol);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.dsec-inquiry-title{font-family:'Playfair Display',serif;font-size:19px;font-weight:600;color:#F4EFE8;margin-bottom:4px;}
+.dsec-inquiry-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:rgba(244,239,232,0.7);margin:0;line-height:1.4;}
+.dsec-inquiry-btn{font-family:'Source Sans 3',sans-serif;font-size:12.5px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--navy);text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:14px 26px;background:linear-gradient(135deg,var(--dcol-light),var(--dcol));border-radius:4px;border:0.5px solid rgba(var(--dcol-rgb),0.7);transition:transform 0.3s ease;}
+.dsec-inquiry-btn:hover{transform:translateY(-2px);}
+.dsec-inquiry-btn span{font-size:14px;}
+
+/* ══════════════════════════════════════════
+   FINAL CTA
+══════════════════════════════════════════ */
+.div-final-cta{padding:80px 0;background:linear-gradient(180deg,rgba(10,22,40,0.6) 0%,var(--navy) 100%);border-top:0.5px solid rgba(201,168,76,0.3);text-align:center;}
+.div-cta-label{font-family:'Cinzel',serif;font-size:12px;letter-spacing:4px;color:rgba(201,168,76,0.85);font-weight:600;margin-bottom:18px;}
+.div-cta-headline{font-family:'Playfair Display',serif;font-size:46px;font-weight:600;color:#F4EFE8;letter-spacing:-0.5px;line-height:1.1;margin:0 0 16px;}
+.gold-italic{color:var(--gold);font-style:italic;}
+.div-cta-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:rgba(244,239,232,0.7);max-width:580px;margin:0 auto 32px;}
+.div-cta-btn{font-family:'Source Sans 3',sans-serif;font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#FFE89A;text-decoration:none;display:inline-flex;align-items:center;gap:10px;padding:18px 38px;border:0.5px solid rgba(201,168,76,0.7);border-radius:4px;background:linear-gradient(135deg,rgba(255,210,120,0.15),rgba(201,168,76,0.05));box-shadow:0 0 24px rgba(201,168,76,0.25);transition:transform 0.3s ease;}
+.div-cta-btn:hover{transform:translateY(-2px);}
+.div-cta-btn span{font-size:16px;}
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+.footer{background:var(--navy);border-top:1px solid rgba(201,168,76,.14)}
+.footer-main{padding:80px 0 60px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1.2fr;gap:52px;}
+.f-svg-wrap{margin-bottom:18px}
+.f-logo-name{font-family:'Cinzel',serif;font-size:1.22rem;letter-spacing:4px;font-weight:700;color:var(--gold);margin-bottom:4px;}
+.f-tagline{font-family:'Source Sans 3',sans-serif;font-size:.84rem;color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:14px;}
+.f-premier{font-family:'Source Sans 3',sans-serif;font-size:.78rem;font-style:italic;color:rgba(255,255,255,.38);margin-bottom:14px;}
+.f-head{font-family:'Source Sans 3',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;}
+.f-nav-list{display:flex;flex-direction:column;gap:9px}
+.f-nav-list li a{display:flex;align-items:center;gap:9px;font-family:'Source Sans 3',sans-serif;font-size:.88rem;color:rgba(255,255,255,.52);transition:all .2s ease;}
+.f-nav-list li a::before{content:'';width:13px;height:1px;background:var(--gold);opacity:.35;flex-shrink:0;transition:all .2s ease;}
+.f-nav-list li a:hover{color:var(--gold-lt);padding-left:5px}
+.f-nav-list li a:hover::before{width:18px;opacity:1}
+.f-wa{display:inline-flex;align-items:center;gap:11px;font-family:'Source Sans 3',sans-serif;font-size:1.18rem;font-weight:700;color:var(--gold-lt);letter-spacing:.04em;margin-bottom:6px;transition:all .2s ease;}
+.f-wa:hover{color:#EDD47E}
+.f-hours{font-family:'Source Sans 3',sans-serif;font-size:.76rem;color:rgba(255,255,255,.36);margin-bottom:18px}
+.f-email{display:flex;align-items:center;gap:9px;font-family:'Source Sans 3',sans-serif;font-size:.86rem;color:rgba(255,255,255,.48);margin-bottom:22px;}
+.f-contact-btn{display:inline-block;font-family:'Source Sans 3',sans-serif;font-size:.8rem;font-weight:700;color:var(--navy-dk);background:linear-gradient(135deg,var(--gold),var(--gold-lt));padding:10px 24px;border-radius:4px;transition:all .2s ease;}
+.f-contact-btn:hover{transform:translateY(-1px);box-shadow:0 5px 20px rgba(201,168,76,.35)}
+.footer-bar{border-top:1px solid rgba(255,255,255,.055);padding:20px 0}
+.footer-bar-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.footer-bar-inner p{font-family:'Source Sans 3',sans-serif;font-size:.74rem;color:rgba(255,255,255,.28);}
+.bar-r{font-size:.7rem !important;color:rgba(201,168,76,.6) !important;white-space:nowrap}
+.bar-legal{color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s ease;}
+.bar-legal:hover{color:#C9A84C;}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media(max-width:1024px){.nl{padding:6px 9px;font-size:.76rem}}
+@media(max-width:900px){
+  :root{--nav-h:72px}
+  .wrap{padding:0 22px}
+  .hamburger{display:flex}
+  .nav-cta{display:none}
+  .nav-links{position:fixed;top:0;right:-100%;width:268px;height:100vh;background:var(--navy-dk);flex-direction:column;align-items:flex-start;padding:80px 26px 36px;gap:3px;border-left:1px solid rgba(201,168,76,.14);transition:right .38s ease;z-index:999;box-shadow:-18px 0 55px rgba(0,0,0,.38);}
+  .nav-links.open{right:0}
+  .nl{font-size:.92rem;padding:11px 14px;width:100%}
+  .footer-grid{grid-template-columns:1fr;gap:36px}
+  .footer-bar-inner{flex-direction:column;align-items:flex-start;gap:5px}
+  .footer-main{padding:56px 0 44px}
+  .lt-2{display:none}
+  .div-hero-headline{font-size:46px;}
+  .div-identity-strip{grid-template-columns:repeat(2,1fr);}
+  .div-identity-box:nth-child(2){border-right:none;}
+  .div-identity-box{border-bottom:0.5px solid rgba(201,168,76,0.2);padding-bottom:18px;}
+  .div-identity-box:nth-child(3),.div-identity-box:nth-child(4){border-bottom:none;padding-bottom:0;padding-top:18px;}
+  .div-honeycomb-title{font-size:24px;}
+  .dsec-twocol{grid-template-columns:1fr;}
+  .dsec-members-grid{grid-template-columns:1fr;}
+  .dsec-inquiry{flex-direction:column;align-items:flex-start;}
+  .dsec-inquiry-text{width:100%;}
+  .dsec-platforms-grid{gap:10px;}
+}
+@media(max-width:600px){
+  .div-hero-headline{font-size:36px;}
+  .div-identity-strip{grid-template-columns:1fr;padding:24px 16px;}
+  .div-identity-box{border-right:none;border-bottom:0.5px solid rgba(201,168,76,0.2);padding:14px 0;}
+  .div-identity-box:last-child{border-bottom:none;}
+  .div-identity-word{font-size:22px;}
+  .div-identity-sub{font-size:14px;}
+  .div-honeycomb-title{font-size:20px;}
+  .dsec-name{font-size:28px;}
+  .dsec-anchor-statement{font-size:16px;}
+  .dsec-services{height:240px;}
+  .dsec-whatwedo{height:auto;min-height:200px;}
+  .div-cta-headline{font-size:32px;}
+  .dsec-platform-chip{min-width:100px;padding:8px 14px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════ NAVBAR ══════════════════════════════════════ -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" aria-label="KOPIT Home">
+      <div class="logo-unit">
+        <canvas id="kopitLogo" width="60" height="60" style="display:block;flex-shrink:0;"></canvas>
+        <div class="logo-text-block">
+          <span class="lt-1">KOPIT</span>
+          <span class="lt-2">Koperasi Usahawan Informasi Teknologi Malaysia Berhad</span>
+          <span class="lt-3">Malaysia's Premier IT Koperasi</span>
+        </div>
+      </div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html"      class="nl"        data-en="Home"       data-bm="Utama">Home</a></li>
+      <li><a href="about.html"      class="nl"        data-en="About"      data-bm="Tentang">About</a></li>
+      <li><a href="divisions.html"  class="nl active" data-en="Divisions"  data-bm="Bahagian">Divisions</a></li>
+      <li><a href="projects.html"   class="nl"        data-en="Projects"   data-bm="Projek">Projects</a></li>
+      <li><a href="membership.html" class="nl"        data-en="Membership" data-bm="Keahlian">Membership</a></li>
+      <li><a href="news.html"       class="nl"        data-en="News"       data-bm="Berita">News</a></li>
+      <li><a href="contact.html"    class="nl"        data-en="Contact"    data-bm="Hubungi">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btnEN" onclick="setLang('en')">EN</button>
+        <button class="lang-btn"        id="btnBM" onclick="setLang('bm')">BM</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="membership.html" class="nav-cta" data-en="Member Login" data-bm="Log Masuk Ahli">Member Login</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════ HERO ══════════════════════════════════════ -->
+<section class="div-hero">
+  <div class="wrap">
+    <div class="div-hero-label-wrap">
+      <div class="div-hero-label-line"></div>
+      <div class="div-hero-label">— OUR DIVISIONS —</div>
+    </div>
+    <h1 class="div-hero-headline">
+      <span class="div-hero-shimmer">Seven Divisions.</span> <span class="div-hero-italic">Satu Koperasi.</span>
+    </h1>
+    <p class="div-hero-sub">Built for the AI era. Engineered for Malaysian enterprise. Member-led excellence across renewable energy, technology, finance, blockchain, and infrastructure.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ IDENTITY DECLARATION STRIP ══════════════════════════════════════ -->
+<section class="div-identity">
+  <div class="wrap">
+    <div class="div-identity-strip">
+      <div class="div-identity-box">
+        <div class="div-identity-word">One Source.</div>
+        <div class="div-identity-sub">Every discipline. One cooperative.</div>
+      </div>
+      <div class="div-identity-box">
+        <div class="div-identity-word">Member-Owned.</div>
+        <div class="div-identity-sub">Governed by its members.</div>
+      </div>
+      <div class="div-identity-box">
+        <div class="div-identity-word">AI-Native.</div>
+        <div class="div-identity-sub">Built for the AI era.</div>
+      </div>
+      <div class="div-identity-box">
+        <div class="div-identity-word">Malaysia-Born.</div>
+        <div class="div-identity-sub">Engineered for local context.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ HONEYCOMB TEASER ══════════════════════════════════════ -->
+<section class="div-honeycomb-teaser">
+  <div class="wrap">
+    <div class="div-honeycomb-eyebrow">— THE COOPERATIVE HONEYCOMB —</div>
+    <h2 class="div-honeycomb-title">Click any hex to explore.</h2>
+
+    <div class="div-honeycomb-stage">
+      <svg viewBox="0 0 1180 680" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="KOPIT Seven Divisions Honeycomb">
+        <defs>
+          <linearGradient id="dhcBg" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="rgba(28,40,62,0.85)"/>
+            <stop offset="50%" stop-color="rgba(15,22,38,0.78)"/>
+            <stop offset="100%" stop-color="rgba(8,14,24,0.85)"/>
+          </linearGradient>
+          <linearGradient id="dhcShine" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="rgba(255,255,255,0)"/>
+            <stop offset="40%" stop-color="rgba(255,235,180,0.15)"/>
+            <stop offset="50%" stop-color="rgba(255,245,210,0.7)"/>
+            <stop offset="60%" stop-color="rgba(255,235,180,0.15)"/>
+            <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+          </linearGradient>
+          <radialGradient id="dhcOrbW" cx="35%" cy="30%"><stop offset="0%" stop-color="#FFFAE0"/><stop offset="20%" stop-color="#FFE89A"/><stop offset="50%" stop-color="#FFCC4D"/><stop offset="85%" stop-color="#C9A84C"/><stop offset="100%" stop-color="#5C3F10"/></radialGradient>
+          <radialGradient id="dhcOrbB" cx="35%" cy="30%"><stop offset="0%" stop-color="#E8FBFF"/><stop offset="20%" stop-color="#A8EBF2"/><stop offset="50%" stop-color="#5DD8E8"/><stop offset="85%" stop-color="#3BAEC4"/><stop offset="100%" stop-color="#0E4858"/></radialGradient>
+          <radialGradient id="dhcOrbH" cx="35%" cy="30%"><stop offset="0%" stop-color="#E8FBEC"/><stop offset="20%" stop-color="#A8EBC2"/><stop offset="50%" stop-color="#5DD89C"/><stop offset="85%" stop-color="#3BB57A"/><stop offset="100%" stop-color="#0E4D30"/></radialGradient>
+          <radialGradient id="dhcOrbBC" cx="35%" cy="30%"><stop offset="0%" stop-color="#F0E8FA"/><stop offset="20%" stop-color="#D5B5F0"/><stop offset="50%" stop-color="#A874E0"/><stop offset="85%" stop-color="#7B4FB8"/><stop offset="100%" stop-color="#231546"/></radialGradient>
+          <radialGradient id="dhcOrbD" cx="35%" cy="30%"><stop offset="0%" stop-color="#FFE0E0"/><stop offset="20%" stop-color="#FFB5B5"/><stop offset="50%" stop-color="#FF7B7B"/><stop offset="85%" stop-color="#D85555"/><stop offset="100%" stop-color="#5A1818"/></radialGradient>
+          <radialGradient id="dhcOrbA" cx="35%" cy="30%"><stop offset="0%" stop-color="#E0E5FF"/><stop offset="20%" stop-color="#B5BEFA"/><stop offset="50%" stop-color="#7888F5"/><stop offset="85%" stop-color="#4D5DD8"/><stop offset="100%" stop-color="#13205C"/></radialGradient>
+          <radialGradient id="dhcOrbAR" cx="35%" cy="30%"><stop offset="0%" stop-color="#FAF0E0"/><stop offset="20%" stop-color="#EDD5A8"/><stop offset="50%" stop-color="#D4B385"/><stop offset="85%" stop-color="#A88857"/><stop offset="100%" stop-color="#42321B"/></radialGradient>
+
+          <radialGradient id="dhcAuraW"><stop offset="0%" stop-color="rgba(255,210,120,0.5)"/><stop offset="100%" stop-color="rgba(255,210,120,0)"/></radialGradient>
+          <radialGradient id="dhcAuraB"><stop offset="0%" stop-color="rgba(80,200,210,0.5)"/><stop offset="100%" stop-color="rgba(80,200,210,0)"/></radialGradient>
+          <radialGradient id="dhcAuraH"><stop offset="0%" stop-color="rgba(80,200,140,0.5)"/><stop offset="100%" stop-color="rgba(80,200,140,0)"/></radialGradient>
+          <radialGradient id="dhcAuraBC"><stop offset="0%" stop-color="rgba(160,100,220,0.5)"/><stop offset="100%" stop-color="rgba(160,100,220,0)"/></radialGradient>
+          <radialGradient id="dhcAuraD"><stop offset="0%" stop-color="rgba(255,123,123,0.5)"/><stop offset="100%" stop-color="rgba(255,123,123,0)"/></radialGradient>
+          <radialGradient id="dhcAuraA"><stop offset="0%" stop-color="rgba(120,136,245,0.5)"/><stop offset="100%" stop-color="rgba(120,136,245,0)"/></radialGradient>
+          <radialGradient id="dhcAuraAR"><stop offset="0%" stop-color="rgba(212,179,133,0.5)"/><stop offset="100%" stop-color="rgba(212,179,133,0)"/></radialGradient>
+
+          <filter id="dhcShadow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
+            <feOffset dx="0" dy="6" result="offsetblur"/>
+            <feFlood flood-color="rgba(0,0,0,0.7)"/>
+            <feComposite in2="offsetblur" operator="in"/>
+            <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+
+          <clipPath id="dhcClipHex"><polygon points="0,-130 112.6,-65 112.6,65 0,130 -112.6,65 -112.6,-65"/></clipPath>
+        </defs>
+
+        <!-- Hex 1: Wira Digital -->
+        <a href="#wira-digital" class="div-hc-card" aria-label="Wira Digital">
+          <g transform="translate(170,170)">
+            <circle cx="0" cy="0" r="155" fill="url(#dhcAuraW)" class="div-hc-glow" style="opacity:0.5;"/>
+            <g filter="url(#dhcShadow)">
+              <polygon points="0,-130 112.6,-65 112.6,65 0,130 -112.6,65 -112.6,-65" fill="url(#dhcBg)" stroke="rgba(255,210,120,0.85)" class="div-hc-bg div-hc-border"/>
+              <polygon points="0,-110 95.3,-55 95.3,55 0,110 -95.3,55 -95.3,-55" fill="none" stroke="rgba(201,168,76,0.45)" stroke-width="0.6"/>
+              <g clip-path="url(#dhcClipHex)"><rect x="-200" y="-130" width="180" height="260" fill="url(#dhcShine)" class="div-hc-shine-1"/></g>
+              <g class="div-hc-orb" style="--g:rgba(255,210,120,0.6);--g2:rgba(255,210,120,0.3);">
+                <circle cx="0" cy="-30" r="32" fill="url(#dhcOrbW)"/>
+                <ellipse cx="-9" cy="-40" rx="12" ry="6" fill="rgba(255,255,255,0.55)" transform="rotate(-25 -9 -40)"/>
+                <g transform="translate(-14,-44)" stroke="#0A1628" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 14 28 7 20 0"/><polyline points="8 0 0 7 8 14"/></g>
+              </g>
+              <text x="0" y="38" text-anchor="middle" font-family="Playfair Display" font-size="20" font-weight="600" fill="#F4EFE8" letter-spacing="-0.3">Wira Digital</text>
+              <text x="0" y="60" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="13" fill="rgba(255,210,120,1)">ICT &amp; Sistem AI</text>
+            </g>
+          </g>
+        </a>
+
+        <!-- Hex 2: Bijak AI -->
+        <a href="#bijak-ai" class="div-hc-card" aria-label="Bijak AI">
+          <g transform="translate(420,170)">
+            <circle cx="0" cy="0" r="155" fill="url(#dhcAuraB)" class="div-hc-glow" style="opacity:0.5;"/>
+            <g filter="url(#dhcShadow)">
+              <polygon points="0,-130 112.6,-65 112.6,65 0,130 -112.6,65 -112.6,-65" fill="url(#dhcBg)" stroke="rgba(80,200,210,0.85)" class="div-hc-bg div-hc-border"/>
+              <polygon points="0,-110 95.3,-55 95.3,55 0,110 -95.3,55 -95.3,-55" fill="none" stroke="rgba(201,168,76,0.45)" stroke-width="0.6"/>
+              <g clip-path="url(#dhcClipHex)"><rect x="-200" y="-130" width="180" height="260" fill="url(#dhcShine)" class="div-hc-shine-2"/></g>
+              <g class="div-hc-orb" style="--g:rgba(80,200,210,0.6);--g2:rgba(80,200,210,0.3);">
+                <circle cx="0" cy="-30" r="32" fill="url(#dhcOrbB)"/>
+                <ellipse cx="-9" cy="-40" rx="12" ry="6" fill="rgba(255,255,255,0.55)" transform="rotate(-25 -9 -40)"/>
+                <g transform="translate(0,-30)" stroke="#0A1628" stroke-width="2" fill="none">
+                  <circle cx="0" cy="0" r="4"/><circle cx="-10" cy="-10" r="2"/><circle cx="10" cy="-10" r="2"/><circle cx="-10" cy="10" r="2"/><circle cx="10" cy="10" r="2"/>
+                  <line x1="-7.5" y1="-7.5" x2="-3" y2="-3"/><line x1="7.5" y1="-7.5" x2="3" y2="-3"/><line x1="-7.5" y1="7.5" x2="-3" y2="3"/><line x1="7.5" y1="7.5" x2="3" y2="3"/>
+                </g>
+              </g>
+              <text x="0" y="38" text-anchor="middle" font-family="Playfair Display" font-size="20" font-weight="600" fill="#F4EFE8" letter-spacing="-0.3">Bijak AI</text>
+              <text x="0" y="60" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="13" fill="rgba(80,200,210,1)">AI · IoT · Pintar</text>
+            </g>
+          </g>
+        </a>
+
+        <!-- Hex 3: Hijau Energy -->
+        <a href="#hijau-energy" class="div-hc-card" aria-label="Hijau Energy">
+          <g transform="translate(670,170)">
+            <circle cx="0" cy="0" r="155" fill="url(#dhcAuraH)" class="div-hc-glow" style="opacity:0.5;"/>
+            <g filter="url(#dhcShadow)">
+              <polygon points="0,-130 112.6,-65 112.6,65 0,130 -112.6,65 -112.6,-65" fill="url(#dhcBg)" stroke="rgba(80,200,140,0.85)" class="div-hc-bg div-hc-border"/>
+              <polygon points="0,-110 95.3,-55 95.3,55 0,110 -95.3,55 -95.3,-55" fill="none" stroke="rgba(201,168,76,0.45)" stroke-width="0.6"/>
+              <g clip-path="url(#dhcClipHex)"><rect x="-200" y="-130" width="180" height="260" fill="url(#dhcShine)" class="div-hc-shine-3"/></g>
+              <g class="div-hc-orb" style="--g:rgba(80,200,140,0.6);--g2:rgba(80,200,140,0.3);">
+                <circle cx="0" cy="-30" r="32" fill="url(#dhcOrbH)"/>
+                <ellipse cx="-9" cy="-40" rx="12" ry="6" fill="rgba(255,255,255,0.55)" transform="rotate(-25 -9 -40)"/>
+                <g transform="translate(0,-30)" stroke="#0A1628" stroke-width="2.2" fill="none" stroke-linecap="round">
+                  <line x1="0" y1="-13" x2="0" y2="-5"/><line x1="0" y1="5" x2="0" y2="13"/><line x1="-13" y1="0" x2="-5" y2="0"/><line x1="5" y1="0" x2="13" y2="0"/>
+                  <line x1="-9" y1="-9" x2="-4" y2="-4"/><line x1="9" y1="-9" x2="4" y2="-4"/><line x1="-9" y1="9" x2="-4" y2="4"/><line x1="9" y1="9" x2="4" y2="4"/>
+                  <circle cx="0" cy="0" r="4"/>
+                </g>
+              </g>
+              <text x="0" y="38" text-anchor="middle" font-family="Playfair Display" font-size="20" font-weight="600" fill="#F4EFE8" letter-spacing="-0.3">Hijau Energy</text>
+              <text x="0" y="60" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="13" fill="rgba(80,200,140,1)">Tenaga Lestari</text>
+            </g>
+          </g>
+        </a>
+
+        <!-- Hex 4: Rantai Blockchain -->
+        <a href="#rantai-blockchain" class="div-hc-card" aria-label="Rantai Blockchain">
+          <g transform="translate(920,170)">
+            <circle cx="0" cy="0" r="155" fill="url(#dhcAuraBC)" class="div-hc-glow" style="opacity:0.5;"/>
+            <g filter="url(#dhcShadow)">
+              <polygon points="0,-130 112.6,-65 112.6,65 0,130 -112.6,65 -112.6,-65" fill="url(#dhcBg)" stroke="rgba(160,100,220,0.85)" class="div-hc-bg div-hc-border"/>
+              <polygon points="0,-110 95.3,-55 95.3,55 0,110 -95.3,55 -95.3,-55" fill="none" stroke="rgba(201,168,76,0.45)" stroke-width="0.6"/>
+              <g clip-path="url(#dhcClipHex)"><rect x="-200" y="-130" width="180" height="260" fill="url(#dhcShine)" class="div-hc-shine-4"/></g>
+              <g class="div-hc-orb" style="--g:rgba(160,100,220,0.6);--g2:rgba(160,100,220,0.3);">
+                <circle cx="0" cy="-30" r="32" fill="url(#dhcOrbBC)"/>
+                <ellipse cx="-9" cy="-40" rx="12" ry="6" fill="rgba(255,255,255,0.55)" transform="rotate(-25 -9 -40)"/>
+                <g transform="translate(0,-30)" stroke="#0A1628" stroke-width="2" fill="none">
+                  <rect x="-11" y="-11" width="8" height="8" rx="1"/><rect x="3" y="-11" width="8" height="8" rx="1"/><rect x="-11" y="3" width="8" height="8" rx="1"/><rect x="3" y="3" width="8" height="8" rx="1"/>
+                  <line x1="-3" y1="-7" x2="3" y2="-7"/><line x1="-3" y1="7" x2="3" y2="7"/><line x1="-7" y1="-3" x2="-7" y2="3"/><line x1="7" y1="-3" x2="7" y2="3"/>
+                </g>
+              </g>
+              <text x="0" y="38" text-anchor="middle" font-family="Playfair Display" font-size="19" font-weight="600" fill="#F4EFE8" letter-spacing="-0.3">Rantai Blockchain</text>
+              <text x="0" y="60" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="13" fill="rgba(180,130,230,1)">Lejar Teragih</text>
+            </g>
+          </g>
+        </a>
+
+        <!-- Hex 5: Dana Sejahtera -->
+        <a href="#dana-sejahtera" class="div-hc-card" aria-label="Dana Sejahtera">
+          <g transform="translate(295,460)">
+            <circle cx="0" cy="0" r="155" fill="url(#dhcAuraD)" class="div-hc-glow" style="opacity:0.5;"/>
+            <g filter="url(#dhcShadow)">
+              <polygon points="0,-130 112.6,-65 112.6,65 0,130 -112.6,65 -112.6,-65" fill="url(#dhcBg)" stroke="rgba(255,123,123,0.85)" class="div-hc-bg div-hc-border"/>
+              <polygon points="0,-110 95.3,-55 95.3,55 0,110 -95.3,55 -95.3,-55" fill="none" stroke="rgba(201,168,76,0.45)" stroke-width="0.6"/>
+              <g clip-path="url(#dhcClipHex)"><rect x="-200" y="-130" width="180" height="260" fill="url(#dhcShine)" class="div-hc-shine-5"/></g>
+              <g class="div-hc-orb" style="--g:rgba(255,123,123,0.6);--g2:rgba(255,123,123,0.3);">
+                <circle cx="0" cy="-30" r="32" fill="url(#dhcOrbD)"/>
+                <ellipse cx="-9" cy="-40" rx="12" ry="6" fill="rgba(255,255,255,0.55)" transform="rotate(-25 -9 -40)"/>
+                <g transform="translate(0,-30)" stroke="#0A1628" stroke-width="2" fill="none">
+                  <ellipse cx="0" cy="-8" rx="11" ry="4"/>
+                  <path d="M -11 -8 v 9 c 0 2.2 4.5 4 11 4 s 11 -1.8 11 -4 v -9"/>
+                  <path d="M -11 1 v 9 c 0 2.2 4.5 4 11 4 s 11 -1.8 11 -4 v -9"/>
+                </g>
+              </g>
+              <text x="0" y="38" text-anchor="middle" font-family="Playfair Display" font-size="19" font-weight="600" fill="#F4EFE8" letter-spacing="-0.3">Dana Sejahtera</text>
+              <text x="0" y="60" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="13" fill="rgba(255,140,140,1)">InsurTech</text>
+            </g>
+          </g>
+        </a>
+
+        <!-- Hex 6: Angkasa Build -->
+        <a href="#angkasa-build" class="div-hc-card" aria-label="Angkasa Build">
+          <g transform="translate(545,460)">
+            <circle cx="0" cy="0" r="155" fill="url(#dhcAuraA)" class="div-hc-glow" style="opacity:0.5;"/>
+            <g filter="url(#dhcShadow)">
+              <polygon points="0,-130 112.6,-65 112.6,65 0,130 -112.6,65 -112.6,-65" fill="url(#dhcBg)" stroke="rgba(120,136,245,0.85)" class="div-hc-bg div-hc-border"/>
+              <polygon points="0,-110 95.3,-55 95.3,55 0,110 -95.3,55 -95.3,-55" fill="none" stroke="rgba(201,168,76,0.45)" stroke-width="0.6"/>
+              <g clip-path="url(#dhcClipHex)"><rect x="-200" y="-130" width="180" height="260" fill="url(#dhcShine)" class="div-hc-shine-6"/></g>
+              <g class="div-hc-orb" style="--g:rgba(120,136,245,0.6);--g2:rgba(120,136,245,0.3);">
+                <circle cx="0" cy="-30" r="32" fill="url(#dhcOrbA)"/>
+                <ellipse cx="-9" cy="-40" rx="12" ry="6" fill="rgba(255,255,255,0.55)" transform="rotate(-25 -9 -40)"/>
+                <g transform="translate(0,-30)" stroke="#0A1628" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M 0 -12 L -10 -8 v 14 l 10 5 l 10 -5 v -14 z"/>
+                  <line x1="0" y1="-1" x2="0" y2="11"/>
+                  <polyline points="-10,-8 0,-1 10,-8"/>
+                </g>
+              </g>
+              <text x="0" y="38" text-anchor="middle" font-family="Playfair Display" font-size="20" font-weight="600" fill="#F4EFE8" letter-spacing="-0.3">Angkasa Build</text>
+              <text x="0" y="60" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="13" fill="rgba(140,156,250,1)">Dron AI</text>
+            </g>
+          </g>
+        </a>
+
+        <!-- Hex 7: Arif Advisory -->
+        <a href="#arif-advisory" class="div-hc-card" aria-label="Arif Advisory">
+          <g transform="translate(795,460)">
+            <circle cx="0" cy="0" r="155" fill="url(#dhcAuraAR)" class="div-hc-glow" style="opacity:0.5;"/>
+            <g filter="url(#dhcShadow)">
+              <polygon points="0,-130 112.6,-65 112.6,65 0,130 -112.6,65 -112.6,-65" fill="url(#dhcBg)" stroke="rgba(212,179,133,0.85)" class="div-hc-bg div-hc-border"/>
+              <polygon points="0,-110 95.3,-55 95.3,55 0,110 -95.3,55 -95.3,-55" fill="none" stroke="rgba(201,168,76,0.45)" stroke-width="0.6"/>
+              <g clip-path="url(#dhcClipHex)"><rect x="-200" y="-130" width="180" height="260" fill="url(#dhcShine)" class="div-hc-shine-7"/></g>
+              <g class="div-hc-orb" style="--g:rgba(212,179,133,0.6);--g2:rgba(212,179,133,0.3);">
+                <circle cx="0" cy="-30" r="32" fill="url(#dhcOrbAR)"/>
+                <ellipse cx="-9" cy="-40" rx="12" ry="6" fill="rgba(255,255,255,0.55)" transform="rotate(-25 -9 -40)"/>
+                <g transform="translate(0,-30)" stroke="#0A1628" stroke-width="2" fill="none" stroke-linecap="round">
+                  <circle cx="0" cy="0" r="11"/>
+                  <polyline points="0,-6 0,0 4,3"/>
+                </g>
+              </g>
+              <text x="0" y="38" text-anchor="middle" font-family="Playfair Display" font-size="20" font-weight="600" fill="#F4EFE8" letter-spacing="-0.3">Arif Advisory</text>
+              <text x="0" y="60" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="13" fill="rgba(232,200,150,1)">Strategi</text>
+            </g>
+          </g>
+        </a>
+      </svg>
+    </div>
+
+    <p class="div-honeycomb-hint">↓ Or scroll down to explore each division ↓</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ DIVISION 1: WIRA DIGITAL ══════════════════════════════════════ -->
+<section id="wira-digital" class="div-section" style="--dcol:#FFCC4D;--dcol-light:#FFE89A;--dcol-mid:#C9A84C;--dcol-dark:#5C3F10;--dcol-rgb:255,210,120;--dglow:rgba(255,210,120,0.5);">
+  <div class="wrap">
+    <div class="dsec-header">
+      <div class="dsec-orb">
+        <div class="dsec-orb-aura" style="background:radial-gradient(circle,rgba(255,210,120,0.4) 0%,rgba(255,210,120,0.1) 50%,transparent 80%);"></div>
+        <div class="dsec-orb-spark" style="top:-5px;left:75%;width:5px;height:5px;background:#FFE89A;box-shadow:0 0 8px #FFE89A,0 0 14px rgba(255,210,120,0.6);animation-delay:0s;"></div>
+        <div class="dsec-orb-spark" style="bottom:5px;left:-3px;width:4px;height:4px;background:#FFE89A;box-shadow:0 0 6px #FFE89A,0 0 10px rgba(255,210,120,0.5);animation-delay:1.5s;"></div>
+        <div class="dsec-orb-shadow"></div>
+        <div class="dsec-orb-body" style="background:radial-gradient(circle at 32% 28%,#FFFCEB 0%,#FFE89A 18%,#FFCC4D 45%,#C9A84C 75%,#7B5A1F 92%,#3D2D0E 100%);box-shadow:0 0 26px rgba(255,210,120,0.5),inset -8px -8px 18px rgba(60,40,10,0.6),inset 5px 5px 13px rgba(255,232,154,0.3);">
+          <div class="dsec-orb-shine"><div class="dsec-orb-shine-band"></div></div>
+          <div class="dsec-orb-gloss"></div>
+          <svg class="dsec-orb-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1F1408" stroke-width="2.2" stroke-linecap="round" style="filter:drop-shadow(0 1px 2px rgba(255,232,154,0.4));"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+      </div>
+      <div class="dsec-title-block">
+        <div class="dsec-title-row">
+          <h2 class="dsec-name">Wira Digital</h2>
+          <span class="dsec-bm">ICT &amp; Sistem Berasaskan AI</span>
+        </div>
+        <p class="dsec-desc">The AI-powered IT backbone for Malaysian enterprise.</p>
+      </div>
+    </div>
+
+    <div class="dsec-anchor-box">
+      <p class="dsec-anchor-statement">"The AI-native IT backbone <span class="accent">built by KOPIT members</span>, delivered with <span class="accent">cooperative discipline</span>, and engineered for <span class="accent">Malaysian enterprise governance</span>."</p>
+      <div class="dsec-tags">
+        <span class="dsec-tag">AI-NATIVE</span>
+        <span class="dsec-tag">MEMBER-LED</span>
+        <span class="dsec-tag">ENTERPRISE-GRADE</span>
+        <span class="dsec-tag">MALAYSIAN-FIRST</span>
+      </div>
+    </div>
+
+    <div class="dsec-twocol">
+      <div>
+        <div class="dsec-col-label">KEY SERVICES</div>
+        <div class="dsec-services">
+          <svg viewBox="0 0 460 280" style="width:100%;height:100%;">
+            <defs>
+              <radialGradient id="hub-wira"><stop offset="0%" stop-color="rgba(255,210,120,0.95)"/><stop offset="100%" stop-color="rgba(255,210,120,0)"/></radialGradient>
+              <radialGradient id="node-wira"><stop offset="0%" stop-color="rgba(255,210,120,0.85)"/><stop offset="100%" stop-color="rgba(255,210,120,0)"/></radialGradient>
+            </defs>
+            <g stroke="rgba(255,210,120,0.5)" stroke-width="1" fill="none" stroke-linecap="round">
+              <line x1="230" y1="140" x2="90" y2="85" class="beam-line"/>
+              <line x1="230" y1="140" x2="370" y2="85" class="beam-line" style="animation-delay:0.7s"/>
+              <line x1="230" y1="140" x2="90" y2="195" class="beam-line" style="animation-delay:1.4s"/>
+              <line x1="230" y1="140" x2="370" y2="195" class="beam-line" style="animation-delay:2.1s"/>
+            </g>
+            <g class="node-orb"><circle cx="90" cy="85" r="22" fill="url(#node-wira)"/><circle cx="90" cy="85" r="3" fill="rgba(255,255,255,0.9)"/></g>
+            <text x="90" y="56" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(255,210,120,0.7)" letter-spacing="1.5">①</text>
+            <text x="90" y="125" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">WEBSITES &amp; APPS</text>
+            <g class="node-orb" style="animation-delay:0.5s"><circle cx="370" cy="85" r="22" fill="url(#node-wira)"/><circle cx="370" cy="85" r="3" fill="rgba(255,255,255,0.9)"/></g>
+            <text x="370" y="56" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(255,210,120,0.7)" letter-spacing="1.5">②</text>
+            <text x="370" y="125" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">AI MODERNIZATION</text>
+            <g class="node-orb" style="animation-delay:1s"><circle cx="90" cy="195" r="22" fill="url(#node-wira)"/><circle cx="90" cy="195" r="3" fill="rgba(255,255,255,0.9)"/></g>
+            <text x="90" y="166" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(255,210,120,0.7)" letter-spacing="1.5">③</text>
+            <text x="90" y="235" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">AUTOMATION</text>
+            <g class="node-orb" style="animation-delay:1.5s"><circle cx="370" cy="195" r="22" fill="url(#node-wira)"/><circle cx="370" cy="195" r="3" fill="rgba(255,255,255,0.9)"/></g>
+            <text x="370" y="166" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(255,210,120,0.7)" letter-spacing="1.5">④</text>
+            <text x="370" y="235" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">CYBERSECURITY</text>
+            <g><circle cx="230" cy="140" r="34" fill="url(#hub-wira)"/><circle cx="230" cy="140" r="26" fill="rgba(8,16,28,0.92)" stroke="rgba(255,210,120,1)" stroke-width="1.4"/></g>
+            <text x="230" y="138" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#FFCC4D" letter-spacing="1.5">WIRA</text>
+            <text x="230" y="151" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#FFCC4D" letter-spacing="1.5">DIGITAL</text>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <div class="dsec-col-label">WHAT WE DO</div>
+        <div class="dsec-whatwedo">
+          <p class="dsec-intro">We build the <span class="accent">websites, apps, and computer systems</span> that keep Malaysian businesses running smoothly.</p>
+          <ul class="dsec-bullets">
+            <li><span class="bullet-num">①</span> Build websites and mobile apps for businesses</li>
+            <li><span class="bullet-num">②</span> Modernize old IT systems with smarter AI tools</li>
+            <li><span class="bullet-num">③</span> Automate boring repetitive office work</li>
+            <li><span class="bullet-num">④</span> Keep your data and systems safe from cyber threats</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="dsec-members">
+      <div class="dsec-col-label">KEY MEMBERS LEADING THIS DIVISION</div>
+      <div class="dsec-members-grid">
+        <div class="dsec-member-card"><div class="dsec-member-avatar">MS</div><div class="dsec-member-info"><div class="dsec-member-name">[Member Name]</div><div class="dsec-member-role">Lead Software Engineer</div><div class="dsec-member-tier">KP-TIER</div></div></div>
+        <div class="dsec-member-card"><div class="dsec-member-avatar">AK</div><div class="dsec-member-info"><div class="dsec-member-name">[Member Name]</div><div class="dsec-member-role">AI Cloud Engineer</div><div class="dsec-member-tier">KP-TIER</div></div></div>
+        <div class="dsec-member-card"><div class="dsec-member-avatar">LT</div><div class="dsec-member-info"><div class="dsec-member-name">[Member Name]</div><div class="dsec-member-role">Cybersecurity Specialist</div><div class="dsec-member-tier">KL-TIER</div></div></div>
+      </div>
+    </div>
+
+    <div class="dsec-inquiry">
+      <div class="dsec-inquiry-text">
+        <div class="dsec-inquiry-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
+        <div>
+          <div class="dsec-inquiry-title">Interested in Wira Digital?</div>
+          <p class="dsec-inquiry-sub">Get in touch with the team. Your inquiry will pre-fill with this division's details — no retyping.</p>
+        </div>
+      </div>
+      <a href="contact.html?division=wira-digital" class="dsec-inquiry-btn">Inquire About Wira Digital <span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ DIVISION 2: BIJAK AI ══════════════════════════════════════ -->
+<section id="bijak-ai" class="div-section" style="--dcol:#5DD8E8;--dcol-light:#A8EBF2;--dcol-mid:#3BAEC4;--dcol-dark:#0E4858;--dcol-rgb:80,200,210;--dglow:rgba(80,200,210,0.5);">
+  <div class="wrap">
+    <div class="dsec-header">
+      <div class="dsec-orb">
+        <div class="dsec-orb-aura" style="background:radial-gradient(circle,rgba(80,200,210,0.4) 0%,rgba(80,200,210,0.1) 50%,transparent 80%);"></div>
+        <div class="dsec-orb-spark" style="top:-5px;left:75%;width:5px;height:5px;background:#A8EBF2;box-shadow:0 0 8px #A8EBF2,0 0 14px rgba(80,200,210,0.6);animation-delay:0.3s;"></div>
+        <div class="dsec-orb-spark" style="bottom:5px;left:-3px;width:4px;height:4px;background:#A8EBF2;box-shadow:0 0 6px #A8EBF2,0 0 10px rgba(80,200,210,0.5);animation-delay:1.8s;"></div>
+        <div class="dsec-orb-shadow"></div>
+        <div class="dsec-orb-body" style="background:radial-gradient(circle at 32% 28%,#EBFCFE 0%,#A8EBF2 18%,#5DD8E8 45%,#3BAEC4 75%,#1F7A8C 92%,#0E4858 100%);box-shadow:0 0 26px rgba(80,200,210,0.5),inset -8px -8px 18px rgba(14,72,88,0.6),inset 5px 5px 13px rgba(168,235,242,0.3);">
+          <div class="dsec-orb-shine"><div class="dsec-orb-shine-band" style="animation-delay:0.5s;"></div></div>
+          <div class="dsec-orb-gloss"></div>
+          <svg class="dsec-orb-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0A1628" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="1.5"/><circle cx="19" cy="5" r="1.5"/><circle cx="5" cy="19" r="1.5"/><circle cx="19" cy="19" r="1.5"/><line x1="6.5" y1="6.5" x2="9.5" y2="9.5"/><line x1="17.5" y1="6.5" x2="14.5" y2="9.5"/><line x1="6.5" y1="17.5" x2="9.5" y2="14.5"/><line x1="17.5" y1="17.5" x2="14.5" y2="14.5"/></svg>
+        </div>
+      </div>
+      <div class="dsec-title-block">
+        <div class="dsec-title-row">
+          <h2 class="dsec-name">Bijak AI</h2>
+          <span class="dsec-bm">AI · IoT · Pengawasan Pintar</span>
+        </div>
+        <p class="dsec-desc">Production-grade AI systems that see, decide, and act.</p>
+      </div>
+    </div>
+
+    <div class="dsec-anchor-box">
+      <p class="dsec-anchor-statement">"Production-grade AI <span class="accent">engineered for Malaysian conditions</span> — not Silicon Valley demos. <span class="accent">Vision, predictions, automation</span>, all data-sovereign."</p>
+      <div class="dsec-tags">
+        <span class="dsec-tag">VISION-BASED</span>
+        <span class="dsec-tag">PRODUCTION-READY</span>
+        <span class="dsec-tag">DATA-SOVEREIGN</span>
+        <span class="dsec-tag">EDGE-CAPABLE</span>
+      </div>
+    </div>
+
+    <div class="dsec-twocol">
+      <div>
+        <div class="dsec-col-label">KEY SERVICES</div>
+        <div class="dsec-services">
+          <svg viewBox="0 0 460 280" style="width:100%;height:100%;">
+            <defs>
+              <radialGradient id="hub-bijak"><stop offset="0%" stop-color="rgba(80,200,210,0.95)"/><stop offset="100%" stop-color="rgba(80,200,210,0)"/></radialGradient>
+              <radialGradient id="node-bijak"><stop offset="0%" stop-color="rgba(80,200,210,0.85)"/><stop offset="100%" stop-color="rgba(80,200,210,0)"/></radialGradient>
+            </defs>
+            <g stroke="rgba(80,200,210,0.5)" stroke-width="1" fill="none" stroke-linecap="round">
+              <line x1="230" y1="140" x2="230" y2="50" class="beam-line"/>
+              <line x1="230" y1="140" x2="316" y2="115" class="beam-line" style="animation-delay:0.4s"/>
+              <line x1="230" y1="140" x2="280" y2="222" class="beam-line" style="animation-delay:0.8s"/>
+              <line x1="230" y1="140" x2="180" y2="222" class="beam-line" style="animation-delay:1.2s"/>
+              <line x1="230" y1="140" x2="144" y2="115" class="beam-line" style="animation-delay:1.6s"/>
+            </g>
+            <g class="node-orb"><circle cx="230" cy="50" r="18" fill="url(#node-bijak)"/><circle cx="230" cy="50" r="3" fill="rgba(220,255,255,1)"/></g>
+            <text x="230" y="22" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(80,200,210,0.7)" letter-spacing="1.5">①</text>
+            <text x="230" y="86" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">SMART VISION</text>
+            <g class="node-orb" style="animation-delay:0.3s"><circle cx="316" cy="115" r="18" fill="url(#node-bijak)"/><circle cx="316" cy="115" r="3" fill="rgba(220,255,255,1)"/></g>
+            <text x="345" y="98" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(80,200,210,0.7)" letter-spacing="1.5">②</text>
+            <text x="370" y="118" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">PREDICTIONS</text>
+            <g class="node-orb" style="animation-delay:0.6s"><circle cx="280" cy="222" r="18" fill="url(#node-bijak)"/><circle cx="280" cy="222" r="3" fill="rgba(220,255,255,1)"/></g>
+            <text x="313" y="240" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(80,200,210,0.7)" letter-spacing="1.5">③</text>
+            <text x="332" y="220" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">AUTO-</text>
+            <text x="332" y="234" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">DECISIONS</text>
+            <g class="node-orb" style="animation-delay:0.9s"><circle cx="180" cy="222" r="18" fill="url(#node-bijak)"/><circle cx="180" cy="222" r="3" fill="rgba(220,255,255,1)"/></g>
+            <text x="147" y="240" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(80,200,210,0.7)" letter-spacing="1.5">④</text>
+            <text x="128" y="220" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">DATA</text>
+            <text x="128" y="234" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">INSIGHTS</text>
+            <g class="node-orb" style="animation-delay:1.2s"><circle cx="144" cy="115" r="18" fill="url(#node-bijak)"/><circle cx="144" cy="115" r="3" fill="rgba(220,255,255,1)"/></g>
+            <text x="115" y="98" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(80,200,210,0.7)" letter-spacing="1.5">⑤</text>
+            <text x="80" y="115" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">IoT</text>
+            <text x="80" y="129" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">INTEGRATION</text>
+            <g><circle cx="230" cy="140" r="32" fill="url(#hub-bijak)"/><circle cx="230" cy="140" r="24" fill="rgba(8,16,28,0.92)" stroke="rgba(80,200,210,1)" stroke-width="1.4"/></g>
+            <text x="230" y="138" text-anchor="middle" font-family="Cinzel" font-size="9" font-weight="700" fill="#5DD8E8" letter-spacing="1.5">BIJAK</text>
+            <text x="230" y="151" text-anchor="middle" font-family="Cinzel" font-size="9" font-weight="700" fill="#5DD8E8" letter-spacing="1.5">AI</text>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <div class="dsec-col-label">WHAT WE DO</div>
+        <div class="dsec-whatwedo">
+          <p class="dsec-intro">We use <span class="accent">artificial intelligence</span> to help Malaysian businesses make smarter, faster decisions.</p>
+          <ul class="dsec-bullets">
+            <li><span class="bullet-num">①</span> Smart cameras that recognize objects, people, and threats</li>
+            <li><span class="bullet-num">②</span> Predict customer behavior and business trends</li>
+            <li><span class="bullet-num">③</span> Automate routine business decisions with AI</li>
+            <li><span class="bullet-num">④</span> Make sense of large amounts of business data</li>
+            <li><span class="bullet-num">⑤</span> Connect smart devices and sensors across operations</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="dsec-members">
+      <div class="dsec-col-label">KEY MEMBERS LEADING THIS DIVISION</div>
+      <div class="dsec-members-grid">
+        <div class="dsec-member-card"><div class="dsec-member-avatar">DK</div><div class="dsec-member-info"><div class="dsec-member-name">[Member Name]</div><div class="dsec-member-role">ML Engineer</div><div class="dsec-member-tier">KP-TIER</div></div></div>
+        <div class="dsec-member-card"><div class="dsec-member-avatar">JT</div><div class="dsec-member-info"><div class="dsec-member-name">[Member Name]</div><div class="dsec-member-role">Computer Vision Specialist</div><div class="dsec-member-tier">KP-TIER</div></div></div>
+        <div class="dsec-member-card"><div class="dsec-member-avatar">PR</div><div class="dsec-member-info"><div class="dsec-member-name">[Member Name]</div><div class="dsec-member-role">Data Scientist</div><div class="dsec-member-tier">KL-TIER</div></div></div>
+      </div>
+    </div>
+
+    <div class="dsec-inquiry">
+      <div class="dsec-inquiry-text">
+        <div class="dsec-inquiry-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
+        <div>
+          <div class="dsec-inquiry-title">Interested in Bijak AI?</div>
+          <p class="dsec-inquiry-sub">Get in touch with the team. Your inquiry will pre-fill with this division's details — no retyping.</p>
+        </div>
+      </div>
+      <a href="contact.html?division=bijak-ai" class="dsec-inquiry-btn">Inquire About Bijak AI <span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ DIVISION 3: HIJAU ENERGY (off-grid rewrite) ══════════════════════════════════════ -->
+<section id="hijau-energy" class="div-section" style="--dcol:#5DD89C;--dcol-light:#A8EBC2;--dcol-mid:#3BB57A;--dcol-dark:#0E4D30;--dcol-rgb:80,200,140;--dglow:rgba(80,200,140,0.5);">
+  <div class="wrap">
+    <div class="dsec-header">
+      <div class="dsec-orb">
+        <div class="dsec-orb-aura" style="background:radial-gradient(circle,rgba(80,200,140,0.4) 0%,rgba(80,200,140,0.1) 50%,transparent 80%);"></div>
+        <div class="dsec-orb-spark" style="top:-5px;left:75%;width:5px;height:5px;background:#A8EBC2;box-shadow:0 0 8px #A8EBC2,0 0 14px rgba(80,200,140,0.6);animation-delay:0.6s;"></div>
+        <div class="dsec-orb-spark" style="bottom:5px;left:-3px;width:4px;height:4px;background:#A8EBC2;box-shadow:0 0 6px #A8EBC2,0 0 10px rgba(80,200,140,0.5);animation-delay:2.1s;"></div>
+        <div class="dsec-orb-shadow"></div>
+        <div class="dsec-orb-body" style="background:radial-gradient(circle at 32% 28%,#EBFCEF 0%,#A8EBC2 18%,#5DD89C 45%,#3BB57A 75%,#1F7A50 92%,#0E4D30 100%);box-shadow:0 0 26px rgba(80,200,140,0.5),inset -8px -8px 18px rgba(14,77,48,0.6),inset 5px 5px 13px rgba(168,235,194,0.3);">
+          <div class="dsec-orb-shine"><div class="dsec-orb-shine-band" style="animation-delay:1s;"></div></div>
+          <div class="dsec-orb-gloss"></div>
+          <svg class="dsec-orb-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0A1628" stroke-width="2.2"><path d="M12 2v6m0 12v2m-9-9H1m22 0h-2M5.6 5.6l1.4 1.4m11.4 11.4l1.4 1.4M5.6 18.4l1.4-1.4m11.4-11.4l1.4-1.4"/><circle cx="12" cy="12" r="4"/></svg>
+        </div>
+      </div>
+      <div class="dsec-title-block">
+        <div class="dsec-title-row">
+          <h2 class="dsec-name">Hijau Energy</h2>
+          <span class="dsec-bm">Tenaga Lestari &amp; Teknologi Hijau</span>
+        </div>
+        <p class="dsec-desc">Off-grid renewable energy systems engineered for Malaysian conditions — water, ground, or rooftop.</p>
+      </div>
+    </div>
+
+    <div class="dsec-anchor-box">
+      <p class="dsec-anchor-statement">"<span class="accent">Off-grid renewable energy</span> engineered for Malaysian conditions — solar floating, ground-mounted, or rooftop, integrated with <span class="accent">BESS storage and intelligent EMS</span>. Hybrid where the grid demands."</p>
+      <div class="dsec-tags">
+        <span class="dsec-tag">OFF-GRID-FIRST</span>
+        <span class="dsec-tag">BESS-INTEGRATED</span>
+        <span class="dsec-tag">EMS-OPTIMISED</span>
+        <span class="dsec-tag">MALAYSIA-WIDE</span>
+      </div>
+    </div>
+
+    <div class="dsec-twocol">
+      <div>
+        <div class="dsec-col-label">KEY SERVICES</div>
+        <div class="dsec-services">
+          <svg viewBox="0 0 460 280" style="width:100%;height:100%;">
+            <defs>
+              <radialGradient id="hub-hijau"><stop offset="0%" stop-color="rgba(80,200,140,0.95)"/><stop offset="100%" stop-color="rgba(80,200,140,0)"/></radialGradient>
+              <radialGradient id="node-hijau"><stop offset="0%" stop-color="rgba(80,200,140,0.85)"/><stop offset="100%" stop-color="rgba(80,200,140,0)"/></radialGradient>
+            </defs>
+            <g stroke="rgba(80,200,140,0.5)" stroke-width="1" fill="none" stroke-linecap="round">
+              <line x1="230" y1="140" x2="230" y2="50" class="beam-line"/>
+              <line x1="230" y1="140" x2="308" y2="95" class="beam-line" style="animation-delay:0.3s"/>
+              <line x1="230" y1="140" x2="308" y2="185" class="beam-line" style="animation-delay:0.6s"/>
+              <line x1="230" y1="140" x2="230" y2="230" class="beam-line" style="animation-delay:0.9s"/>
+              <line x1="230" y1="140" x2="152" y2="185" class="beam-line" style="animation-delay:1.2s"/>
+              <line x1="230" y1="140" x2="152" y2="95" class="beam-line" style="animation-delay:1.5s"/>
+            </g>
+            <g class="node-orb"><circle cx="230" cy="50" r="18" fill="url(#node-hijau)"/><circle cx="230" cy="50" r="3" fill="rgba(200,255,220,1)"/></g>
+            <text x="230" y="22" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(80,200,140,0.7)" letter-spacing="1.5">①</text>
+            <text x="230" y="86" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">FLOATING SOLAR</text>
+            <g class="node-orb" style="animation-delay:0.3s"><circle cx="308" cy="95" r="18" fill="url(#node-hijau)"/><circle cx="308" cy="95" r="3" fill="rgba(200,255,220,1)"/></g>
+            <text x="335" y="78" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(80,200,140,0.7)" letter-spacing="1.5">②</text>
+            <text x="365" y="98" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">GROUND-</text>
+            <text x="365" y="112" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">MOUNT</text>
+            <g class="node-orb" style="animation-delay:0.6s"><circle cx="308" cy="185" r="18" fill="url(#node-hijau)"/><circle cx="308" cy="185" r="3" fill="rgba(200,255,220,1)"/></g>
+            <text x="335" y="200" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(80,200,140,0.7)" letter-spacing="1.5">③</text>
+            <text x="365" y="183" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">ROOFTOP</text>
+            <text x="365" y="197" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">SOLAR</text>
+            <g class="node-orb" style="animation-delay:0.9s"><circle cx="230" cy="230" r="18" fill="url(#node-hijau)"/><circle cx="230" cy="230" r="3" fill="rgba(200,255,220,1)"/></g>
+            <text x="230" y="266" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(80,200,140,0.7)" letter-spacing="1.5">④</text>
+            <text x="230" y="200" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">BESS STORAGE</text>
+            <g class="node-orb" style="animation-delay:1.2s"><circle cx="152" cy="185" r="18" fill="url(#node-hijau)"/><circle cx="152" cy="185" r="3" fill="rgba(200,255,220,1)"/></g>
+            <text x="125" y="200" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(80,200,140,0.7)" letter-spacing="1.5">⑤</text>
+            <text x="95" y="190" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">SMART EMS</text>
+            <g class="node-orb" style="animation-delay:1.5s"><circle cx="152" cy="95" r="18" fill="url(#node-hijau)"/><circle cx="152" cy="95" r="3" fill="rgba(200,255,220,1)"/></g>
+            <text x="125" y="78" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(80,200,140,0.7)" letter-spacing="1.5">⑥</text>
+            <text x="95" y="98" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">HYBRID</text>
+            <text x="95" y="112" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">SYSTEMS</text>
+            <g><circle cx="230" cy="140" r="32" fill="url(#hub-hijau)"/><circle cx="230" cy="140" r="24" fill="rgba(8,16,28,0.92)" stroke="rgba(80,200,140,1)" stroke-width="1.4"/></g>
+            <text x="230" y="138" text-anchor="middle" font-family="Cinzel" font-size="9" font-weight="700" fill="#5DD89C" letter-spacing="1.5">HIJAU</text>
+            <text x="230" y="151" text-anchor="middle" font-family="Cinzel" font-size="9" font-weight="700" fill="#5DD89C" letter-spacing="1.5">ENERGY</text>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <div class="dsec-col-label">WHAT WE DO</div>
+        <div class="dsec-whatwedo">
+          <p class="dsec-intro">We build <span class="accent">off-grid renewable energy systems</span> anywhere in Malaysia — turning sun into reliable power, with smart battery and energy management.</p>
+          <ul class="dsec-bullets">
+            <li><span class="bullet-num">①</span> Solar farms on lakes, dams, and water surfaces</li>
+            <li><span class="bullet-num">②</span> Solar arrays on land — fields, ex-mining sites, open ground</li>
+            <li><span class="bullet-num">③</span> Solar systems on rooftops — commercial, industrial, residential</li>
+            <li><span class="bullet-num">④</span> Battery systems to store solar power for use anytime</li>
+            <li><span class="bullet-num">⑤</span> Smart energy management that runs everything efficiently</li>
+            <li><span class="bullet-num">⑥</span> Hybrid setups when grid connection makes sense</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="dsec-members">
+      <div class="dsec-col-label">KEY MEMBERS LEADING THIS DIVISION</div>
+      <div class="dsec-members-grid">
+        <div class="dsec-member-card"><div class="dsec-member-avatar">RA</div><div class="dsec-member-info"><div class="dsec-member-name">[Member Name]</div><div class="dsec-member-role">Solar Project Engineer</div><div class="dsec-member-tier">KP-TIER</div></div></div>
+        <div class="dsec-member-card"><div class="dsec-member-avatar">SH</div><div class="dsec-member-info"><div class="dsec-member-name">[Member Name]</div><div class="dsec-member-role">BESS &amp; EMS Specialist</div><div class="dsec-member-tier">KP-TIER</div></div></div>
+        <div class="dsec-member-card"><div class="dsec-member-avatar">NM</div><div class="dsec-member-info"><div class="dsec-member-name">[Member Name]</div><div class="dsec-member-role">Off-Grid Systems Lead</div><div class="dsec-member-tier">KL-TIER</div></div></div>
+      </div>
+    </div>
+
+    <div class="dsec-inquiry">
+      <div class="dsec-inquiry-text">
+        <div class="dsec-inquiry-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
+        <div>
+          <div class="dsec-inquiry-title">Interested in Hijau Energy?</div>
+          <p class="dsec-inquiry-sub">Get in touch with the team. Your inquiry will pre-fill with this division's details — no retyping.</p>
+        </div>
+      </div>
+      <a href="contact.html?division=hijau-energy" class="dsec-inquiry-btn">Inquire About Hijau Energy <span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ DIVISION 4: RANTAI BLOCKCHAIN (RWA rewrite) ══════════════════════════════════════ -->
+<section id="rantai-blockchain" class="div-section" style="--dcol:#A874E0;--dcol-light:#D5B5F0;--dcol-mid:#7B4FB8;--dcol-dark:#231546;--dcol-rgb:160,100,220;--dglow:rgba(160,100,220,0.5);">
+  <div class="wrap">
+    <div class="dsec-header">
+      <div class="dsec-orb">
+        <div class="dsec-orb-aura" style="background:radial-gradient(circle,rgba(160,100,220,0.4) 0%,rgba(160,100,220,0.1) 50%,transparent 80%);"></div>
+        <div class="dsec-orb-spark" style="top:-5px;left:75%;width:5px;height:5px;background:#D5B5F0;box-shadow:0 0 8px #D5B5F0,0 0 14px rgba(160,100,220,0.6);animation-delay:0.9s;"></div>
+        <div class="dsec-orb-spark" style="bottom:5px;left:-3px;width:4px;height:4px;background:#D5B5F0;box-shadow:0 0 6px #D5B5F0,0 0 10px rgba(160,100,220,0.5);animation-delay:2.4s;"></div>
+        <div class="dsec-orb-shadow"></div>
+        <div class="dsec-orb-body" style="background:radial-gradient(circle at 32% 28%,#F5EBFC 0%,#D5B5F0 18%,#A874E0 45%,#7B4FB8 75%,#3F2778 92%,#231546 100%);box-shadow:0 0 26px rgba(160,100,220,0.5),inset -8px -8px 18px rgba(35,21,70,0.6),inset 5px 5px 13px rgba(213,181,240,0.3);">
+          <div class="dsec-orb-shine"><div class="dsec-orb-shine-band" style="animation-delay:1.5s;"></div></div>
+          <div class="dsec-orb-gloss"></div>
+          <svg class="dsec-orb-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0A1628" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><line x1="10" y1="6.5" x2="14" y2="6.5"/><line x1="10" y1="17.5" x2="14" y2="17.5"/><line x1="6.5" y1="10" x2="6.5" y2="14"/><line x1="17.5" y1="10" x2="17.5" y2="14"/></svg>
+        </div>
+      </div>
+      <div class="dsec-title-block">
+        <div class="dsec-title-row">
+          <h2 class="dsec-name">Rantai Blockchain</h2>
+          <span class="dsec-bm">Teknologi Lejar Teragih</span>
+        </div>
+        <p class="dsec-desc">Building Malaysia's sovereign cooperative chain — tokenizing real-world assets into on-chain ownership.</p>
+      </div>
+    </div>
+
+    <div class="dsec-anchor-box">
+      <p class="dsec-anchor-statement">"<span class="accent">A sovereign chain for the cooperative economy</span> — where <span class="accent">real-world assets become tokens</span>, governance becomes code, and members become <span class="accent">validators of their own future</span>."</p>
+      <div class="dsec-tags">
+        <span class="dsec-tag">SOVEREIGN-CHAIN</span>
+        <span class="dsec-tag">RWA-NATIVE</span>
+        <span class="dsec-tag">SMART-CONTRACTS</span>
+        <span class="dsec-tag">INSTITUTION-READY</span>
+      </div>
+    </div>
+
+    <div class="dsec-twocol">
+      <div>
+        <div class="dsec-col-label">KEY SERVICES</div>
+        <div class="dsec-services">
+          <svg viewBox="0 0 460 280" style="width:100%;height:100%;">
+            <defs>
+              <radialGradient id="hub-rantai"><stop offset="0%" stop-color="rgba(160,100,220,0.95)"/><stop offset="100%" stop-color="rgba(160,100,220,0)"/></radialGradient>
+              <radialGradient id="node-rantai"><stop offset="0%" stop-color="rgba(160,100,220,0.85)"/><stop offset="100%" stop-color="rgba(160,100,220,0)"/></radialGradient>
+            </defs>
+            <g stroke="rgba(160,100,220,0.5)" stroke-width="1" fill="none" stroke-linecap="round">
+              <line x1="230" y1="140" x2="90" y2="85" class="beam-line"/>
+              <line x1="230" y1="140" x2="370" y2="85" class="beam-line" style="animation-delay:0.7s"/>
+              <line x1="230" y1="140" x2="90" y2="195" class="beam-line" style="animation-delay:1.4s"/>
+              <line x1="230" y1="140" x2="370" y2="195" class="beam-line" style="animation-delay:2.1s"/>
+            </g>
+            <g class="node-orb"><circle cx="90" cy="85" r="22" fill="url(#node-rantai)"/><circle cx="90" cy="85" r="3" fill="rgba(255,255,255,0.9)"/></g>
+            <text x="90" y="56" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(160,100,220,0.7)" letter-spacing="1.5">①</text>
+            <text x="90" y="120" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">NEW CHAIN</text>
+            <text x="90" y="134" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">BUILD</text>
+            <g class="node-orb" style="animation-delay:0.5s"><circle cx="370" cy="85" r="22" fill="url(#node-rantai)"/><circle cx="370" cy="85" r="3" fill="rgba(255,255,255,0.9)"/></g>
+            <text x="370" y="56" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(160,100,220,0.7)" letter-spacing="1.5">②</text>
+            <text x="370" y="120" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">RWA</text>
+            <text x="370" y="134" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">TOKENIZATION</text>
+            <g class="node-orb" style="animation-delay:1s"><circle cx="90" cy="195" r="22" fill="url(#node-rantai)"/><circle cx="90" cy="195" r="3" fill="rgba(255,255,255,0.9)"/></g>
+            <text x="90" y="166" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(160,100,220,0.7)" letter-spacing="1.5">③</text>
+            <text x="90" y="230" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">SMART</text>
+            <text x="90" y="244" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">CONTRACTS</text>
+            <g class="node-orb" style="animation-delay:1.5s"><circle cx="370" cy="195" r="22" fill="url(#node-rantai)"/><circle cx="370" cy="195" r="3" fill="rgba(255,255,255,0.9)"/></g>
+            <text x="370" y="166" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(160,100,220,0.7)" letter-spacing="1.5">④</text>
+            <text x="370" y="230" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">ON-CHAIN</text>
+            <text x="370" y="244" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">GOVERNANCE</text>
+            <g><circle cx="230" cy="140" r="34" fill="url(#hub-rantai)"/><circle cx="230" cy="140" r="26" fill="rgba(8,16,28,0.92)" stroke="rgba(160,100,220,1)" stroke-width="1.4"/></g>
+            <text x="230" y="138" text-anchor="middle" font-family="Cinzel" font-size="7" font-weight="700" fill="#A874E0" letter-spacing="1.5">RANTAI</text>
+            <text x="230" y="151" text-anchor="middle" font-family="Cinzel" font-size="7" font-weight="700" fill="#A874E0" letter-spacing="1.5">BLOCKCHAIN</text>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <div class="dsec-col-label">WHAT WE DO</div>
+        <div class="dsec-whatwedo">
+          <p class="dsec-intro">We engineer Malaysia's first <span class="accent">sovereign cooperative blockchain</span> — turning physical assets into on-chain tokens and cooperative governance into self-executing code.</p>
+          <ul class="dsec-bullets">
+            <li><span class="bullet-num">①</span> Building our own blockchain network for the cooperative economy</li>
+            <li><span class="bullet-num">②</span> Turning physical assets — solar farms, real estate, commodities — into on-chain tokens</li>
+            <li><span class="bullet-num">③</span> Self-executing digital agreements for treasury, governance, and finance</li>
+            <li><span class="bullet-num">④</span> Transparent on-chain voting where every member's decision is recorded</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="dsec-members">
+      <div class="dsec-col-label">KEY MEMBERS LEADING THIS DIVISION</div>
+      <div class="dsec-members-grid">
+        <div class="dsec-member-card"><div class="dsec-member-avatar">FA</div><div class="dsec-member-info"><div class="dsec-member-name">[Member Name]</div><div class="dsec-member-role">Smart Contracts Engineer</div><div class="dsec-member-tier">KP-TIER</div></div></div>
+        <div class="dsec-member-card"><div class="dsec-member-avatar">HZ</div><div class="dsec-member-info"><div class="dsec-member-name">[Member Name]</div><div class="dsec-member-role">RWA Tokenization Lead</div><div class="dsec-member-tier">KP-TIER</div></div></div>
+        <div class="dsec-member-card"><div class="dsec-member-avatar">TM</div><div class="dsec-member-info"><div class="dsec-member-name">[Member Name]</div><div class="dsec-member-role">Chain Infrastructure Architect</div><div class="dsec-member-tier">KL-TIER</div></div></div>
+      </div>
+    </div>
+
+    <div class="dsec-inquiry">
+      <div class="dsec-inquiry-text">
+        <div class="dsec-inquiry-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
+        <div>
+          <div class="dsec-inquiry-title">Interested in Rantai Blockchain?</div>
+          <p class="dsec-inquiry-sub">Get in touch with the team. Your inquiry will pre-fill with this division's details — no retyping.</p>
+        </div>
+      </div>
+      <a href="contact.html?division=rantai-blockchain" class="dsec-inquiry-btn">Inquire About Rantai Blockchain <span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ DIVISION 5: DANA SEJAHTERA ══════════════════════════════════════ -->
+<section id="dana-sejahtera" class="div-section" style="--dcol:#FF7B7B;--dcol-light:#FFB5B5;--dcol-mid:#D85555;--dcol-dark:#5A1818;--dcol-rgb:255,123,123;--dglow:rgba(255,123,123,0.5);">
+  <div class="wrap">
+    <div class="dsec-header">
+      <div class="dsec-orb">
+        <div class="dsec-orb-aura" style="background:radial-gradient(circle,rgba(255,123,123,0.4) 0%,rgba(255,123,123,0.1) 50%,transparent 80%);"></div>
+        <div class="dsec-orb-spark" style="top:-5px;left:75%;width:5px;height:5px;background:#FFB5B5;box-shadow:0 0 8px #FFB5B5,0 0 14px rgba(255,123,123,0.6);animation-delay:1.2s;"></div>
+        <div class="dsec-orb-spark" style="bottom:5px;left:-3px;width:4px;height:4px;background:#FFB5B5;box-shadow:0 0 6px #FFB5B5,0 0 10px rgba(255,123,123,0.5);animation-delay:2.7s;"></div>
+        <div class="dsec-orb-shadow"></div>
+        <div class="dsec-orb-body" style="background:radial-gradient(circle at 32% 28%,#FCEBEB 0%,#FFB5B5 18%,#FF7B7B 45%,#D85555 75%,#8B2D2D 92%,#5A1818 100%);box-shadow:0 0 26px rgba(255,123,123,0.5),inset -8px -8px 18px rgba(90,24,24,0.6),inset 5px 5px 13px rgba(255,181,181,0.3);">
+          <div class="dsec-orb-shine"><div class="dsec-orb-shine-band" style="animation-delay:0.7s;"></div></div>
+          <div class="dsec-orb-gloss"></div>
+          <svg class="dsec-orb-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0A1628" stroke-width="2"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/></svg>
+        </div>
+      </div>
+      <div class="dsec-title-block">
+        <div class="dsec-title-row">
+          <h2 class="dsec-name">Dana Sejahtera</h2>
+          <span class="dsec-bm">InsurTech &amp; Kewangan Pintar</span>
+        </div>
+        <p class="dsec-desc">Financial intelligence for the cooperative era.</p>
+      </div>
+    </div>
+
+    <div class="dsec-anchor-box">
+      <p class="dsec-anchor-statement">"<span class="accent">Treasury operations that institutional capital trusts</span> — risk-managed, yield-optimised, and <span class="accent">transparent by design</span>."</p>
+      <div class="dsec-tags">
+        <span class="dsec-tag">RISK-MANAGED</span>
+        <span class="dsec-tag">YIELD-OPTIMISED</span>
+        <span class="dsec-tag">TRANSPARENT</span>
+        <span class="dsec-tag">MEMBER-FIRST</span>
+      </div>
+    </div>
+
+    <div class="dsec-twocol">
+      <div>
+        <div class="dsec-col-label">KEY SERVICES</div>
+        <div class="dsec-services">
+          <svg viewBox="0 0 460 280" style="width:100%;height:100%;">
+            <defs>
+              <radialGradient id="hub-dana"><stop offset="0%" stop-color="rgba(255,123,123,0.95)"/><stop offset="100%" stop-color="rgba(255,123,123,0)"/></radialGradient>
+              <radialGradient id="node-dana"><stop offset="0%" stop-color="rgba(255,123,123,0.85)"/><stop offset="100%" stop-color="rgba(255,123,123,0)"/></radialGradient>
+            </defs>
+            <g stroke="rgba(255,123,123,0.5)" stroke-width="1" fill="none" stroke-linecap="round">
+              <line x1="230" y1="140" x2="90" y2="85" class="beam-line"/>
+              <line x1="230" y1="140" x2="370" y2="85" class="beam-line" style="animation-delay:0.7s"/>
+              <line x1="230" y1="140" x2="90" y2="195" class="beam-line" style="animation-delay:1.4s"/>
+              <line x1="230" y1="140" x2="370" y2="195" class="beam-line" style="animation-delay:2.1s"/>
+            </g>
+            <g class="node-orb"><circle cx="90" cy="85" r="22" fill="url(#node-dana)"/><circle cx="90" cy="85" r="3" fill="rgba(255,255,255,0.9)"/></g>
+            <text x="90" y="56" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(255,123,123,0.7)" letter-spacing="1.5">①</text>
+            <text x="90" y="125" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">TREASURY MGMT</text>
+            <g class="node-orb" style="animation-delay:0.5s"><circle cx="370" cy="85" r="22" fill="url(#node-dana)"/><circle cx="370" cy="85" r="3" fill="rgba(255,255,255,0.9)"/></g>
+            <text x="370" y="56" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(255,123,123,0.7)" letter-spacing="1.5">②</text>
+            <text x="370" y="125" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">YIELD STRATEGY</text>
+            <g class="node-orb" style="animation-delay:1s"><circle cx="90" cy="195" r="22" fill="url(#node-dana)"/><circle cx="90" cy="195" r="3" fill="rgba(255,255,255,0.9)"/></g>
+            <text x="90" y="166" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(255,123,123,0.7)" letter-spacing="1.5">③</text>
+            <text x="90" y="235" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">RISK MANAGEMENT</text>
+            <g class="node-orb" style="animation-delay:1.5s"><circle cx="370" cy="195" r="22" fill="url(#node-dana)"/><circle cx="370" cy="195" r="3" fill="rgba(255,255,255,0.9)"/></g>
+            <text x="370" y="166" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(255,123,123,0.7)" letter-spacing="1.5">④</text>
+            <text x="370" y="235" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">DIGITAL ASSETS</text>
+            <g><circle cx="230" cy="140" r="34" fill="url(#hub-dana)"/><circle cx="230" cy="140" r="26" fill="rgba(8,16,28,0.92)" stroke="rgba(255,123,123,1)" stroke-width="1.4"/></g>
+            <text x="230" y="138" text-anchor="middle" font-family="Cinzel" font-size="7" font-weight="700" fill="#FF7B7B" letter-spacing="1.5">DANA</text>
+            <text x="230" y="151" text-anchor="middle" font-family="Cinzel" font-size="7" font-weight="700" fill="#FF7B7B" letter-spacing="1.5">SEJAHTERA</text>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <div class="dsec-col-label">WHAT WE DO</div>
+        <div class="dsec-whatwedo">
+          <p class="dsec-intro">We manage cooperative funds — making sure money grows safely with <span class="accent">full risk-discipline and audit-ready transparency</span>.</p>
+          <ul class="dsec-bullets">
+            <li><span class="bullet-num">①</span> Manage cooperative funds safely and transparently</li>
+            <li><span class="bullet-num">②</span> Grow money through risk-managed yield strategies</li>
+            <li><span class="bullet-num">③</span> Risk-managed treasury operations with full audit trails</li>
+            <li><span class="bullet-num">④</span> Manage crypto and digital asset holdings transparently</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="dsec-members">
+      <div class="dsec-col-label">KEY MEMBERS LEADING THIS DIVISION</div>
+      <div class="dsec-members-grid">
+        <div class="dsec-member-card"><div class="dsec-member-avatar">BS</div><div class="dsec-member-info"><div class="dsec-member-name">[Member Name]</div><div class="dsec-member-role">Treasury Manager</div><div class="dsec-member-tier">KP-TIER</div></div></div>
+        <div class="dsec-member-card"><div class="dsec-member-avatar">EM</div><div class="dsec-member-info"><div class="dsec-member-name">[Member Name]</div><div class="dsec-member-role">Yield Strategist</div><div class="dsec-member-tier">KP-TIER</div></div></div>
+        <div class="dsec-member-card"><div class="dsec-member-avatar">RY</div><div class="dsec-member-info"><div class="dsec-member-name">[Member Name]</div><div class="dsec-member-role">Risk &amp; Compliance Lead</div><div class="dsec-member-tier">KL-TIER</div></div></div>
+      </div>
+    </div>
+
+    <div class="dsec-inquiry">
+      <div class="dsec-inquiry-text">
+        <div class="dsec-inquiry-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
+        <div>
+          <div class="dsec-inquiry-title">Interested in Dana Sejahtera?</div>
+          <p class="dsec-inquiry-sub">Get in touch with the team. Your inquiry will pre-fill with this division's details — no retyping.</p>
+        </div>
+      </div>
+      <a href="contact.html?division=dana-sejahtera" class="dsec-inquiry-btn">Inquire About Dana Sejahtera <span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ DIVISION 6: ANGKASA BUILD (CAA→CAAM) ══════════════════════════════════════ -->
+<section id="angkasa-build" class="div-section" style="--dcol:#7888F5;--dcol-light:#B5BEFA;--dcol-mid:#4D5DD8;--dcol-dark:#13205C;--dcol-rgb:120,136,245;--dglow:rgba(120,136,245,0.5);">
+  <div class="wrap">
+    <div class="dsec-header">
+      <div class="dsec-orb">
+        <div class="dsec-orb-aura" style="background:radial-gradient(circle,rgba(120,136,245,0.4) 0%,rgba(120,136,245,0.1) 50%,transparent 80%);"></div>
+        <div class="dsec-orb-spark" style="top:-5px;left:75%;width:5px;height:5px;background:#B5BEFA;box-shadow:0 0 8px #B5BEFA,0 0 14px rgba(120,136,245,0.6);animation-delay:1.5s;"></div>
+        <div class="dsec-orb-spark" style="bottom:5px;left:-3px;width:4px;height:4px;background:#B5BEFA;box-shadow:0 0 6px #B5BEFA,0 0 10px rgba(120,136,245,0.5);animation-delay:0.3s;"></div>
+        <div class="dsec-orb-shadow"></div>
+        <div class="dsec-orb-body" style="background:radial-gradient(circle at 32% 28%,#EBEFFC 0%,#B5BEFA 18%,#7888F5 45%,#4D5DD8 75%,#2A3580 92%,#13205C 100%);box-shadow:0 0 26px rgba(120,136,245,0.5),inset -8px -8px 18px rgba(19,32,92,0.6),inset 5px 5px 13px rgba(181,190,250,0.3);">
+          <div class="dsec-orb-shine"><div class="dsec-orb-shine-band" style="animation-delay:1.2s;"></div></div>
+          <div class="dsec-orb-gloss"></div>
+          <svg class="dsec-orb-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0A1628" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6v12l8 4 8-4V6l-8-4z"/><polyline points="12 11 12 22"/><polyline points="4 6 12 11 20 6"/></svg>
+        </div>
+      </div>
+      <div class="dsec-title-block">
+        <div class="dsec-title-row">
+          <h2 class="dsec-name">Angkasa Build</h2>
+          <span class="dsec-bm">Dron AI &amp; PropTech</span>
+        </div>
+        <p class="dsec-desc">Aerial intelligence meets the built environment.</p>
+      </div>
+    </div>
+
+    <div class="dsec-anchor-box">
+      <p class="dsec-anchor-statement">"<span class="accent">Drone surveys, infrastructure delivery, and PropTech</span> — engineered for Malaysia's <span class="accent">physical economy</span>."</p>
+      <div class="dsec-tags">
+        <span class="dsec-tag">AERIAL-INTELLIGENCE</span>
+        <span class="dsec-tag">INFRASTRUCTURE-LED</span>
+        <span class="dsec-tag">PROPTECH-NATIVE</span>
+        <span class="dsec-tag">CAAM-CERTIFIED</span>
+      </div>
+    </div>
+
+    <div class="dsec-twocol">
+      <div>
+        <div class="dsec-col-label">KEY SERVICES</div>
+        <div class="dsec-services">
+          <svg viewBox="0 0 460 280" style="width:100%;height:100%;">
+            <defs>
+              <radialGradient id="hub-angkasa"><stop offset="0%" stop-color="rgba(120,136,245,0.95)"/><stop offset="100%" stop-color="rgba(120,136,245,0)"/></radialGradient>
+              <radialGradient id="node-angkasa"><stop offset="0%" stop-color="rgba(120,136,245,0.85)"/><stop offset="100%" stop-color="rgba(120,136,245,0)"/></radialGradient>
+            </defs>
+            <g stroke="rgba(120,136,245,0.5)" stroke-width="1" fill="none" stroke-linecap="round">
+              <line x1="230" y1="140" x2="90" y2="85" class="beam-line"/>
+              <line x1="230" y1="140" x2="370" y2="85" class="beam-line" style="animation-delay:0.7s"/>
+              <line x1="230" y1="140" x2="90" y2="195" class="beam-line" style="animation-delay:1.4s"/>
+              <line x1="230" y1="140" x2="370" y2="195" class="beam-line" style="animation-delay:2.1s"/>
+            </g>
+            <g class="node-orb"><circle cx="90" cy="85" r="22" fill="url(#node-angkasa)"/><circle cx="90" cy="85" r="3" fill="rgba(255,255,255,0.9)"/></g>
+            <text x="90" y="56" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(120,136,245,0.7)" letter-spacing="1.5">①</text>
+            <text x="90" y="125" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">DRONE SURVEYS</text>
+            <g class="node-orb" style="animation-delay:0.5s"><circle cx="370" cy="85" r="22" fill="url(#node-angkasa)"/><circle cx="370" cy="85" r="3" fill="rgba(255,255,255,0.9)"/></g>
+            <text x="370" y="56" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(120,136,245,0.7)" letter-spacing="1.5">②</text>
+            <text x="370" y="125" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">CONSTRUCTION</text>
+            <g class="node-orb" style="animation-delay:1s"><circle cx="90" cy="195" r="22" fill="url(#node-angkasa)"/><circle cx="90" cy="195" r="3" fill="rgba(255,255,255,0.9)"/></g>
+            <text x="90" y="166" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(120,136,245,0.7)" letter-spacing="1.5">③</text>
+            <text x="90" y="235" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">PROPTECH</text>
+            <g class="node-orb" style="animation-delay:1.5s"><circle cx="370" cy="195" r="22" fill="url(#node-angkasa)"/><circle cx="370" cy="195" r="3" fill="rgba(255,255,255,0.9)"/></g>
+            <text x="370" y="166" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(120,136,245,0.7)" letter-spacing="1.5">④</text>
+            <text x="370" y="235" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">SITE MAPPING</text>
+            <g><circle cx="230" cy="140" r="34" fill="url(#hub-angkasa)"/><circle cx="230" cy="140" r="26" fill="rgba(8,16,28,0.92)" stroke="rgba(120,136,245,1)" stroke-width="1.4"/></g>
+            <text x="230" y="138" text-anchor="middle" font-family="Cinzel" font-size="9" font-weight="700" fill="#7888F5" letter-spacing="1.5">ANGKASA</text>
+            <text x="230" y="151" text-anchor="middle" font-family="Cinzel" font-size="9" font-weight="700" fill="#7888F5" letter-spacing="1.5">BUILD</text>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <div class="dsec-col-label">WHAT WE DO</div>
+        <div class="dsec-whatwedo">
+          <p class="dsec-intro">We use <span class="accent">drones and digital tools</span> to survey land and deliver infrastructure across Malaysia.</p>
+          <ul class="dsec-bullets">
+            <li><span class="bullet-num">①</span> Map land and sites from above with drones</li>
+            <li><span class="bullet-num">②</span> Deliver buildings, roads, and infrastructure</li>
+            <li><span class="bullet-num">③</span> Smart digital tools for property and construction</li>
+            <li><span class="bullet-num">④</span> Detailed land surveys for new developments</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="dsec-members">
+      <div class="dsec-col-label">KEY MEMBERS LEADING THIS DIVISION</div>
+      <div class="dsec-members-grid">
+        <div class="dsec-member-card"><div class="dsec-member-avatar">ZH</div><div class="dsec-member-info"><div class="dsec-member-name">[Member Name]</div><div class="dsec-member-role">Drone Operations Lead</div><div class="dsec-member-tier">KP-TIER</div></div></div>
+        <div class="dsec-member-card"><div class="dsec-member-avatar">AR</div><div class="dsec-member-info"><div class="dsec-member-name">[Member Name]</div><div class="dsec-member-role">Civil Engineer</div><div class="dsec-member-tier">KP-TIER</div></div></div>
+        <div class="dsec-member-card"><div class="dsec-member-avatar">KS</div><div class="dsec-member-info"><div class="dsec-member-name">[Member Name]</div><div class="dsec-member-role">PropTech Specialist</div><div class="dsec-member-tier">KL-TIER</div></div></div>
+      </div>
+    </div>
+
+    <div class="dsec-inquiry">
+      <div class="dsec-inquiry-text">
+        <div class="dsec-inquiry-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
+        <div>
+          <div class="dsec-inquiry-title">Interested in Angkasa Build?</div>
+          <p class="dsec-inquiry-sub">Get in touch with the team. Your inquiry will pre-fill with this division's details — no retyping.</p>
+        </div>
+      </div>
+      <a href="contact.html?division=angkasa-build" class="dsec-inquiry-btn">Inquire About Angkasa Build <span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ DIVISION 7: ARIF ADVISORY (workforce + smart agreements rewrite) ══════════════════════════════════════ -->
+<section id="arif-advisory" class="div-section" style="--dcol:#D4B385;--dcol-light:#EDD5A8;--dcol-mid:#A88857;--dcol-dark:#42321B;--dcol-rgb:212,179,133;--dglow:rgba(212,179,133,0.5);">
+  <div class="wrap">
+    <div class="dsec-header">
+      <div class="dsec-orb">
+        <div class="dsec-orb-aura" style="background:radial-gradient(circle,rgba(212,179,133,0.4) 0%,rgba(212,179,133,0.1) 50%,transparent 80%);"></div>
+        <div class="dsec-orb-spark" style="top:-5px;left:75%;width:5px;height:5px;background:#EDD5A8;box-shadow:0 0 8px #EDD5A8,0 0 14px rgba(212,179,133,0.6);animation-delay:1.8s;"></div>
+        <div class="dsec-orb-spark" style="bottom:5px;left:-3px;width:4px;height:4px;background:#EDD5A8;box-shadow:0 0 6px #EDD5A8,0 0 10px rgba(212,179,133,0.5);animation-delay:0.6s;"></div>
+        <div class="dsec-orb-shadow"></div>
+        <div class="dsec-orb-body" style="background:radial-gradient(circle at 32% 28%,#FCF5EB 0%,#EDD5A8 18%,#D4B385 45%,#A88857 75%,#6F5A38 92%,#42321B 100%);box-shadow:0 0 26px rgba(212,179,133,0.5),inset -8px -8px 18px rgba(66,50,27,0.6),inset 5px 5px 13px rgba(237,213,168,0.3);">
+          <div class="dsec-orb-shine"><div class="dsec-orb-shine-band" style="animation-delay:1.7s;"></div></div>
+          <div class="dsec-orb-gloss"></div>
+          <svg class="dsec-orb-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0A1628" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+        </div>
+      </div>
+      <div class="dsec-title-block">
+        <div class="dsec-title-row">
+          <h2 class="dsec-name">Arif Advisory</h2>
+          <span class="dsec-bm">Strategi &amp; Tadbir Urus AI</span>
+        </div>
+        <p class="dsec-desc">From boardroom strategy to workforce digitization — advisory for Malaysia's regulated, AI-driven future.</p>
+      </div>
+    </div>
+
+    <div class="dsec-anchor-box">
+      <p class="dsec-anchor-statement">"Bridging Malaysian boardrooms with workforce reality — <span class="accent">strategic advisory</span> across governance, AI adoption, <span class="accent">labour digitization</span>, and <span class="accent">on-chain employment frameworks</span>."</p>
+      <div class="dsec-tags">
+        <span class="dsec-tag">STRATEGIC</span>
+        <span class="dsec-tag">GOVERNANCE-LED</span>
+        <span class="dsec-tag">WORKFORCE-DIGITAL</span>
+        <span class="dsec-tag">INSTITUTION-GRADE</span>
+      </div>
+    </div>
+
+    <div class="dsec-twocol">
+      <div>
+        <div class="dsec-col-label">KEY SERVICES</div>
+        <div class="dsec-services">
+          <svg viewBox="0 0 460 280" style="width:100%;height:100%;">
+            <defs>
+              <radialGradient id="hub-arif"><stop offset="0%" stop-color="rgba(212,179,133,0.95)"/><stop offset="100%" stop-color="rgba(212,179,133,0)"/></radialGradient>
+              <radialGradient id="node-arif"><stop offset="0%" stop-color="rgba(212,179,133,0.85)"/><stop offset="100%" stop-color="rgba(212,179,133,0)"/></radialGradient>
+            </defs>
+            <g stroke="rgba(212,179,133,0.5)" stroke-width="1" fill="none" stroke-linecap="round">
+              <line x1="230" y1="140" x2="90" y2="85" class="beam-line"/>
+              <line x1="230" y1="140" x2="370" y2="85" class="beam-line" style="animation-delay:0.7s"/>
+              <line x1="230" y1="140" x2="90" y2="195" class="beam-line" style="animation-delay:1.4s"/>
+              <line x1="230" y1="140" x2="370" y2="195" class="beam-line" style="animation-delay:2.1s"/>
+            </g>
+            <g class="node-orb"><circle cx="90" cy="85" r="22" fill="url(#node-arif)"/><circle cx="90" cy="85" r="3" fill="rgba(255,255,255,0.9)"/></g>
+            <text x="90" y="56" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(212,179,133,0.7)" letter-spacing="1.5">①</text>
+            <text x="90" y="120" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">STRATEGIC</text>
+            <text x="90" y="134" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">PLANNING</text>
+            <g class="node-orb" style="animation-delay:0.5s"><circle cx="370" cy="85" r="22" fill="url(#node-arif)"/><circle cx="370" cy="85" r="3" fill="rgba(255,255,255,0.9)"/></g>
+            <text x="370" y="56" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(212,179,133,0.7)" letter-spacing="1.5">②</text>
+            <text x="370" y="120" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">WORKFORCE</text>
+            <text x="370" y="134" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">DIGITAL</text>
+            <g class="node-orb" style="animation-delay:1s"><circle cx="90" cy="195" r="22" fill="url(#node-arif)"/><circle cx="90" cy="195" r="3" fill="rgba(255,255,255,0.9)"/></g>
+            <text x="90" y="166" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(212,179,133,0.7)" letter-spacing="1.5">③</text>
+            <text x="90" y="230" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">SMART</text>
+            <text x="90" y="244" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">AGREEMENTS</text>
+            <g class="node-orb" style="animation-delay:1.5s"><circle cx="370" cy="195" r="22" fill="url(#node-arif)"/><circle cx="370" cy="195" r="3" fill="rgba(255,255,255,0.9)"/></g>
+            <text x="370" y="166" text-anchor="middle" font-family="Cinzel" font-size="11" font-weight="700" fill="rgba(212,179,133,0.7)" letter-spacing="1.5">④</text>
+            <text x="370" y="230" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">GOVERNANCE</text>
+            <text x="370" y="244" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#F4EFE8" letter-spacing="1.5">&amp; ESG</text>
+            <g><circle cx="230" cy="140" r="34" fill="url(#hub-arif)"/><circle cx="230" cy="140" r="26" fill="rgba(8,16,28,0.92)" stroke="rgba(212,179,133,1)" stroke-width="1.4"/></g>
+            <text x="230" y="138" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#D4B385" letter-spacing="1.5">ARIF</text>
+            <text x="230" y="151" text-anchor="middle" font-family="Cinzel" font-size="10" font-weight="700" fill="#D4B385" letter-spacing="1.5">ADVISORY</text>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <div class="dsec-col-label">WHAT WE DO</div>
+        <div class="dsec-whatwedo">
+          <p class="dsec-intro">We advise Malaysian institutions on <span class="accent">strategy, workforce digitization, and digital governance</span> — bridging boardroom decisions with on-the-ground execution.</p>
+          <ul class="dsec-bullets">
+            <li><span class="bullet-num">①</span> Help leaders plan strategy, AI adoption, and digital transformation</li>
+            <li><span class="bullet-num">②</span> Digital workforce hiring through <span class="accent">FWCMS, Eppax, MyFutureJobs</span> platforms</li>
+            <li><span class="bullet-num">③</span> Design smart-contract employment agreements that execute automatically</li>
+            <li><span class="bullet-num">④</span> Build governance frameworks and ensure ESG compliance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="dsec-platforms">
+      <div class="dsec-platforms-label">— DIGITAL WORKFORCE PLATFORMS WE WORK WITH —</div>
+      <div class="dsec-platforms-grid">
+        <div class="dsec-platform-chip">
+          <div class="dsec-platform-name">FWCMS</div>
+          <div class="dsec-platform-desc">Foreign worker permits</div>
+        </div>
+        <div class="dsec-platform-chip">
+          <div class="dsec-platform-name">Eppax</div>
+          <div class="dsec-platform-desc">Outsourcing portal</div>
+        </div>
+        <div class="dsec-platform-chip">
+          <div class="dsec-platform-name">MyFutureJobs</div>
+          <div class="dsec-platform-desc">Local hiring platform</div>
+        </div>
+        <div class="dsec-platform-chip">
+          <div class="dsec-platform-name">Smart Contracts</div>
+          <div class="dsec-platform-desc">On-chain employment</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dsec-members">
+      <div class="dsec-col-label">KEY MEMBERS LEADING THIS DIVISION</div>
+      <div class="dsec-members-grid">
+        <div class="dsec-member-card"><div class="dsec-member-avatar">TR</div><div class="dsec-member-info"><div class="dsec-member-name">[Member Name]</div><div class="dsec-member-role">Strategic Advisor</div><div class="dsec-member-tier">KP-TIER</div></div></div>
+        <div class="dsec-member-card"><div class="dsec-member-avatar">WL</div><div class="dsec-member-info"><div class="dsec-member-name">[Member Name]</div><div class="dsec-member-role">Workforce Digital Lead</div><div class="dsec-member-tier">KP-TIER</div></div></div>
+        <div class="dsec-member-card"><div class="dsec-member-avatar">GP</div><div class="dsec-member-info"><div class="dsec-member-name">[Member Name]</div><div class="dsec-member-role">Governance &amp; ESG Specialist</div><div class="dsec-member-tier">KL-TIER</div></div></div>
+      </div>
+    </div>
+
+    <div class="dsec-inquiry">
+      <div class="dsec-inquiry-text">
+        <div class="dsec-inquiry-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
+        <div>
+          <div class="dsec-inquiry-title">Interested in Arif Advisory?</div>
+          <p class="dsec-inquiry-sub">Get in touch with the team. Your inquiry will pre-fill with this division's details — no retyping.</p>
+        </div>
+      </div>
+      <a href="contact.html?division=arif-advisory" class="dsec-inquiry-btn">Inquire About Arif Advisory <span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ FINAL CTA ══════════════════════════════════════ -->
+<section class="div-final-cta">
+  <div class="wrap">
+    <div class="div-cta-label">— READY TO ENGAGE —</div>
+    <h2 class="div-cta-headline">Seven Divisions. <span class="gold-italic">Endless Possibilities.</span></h2>
+    <p class="div-cta-sub">Whether your project needs renewable energy, AI, blockchain, advisory, infrastructure, or finance — there's a cooperative division ready to deliver.</p>
+    <a href="contact.html" class="div-cta-btn">Begin a Conversation <span>→</span></a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ FOOTER ══════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="f-svg-wrap">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="KOPIT node network logo">
+              <circle cx="28" cy="28" r="4.5" fill="#C9A84C"/>
+              <circle cx="28" cy="8"  r="3" fill="#C9A84C" opacity=".9"/>
+              <circle cx="46" cy="18" r="3" fill="#C9A84C" opacity=".9"/>
+              <circle cx="46" cy="38" r="3" fill="#C9A84C" opacity=".9"/>
+              <circle cx="28" cy="48" r="3" fill="#C9A84C" opacity=".9"/>
+              <circle cx="10" cy="38" r="3" fill="#C9A84C" opacity=".9"/>
+              <circle cx="10" cy="18" r="3" fill="#C9A84C" opacity=".9"/>
+              <line x1="28" y1="28" x2="28" y2="11"  stroke="#C9A84C" stroke-width="1" opacity=".45"/>
+              <line x1="28" y1="28" x2="43" y2="20"  stroke="#C9A84C" stroke-width="1" opacity=".45"/>
+              <line x1="28" y1="28" x2="43" y2="36"  stroke="#C9A84C" stroke-width="1" opacity=".45"/>
+              <line x1="28" y1="28" x2="28" y2="45"  stroke="#C9A84C" stroke-width="1" opacity=".45"/>
+              <line x1="28" y1="28" x2="13" y2="36"  stroke="#C9A84C" stroke-width="1" opacity=".45"/>
+              <line x1="28" y1="28" x2="13" y2="20"  stroke="#C9A84C" stroke-width="1" opacity=".45"/>
+              <line x1="28" y1="11" x2="43" y2="20"  stroke="#C9A84C" stroke-width=".8" opacity=".25"/>
+              <line x1="43" y1="20" x2="43" y2="36"  stroke="#C9A84C" stroke-width=".8" opacity=".25"/>
+              <line x1="43" y1="36" x2="28" y2="45"  stroke="#C9A84C" stroke-width=".8" opacity=".25"/>
+              <line x1="28" y1="45" x2="13" y2="36"  stroke="#C9A84C" stroke-width=".8" opacity=".25"/>
+              <line x1="13" y1="36" x2="13" y2="20"  stroke="#C9A84C" stroke-width=".8" opacity=".25"/>
+              <line x1="13" y1="20" x2="28" y2="11"  stroke="#C9A84C" stroke-width=".8" opacity=".25"/>
+            </svg>
+          </div>
+          <div class="f-logo-name">KOPIT</div>
+          <p class="f-tagline" data-en="Koperasi Usahawan Informasi Teknologi Malaysia Berhad" data-bm="Koperasi Usahawan Informasi Teknologi Malaysia Berhad">Koperasi Usahawan Informasi Teknologi Malaysia Berhad</p>
+          <p class="f-premier" data-en="Malaysia's Premier IT Koperasi" data-bm="Koperasi IT Terulung Malaysia">Malaysia's Premier IT Koperasi</p>
+          <div class="footer-credentials" style="margin-top:16px;font-family:'Source Sans 3',sans-serif;font-size:12px;line-height:1.7;color:rgba(255,255,255,0.55);">
+            <div style="margin-bottom:14px;">Registered under Suruhanjaya Koperasi Malaysia (SKM)</div>
+            <div style="margin-bottom:14px;">
+              <div>E-Perolehan Registered Vendor</div>
+              <div style="margin-top:4px;font-family:'Cinzel',serif;font-size:14px;letter-spacing:1.5px;font-weight:500;color:rgba(201,168,76,0.85);">No. Rujukan Pendaftaran: 357-0002365635</div>
+            </div>
+            <div style="font-family:'Cinzel',serif;font-size:14px;letter-spacing:2px;font-weight:500;color:rgba(201,168,76,0.85);">Est. 2022</div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="f-head" data-en="Quick Links" data-bm="Pautan Pantas">Quick Links</h4>
+          <ul class="f-nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="divisions.html">Divisions</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="f-head" data-en="Get In Touch" data-bm="Hubungi Kami">Get In Touch</h4>
+          <a href="https://wa.me/60105122561" class="f-wa" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366" style="flex-shrink:0">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            010-5122561
+          </a>
+          <p class="f-hours" data-en="Available Mon – Fri, 9am – 6pm" data-bm="Isnin – Jumaat, 9pg – 6ptg">Available Mon – Fri, 9am – 6pm</p>
+          <div class="f-email">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span style="font-size:.82rem;color:rgba(255,255,255,.38)">Email: <a href="mailto:admin@kopit.com.my" style="color:inherit;text-decoration:none;">admin@kopit.com.my</a></span>
+          </div>
+          <a href="contact.html" class="f-contact-btn">Send Us a Message</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <div class="wrap">
+      <div class="footer-bar-inner">
+        <p>© 2025 KOPIT. All rights reserved. · <a href="privacy.html" class="bar-legal">Privacy Policy</a> · <a href="terms.html" class="bar-legal">Terms of Service</a></p>
+        <p class="bar-r" data-en="Malaysia's Premier IT Koperasi" data-bm="Koperasi IT Terulung Malaysia">Malaysia's Premier IT Koperasi</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── 1. LANGUAGE SYSTEM ── */
+var currentLang = localStorage.getItem('kopitLang') || 'en';
+function applyLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('kopitLang', lang);
+  document.querySelectorAll('[data-en]').forEach(function(el) {
+    var val = lang === 'bm' ? el.getAttribute('data-bm') : el.getAttribute('data-en');
+    if (val !== null) el.innerHTML = val;
+  });
+  document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+  document.getElementById('btnBM').classList.toggle('active', lang === 'bm');
+  document.documentElement.lang = lang === 'bm' ? 'ms' : 'en';
+}
+function setLang(lang) { applyLanguage(lang); }
+
+/* ── 2. CANVAS LOGO ── */
+(function(){
+  const cv = document.getElementById('kopitLogo');
+  if(!cv) return;
+  const ctx = cv.getContext('2d');
+  const W = cv.width, H = cv.height;
+  const CX = W/2, CY = H/2;
+  const GOLD='#C9A84C', EMR='#2ebf84', SAP='#5a9ef5', PLT='#ccdcee';
+  const NODES = [
+    {x:0,y:0,z:0,t:'hub',c:GOLD},
+    {x:0,y:-22,z:6,t:'blk',c:PLT},
+    {x:0,y:18,z:-4,t:'cir',c:EMR},
+    {x:-22,y:0,z:3,t:'cir',c:SAP},
+    {x:16,y:0,z:-6,t:'blk',c:EMR},
+    {x:-14,y:-14,z:8,t:'blk',c:SAP},
+    {x:19,y:-15,z:-3,t:'cir',c:PLT},
+    {x:-13,y:14,z:-7,t:'blk',c:EMR},
+    {x:18,y:18,z:4,t:'cir',c:SAP},
+  ];
+  const EDGES = [[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[0,8]];
+  let aY = 0, fT = 0, tt = 0;
+  const aX = 0.15;
+  function rY(x,y,z,a){return{x:x*Math.cos(a)+z*Math.sin(a),y,z:-x*Math.sin(a)+z*Math.cos(a)};}
+  function rX(x,y,z,a){return{x,y:y*Math.cos(a)-z*Math.sin(a),z:y*Math.sin(a)+z*Math.cos(a)};}
+  function proj(x,y,z){const f=85/(85+z+45);return{sx:CX+x*f,sy:CY+y*f,sc:f};}
+  function rgb(h){return[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)];}
+  function ra(h,a){const[r,g,b]=rgb(h);return`rgba(${r},${g},${b},${a})`;}
+  function glow(x,y,r,col,str){
+    [2,1].forEach((m,i)=>{
+      const g=ctx.createRadialGradient(x,y,0,x,y,r*m);
+      g.addColorStop(0,ra(col,str*(0.5-i*0.2)));
+      g.addColorStop(1,ra(col,0));
+      ctx.beginPath();ctx.arc(x,y,r*m,0,Math.PI*2);
+      ctx.fillStyle=g;ctx.fill();
+    });
+  }
+  function box(x,y,w,h,r){
+    ctx.beginPath();
+    ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);
+    ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+    ctx.lineTo(x+w,y+h-r);
+    ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+    ctx.lineTo(x+r,y+h);
+    ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+    ctx.lineTo(x,y+r);
+    ctx.quadraticCurveTo(x,y,x+r,y);
+    ctx.closePath();
+  }
+  function drawHub(n,p){
+    const s = 9*n.sc;
+    glow(n.sx,n.sy,s*1.5,GOLD,0.15*p);
+    box(n.sx-s,n.sy-s,s*2,s*2,2.5*n.sc);
+    ctx.fillStyle='rgba(8,5,1,0.95)';ctx.fill();
+    ctx.strokeStyle=ra(GOLD,0.85);
+    ctx.lineWidth=1.2*n.sc;ctx.stroke();
+    ctx.fillStyle=ra(GOLD,0.95);
+    ctx.font=`700 ${7*n.sc}px 'Playfair Display'`;
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText('K',n.sx,n.sy);
+  }
+  function drawBlk(n,p){
+    const s = 3*n.sc;
+    glow(n.sx,n.sy,s*2.5,n.c,0.25*p);
+    box(n.sx-s,n.sy-s,s*2,s*2,1*n.sc);
+    const[r,g,b]=rgb(n.c);
+    ctx.fillStyle=`rgba(${Math.round(r*0.15)},${Math.round(g*0.15)},${Math.round(b*0.15)},0.95)`;
+    ctx.fill();
+    ctx.strokeStyle=ra(n.c,0.9);
+    ctx.lineWidth=0.8*n.sc;ctx.stroke();
+  }
+  function drawCir(n,p){
+    const r = 3*n.sc;
+    glow(n.sx,n.sy,r*2.5,n.c,0.25*p);
+    ctx.beginPath();ctx.arc(n.sx,n.sy,r,0,Math.PI*2);
+    const[rv,gv,bv]=rgb(n.c);
+    ctx.fillStyle=`rgba(${Math.round(rv*0.15)},${Math.round(gv*0.15)},${Math.round(bv*0.15)},0.95)`;
+    ctx.fill();
+    ctx.strokeStyle=ra(n.c,0.9);
+    ctx.lineWidth=0.8*n.sc;ctx.stroke();
+    ctx.beginPath();ctx.arc(n.sx,n.sy,1*n.sc,0,Math.PI*2);
+    ctx.fillStyle=ra(n.c,0.9);ctx.fill();
+  }
+  function frame(){
+    ctx.clearRect(0,0,W,H);
+    fT += 0.006; aY += 0.008; tt += 0.012;
+    const pulse = 0.7 + 0.3*Math.sin(tt*1.5);
+    const fo = Math.sin(fT)*2;
+    const tX = aX + Math.sin(fT*0.4)*0.03;
+    const nodes = NODES.map(n => {
+      let p = rY(n.x,n.y,n.z,aY);
+      p = rX(p.x,p.y,p.z,tX);
+      const pj = proj(p.x,p.y+fo,p.z);
+      return {...n, ...pj, tz:p.z};
+    });
+    EDGES.forEach(([i,j]) => {
+      const a = nodes[i], b = nodes[j];
+      const lg = ctx.createLinearGradient(a.sx,a.sy,b.sx,b.sy);
+      lg.addColorStop(0,ra(GOLD,0.4));
+      lg.addColorStop(1,ra(b.c,0.7));
+      ctx.beginPath();
+      ctx.moveTo(a.sx,a.sy);ctx.lineTo(b.sx,b.sy);
+      ctx.strokeStyle=ra(b.c,0.08*pulse);
+      ctx.lineWidth=2.5*(a.sc+b.sc)/2;ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(a.sx,a.sy);ctx.lineTo(b.sx,b.sy);
+      ctx.strokeStyle=lg;
+      ctx.lineWidth=0.7*(a.sc+b.sc)/2;ctx.stroke();
+    });
+    [...nodes].sort((a,b)=>a.tz-b.tz).forEach(n => {
+      if(n.t==='hub') drawHub(n,pulse);
+      else if(n.t==='blk') drawBlk(n,pulse);
+      else drawCir(n,pulse);
+    });
+    requestAnimationFrame(frame);
+  }
+  frame();
+})();
+
+/* ── 3. NAVBAR + MOBILE MENU ── */
+var navbar    = document.querySelector('.navbar');
+var hamburger = document.getElementById('hamburger');
+var navLinks  = document.getElementById('navLinks');
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 80) navbar.classList.add('scrolled');
+  else navbar.classList.remove('scrolled');
+}, { passive: true });
+hamburger.addEventListener('click', function() {
+  hamburger.classList.toggle('open');
+  navLinks.classList.toggle('open');
+  document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+});
+navLinks.querySelectorAll('.nl').forEach(function(link) {
+  link.addEventListener('click', function() {
+    hamburger.classList.remove('open');
+    navLinks.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+document.addEventListener('click', function(e) {
+  if (navLinks.classList.contains('open') &&
+      !navLinks.contains(e.target) &&
+      !hamburger.contains(e.target)) {
+    hamburger.classList.remove('open');
+    navLinks.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+
+/* ── 4. INIT LANGUAGE ON LOAD ── */
+document.addEventListener('DOMContentLoaded', function() {
+  applyLanguage(currentLang);
+});
+</script>
+</body>
+</html>

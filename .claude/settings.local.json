@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(start *)",
+      "Bash(ls -la \"/c/Users/User/OneDrive/Desktop/KOPIT/PIC Libarary/\" 2>&1 | head -50)",
+      "Bash(ls -la \"/c/Users/User/OneDrive/Desktop/KOPIT/PIC Library/BOD Photo/\" 2>&1)",
+      "Bash(ls -la \"/c/Users/User/OneDrive/Desktop/KOPIT/\" 2>&1 | grep -i \"pic\\\\|library\\\\|libarary\")",
+      "Bash(curl -s -L -A 'Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0 Safari/537.36' --max-time 30 'https://kopit.com.my/wp-json/wp/v2/posts?slug=kopit-rings-in-the-chinese-new-year-with-a-joyful-dinner')"
+    ]
+  }
+}

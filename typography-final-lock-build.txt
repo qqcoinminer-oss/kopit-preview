@@ -1,0 +1,392 @@
+COMPREHENSIVE BUILD — TYPOGRAPHY 
+FINAL LOCK · COLOUR + ARRANGEMENT 
++ SIZING
+
+This build implements the locked 
+typography system across the entire 
+site:
+
+1. NEW COLOUR SYSTEM
+   - Top line: Warm Pearl #F4EFE8
+   - Bottom line: Soft Gold #D4B97A
+   - NO pure white in headlines
+   - Original gold #C9A84C kept for 
+     section labels, ornaments, 
+     CTA buttons
+
+2. NEW ARRANGEMENT
+   - Headlines stacked at natural 
+     break point (comma/preposition)
+   - Top line: Playfair 600 (statement)
+   - Bottom line: Playfair 500 (~80% 
+     size, qualifier)
+   - NO italic mid-headline
+   - NO white/gold colour split
+
+3. COMFORT SIZING
+   - All small text increased 
+     ~20-25%
+   - Section labels: 9px → 11px
+   - Hero subtext: 15px → 17px + 
+     opacity 0.55 → 0.7
+   - Stat labels: 8px → 10px
+   - Card micro-text: 6.5-7px → 8-9px
+   - Footer credentials: 10-11px → 
+     12-13px
+
+═══════════════════════════════════════
+FILES TO MODIFY
+═══════════════════════════════════════
+
+1. C:\Projects\KOPIT-Website\index.html
+2. C:\Projects\KOPIT-Website\contact.html
+
+═══════════════════════════════════════
+STEP 1 — VERIFY GOOGLE FONTS LOAD
+═══════════════════════════════════════
+
+Confirm both files have Cormorant 
+Garamond loaded (added in previous 
+build). If missing, ensure this is 
+in the Google Fonts <link>:
+
+family=Cormorant+Garamond:ital,wght@
+0,400;0,500;1,300;1,400;1,500
+
+═══════════════════════════════════════
+STEP 2 — UPDATE .ITALIC-ACCENT CSS
+═══════════════════════════════════════
+
+The .italic-accent class (added in 
+previous typography build) is no 
+longer used for headlines. Either:
+
+A) Keep the class for SUBTEXT and 
+   small italic accents (recommended)
+B) Remove if not used elsewhere
+
+If keeping, ensure it reads:
+
+.italic-accent {
+  font-family: 'Cormorant Garamond', 
+    serif;
+  font-style: italic;
+  font-weight: 400;
+  color: rgba(244, 239, 232, 0.7);
+}
+
+Note: Updated colour from white to 
+warm pearl with 0.7 opacity.
+
+═══════════════════════════════════════
+STEP 3 — ADD NEW HEADLINE CSS
+═══════════════════════════════════════
+
+Add these new CSS rules:
+
+.headline-stack {
+  text-align: center;
+  margin: 0;
+}
+
+.headline-top {
+  font-family: 'Playfair Display', 
+    serif;
+  font-weight: 600;
+  color: #F4EFE8;
+  margin: 0 0 8px;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+.headline-bottom {
+  font-family: 'Playfair Display', 
+    serif;
+  font-weight: 500;
+  color: #D4B97A;
+  margin: 0;
+  line-height: 1.15;
+  letter-spacing: -0.4px;
+}
+
+/* Hero size variants */
+.headline-top.hero-size {
+  font-size: 54px;
+}
+.headline-bottom.hero-size {
+  font-size: 42px;
+}
+
+/* CTA size variants */
+.headline-top.cta-size {
+  font-size: 42px;
+}
+.headline-bottom.cta-size {
+  font-size: 34px;
+}
+
+/* Manifesto size variants */
+.headline-top.manifesto-size {
+  font-size: 46px;
+  line-height: 1.2;
+  letter-spacing: -0.4px;
+}
+.headline-bottom.manifesto-size {
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.3px;
+}
+
+═══════════════════════════════════════
+STEP 4 — UPDATE HEADLINE 1 · 
+HOMEPAGE HERO
+File: index.html
+═══════════════════════════════════════
+
+Find the homepage hero. Currently:
+
+<h1>Membership Is 
+  <span class="italic-accent">
+  By Invitation.</span></h1>
+
+REPLACE with:
+
+<h1 class="headline-top hero-size">
+  Membership Is</h1>
+<h1 class="headline-bottom hero-size">
+  By Invitation.</h1>
+
+═══════════════════════════════════════
+STEP 5 — UPDATE HEADLINE 2 · 
+CLOSING MANIFESTO
+File: index.html
+═══════════════════════════════════════
+
+Find the closing manifesto section. 
+Currently has TWO headings (one 
+white, one italic accent).
+
+REPLACE both with:
+
+<h2 class="headline-top manifesto-size">
+  We are not built<br>
+  to be the largest.</h2>
+<h3 class="headline-bottom manifesto-size">
+  We are built to be the most<br>
+  member-aligned.</h3>
+
+═══════════════════════════════════════
+STEP 6 — UPDATE HEADLINE 3 · 
+CONTACT HERO
+File: contact.html
+═══════════════════════════════════════
+
+Find the contact hero. Currently:
+
+<h1>Let's Build 
+  <span class="italic-accent">
+  Together.</span></h1>
+
+REPLACE with:
+
+<h1 class="headline-top hero-size">
+  Let's Build,</h1>
+<h1 class="headline-bottom hero-size">
+  Together.</h1>
+
+═══════════════════════════════════════
+STEP 7 — UPDATE SUBTEXT COLOURS
+═══════════════════════════════════════
+
+Find all hero subtexts and update 
+the colour/opacity:
+
+OLD:
+color: rgba(255, 255, 255, 0.55);
+
+NEW:
+color: rgba(244, 239, 232, 0.7);
+
+Apply to:
+- Homepage hero subtext
+- Contact hero subtext
+- Closing manifesto subtext
+
+Also update font-size:
+OLD: font-size: 15px;
+NEW: font-size: 17px;
+
+═══════════════════════════════════════
+STEP 8 — COMFORT SIZING UPDATES
+═══════════════════════════════════════
+
+INDEX.HTML — Section labels:
+
+Find all instances of section labels 
+(— DIVISIONS —, — PROJECTS —, 
+— MEMBERSHIP —, — THE INVITATION —, 
+etc.).
+
+For each, find the inline style or 
+CSS rule and update:
+OLD: font-size: 9px;
+NEW: font-size: 11px;
+
+Letter-spacing stays at 4px.
+
+INDEX.HTML — Caption labels on 
+membership cards (— AHLI 
+PERKHIDMATAN — etc.):
+OLD: 9-10px
+NEW: 11-12px
+
+INDEX.HTML — Card EST tagline:
+OLD: font-size: 7px;
+NEW: font-size: 9px;
+
+INDEX.HTML — Card MEMBER SINCE:
+OLD: font-size: 6.5px;
+NEW: font-size: 8px;
+
+INDEX.HTML — Card year display:
+OLD: font-size: 10px;
+NEW: font-size: 11px;
+
+INDEX.HTML — Card serial codes 
+(SERIAL · KI3·0001·MY etc.):
+OLD: font-size: 6.5-7px;
+NEW: font-size: 8-9px;
+
+INDEX.HTML — Footer credentials 
+(E-Perolehan number, Est. 2022):
+OLD: 10-11px
+NEW: 12-13px
+
+CONTACT.HTML — Stat labels in 
+form helpers:
+OLD: 8px
+NEW: 10px
+
+CONTACT.HTML — Helper text under 
+button:
+OLD: 11px
+NEW: 13px
+
+CONTACT.HTML — Section labels 
+(— CONTACT —, — DIRECT CHANNELS —):
+OLD: 9px
+NEW: 11px
+
+CONTACT.HTML — Channel labels 
+(WHATSAPP, EMAIL, OFFICE):
+OLD: 10px
+NEW: 11px
+
+═══════════════════════════════════════
+STEP 9 — IMPORTANT · DO NOT TOUCH
+═══════════════════════════════════════
+
+DO NOT MODIFY:
+- KOPIT wordmark Cinzel (gold)
+- Card body main heading 
+  (Board of Directors, Strategic 
+  Partner, etc.) — these stay at 
+  current size
+- Card Malay subtitles (Lembaga 
+  Pengarah, Pelabur Agung) — current 
+  size stays
+- Diamond ornaments (◆ ◆ ◆)
+- Vertical hairline ornaments 
+  (1px x 14px)
+- CTA button typography 
+  (Apply For Membership, etc.)
+- Background colours
+- Layout, spacing, padding
+- Card 3D effects, gradients
+- All structural HTML
+
+═══════════════════════════════════════
+STEP 10 — UPDATE CARD SECTION 
+LABEL COLOUR (Critical)
+═══════════════════════════════════════
+
+When section labels appear within 
+text contexts, the colour stays at 
+original gold #C9A84C with various 
+opacity (0.7-0.95). DO NOT change 
+this — gold accents are reserved 
+for labels and must stay distinct.
+
+═══════════════════════════════════════
+WHAT TO TEST
+═══════════════════════════════════════
+
+After build, refresh both pages and 
+verify:
+
+HOMEPAGE TYPOGRAPHY:
+1. ✓ Hero shows "Membership Is" in 
+   warm pearl + "By Invitation." in 
+   soft gold (stacked, not inline)
+2. ✓ Closing manifesto shows "We 
+   are not built to be the largest." 
+   in warm pearl + "We are built to 
+   be the most member-aligned." in 
+   soft gold
+3. ✓ Hero subtext is 17px in warm 
+   pearl 0.7 opacity (NOT pure white 
+   0.55)
+4. ✓ Section labels (— DIVISIONS —, 
+   — MEMBERSHIP —, etc.) are now 
+   readable at 11px (not squinting 
+   at 9px)
+5. ✓ Member card serial codes 
+   readable
+6. ✓ Card MEMBER SINCE labels 
+   readable
+7. ✓ Footer credentials readable
+
+CONTACT PAGE TYPOGRAPHY:
+8. ✓ "Let's Build," in warm pearl + 
+   "Together." in soft gold
+9. ✓ Hero subtext 17px warm pearl
+10. ✓ Section labels at 11px
+11. ✓ Channel labels (WHATSAPP, 
+    EMAIL, OFFICE) at 11px
+12. ✓ Helper text under button 
+    at 13px
+
+GOLD STILL LIVES IN:
+13. ✓ Section labels (gold)
+14. ✓ Vertical ornament hairlines
+15. ✓ CTA buttons (gold filled)
+16. ✓ KOPIT wordmark (Cinzel gold)
+17. ✓ Diamond ornaments
+18. ✓ Footer credentials (small but 
+    now readable)
+
+PRESERVATION:
+19. ✓ Card designs unchanged 
+    (only micro-text increased)
+20. ✓ All other layouts intact
+21. ✓ Mobile responsive still works
+22. ✓ Headline stacks on mobile too
+
+After fixing — refresh browser. 
+Take FIVE screenshots:
+
+1. Homepage hero with new locked 
+   typography (pearl + soft gold 
+   stacked)
+2. Homepage closing manifesto with 
+   new typography
+3. Contact page hero with new 
+   typography
+4. A membership carousel card 
+   showing the increased micro-text 
+   sizes (serial code, MEMBER SINCE)
+5. Mobile view of homepage hero 
+   (browser ~400px wide)
+
+Bring all 5 back for review.

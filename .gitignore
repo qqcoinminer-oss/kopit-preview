@@ -1,0 +1,34 @@
+# Backups
+*.bak
+*.old
+*.tmp
+*~
+*.swp
+
+# OS files
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.code-workspace
+
+# Temporary
+uploads/
+tmp/
+temp/
+
+# Sensitive
+*.env
+*.key
+*.pem
+secrets/
+credentials/
+
+# Logs
+*.log
+
+# Admin kit (separate folder, just in case)
+KOPIT-Admin-Kit/

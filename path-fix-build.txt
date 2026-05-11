@@ -1,0 +1,346 @@
+COMPREHENSIVE FIX — CONVERT ABSOLUTE 
+PATHS TO RELATIVE PATHS
+
+Site-wide fix to make all internal 
+links work when opened locally 
+(file:// protocol) AND on production 
+servers.
+
+PROBLEM:
+Links like href="/contact.html" use 
+absolute paths. When opened locally, 
+browser interprets / as C:\ root and 
+shows ERR_FILE_NOT_FOUND.
+
+SOLUTION:
+Convert all internal links from 
+href="/page.html" to href="page.html" 
+(remove leading slash).
+
+This works for both local file:// 
+testing AND production hosting.
+
+═══════════════════════════════════════
+FILES TO REVIEW & FIX
+═══════════════════════════════════════
+
+1. C:\Projects\KOPIT-Website\index.html
+2. C:\Projects\KOPIT-Website\contact.html
+
+DO NOT touch CSS or JS files unless 
+they contain hardcoded absolute paths.
+
+═══════════════════════════════════════
+PATTERN TO FIND AND REPLACE
+═══════════════════════════════════════
+
+Find every href attribute that starts 
+with a forward slash followed by a 
+filename. Remove the leading slash.
+
+Examples (FIND → REPLACE):
+href="/" → href="index.html"
+href="/index.html" → href="index.html"
+href="/about.html" → href="about.html"
+href="/divisions.html" → href="divisions.html"
+href="/projects.html" → href="projects.html"
+href="/membership.html" → href="membership.html"
+href="/news.html" → href="news.html"
+href="/contact.html" → href="contact.html"
+href="/privacy.html" → href="privacy.html"
+href="/terms.html" → href="terms.html"
+
+Also handle paths with anchors and 
+query parameters:
+href="/contact.html#project-inquiry" 
+  → href="contact.html#project-inquiry"
+href="/contact.html?division=wira-digital" 
+  → href="contact.html?division=wira-digital"
+href="/contact.html?division=bijak-ai" 
+  → href="contact.html?division=bijak-ai"
+href="/contact.html?division=hijau" 
+  → href="contact.html?division=hijau"
+href="/contact.html?division=blockchain" 
+  → href="contact.html?division=blockchain"
+href="/contact.html?division=dana-sejahtera" 
+  → href="contact.html?division=dana-sejahtera"
+href="/contact.html?division=angkasa-build" 
+  → href="contact.html?division=angkasa-build"
+href="/contact.html?division=arif-advisory" 
+  → href="contact.html?division=arif-advisory"
+
+═══════════════════════════════════════
+PATTERNS TO PRESERVE (DO NOT TOUCH)
+═══════════════════════════════════════
+
+DO NOT modify these — they are NOT 
+internal page links:
+
+External URLs (keep as-is):
+href="https://wa.me/60105122561"
+href="https://fonts.googleapis.com/..."
+href="https://cdnjs.cloudflare.com/..."
+Any other https:// or http:// URL
+
+Mailto links (keep as-is):
+href="mailto:admin@kopit.com.my"
+
+Tel links (keep as-is):
+href="tel:+60105122561"
+
+Anchor-only links (keep as-is):
+href="#project-inquiry" (anchor on 
+  same page, no filename)
+
+JavaScript pseudo-protocols 
+(keep as-is):
+href="javascript:void(0)"
+
+The rule: only remove the leading 
+slash if the path is /something.html 
+(internal page link). Leave external 
+URLs, mailtos, tels, and same-page 
+anchors completely alone.
+
+═══════════════════════════════════════
+WHERE TO LOOK IN INDEX.HTML
+═══════════════════════════════════════
+
+Sections to audit and fix:
+
+1. NAVBAR — 7 navigation links
+   (Home, About, Divisions, Projects, 
+   Membership, News, Contact)
+   Plus "Member Login" button if it 
+   has a page link
+
+2. HERO SECTION — 3 CTA buttons
+   - "Apply For Membership" → 
+     membership.html
+   - "Hire Our Services" → 
+     contact.html#project-inquiry
+   - "View Our Work" → projects.html
+
+3. SEVEN DIVISIONS SECTION — 7 
+   "Hire This Division →" buttons
+   Each has ?division=[name] parameter
+
+4. EIGHTH DIVISION SECTION — 
+   "Propose A New Division →" CTA
+
+5. HOW KOPIT WORKS SECTION — 
+   "View Our Projects →" CTA
+
+6. MEMBERSHIP CAROUSEL — 
+   "Explore All Membership Tiers →" CTA
+
+7. CLOSING MANIFESTO — 
+   "Apply For Membership →" CTA
+
+8. FOOTER — Quick Links column 
+   (7 links matching navbar)
+   Plus "Send Us A Message" button
+   Plus Privacy Policy link
+   Plus Terms of Service link
+
+═══════════════════════════════════════
+WHERE TO LOOK IN CONTACT.HTML
+═══════════════════════════════════════
+
+Sections to audit and fix:
+
+1. NAVBAR — same 7 links as homepage
+
+2. CONTACT BODY — 
+   - Email mailto link 
+     (DO NOT TOUCH — it's mailto: not /)
+   - WhatsApp wa.me link 
+     (DO NOT TOUCH — external URL)
+   - Email fallback bottom note 
+     (DO NOT TOUCH — mailto)
+
+3. FOOTER — same structure as homepage
+
+═══════════════════════════════════════
+EDGE CASE — IMAGE/CSS/JS PATHS
+═══════════════════════════════════════
+
+Also check these reference patterns:
+
+If you find:
+src="/images/logo.png"
+href="/css/style.css"
+src="/js/main.js"
+
+Convert to:
+src="images/logo.png"
+href="css/style.css"
+src="js/main.js"
+
+But ONLY if they currently use leading 
+slash. If they already use relative 
+paths, leave alone.
+
+═══════════════════════════════════════
+EXECUTION APPROACH
+═══════════════════════════════════════
+
+Recommended approach:
+
+1. Open index.html
+2. Use find-and-replace tool to find 
+   pattern: href="/
+3. For each match, decide:
+   - Internal page link → remove the /
+   - External URL or mailto → leave 
+     alone
+4. Repeat for src="/ 
+5. Save index.html
+6. Repeat entire process for contact.html
+7. Test locally by double-clicking 
+   each HTML file
+
+DO NOT do a blanket find-and-replace 
+of href="/  to href=" without 
+checking each instance. Some links 
+need to stay absolute (external URLs).
+
+═══════════════════════════════════════
+WHAT NOT TO TOUCH
+═══════════════════════════════════════
+
+Do NOT modify:
+- Any text content (headings, 
+  paragraphs, button labels)
+- Any CSS styling
+- Any JavaScript logic
+- Any layout or structure
+- External URLs (https://...)
+- Mailto links (mailto:...)
+- Tel links (tel:...)
+- Same-page anchors (#section-name)
+- Image paths if already relative
+- Font Google API links
+- CDN script src links
+
+ONLY change:
+- Internal page navigation hrefs 
+  (the leading slash before page 
+  filenames)
+
+═══════════════════════════════════════
+VERIFICATION CHECKLIST
+═══════════════════════════════════════
+
+After fix, double-click index.html 
+in Windows Explorer to open in 
+browser. Test the following:
+
+NAVBAR LINKS (from homepage):
+1. ✓ Click "Home" — reloads/stays 
+   on index.html
+2. ✓ Click "About" — goes to 
+   about.html (will 404, expected)
+3. ✓ Click "Divisions" — goes to 
+   divisions.html (will 404, expected)
+4. ✓ Click "Projects" — goes to 
+   projects.html (will 404, expected)
+5. ✓ Click "Membership" — goes to 
+   membership.html (will 404, expected)
+6. ✓ Click "News" — goes to 
+   news.html (will 404, expected)
+7. ✓ Click "Contact" — goes to 
+   contact.html (LOADS SUCCESSFULLY)
+
+KEY: The 404s for missing pages 
+should show file paths like 
+"file:///C:/Projects/KOPIT-Website/
+about.html" in browser address bar 
+— NOT "file:///C:/about.html"
+
+HERO CTAs:
+8. ✓ "Apply For Membership" — 
+   navigates to membership.html 
+   (404, but URL shows correct 
+   project folder path)
+9. ✓ "Hire Our Services" — 
+   navigates to contact.html 
+   AND scrolls to project-inquiry 
+   form section
+10. ✓ "View Our Work" — navigates 
+    to projects.html (404, but 
+    correct path)
+
+DIVISION HIRE BUTTONS:
+11. ✓ Click any division "Hire This 
+    Division →" — navigates to 
+    contact.html with ?division=xxx 
+    parameter
+12. ✓ On contact page, Division 
+    dropdown auto-selects correct 
+    division
+13. ✓ Subject dropdown auto-sets 
+    to "Hire A Division"
+
+OTHER CTAs:
+14. ✓ "Propose A New Division" — 
+    works (whatever it routes to)
+15. ✓ "View Our Projects" (How 
+    KOPIT Works) — goes to 
+    projects.html
+16. ✓ "Explore All Membership 
+    Tiers" (Carousel) — goes to 
+    membership.html
+17. ✓ Closing Manifesto "Apply 
+    For Membership" — goes to 
+    membership.html
+
+FOOTER:
+18. ✓ All 7 Quick Links navigate 
+    to correct pages
+19. ✓ "Send Us A Message" goes to 
+    contact.html
+20. ✓ Privacy Policy link goes to 
+    privacy.html (404, expected)
+21. ✓ Terms of Service link goes 
+    to terms.html (404, expected)
+22. ✓ Email mailto link still 
+    works (opens email client)
+
+CONTACT PAGE NAVIGATION (after 
+landing on contact.html):
+23. ✓ Navbar links from contact 
+    page work
+24. ✓ Footer links from contact 
+    page work
+25. ✓ Email mailto on contact 
+    page still works
+26. ✓ WhatsApp link on contact 
+    page still works (external 
+    https://wa.me/...)
+27. ✓ "Send via WhatsApp" form 
+    button still works (opens 
+    WhatsApp with structured 
+    message)
+
+After fixing — test all of the 
+above. Take FOUR screenshots:
+
+1. Click "Hire Our Services" on 
+   homepage hero — screenshot of 
+   contact page loaded successfully 
+   with form scrolled into view
+2. Click any division "Hire This 
+   Division →" — screenshot of 
+   contact page with division 
+   dropdown auto-filled
+3. Click footer Quick Link 
+   "Membership" — screenshot of 
+   404 error showing correct path 
+   "file:///C:/Projects/KOPIT-Website/
+   membership.html"
+4. Click navbar "Contact" from 
+   contact page itself — verify 
+   active state styling
+
+Bring all 4 back for review.

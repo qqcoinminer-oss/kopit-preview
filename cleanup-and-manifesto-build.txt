@@ -1,0 +1,286 @@
+COMPREHENSIVE BUILD — CLEANUP + CLOSING MANIFESTO
+TWO PARTS · DO NOT MODIFY ANY OTHER SECTION
+
+This build does TWO things:
+1. DELETE two old sections from below 
+   the membership area
+2. REPLACE one existing section with a 
+   new closing manifesto
+
+DO NOT touch the navbar, hero, who we 
+are, foundation, divisions, 8th division, 
+how kopit works, membership carousel, or 
+footer. Only the 3 sections specified 
+below.
+
+═══════════════════════════════════════
+PART 1 — DELETE OLD SECTIONS
+═══════════════════════════════════════
+
+DELETE Section A — "Projects That 
+Define Our Impact"
+This section has:
+- Heading "Projects That Define Our 
+  Impact"
+- Subtext mentioning "From enterprise 
+  platforms to national energy 
+  infrastructure"
+- 3 cards: National e-Government Portal, 
+  Solar Farm Negeri Sembilan, AgriTech 
+  Intelligence Platform
+- Cream/beige background
+- "View Our Work" button at bottom
+
+This entire section must be REMOVED 
+completely from the HTML. Find it 
+between the membership carousel section 
+and the next section. Delete the entire 
+<section> block.
+
+DELETE Section B — "The Benefits of 
+Being KOPIT"
+This section has:
+- "MEMBERSHIP" label tag
+- Heading "The Benefits of Being KOPIT"
+- 5-bullet list with checkmarks:
+  - Access to exclusive contracts
+  - Dividend returns
+  - Discounted training
+  - Business matchmaking
+  - Collaborative tendering
+  - Cooperative financing
+- Two small membership cards on right 
+  (KP-0001 Ahli KOPIT gold + KA-0002 
+  Ahli Bersekutu blue)
+- "View Membership Plans" gold button
+
+This entire section must be REMOVED 
+completely from the HTML. Delete the 
+entire <section> block.
+
+═══════════════════════════════════════
+PART 2 — REPLACE CLOSING MANIFESTO
+═══════════════════════════════════════
+
+KEEP the existing "FOR THOSE WHO BUILD" 
+section structure (cinematic dark navy 
+section with centred quote and CTA), but 
+REPLACE all the content inside it with 
+the new "Invitation Manifesto" content.
+
+═══════════════════════════════════════
+NEW MANIFESTO SECTION SPEC
+═══════════════════════════════════════
+
+Section background:
+linear-gradient(135deg, 
+  #0A1628 0%, #0F1D33 50%, #0A1628 100%)
+
+Section padding:
+120px 30px (vertical 120, horizontal 30)
+
+Section position:
+After membership carousel section, 
+before footer.
+
+Subtle grid pattern background overlay:
+<svg style="position:absolute;inset:0;
+ width:100%;height:100%;opacity:0.04;
+ pointer-events:none;" viewBox="0 0 800 400">
+  <defs>
+    <pattern id="manifestoGrid" x="0" y="0" 
+     width="40" height="40" 
+     patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" 
+       stroke="#C9A84C" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="400" 
+   fill="url(#manifestoGrid)"/>
+</svg>
+
+Container:
+max-width: 800px
+margin: 0 auto
+text-align: center
+position: relative (for grid overlay)
+
+═══════════════════════════════════════
+TOP LABEL — "— THE INVITATION —"
+═══════════════════════════════════════
+
+Position: top of section
+Text: "— THE INVITATION —"
+
+Font: Source Sans 3
+Font-size: 10px
+Letter-spacing: 5px
+Font-weight: 600
+Color: rgba(201, 168, 76, 0.85)
+Text-transform: uppercase
+Margin-bottom: 24px
+
+═══════════════════════════════════════
+HEADLINE PART 1 (white)
+═══════════════════════════════════════
+
+Text: "We are not built<br>to be the largest."
+
+Font: Playfair Display
+Font-size: 42px
+Font-weight: 600
+Color: #ffffff
+Line-height: 1.2
+Letter-spacing: -0.5px
+Margin-bottom: 24px
+
+═══════════════════════════════════════
+HEADLINE PART 2 (gold italic)
+═══════════════════════════════════════
+
+Text: "We are built to be the most<br>
+member-aligned."
+
+Font: Playfair Display
+Font-style: italic
+Font-size: 30px
+Font-weight: 500
+Color: #C9A84C
+Line-height: 1.3
+Letter-spacing: -0.3px
+Margin-bottom: 28px
+
+═══════════════════════════════════════
+SUBTEXT (italic white, dimmed)
+═══════════════════════════════════════
+
+Text: "If that resonates with you,<br>
+there is a place for you in KOPIT."
+
+Font: Playfair Display
+Font-style: italic
+Font-size: 14px
+Font-weight: 500 (regular weight ok)
+Color: rgba(255, 255, 255, 0.55)
+Line-height: 1.7
+Max-width: 520px
+Margin: 0 auto 40px
+
+═══════════════════════════════════════
+CTA BUTTON
+═══════════════════════════════════════
+
+Text: "Apply For Membership →"
+Background: #C9A84C
+Border: none
+Color: #0A1628
+Padding: 15px 36px
+Font: Source Sans 3
+Font-size: 12px
+Font-weight: 600
+Letter-spacing: 2.5px
+Text-transform: uppercase
+Border-radius: 4px
+Cursor: pointer
+
+href: /membership.html
+
+Hover state:
+- Background: #B89640 (slightly darker 
+  gold)
+- Color: #0A1628 stays
+- Cursor: pointer
+- Transition: all 0.25s ease
+
+Note: /membership.html will 404 until 
+that page is built later. Acceptable.
+
+═══════════════════════════════════════
+MOBILE RESPONSIVE
+═══════════════════════════════════════
+
+@media (max-width: 768px) {
+  Section padding: 80px 24px
+  Top label font-size: 9px
+  Top label letter-spacing: 4px
+  Headline part 1: 32px
+  Headline part 2: 22px
+  Subtext: 13px
+  Subtext line breaks adapt naturally
+  CTA padding: 14px 28px
+  CTA font-size: 11px
+}
+
+═══════════════════════════════════════
+WHAT NOT TO TOUCH
+═══════════════════════════════════════
+
+PRESERVE:
+- Navbar
+- Hero
+- Who We Are section
+- Our Foundation section
+- Seven Divisions section
+- The 8th Division section
+- How KOPIT Works section
+- Membership Globe Carousel section 
+  (with all 7 cards)
+- Footer (will be updated in next build)
+- All animations, hover states, fonts
+
+═══════════════════════════════════════
+VERIFICATION CHECKLIST
+═══════════════════════════════════════
+
+After build:
+
+DELETIONS:
+1. ✓ "Projects That Define Our Impact" 
+   section is GONE (3 cards no longer 
+   visible)
+2. ✓ "The Benefits of Being KOPIT" 
+   section is GONE (bullet list + 2 
+   cards no longer visible)
+3. ✓ No empty space or stray HTML 
+   left behind
+
+NEW MANIFESTO:
+4. ✓ Section appears AFTER membership 
+   carousel
+5. ✓ Section appears BEFORE footer
+6. ✓ Cinematic dark navy background 
+   with subtle grid overlay
+7. ✓ "— THE INVITATION —" gold label 
+   at top
+8. ✓ "We are not built to be the 
+   largest." in white Playfair 42px
+9. ✓ "We are built to be the most 
+   member-aligned." in gold italic 30px
+10. ✓ "If that resonates with you, 
+    there is a place for you in KOPIT." 
+    in dimmed italic
+11. ✓ Gold "Apply For Membership →" 
+    button below
+12. ✓ Button links to /membership.html
+13. ✓ Hover button slightly darkens
+
+OVERALL FLOW:
+14. ✓ Page flows: ... → How KOPIT 
+    Works → Membership Carousel → 
+    NEW Manifesto → Footer
+15. ✓ All other sections unchanged
+16. ✓ Mobile view stacks correctly
+
+After fixing — refresh browser. 
+Take FOUR screenshots:
+
+1. Scroll to where "Projects That 
+   Define Our Impact" used to be — 
+   verify gone
+2. Scroll to where "Benefits of Being 
+   KOPIT" used to be — verify gone
+3. The new closing manifesto in full
+4. Mobile view of the manifesto 
+   (browser ~400px wide)
+
+Bring all 4 back for review.

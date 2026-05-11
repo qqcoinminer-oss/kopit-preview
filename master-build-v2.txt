@@ -1,0 +1,457 @@
+COMPREHENSIVE FINAL BUILD V2
+4 MAIN FIXES + AUDITED CORRECTIONS
+
+Read carefully. Execute every fix below.
+This build is fully audited — every 
+detail verified before assembly.
+
+═══════════════════════════════════════
+FIX 1 — INSERT "HOW KOPIT WORKS" SECTION
+═══════════════════════════════════════
+Insert AFTER the "8th Division" section
+(the one with "The Next Division Hasn't 
+Been Written" headline) and BEFORE 
+wherever the next section begins.
+
+Background: navy radial gradient 
+(matches existing dark theme)
+Padding: 80px 30px vertical
+Container: max-width 1200px
+
+═══════════════════════════════════════
+SECTION HEADER
+═══════════════════════════════════════
+Section label (centred, top):
+- Vertical gold line ornament 1px x 18px
+- Below: "HOW KOPIT WORKS"
+- Source Sans 3, 9px, letter-spacing 4px
+- Color rgba(201,168,76,0.65), weight 500
+
+Heading (centred):
+"Satu Koperasi. <span class='gold'>Every Opportunity.</span>"
+- Playfair Display, 38px, weight 600
+- Color #ffffff
+- Letter-spacing -0.3px
+- Line-height 1.2
+- Margin-bottom 14px
+- .gold class: color #C9A84C, italic, 
+  weight 400
+
+Subtext (centred):
+"From mega-projects to government 
+tenders to private clients — the 
+cooperative model adapts to every 
+scale and every sector."
+- Source Sans 3, 14px
+- Color rgba(255,255,255,0.55)
+- Letter-spacing 0.3px
+- Margin-bottom 60px
+- Max-width 700px, margin auto
+- Line-height 1.7
+
+═══════════════════════════════════════
+THE 4 STEPS — GRID LAYOUT
+═══════════════════════════════════════
+Container:
+- max-width 1200px, margin 0 auto 60px
+- Position relative
+
+Connection line (CSS pseudo behind steps):
+- Position absolute, top 50px
+- Left 60px, right 60px
+- Height 1px
+- Background: linear-gradient(to right,
+  transparent 0%,
+  rgba(201,168,76,0.4) 15%,
+  rgba(201,168,76,0.4) 85%,
+  transparent 100%)
+- Z-index 0
+
+Steps grid:
+- Display grid
+- Grid-template-columns: repeat(4, 1fr)
+- Position relative, z-index above line
+
+Each step:
+- Text-align centre
+- Padding 0 20px
+- Z-index 1
+
+Step circle:
+- Width 100px, height 100px
+- Border-radius 50%
+- Background: radial-gradient(circle at 
+  30% 25%, rgba(20,38,62,0.95) 0%,
+  rgba(8,16,28,0.98) 100%)
+- Border 1px solid rgba(201,168,76,0.45)
+- Display flex centre
+- Margin 0 auto 24px
+- Box-shadow: 0 8px 24px rgba(0,0,0,0.5),
+  inset 0 0 0 0.5px rgba(255,255,255,0.04)
+- Transition all 0.4s ease
+
+Step circle outer ring (::before):
+- Position absolute, inset -6px
+- Border-radius 50%
+- Border 0.5px solid rgba(201,168,76,0.2)
+- Transition inset 0.4s ease
+
+HOVER state:
+- Step circle: translateY(-4px)
+- Box-shadow intensifies + gold glow:
+  0 14px 32px rgba(0,0,0,0.55),
+  0 0 24px rgba(201,168,76,0.18)
+- Border-color rgba(201,168,76,0.7)
+- ::before inset expands to -10px
+- ::before border rgba(201,168,76,0.4)
+
+Step number (inside circle):
+- Font Cinzel, 32px, weight 700
+- Color #C9A84C
+- Text-shadow: 0 0 12px rgba(201,168,76,0.4)
+
+Step label (above title):
+- Source Sans 3, 9px, letter-spacing 3px
+- Color rgba(201,168,76,0.85)
+- text-transform: uppercase (CSS handles 
+  this — HTML can be Title Case)
+- weight 600
+- Margin-bottom 10px
+
+Step title:
+- Playfair Display, 18px, weight 600
+- Color #fff
+- Margin-bottom 10px
+- Letter-spacing -0.2px
+
+Step body:
+- Source Sans 3, 12px
+- Color rgba(255,255,255,0.6)
+- Line-height 1.65
+
+═══════════════════════════════════════
+THE 4 STEPS — EXACT CONTENT
+═══════════════════════════════════════
+
+STEP 1
+Number: 1
+Label: Step One
+Title: Opportunity Identified
+Body: Member-originated. Government 
+tender. Private client. Every path 
+leads to KOPIT.
+
+STEP 2
+Number: 2
+Label: Step Two
+Title: Divisions Assemble
+Body: The right divisions activate. 
+One leads. Others contribute. Always 
+collaborative.
+
+STEP 3
+Number: 3
+Label: Step Three
+Title: Cooperative Delivers
+Body: KOPIT delivers at institutional 
+standard. Member-led, cooperative-
+backed, professionally executed.
+
+STEP 4
+Number: 4
+Label: Step Four
+Title: Wealth Returns
+Body: Project earnings flow back 
+through cooperative dividends. Every 
+member benefits.
+
+═══════════════════════════════════════
+CLOSING STATEMENT + CTA
+═══════════════════════════════════════
+Container:
+- Margin-top 50px
+- Text-align centre
+- Padding 30px 20px 0
+
+Closing quote:
+- Playfair Display, 24px, weight 500
+- Italic, color #fff
+- Line-height 1.5
+- Letter-spacing -0.2px
+- Max-width 780px
+- Margin 0 auto 36px
+- Centred
+
+Quote HTML (NO <br> — use .break class only):
+"Whatever the size. <span class='gold'>
+Whatever the sector.</span>
+<span class='break'>Satu Koperasi. 
+Endless opportunities.</span>"
+
+.gold class: color #C9A84C
+.break class: display block, margin-top 8px
+
+CTA button "View Our Projects →":
+- Display inline-flex, gap 8px
+- Padding 14px 32px
+- Background rgba(201,168,76,0.06)
+- Border 1px solid #C9A84C
+- Color #C9A84C
+- Source Sans 3, 11px, weight 600
+- Letter-spacing 2px, uppercase
+- Border-radius 4px
+- Transition all 0.2s
+- href = /projects.html
+- Hover: background #C9A84C, 
+  color #0A1628
+
+Note: /projects.html is a future page. 
+Link will 404 until built. Acceptable 
+for now.
+
+═══════════════════════════════════════
+MOBILE RESPONSIVE FOR THE 4 STEPS
+═══════════════════════════════════════
+Add this media query at the bottom of 
+the section CSS:
+
+@media (max-width: 900px) {
+  .connection-line { 
+    display: none; 
+  }
+  .steps-grid { 
+    grid-template-columns: 1fr; 
+    gap: 30px; 
+  }
+}
+
+This ensures on mobile/tablet:
+- The horizontal connection line hides 
+  (would float in empty space when 
+  steps stack vertically)
+- The 4 steps stack into a single 
+  column with proper spacing
+
+═══════════════════════════════════════
+FIX 2 — REMOVE "HIRE US" FROM NAVBAR
+═══════════════════════════════════════
+In the navbar HTML, find and DELETE 
+the "Hire Us" link entirely.
+
+OLD navbar links (8 total):
+Home | About | Divisions | Projects | 
+Membership | Hire Us | News | Contact
+
+NEW navbar links (7 total):
+Home | About | Divisions | Projects | 
+Membership | News | Contact
+
+The [Member Login] button on the 
+right stays unchanged.
+
+After removing "Hire Us":
+- Verify navbar visually balances 
+  with 7 links
+- Spacing should remain consistent 
+  (don't manually widen)
+- Natural distribution should look 
+  cleaner with one less link
+
+═══════════════════════════════════════
+FIX 3 — REROUTE ALL HERO + DIVISION 
+HIRE-RELATED BUTTONS
+═══════════════════════════════════════
+
+PART A — HERO BUTTONS (3 buttons)
+
+Hero button 1 — "Apply For Membership":
+href = /membership.html
+(Note: /membership.html is future page, 
+will 404 until built)
+
+Hero button 2 — "Hire Our Services":
+href = /contact.html#project-inquiry
+
+Hero button 3 — "View Our Work":
+href = /projects.html
+(Note: /projects.html is future page, 
+will 404 until built)
+
+PART B — DIVISION CARDS HIRE BUTTONS
+
+Each of the 7 division cards has a 
+"HIRE THIS DIVISION →" button when 
+expanded. Update each button's href 
+with division-specific URL parameter:
+
+DIV 1 (KOPIT Wira Digital):
+href = /contact.html?division=wira-digital
+
+DIV 2 (KOPIT Bijak AI):
+href = /contact.html?division=bijak-ai
+
+DIV 3 (KOPIT Hijau):
+href = /contact.html?division=hijau
+
+DIV 4 (KOPIT Blockchain):
+href = /contact.html?division=blockchain
+
+DIV 5 (KOPIT Dana Sejahtera):
+href = /contact.html?division=dana-sejahtera
+
+DIV 6 (KOPIT Angkasa Build):
+href = /contact.html?division=angkasa-build
+
+DIV 7 (KOPIT Arif Advisory):
+href = /contact.html?division=arif-advisory
+
+═══════════════════════════════════════
+FIX 4 — RESTORE NAVBAR FONT TO 
+SOURCE SANS 3
+═══════════════════════════════════════
+The navbar nav links and Member Login 
+button currently render in Playfair 
+Display (this is wrong — they should 
+be Source Sans 3 matching the rest of 
+UI/body text).
+
+INVESTIGATE: Find the CSS rules for 
+the navbar nav links (likely .nav-link 
+or similar) and the Member Login 
+button.
+
+Update font-family from:
+font-family: 'Playfair Display', 
+Georgia, serif;
+
+To:
+font-family: 'Source Sans 3', 
+sans-serif;
+
+Verify font-weight stays appropriate:
+- Nav links: weight 500 or 600 
+  (whichever currently used)
+- Member Login button: weight 600
+
+DO NOT CHANGE:
+- The KOPIT wordmark — stays Cinzel
+- The tagline italic line — stays 
+  Source Sans 3 italic
+- The full registered name (line 2) 
+  — stays Source Sans 3
+- Any hover behaviours or animations
+- Logo or animation
+- Member Login button color/border 
+  (gold filled — only the font changes)
+
+═══════════════════════════════════════
+WHAT NOT TO TOUCH
+═══════════════════════════════════════
+PRESERVE everything else completely:
+- Navbar logo + 3D animation (Genesis)
+- Cinzel KOPIT wordmark
+- Hero headline (Cinzel + Playfair)
+- Hero subtext + constellation
+- Living Constellation 7 colours
+- Hub centre (KOPIT/MALAYSIA)
+- WHO WE ARE manifesto + credentials box
+- 5th MEMBERSHIP STATUS row
+- KOPIT IS GROWING badge
+- OUR FOUNDATION 4 boxes
+- Seven Divisions cards (only hire 
+  button hrefs change in Fix 3)
+- 8th Division section
+- All Style E fonts (Playfair Display, 
+  Source Sans 3, Cinzel)
+- All animations and hover behaviours
+
+═══════════════════════════════════════
+VERIFICATION CHECKLIST
+═══════════════════════════════════════
+
+NAVBAR (After Fix 2 + Fix 4):
+1. ✓ "Hire Us" link is GONE
+2. ✓ 7 nav links visible (not 8)
+3. ✓ Spacing looks balanced
+4. ✓ Nav links render in Source Sans 3 
+   (clean sans-serif, NOT Playfair)
+5. ✓ Member Login button renders in 
+   Source Sans 3 (not Playfair)
+6. ✓ KOPIT wordmark still Cinzel
+7. ✓ Tagline still Source Sans 3 italic
+
+HERO BUTTONS (After Fix 3 Part A):
+8. ✓ "Apply For Membership" → 
+   /membership.html
+9. ✓ "Hire Our Services" → 
+   /contact.html#project-inquiry
+10. ✓ "View Our Work" → 
+    /projects.html
+
+HOW KOPIT WORKS SECTION (After Fix 1):
+11. ✓ Section appears AFTER 8th 
+    Division section
+12. ✓ Heading: "Satu Koperasi. Every 
+    Opportunity."
+13. ✓ Subtext mentions "private 
+    clients" (not "private installations")
+14. ✓ 4 step circles with Cinzel 
+    numbers 1, 2, 3, 4
+15. ✓ Subtle gold connection line 
+    behind the 4 steps (desktop only)
+16. ✓ Each step has label + title + body
+17. ✓ Step 3 body mentions "Member-led, 
+    cooperative-backed, professionally 
+    executed" — NO mention of Lumina 
+    Energy anywhere
+18. ✓ Step labels render in UPPERCASE 
+    (e.g. "STEP ONE")
+19. ✓ Closing quote uses "Satu 
+    Koperasi" (not "One cooperative")
+20. ✓ Quote uses .break class only 
+    (no <br> tag — no double line break)
+21. ✓ "View Our Projects →" CTA 
+    button visible
+22. ✓ CTA button links to 
+    /projects.html
+23. ✓ Hover any step circle — it 
+    lifts and glows softly
+
+MOBILE RESPONSIVE (After Sub-fix 1.3):
+24. ✓ At viewport width < 900px, the 
+    4 steps stack vertically
+25. ✓ Connection line hides on mobile 
+    (no floating line in empty space)
+26. ✓ Spacing between stacked steps 
+    is comfortable (30px gap)
+
+DIVISION CARD HIRE BUTTONS (After Fix 3 Part B):
+27. ✓ Wira Digital hire button → 
+    /contact.html?division=wira-digital
+28. ✓ Bijak AI → 
+    /contact.html?division=bijak-ai
+29. ✓ Hijau → 
+    /contact.html?division=hijau
+30. ✓ Blockchain → 
+    /contact.html?division=blockchain
+31. ✓ Dana Sejahtera → 
+    /contact.html?division=dana-sejahtera
+32. ✓ Angkasa Build → 
+    /contact.html?division=angkasa-build
+33. ✓ Arif Advisory → 
+    /contact.html?division=arif-advisory
+
+After fixing — refresh browser. 
+Take FOUR screenshots:
+
+1. Navbar (showing 7 links, no "Hire 
+   Us", correct sans-serif font)
+2. Hero section (verify nav still 
+   correct above + 3 hero buttons exist)
+3. The new "How KOPIT Works" section 
+   in full
+4. One expanded division card showing 
+   the hire button (hover to see URL 
+   in browser status bar)
+
+Bring all 4 back for review.

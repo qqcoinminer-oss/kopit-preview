@@ -1,0 +1,2208 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KOPIT — Malaysia's Premier IT Koperasi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Source+Sans+3:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   KOPIT — Design System
+   Navy #0A1628 | Gold #C9A84C | Emerald #1B6B45
+   BG #F8F6F1 | Text #2C2C2C
+   Headers: 'Playfair Display',Georgia,serif | Body: 'Source Sans 3',sans-serif
+═══════════════════════════════════════════ */
+
+/* 1. RESET & BASE */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Source Sans 3',sans-serif;color:#2C2C2C;background:#F8F6F1;overflow-x:hidden;line-height:1.6}
+a{text-decoration:none;color:inherit;transition:all .25s ease}
+ul{list-style:none}
+img{max-width:100%;display:block}
+
+/* 2. VARIABLES */
+:root{
+  --navy:#0A1628;
+  --navy-dk:#060D1A;
+  --gold:#C9A84C;
+  --gold-dk:#A8862A;
+  --gold-lt:#DEC06A;
+  --emerald:#1B6B45;
+  --bg:#F8F6F1;
+  --text:#2C2C2C;
+  --text-lt:#6B6B6B;
+  --white:#FFFFFF;
+  --cw:1160px;
+  --nav-h:95px;
+}
+
+/* 3. LAYOUT */
+.wrap{max-width:var(--cw);margin:0 auto;padding:0 44px}
+.section{padding:96px 0}
+
+/* 4. TYPOGRAPHY */
+h1,h2,h3,h4,h5{font-family:'Playfair Display',Georgia,serif;line-height:1.18}
+.tag-label{
+  display:inline-block;font-size:.68rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);border:1px solid rgba(201,168,76,.35);
+  padding:5px 18px;border-radius:100px;margin-bottom:18px;
+  font-family:'Source Sans 3',sans-serif;
+}
+.tag-label.gold{color:var(--gold-lt);border-color:rgba(222,192,106,.3)}
+.italic-accent{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;color:rgba(244,239,232,0.7);}
+.headline-stack{text-align:center;margin:0;}
+.headline-top{font-family:'Playfair Display',serif;font-weight:600;color:#F4EFE8;margin:0 0 8px;line-height:1.15;letter-spacing:-0.5px;}
+.headline-bottom{font-family:'Playfair Display',serif;font-weight:500;color:#D4B97A;margin:0;line-height:1.15;letter-spacing:-0.4px;}
+.headline-top.hero-size{font-size:54px;}
+.headline-bottom.hero-size{font-size:42px;}
+.headline-top.cta-size{font-size:42px;}
+.headline-bottom.cta-size{font-size:34px;}
+.headline-top.manifesto-size{font-size:46px;line-height:1.2;letter-spacing:-0.4px;}
+.headline-bottom.manifesto-size{font-size:36px;font-weight:500;line-height:1.25;letter-spacing:-0.3px;}
+
+/* 5. BUTTONS */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:'Source Sans 3',sans-serif;
+  font-size:.9rem;font-weight:700;letter-spacing:.04em;
+  padding:13px 32px;border-radius:5px;border:2px solid transparent;
+  cursor:pointer;transition:all .25s ease;white-space:nowrap;
+}
+.btn-gold{background:var(--gold);color:var(--navy-dk);border-color:var(--gold)}
+.btn-gold:hover{background:var(--gold-dk);border-color:var(--gold-dk);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--gold);border-color:var(--gold)}
+.btn-outline:hover{background:rgba(201,168,76,.08);transform:translateY(-1px)}
+.btn-white{background:var(--white);color:var(--navy);border-color:var(--white)}
+.btn-white:hover{background:rgba(255,255,255,.88);transform:translateY(-1px)}
+.btn-navy{background:var(--navy);color:var(--white);border-color:var(--navy)}
+.btn-navy:hover{background:#0F1F3A;transform:translateY(-1px)}
+.btn-lg{padding:16px 44px;font-size:.96rem}
+
+/* ══════════════════════════════════════════
+   6. NAVBAR
+══════════════════════════════════════════ */
+.navbar{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:var(--nav-h);background:var(--navy);
+  box-shadow:0 2px 20px rgba(0,0,0,.35);
+  display:flex;align-items:center;
+  transition:height .35s ease, padding .35s ease, box-shadow .35s ease;
+}
+.navbar.scrolled{height:65px}
+.nav-inner{
+  max-width:1600px;margin:0 auto;padding:0 32px;
+  display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:center;width:100%;
+}
+.nav-right{
+  display:flex;align-items:center;justify-content:flex-end;gap:12px;
+}
+/* Canvas logo */
+#kopitLogo{
+  background:transparent;
+  display:block;flex-shrink:0;
+  width:75px;height:75px;
+  transition:width .35s ease, height .35s ease;
+}
+.navbar.scrolled #kopitLogo{width:55px;height:55px}
+/* Logo unit — canvas + 3 text lines */
+.logo-unit{
+  display:flex;align-items:center;gap:11px;flex-shrink:0;cursor:pointer;
+}
+.logo-text-block{
+  display:flex;flex-direction:column;justify-content:center;
+}
+.lt-1{
+  font-family:'Cinzel','Playfair Display',serif;font-size:30px;font-weight:700;
+  color:#ffffff;letter-spacing:4px;margin-bottom:2px;
+  display:block;line-height:1;
+  transition:font-size .35s ease;
+}
+.navbar.scrolled .lt-1{font-size:24px}
+.lt-2{
+  font-family:'Source Sans 3',sans-serif;font-size:10px;
+  color:rgba(255,255,255,0.5);letter-spacing:.4px;white-space:nowrap;
+  display:block;overflow:hidden;
+  max-height:18px;opacity:1;margin-bottom:2px;line-height:1.4;
+  transition:opacity .35s ease, max-height .35s ease, margin-bottom .35s ease;
+}
+.lt-3{
+  font-family:'Source Sans 3',sans-serif;font-size:11px;
+  font-style:italic;color:rgba(201,168,76,.85);
+  letter-spacing:.5px;display:block;line-height:1;
+}
+.navbar.scrolled .lt-2{opacity:0;max-height:0;margin-bottom:0;overflow:hidden}
+/* Nav links */
+.nav-links{
+  display:flex;align-items:center;justify-content:center;gap:24px;
+}
+.nl{
+  font-family:'Source Sans 3',sans-serif;font-size:15px;font-weight:600;
+  letter-spacing:.3px;color:rgba(255,255,255,.75);
+  padding:4px 2px;border-radius:4px;transition:all .2s ease;
+}
+.nl:hover,.nl.active{color:var(--gold);background:transparent}
+/* Language toggle — hidden until translator confirmed; data-bm attrs preserved */
+.lang-toggle{display:none}
+.lang-btn{
+  font-family:Arial,sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:1.5px;padding:5px 12px;border-radius:3px;
+  cursor:pointer;transition:all .2s ease;border:1.5px solid var(--gold);
+  background:transparent;color:var(--gold);
+}
+.lang-btn.active{background:var(--gold);color:var(--navy-dk)}
+.lang-btn:hover:not(.active){background:rgba(201,168,76,.12)}
+/* Nav CTA */
+.nav-cta{
+  font-family:'Source Sans 3',sans-serif;font-size:14px;font-weight:700;
+  letter-spacing:.04em;background:var(--gold);color:var(--navy);
+  border:none;
+  padding:10px 24px;border-radius:4px;flex-shrink:0;
+  transition:all .2s ease;
+}
+.nav-cta:hover{background:var(--gold-dk);color:var(--navy)}
+/* Hamburger */
+.hamburger{
+  display:none;flex-direction:column;gap:5px;
+  background:none;border:none;cursor:pointer;padding:4px;margin-left:8px;
+}
+.hamburger span{
+  display:block;width:22px;height:2px;
+  background:var(--gold);border-radius:2px;transition:all .25s ease;
+}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+/* Mobile menu overlay */
+.nav-links.open{
+  right:0 !important;
+}
+
+/* ══════════════════════════════════════════
+   7. HERO
+══════════════════════════════════════════ */
+.hero-section{background:var(--navy);padding-top:var(--nav-h);overflow:hidden;}
+.hero{
+  display:grid;grid-template-columns:1fr 1.05fr;
+  gap:30px;align-items:center;
+  padding:60px 60px;max-width:1500px;
+  margin:0 auto;perspective:1400px;min-height:680px;
+}
+.hero-deco-line{
+  width:60px;height:1px;
+  background:linear-gradient(to right,#C9A84C,transparent);
+  margin-bottom:22px;
+}
+.hero h1{
+  font-family:'Cinzel','Playfair Display',serif;
+  font-size:38px;line-height:1.2;font-weight:700;color:#ffffff;
+}
+.hero h1 .gold{
+  color:#C9A84C;font-style:italic;
+  font-family:'Playfair Display',Georgia,serif;display:block;margin-top:4px;
+}
+.hero h1 .italic-accent{display:block;margin-top:4px;}
+.hero-sub{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;
+  line-height:1.95;margin-top:24px;max-width:440px;
+  color:rgba(244,239,232,0.8);
+}
+.hero-sub strong{color:rgba(255,255,255,0.88);font-weight:400;}
+.hero-btns{display:flex;gap:9px;flex-wrap:wrap;margin-top:30px;}
+.btn-hero-gold{
+  padding:11px 22px;font-size:11px;letter-spacing:1px;
+  font-family:'Source Sans 3',sans-serif;font-weight:600;border-radius:4px;
+  text-transform:uppercase;background:#C9A84C;color:#0A1628;
+  border:1.5px solid #C9A84C;cursor:pointer;transition:all .2s ease;
+  text-decoration:none;display:inline-block;
+}
+.btn-hero-gold:hover{background:#A8862A;border-color:#A8862A;}
+.btn-hero-outline{
+  padding:11px 22px;font-size:11px;letter-spacing:1px;
+  font-family:'Source Sans 3',sans-serif;font-weight:600;border-radius:4px;
+  text-transform:uppercase;background:transparent;color:#C9A84C;
+  border:1.5px solid #C9A84C;cursor:pointer;transition:all .2s ease;
+  text-decoration:none;display:inline-block;
+}
+.btn-hero-outline:hover{background:rgba(201,168,76,.1);}
+/* ── Constellation ── */
+.scene{position:relative;width:560px;height:560px;transform-style:preserve-3d;margin:0 auto;}
+.stars{position:absolute;inset:0;pointer-events:none;}
+.star{position:absolute;width:1.5px;height:1.5px;background:rgba(201,168,76,0.45);border-radius:50%;animation:twinkle 3s ease-in-out infinite;}
+@keyframes twinkle{0%,100%{opacity:0.2;}50%{opacity:0.95;}}
+.ring{position:absolute;left:50%;top:50%;border-radius:50%;border:0.5px dashed rgba(201,168,76,0.2);pointer-events:none;}
+.ring-inner{width:270px;height:270px;animation:ringIn 50s linear infinite;}
+.ring-outer{width:450px;height:450px;border-style:dotted;border-color:rgba(201,168,76,0.13);animation:ringOut 80s linear infinite;}
+.ring-flat{width:360px;height:360px;border-color:rgba(46,191,132,0.1);animation:ringFl 70s linear infinite;}
+@keyframes ringIn{from{transform:translate(-50%,-50%) rotateX(70deg) rotate(0);}to{transform:translate(-50%,-50%) rotateX(70deg) rotate(360deg);}}
+@keyframes ringOut{from{transform:translate(-50%,-50%) rotateX(70deg) rotate(0);}to{transform:translate(-50%,-50%) rotateX(70deg) rotate(-360deg);}}
+@keyframes ringFl{from{transform:translate(-50%,-50%) rotate(0);}to{transform:translate(-50%,-50%) rotate(360deg);}}
+.ring-dot{position:absolute;width:5px;height:5px;border-radius:50%;background:#C9A84C;box-shadow:0 0 10px #C9A84C;top:-2.5px;left:50%;margin-left:-2.5px;}
+.ring-outer .ring-dot{background:#2ebf84;box-shadow:0 0 10px #2ebf84;}
+.ring-flat .ring-dot{background:#5a9ef5;box-shadow:0 0 10px #5a9ef5;}
+.hub{position:absolute;left:50%;top:50%;width:124px;height:124px;transform:translate(-50%,-50%) translateZ(40px);z-index:10;animation:hubFloat 5s ease-in-out infinite;transform-style:preserve-3d;}
+@keyframes hubFloat{0%,100%{transform:translate(-50%,-50%) translateZ(40px) rotateY(0deg);}50%{transform:translate(-50%,-50%) translateZ(60px) rotateY(8deg);}}
+.hub-glow-outer{position:absolute;inset:-50px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,0.22) 0%,transparent 65%);animation:hubPulse 3s ease-in-out infinite;}
+.hub-glow-inner{position:absolute;inset:-15px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,0.15) 0%,transparent 60%);animation:hubPulse 2s ease-in-out infinite reverse;}
+@keyframes hubPulse{0%,100%{opacity:0.5;transform:scale(1);}50%{opacity:1;transform:scale(1.12);}}
+.hub-block{position:relative;width:100%;height:100%;border-radius:18px;background:linear-gradient(135deg,#0a0805 0%,#1a1400 35%,#3a2c08 48%,#C9A84C 50%,#3a2c08 52%,#1a1400 65%,#080604 100%);border:1.5px solid rgba(201,168,76,0.75);box-shadow:0 22px 60px rgba(201,168,76,0.4),inset 0 0 32px rgba(201,168,76,0.06);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;}
+.hub-block::before{content:'';position:absolute;top:7px;left:7px;right:7px;bottom:7px;border:0.5px solid rgba(201,168,76,0.22);border-radius:13px;}
+.hub-text{font-family:'Cinzel','Playfair Display',serif;font-size:20px;font-weight:700;color:#f5e9cc;letter-spacing:3.5px;margin-bottom:6px;text-shadow:0 0 18px rgba(245,233,204,0.4);}
+.hub-sub{font-family:'Source Sans 3',sans-serif;font-size:9px;font-weight:700;letter-spacing:4.5px;color:#C9A84C;text-shadow:0 0 12px rgba(201,168,76,0.7);}
+.node{position:absolute;width:88px;height:88px;cursor:pointer;transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1);transform-style:preserve-3d;}
+.node:hover{z-index:30;}
+.node-disc{width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 30% 28%,rgba(20,38,62,0.98) 0%,rgba(8,16,28,0.99) 70%);border:1.5px solid var(--node-color);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,0.55),inset 0 1px 0 rgba(255,255,255,0.05);transition:all 0.4s;}
+.node:hover .node-disc{box-shadow:0 22px 50px rgba(0,0,0,0.65),0 0 50px var(--node-glow),inset 0 1px 0 rgba(255,255,255,0.1);transform:scale(1.18);background:radial-gradient(circle at 30% 28%,rgba(28,50,80,0.98) 0%,rgba(12,22,38,0.99) 70%);}
+.node-glow-aura{position:absolute;inset:-12px;border-radius:50%;background:radial-gradient(circle,var(--node-glow) 0%,transparent 65%);opacity:0.45;transition:opacity 0.4s;}
+.node:hover .node-glow-aura{opacity:1;animation:glowPulse 1.5s ease-in-out infinite;}
+@keyframes glowPulse{0%,100%{opacity:0.7;transform:scale(1);}50%{opacity:1;transform:scale(1.18);}}
+.node-inner-ring{position:absolute;inset:6px;border-radius:50%;border:0.5px solid var(--node-color);opacity:0.3;}
+.node-icon{margin-bottom:4px;filter:drop-shadow(0 0 4px var(--node-glow));}
+.node-label{font-family:'Playfair Display',Georgia,serif;font-size:10px;font-weight:700;color:#fff;letter-spacing:0.4px;text-align:center;line-height:1.25;padding:0 4px;text-shadow:0 1px 2px rgba(0,0,0,0.6);}
+.connections{position:absolute;inset:0;pointer-events:none;z-index:1;}
+.tooltip{position:absolute;left:50%;bottom:-32px;transform:translateX(-50%) translateZ(50px);background:rgba(8,16,28,0.95);border:0.5px solid rgba(201,168,76,0.4);border-radius:5px;padding:5px 11px;white-space:nowrap;opacity:0;transition:opacity 0.3s,bottom 0.3s;font-family:'Source Sans 3',sans-serif;font-size:8px;color:rgba(255,235,180,0.95);letter-spacing:1px;pointer-events:none;backdrop-filter:blur(6px);}
+.tooltip::before{content:'';position:absolute;top:-4px;left:50%;margin-left:-4px;width:8px;height:8px;background:rgba(8,16,28,0.95);border-left:0.5px solid rgba(201,168,76,0.4);border-top:0.5px solid rgba(201,168,76,0.4);transform:rotate(45deg);}
+.node:hover .tooltip{opacity:1;bottom:-40px;transform:translateX(-50%) translateZ(50px);}
+.scene:has(.node:hover) .node:not(:hover){opacity:0.4;filter:saturate(0.5);}
+.scene:has(.node:hover) .ring{opacity:0.4;}
+
+/* ══════════════════════════════════════════
+   8. IDENTITY STRIP
+══════════════════════════════════════════ */
+.identity-strip{background:var(--navy);padding:60px 0;}
+.identity-strip-inner{max-width:1500px;margin:0 auto;padding:0 60px;}
+.identity-label{
+  text-align:center;font-family:'Source Sans 3',sans-serif;
+  font-size:13px;letter-spacing:4px;
+  color:rgba(201,168,76,0.6);margin-bottom:32px;
+}
+.identity-label::before{
+  content:'';display:block;width:1px;height:18px;
+  background:rgba(201,168,76,0.4);margin:0 auto 10px;
+}
+.identity-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.ibox{
+  background:rgba(255,255,255,0.02);
+  border:0.5px solid rgba(201,168,76,0.18);
+  border-top:2px solid #C9A84C;
+  border-radius:6px;padding:32px 24px;
+  transition:all 0.3s ease;
+}
+.ibox:hover{border-color:rgba(201,168,76,0.5);border-top-color:#C9A84C;transform:translateY(-3px);}
+.ibox-title{
+  font-family:'Playfair Display',Georgia,serif;font-size:18px;
+  font-weight:700;color:#fff;margin-bottom:8px;
+}
+.ibox-sub{
+  font-family:'Source Sans 3',sans-serif;font-size:11px;
+  color:rgba(255,255,255,0.55);letter-spacing:0.4px;line-height:1.6;
+}
+@media(max-width:900px){.identity-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:540px){.identity-grid{grid-template-columns:1fr;}}
+
+/* ══════════════════════════════════════════
+   9. WHO WE ARE — MANIFESTO
+══════════════════════════════════════════ */
+.manifesto-sec{background:var(--navy);padding:60px 0;}
+.manifesto-inner{max-width:1300px;margin:0 auto;padding:0 60px;}
+.manifesto-lbl-wrap{text-align:center;margin-bottom:48px;}
+.manifesto-lbl-line{width:1px;height:18px;background:linear-gradient(to bottom,transparent,#C9A84C);margin:0 auto 8px;}
+.manifesto-lbl{font-family:'Source Sans 3',sans-serif;font-size:13px;letter-spacing:4px;color:rgba(201,168,76,0.6);}
+.manifesto-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center;}
+.manifesto-h{font-family:'Cinzel','Playfair Display',serif;font-size:34px;line-height:1.2;font-weight:700;letter-spacing:1px;color:#fff;}
+.manifesto-h .gold{color:#C9A84C;font-style:italic;font-family:'Playfair Display',Georgia,serif;display:block;}
+.manifesto-divider{width:60px;height:1px;background:linear-gradient(to right,#C9A84C,transparent);margin:18px 0 24px;}
+.manifesto-body{font-family:'Source Sans 3',sans-serif;font-size:14.5px;line-height:1.85;letter-spacing:0.3px;color:rgba(255,255,255,0.65);}
+.manifesto-body p{margin-bottom:16px;}
+.manifesto-body strong{color:rgba(255,255,255,0.92);font-weight:400;}
+.manifesto-quote{padding:16px 20px;border-left:2px solid #C9A84C;background:rgba(201,168,76,0.04);font-family:'Playfair Display',Georgia,serif;font-size:14px;font-style:italic;color:rgba(255,255,255,0.85);margin-top:8px;}
+.cred-box{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,rgba(15,30,53,0.8),rgba(10,22,40,0.6));
+  border:0.5px solid rgba(201,168,76,0.3);border-radius:10px;
+  padding:36px 32px;backdrop-filter:blur(8px);
+  box-shadow:0 24px 60px rgba(0,0,0,0.4);
+}
+.cred-box::before{content:'';position:absolute;top:14px;left:14px;width:24px;height:24px;border-top:1.5px solid #C9A84C;border-left:1.5px solid #C9A84C;}
+.cred-box::after{content:'';position:absolute;bottom:14px;right:14px;width:24px;height:24px;border-bottom:1.5px solid #C9A84C;border-right:1.5px solid #C9A84C;}
+.cred-title{font-family:'Source Sans 3',sans-serif;font-size:14px;letter-spacing:3px;color:rgba(201,168,76,0.85);text-align:center;padding-bottom:14px;border-bottom:0.5px solid rgba(201,168,76,0.15);margin-bottom:24px;}
+.cred-row{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:0.5px solid rgba(255,255,255,0.06);}
+.cred-row:first-of-type{padding-top:0;}
+.cred-row:last-of-type{border-bottom:none;padding-bottom:0;}
+.cred-icon{width:32px;height:32px;flex-shrink:0;border-radius:6px;background:rgba(201,168,76,0.08);border:0.5px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;}
+.cred-label{font-family:'Source Sans 3',sans-serif;font-size:8.5px;letter-spacing:2px;color:rgba(201,168,76,0.7);text-transform:uppercase;display:block;margin-bottom:3px;}
+.cred-value{font-family:'Playfair Display',Georgia,serif;font-size:14px;font-weight:700;color:#fff;letter-spacing:0.3px;display:block;}
+.cred-sub{font-family:'Source Sans 3',sans-serif;font-size:10px;color:rgba(255,255,255,0.45);display:block;margin-top:2px;}
+.cred-badge{margin-top:20px;padding-top:18px;border-top:0.5px solid rgba(201,168,76,0.15);display:flex;justify-content:center;align-items:center;gap:8px;}
+.cred-dot{width:6px;height:6px;border-radius:50%;background:#C9A84C;box-shadow:0 0 8px #C9A84C;animation:goldPulse 2s ease-in-out infinite;}
+@keyframes goldPulse{0%,100%{opacity:0.7;}50%{opacity:1;}}
+.cred-badge-text{font-family:'Source Sans 3',sans-serif;font-size:11px;letter-spacing:2.5px;color:rgba(201,168,76,0.95);font-weight:600;}
+.section-divider{height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,0.18),transparent);max-width:1100px;margin:0 auto;}
+@media(max-width:900px){.manifesto-grid{grid-template-columns:1fr;gap:40px;}}
+
+/* ══════════════════════════════════════════
+   10. DIVISIONS SECTION
+══════════════════════════════════════════ */
+.divs-sec{background:radial-gradient(ellipse 80% 70% at 50% 40%,rgba(15,30,55,0.9) 0%,#0A1628 100%);padding:60px 0;position:relative;overflow:hidden;}
+.divs-inner{max-width:1400px;margin:0 auto;padding:0 40px;}
+.divs-label-wrap{text-align:center;margin-bottom:16px;}
+.divs-label-line{width:1px;height:18px;background:linear-gradient(to bottom,transparent,#C9A84C);margin:0 auto 8px;}
+.divs-label{font-family:'Source Sans 3',sans-serif;font-size:13px;font-weight:500;letter-spacing:4px;color:rgba(201,168,76,0.65);}
+.divs-heading{text-align:center;margin-bottom:10px;}
+.divs-heading h2{font-family:'Playfair Display',Georgia,serif;font-size:38px;font-weight:600;color:#ffffff;letter-spacing:-0.3px;}
+.divs-heading h2 .gold{color:#C9A84C;font-style:italic;font-weight:400;}
+.divs-sub{text-align:center;font-family:'Source Sans 3',sans-serif;font-size:14px;color:rgba(255,255,255,0.55);margin-bottom:55px;}
+.divs-row-top{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.divs-row-bot{max-width:1400px;margin:18px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.dcard{background:linear-gradient(135deg,rgba(15,30,53,0.6),rgba(10,22,40,0.45));border:0.5px solid rgba(201,168,76,0.2);border-radius:10px;backdrop-filter:blur(6px);cursor:pointer;position:relative;overflow:hidden;text-align:center;padding:26px 22px;transition:transform 0.4s ease,border-color 0.4s ease,box-shadow 0.4s ease;}
+.dcard-top{padding:30px 26px 26px;}
+.dcard::before{content:'';position:absolute;top:0;left:0;right:0;height:1.5px;background:linear-gradient(to right,transparent,var(--dcol),transparent);opacity:0.5;transition:opacity 0.4s ease,height 0.4s ease;}
+.dcard:hover::before,.dcard.expanded::before{opacity:1;height:2.5px;}
+.dcard:hover{transform:translateY(-8px);border-color:var(--dcol);box-shadow:0 18px 44px rgba(0,0,0,0.45),0 0 32px var(--dglow);}
+.dcard.expanded{border-color:var(--dcol);box-shadow:0 18px 44px rgba(0,0,0,0.5),0 0 36px var(--dglow);}
+.dmed-wrap{display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+.dmed{position:relative;width:72px;height:72px;transition:transform 0.4s ease;}
+.dcard-top .dmed{width:80px;height:80px;}
+.dmed-aura{position:absolute;inset:-10px;border-radius:50%;background:radial-gradient(circle,var(--dglow) 0%,transparent 65%);opacity:0.65;transition:opacity 0.4s ease,inset 0.4s ease;}
+.dcard:hover .dmed-aura{opacity:1;inset:-20px;}
+.dmed-coin{width:100%;height:100%;border-radius:50%;position:relative;overflow:hidden;background:radial-gradient(circle at 30% 25%,var(--dcol-light) 0%,var(--dcol) 45%,var(--dcol-dark) 100%);box-shadow:inset 0 -4px 10px rgba(0,0,0,0.35),inset 0 3px 6px rgba(255,255,255,0.25),0 6px 16px rgba(0,0,0,0.5);}
+.dmed-coin::before{content:'';position:absolute;top:5%;left:18%;right:18%;height:38%;border-radius:50%;background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,0.45) 0%,transparent 70%);}
+.dmed-coin::after{content:'';position:absolute;bottom:0;left:0;right:0;height:35%;background:linear-gradient(to top,rgba(0,0,0,0.25) 0%,transparent 100%);}
+.dmed-rim{position:absolute;inset:0;border-radius:50%;border:1.5px solid rgba(255,255,255,0.4);box-shadow:0 0 14px var(--dglow);}
+.dmed-rim-inner{position:absolute;inset:6px;border-radius:50%;border:0.5px solid rgba(255,255,255,0.25);}
+.dmed-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));}
+.dcard-name{font-family:'Playfair Display',Georgia,serif;font-size:18px;font-weight:600;color:#fff;letter-spacing:-0.2px;margin-bottom:4px;}
+.dcard-bm{font-family:'Source Sans 3',sans-serif;font-size:10px;font-style:italic;font-weight:500;color:var(--dcol);letter-spacing:0.5px;margin-bottom:0;}
+.dcard-accentline{width:36px;height:1px;background:linear-gradient(to right,transparent,var(--dcol),transparent);margin:14px auto 12px;transition:width 0.4s ease;}
+.dcard:hover .dcard-accentline,.dcard.expanded .dcard-accentline{width:60px;}
+.dcard-teaser{font-family:'Source Sans 3',sans-serif;font-size:12px;line-height:1.6;color:rgba(255,255,255,0.65);}
+.dcard-hint{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:14px;}
+.dcard-hint-dot{width:4px;height:4px;border-radius:50%;background:var(--dcol);opacity:0.55;animation:hintPulse 2s ease-in-out infinite;}
+@keyframes hintPulse{0%,100%{opacity:0.3;}50%{opacity:0.8;}}
+.dcard-hint-txt{font-family:'Source Sans 3',sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--dcol);opacity:0.55;}
+.dcard.expanded .dcard-hint{display:none;}
+.expand-area{max-height:0;overflow:hidden;transition:max-height 0.5s cubic-bezier(0.4,0,0.2,1);}
+.dcard.expanded .expand-area{max-height:600px;}
+.dcard-body{font-family:'Source Sans 3',sans-serif;font-size:12.5px;line-height:1.7;color:rgba(255,255,255,0.7);margin-top:14px;text-align:left;}
+.dcard-svc-label{font-family:'Source Sans 3',sans-serif;font-size:8.5px;letter-spacing:2.5px;font-weight:600;color:var(--dcol);text-transform:uppercase;margin-top:18px;margin-bottom:10px;text-align:center;}
+.dcard-svc-item{display:flex;align-items:center;gap:8px;font-family:'Source Sans 3',sans-serif;font-size:11.5px;color:rgba(255,255,255,0.78);padding:5px 0;text-align:left;}
+.dcard-svc-arrow{color:var(--dcol);flex-shrink:0;}
+.hire-btn{display:flex;align-items:center;justify-content:center;margin:18px auto 0;padding:9px 18px;background:rgba(255,255,255,0.04);border:0.5px solid var(--dcol);color:var(--dcol);border-radius:4px;font-family:'Source Sans 3',sans-serif;font-size:9.5px;letter-spacing:1.5px;font-weight:600;text-transform:uppercase;width:fit-content;cursor:pointer;transition:all 0.25s ease;text-decoration:none;}
+.hire-btn:hover{background:var(--dcol);color:#0A1628;}
+.divs-cta{text-align:center;margin-top:50px;}
+.divs-cta-btn{display:inline-block;padding:14px 32px;border:1px solid #C9A84C;background:transparent;color:#C9A84C;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border-radius:4px;transition:all 0.25s ease;text-decoration:none;}
+.divs-cta-btn:hover{background:#C9A84C;color:#0A1628;}
+/* 8th Division */
+.div8-sec{position:relative;margin-top:90px;padding:60px 30px;text-align:center;}
+.div8-sec::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:380px;height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,0.25),transparent);}
+.div8-ornament{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:36px;}
+.div8-orn-line{width:60px;height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,0.5));}
+.div8-orn-line.right{background:linear-gradient(to left,transparent,rgba(201,168,76,0.5));}
+.div8-orn-sym{font-size:14px;color:#C9A84C;}
+.div8-headline{font-family:'Playfair Display',Georgia,serif;font-size:32px;font-weight:600;font-style:italic;color:#ffffff;letter-spacing:-0.3px;line-height:1.3;margin-bottom:24px;}
+.div8-headline .gold{color:#C9A84C;}
+.div8-sub{display:inline-block;position:relative;padding:0 24px;font-family:'Source Sans 3',sans-serif;font-size:13px;font-weight:600;color:rgba(201,168,76,0.85);letter-spacing:3px;text-transform:uppercase;margin-bottom:18px;}
+.div8-sub::before{content:'';position:absolute;top:50%;left:0;width:14px;height:0.5px;background:rgba(201,168,76,0.45);}
+.div8-sub::after{content:'';position:absolute;top:50%;right:0;width:14px;height:0.5px;background:rgba(201,168,76,0.45);}
+.div8-body{font-family:'Source Sans 3',sans-serif;font-size:14px;color:rgba(255,255,255,0.62);line-height:1.75;max-width:560px;margin:0 auto 32px;letter-spacing:0.2px;}
+.div8-cta{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:rgba(201,168,76,0.08);border:1px solid #C9A84C;color:#C9A84C;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border-radius:4px;transition:all 0.25s ease;text-decoration:none;}
+.div8-cta:hover{background:#C9A84C;color:#0A1628;}
+.div8-dot{position:absolute;width:3px;height:3px;border-radius:50%;background:rgba(201,168,76,0.4);box-shadow:0 0 8px rgba(201,168,76,0.4);animation:dotPulse 3s ease-in-out infinite;}
+@keyframes dotPulse{0%,100%{opacity:0.3;}50%{opacity:0.85;}}
+
+/* ══════════════════════════════════════════
+   11. HOW KOPIT WORKS SECTION
+══════════════════════════════════════════ */
+.how-sec{background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(15,30,55,0.85) 0%,#0A1628 100%);padding:80px 30px;}
+.how-inner{max-width:1200px;margin:0 auto;}
+.how-label-wrap{text-align:center;margin-bottom:16px;}
+.how-label-line{width:1px;height:18px;background:linear-gradient(to bottom,transparent,#C9A84C);margin:0 auto 8px;}
+.how-label{font-family:'Source Sans 3',sans-serif;font-size:13px;font-weight:500;letter-spacing:4px;color:rgba(201,168,76,0.65);}
+.how-heading{text-align:center;font-family:'Playfair Display',Georgia,serif;font-size:38px;font-weight:600;color:#ffffff;letter-spacing:-0.3px;line-height:1.2;margin-bottom:14px;}
+.how-heading .gold{color:#C9A84C;font-style:italic;font-weight:400;}
+.how-sub{text-align:center;font-family:'Source Sans 3',sans-serif;font-size:14px;color:rgba(255,255,255,0.55);letter-spacing:0.3px;line-height:1.7;max-width:700px;margin:0 auto 60px;}
+.how-steps-wrap{max-width:1200px;margin:0 auto 60px;position:relative;}
+.how-steps-wrap::before{content:'';position:absolute;top:50px;left:60px;right:60px;height:1px;background:linear-gradient(to right,transparent 0%,rgba(201,168,76,0.4) 15%,rgba(201,168,76,0.4) 85%,transparent 100%);z-index:0;}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);position:relative;z-index:1;}
+.step-item{text-align:center;padding:0 20px;}
+.step-circle{width:100px;height:100px;border-radius:50%;background:radial-gradient(circle at 30% 25%,rgba(20,38,62,0.95) 0%,rgba(8,16,28,0.98) 100%);border:1px solid rgba(201,168,76,0.45);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;box-shadow:0 8px 24px rgba(0,0,0,0.5),inset 0 0 0 0.5px rgba(255,255,255,0.04);position:relative;transition:all 0.4s ease;}
+.step-circle::before{content:'';position:absolute;inset:-6px;border-radius:50%;border:0.5px solid rgba(201,168,76,0.2);transition:inset 0.4s ease,border-color 0.4s ease;}
+.step-circle:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(0,0,0,0.55),0 0 24px rgba(201,168,76,0.18);border-color:rgba(201,168,76,0.7);}
+.step-circle:hover::before{inset:-10px;border-color:rgba(201,168,76,0.4);}
+.step-num{font-family:'Cinzel',serif;font-size:32px;font-weight:700;color:#C9A84C;text-shadow:0 0 12px rgba(201,168,76,0.4);}
+.step-label{font-family:'Source Sans 3',sans-serif;font-size:12px;letter-spacing:3px;color:rgba(201,168,76,0.95);text-transform:uppercase;font-weight:600;margin-bottom:10px;}
+.step-title{font-family:'Playfair Display',Georgia,serif;font-size:18px;font-weight:600;color:#fff;letter-spacing:-0.2px;margin-bottom:10px;}
+.step-body{font-family:'Source Sans 3',sans-serif;font-size:14px;color:rgba(244,239,232,0.8);line-height:1.65;}
+.how-closing{margin-top:50px;text-align:center;padding:30px 20px 0;}
+.how-quote{font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:500;font-style:italic;color:#fff;line-height:1.5;letter-spacing:-0.2px;max-width:780px;margin:0 auto 36px;}
+.how-quote .gold{color:#C9A84C;}
+.how-quote .break{display:block;margin-top:8px;}
+.how-cta-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:rgba(201,168,76,0.06);border:1px solid #C9A84C;color:#C9A84C;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border-radius:4px;transition:all 0.2s ease;text-decoration:none;}
+.how-cta-btn:hover{background:#C9A84C;color:#0A1628;}
+@media(max-width:900px){.how-steps-wrap::before{display:none;}.steps-grid{grid-template-columns:1fr;gap:30px;}}
+
+/* ══════════════════════════════════════════
+   12. MEMBERSHIP TEASER SECTION
+══════════════════════════════════════════ */
+.memb-teaser-sec{background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(15,30,55,0.85) 0%,#0A1628 100%);padding:90px 30px;}
+.memb-teaser-inner{max-width:1200px;margin:0 auto;text-align:center;}
+.memb-lbl-wrap{margin-bottom:16px;}
+.memb-lbl-line{width:1px;height:16px;background:linear-gradient(to bottom,transparent,#C9A84C);margin:0 auto 8px;}
+.memb-lbl{font-family:'Source Sans 3',sans-serif;font-size:13px;font-weight:500;letter-spacing:4px;color:rgba(201,168,76,0.65);}
+.memb-heading{font-family:'Playfair Display',Georgia,serif;font-size:38px;font-weight:600;color:#ffffff;letter-spacing:-0.3px;line-height:1.2;margin-bottom:14px;}
+.memb-heading .gold{color:#C9A84C;font-style:italic;font-weight:400;}
+.memb-sub{font-family:'Source Sans 3',sans-serif;font-size:14px;color:rgba(255,255,255,0.55);letter-spacing:0.3px;line-height:1.7;max-width:600px;margin:0 auto 60px;}
+.globe-stage{position:relative;height:280px;display:flex;align-items:center;justify-content:center;perspective:1500px;margin-bottom:24px;user-select:none;-webkit-user-select:none;}
+.globe-inner{position:relative;width:360px;height:225px;transform-style:preserve-3d;transition:transform 0.9s cubic-bezier(0.32,0.72,0.35,1);}
+.globe-card{position:absolute;width:360px;height:225px;top:0;left:0;transform-origin:center center;backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:opacity 0.4s;border-radius:14px;overflow:hidden;}
+.globe-nav{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:18px;}
+.globe-btn{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:1px solid rgba(201,168,76,0.5);background:rgba(10,22,40,0.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#C9A84C;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;transition:all 0.3s;z-index:10;opacity:0;}
+#globePrev{left:5%;}
+#globeNext{right:5%;}
+.globe-dots{display:flex;gap:6px;align-items:center;}
+.globe-dot{width:5px;height:5px;border-radius:50%;background:rgba(201,168,76,0.25);cursor:pointer;transition:all 0.3s;border:none;padding:0;flex-shrink:0;}
+.globe-dot.active{width:18px;border-radius:3px;background:#C9A84C;}
+.globe-info{min-height:42px;margin-bottom:36px;text-align:center;transition:opacity 0.3s;}
+.globe-info-en{font-family:'Playfair Display',Georgia,serif;font-size:16px;font-weight:500;color:rgba(255,255,255,0.85);}
+.globe-info-bm{font-family:'Source Sans 3',sans-serif;font-size:13px;letter-spacing:2px;font-weight:600;margin-top:5px;color:rgba(201,168,76,0.6);text-transform:uppercase;}
+.memb-cta-btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:rgba(201,168,76,0.06);border:1px solid #C9A84C;color:#C9A84C;font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border-radius:4px;transition:all 0.2s;text-decoration:none;}
+.memb-cta-btn:hover{background:#C9A84C;color:#0A1628;}
+@media(max-width:768px){.globe-stage{perspective:1000px;height:220px;}.globe-card{width:280px;height:175px;}.memb-heading{font-size:28px;}.memb-sub{max-width:100%;}}
+
+/* ══════════════════════════════════════════
+   13. PROJECTS SECTION
+══════════════════════════════════════════ */
+.proj-sec{background:var(--bg);padding:96px 0}
+.proj-hdr{max-width:600px;margin-bottom:52px}
+.proj-hdr h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.85rem,3vw,2.6rem);color:var(--navy);margin-bottom:12px}
+.proj-hdr p{font-family:'Source Sans 3',sans-serif;font-size:1rem;color:var(--text-lt);line-height:1.75}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pc{
+  position:relative;min-height:360px;border-radius:12px;
+  overflow:hidden;display:flex;flex-direction:column;
+  justify-content:flex-end;transition:all .3s ease;cursor:pointer;
+}
+.pc:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(10,22,40,.2)}
+.pc-bg{position:absolute;inset:0}
+.pc-blue .pc-bg  {background:linear-gradient(148deg,#0B40A0 0%,#1463CC 38%,#0A3482 68%,#060D1A 100%)}
+.pc-green .pc-bg {background:linear-gradient(148deg,#116B35 0%,#1E9B50 38%,#0E5228 68%,#060D1A 100%)}
+.pc-purple .pc-bg{background:linear-gradient(148deg,#4B1491 0%,#6E1FAA 38%,#8F1460 68%,#060D1A 100%)}
+.pc-texture{
+  position:absolute;inset:0;z-index:1;
+  background-image:repeating-linear-gradient(
+    45deg,transparent,transparent 16px,
+    rgba(255,255,255,.026) 16px,rgba(255,255,255,.026) 17px);
+}
+.pc-vignette{
+  position:absolute;inset:0;z-index:2;
+  background:linear-gradient(to top,rgba(0,0,0,.68) 0%,rgba(0,0,0,.08) 52%,transparent 100%);
+}
+.pc::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;z-index:4;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity:0;transition:opacity .3s ease;
+}
+.pc:hover::after{opacity:1}
+.pc-body{position:relative;z-index:3;padding:30px}
+.pc-tag{
+  display:inline-block;font-family:'Source Sans 3',sans-serif;font-size:.67rem;
+  font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold-lt);border:1px solid rgba(201,168,76,.38);
+  padding:4px 13px;border-radius:100px;margin-bottom:13px;
+}
+.pc-body h3{font-family:'Playfair Display',Georgia,serif;font-size:1.15rem;color:var(--white);margin-bottom:9px;line-height:1.3}
+.pc-body p{font-family:'Source Sans 3',sans-serif;font-size:.86rem;color:rgba(255,255,255,.65);line-height:1.65;margin-bottom:18px}
+.pc-lnk{font-family:'Source Sans 3',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.06em;color:var(--gold-lt);transition:all .2s ease}
+.pc-lnk:hover{color:#EDD47E;letter-spacing:.1em}
+
+/* ══════════════════════════════════════════
+   12. MEMBERSHIP SECTION
+══════════════════════════════════════════ */
+.memb-sec{background:var(--navy);padding:96px 0;position:relative;overflow:hidden}
+.memb-glow{
+  position:absolute;width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,168,76,.065) 0%,transparent 70%);
+  top:50%;left:62%;transform:translate(-50%,-50%);pointer-events:none;
+}
+.memb-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;position:relative;z-index:1}
+.memb-text h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.85rem,3vw,2.6rem);color:var(--white);margin-bottom:14px}
+.ben-list{display:flex;flex-direction:column;gap:13px;margin:26px 0 30px}
+.ben-list li{
+  display:flex;align-items:flex-start;gap:11px;
+  font-family:'Source Sans 3',sans-serif;font-size:.94rem;
+  color:rgba(255,255,255,.7);line-height:1.55;
+}
+.ck{color:var(--gold);font-weight:700;font-size:.88rem;flex-shrink:0;margin-top:2px}
+/* Card stack */
+.memb-vis{display:flex;justify-content:center}
+.card-stack{position:relative;width:310px;height:280px}
+.mcard{
+  position:absolute;width:290px;height:178px;border-radius:15px;
+  padding:24px 26px;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:space-between;
+  transition:all .35s ease;
+}
+.mc-prem{
+  background:linear-gradient(135deg,var(--gold) 0%,var(--gold-lt) 45%,var(--gold) 75%,var(--gold-dk) 100%);
+  top:0;left:0;z-index:2;
+  box-shadow:0 18px 52px rgba(201,168,76,.42);
+}
+.mc-assoc{
+  background:linear-gradient(135deg,#132A5C 0%,#163068 50%,#0E2148 100%);
+  border:1px solid rgba(201,168,76,.18);
+  top:76px;left:50px;z-index:1;
+  box-shadow:0 18px 52px rgba(0,0,0,.42);
+}
+.mcard:hover{transform:translateY(-5px) rotate(-1.5deg) scale(1.02)}
+.mc-assoc:hover{transform:translateY(4px) rotate(1deg) scale(1.02)}
+.mc-lines{
+  position:absolute;inset:0;
+  background-image:repeating-linear-gradient(
+    -38deg,transparent,transparent 13px,
+    rgba(255,255,255,.04) 13px,rgba(255,255,255,.04) 14px);
+}
+.mc-r{display:flex;align-items:center;justify-content:space-between;position:relative}
+.mc-logo{font-family:'Playfair Display',Georgia,serif;font-size:1.28rem;font-weight:700}
+.mc-prem .mc-logo{color:rgba(10,22,40,.72)}
+.mc-assoc .mc-logo{color:rgba(255,255,255,.82)}
+.mc-chip{font-size:1.3rem}
+.mc-prem .mc-chip{color:rgba(10,22,40,.48)}
+.mc-assoc .mc-chip{color:rgba(201,168,76,.55)}
+.mc-tier{font-size:.58rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;position:relative}
+.mc-prem .mc-tier{color:rgba(10,22,40,.52)}
+.mc-assoc .mc-tier{color:rgba(255,255,255,.45)}
+.mc-num{
+  display:block;font-family:'Courier New',monospace;
+  font-size:.8rem;letter-spacing:.14em;position:relative;margin-bottom:3px;
+}
+.mc-prem .mc-num{color:rgba(10,22,40,.72)}
+.mc-assoc .mc-num{color:rgba(255,255,255,.68)}
+.mc-name{font-family:'Source Sans 3',sans-serif;font-size:.76rem;font-weight:600;position:relative}
+.mc-prem .mc-name{color:rgba(10,22,40,.58)}
+.mc-assoc .mc-name{color:rgba(255,255,255,.48)}
+
+/* ══════════════════════════════════════════
+   13. VISION / CTA SECTION
+══════════════════════════════════════════ */
+.vision-sec{
+  position:relative;background:var(--navy-dk);
+  padding:140px 44px;text-align:center;overflow:hidden;
+}
+.vision-grid{
+  position:absolute;inset:0;
+  background-image:
+    repeating-linear-gradient(0deg,transparent,transparent 74px,rgba(201,168,76,.02) 74px,rgba(201,168,76,.02) 75px),
+    repeating-linear-gradient(90deg,transparent,transparent 74px,rgba(201,168,76,.02) 74px,rgba(201,168,76,.02) 75px);
+}
+.vision-ring{position:absolute;border-radius:50%;border:1px solid rgba(201,168,76,.06);pointer-events:none}
+.vr1{width:620px;height:620px;top:-260px;left:-220px}
+.vr2{width:360px;height:360px;bottom:-150px;right:-130px}
+.vision-inner{position:relative;z-index:2;max-width:820px;margin:0 auto}
+.vision-eyebrow{
+  display:block;font-family:'Source Sans 3',sans-serif;font-size:.7rem;
+  font-weight:600;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--gold);opacity:.72;margin-bottom:42px;
+}
+.vision-quote{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:clamp(1.7rem,3.3vw,2.75rem);
+  font-style:italic;font-weight:400;line-height:1.44;
+  color:rgba(255,255,255,.88);margin-bottom:58px;quotes:none;
+}
+.vision-quote .gold{color:var(--gold)}
+
+/* ══════════════════════════════════════════
+   14. FOOTER
+══════════════════════════════════════════ */
+.footer{background:var(--navy);border-top:1px solid rgba(201,168,76,.14)}
+.footer-main{padding:80px 0 60px}
+.footer-grid{
+  display:grid;grid-template-columns:1.5fr 1fr 1.2fr;
+  gap:52px;
+}
+/* Left */
+.f-svg-wrap{margin-bottom:18px}
+.f-logo-name{
+  font-family:'Cinzel',serif;font-size:1.22rem;letter-spacing:4px;
+  font-weight:700;color:var(--gold);margin-bottom:4px;
+}
+.f-tagline{
+  font-family:'Source Sans 3',sans-serif;font-size:.84rem;
+  color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:14px;
+}
+.f-premier{
+  font-family:'Source Sans 3',sans-serif;font-size:.78rem;font-style:italic;
+  color:rgba(255,255,255,.38);margin-bottom:14px;
+}
+.f-reg{
+  font-family:'Source Sans 3',sans-serif;font-size:.7rem;
+  color:rgba(255,255,255,.32);line-height:1.6;
+}
+/* Centre */
+.f-head{
+  font-family:'Source Sans 3',sans-serif;font-size:.66rem;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:22px;
+}
+.f-nav-list{display:flex;flex-direction:column;gap:9px}
+.f-nav-list li a{
+  display:flex;align-items:center;gap:9px;
+  font-family:'Source Sans 3',sans-serif;font-size:.88rem;
+  color:rgba(255,255,255,.52);transition:all .2s ease;
+}
+.f-nav-list li a::before{
+  content:'';width:13px;height:1px;background:var(--gold);
+  opacity:.35;flex-shrink:0;transition:all .2s ease;
+}
+.f-nav-list li a:hover{color:var(--gold-lt);padding-left:5px}
+.f-nav-list li a:hover::before{width:18px;opacity:1}
+/* Right */
+.f-wa{
+  display:inline-flex;align-items:center;gap:11px;
+  font-family:'Source Sans 3',sans-serif;font-size:1.18rem;
+  font-weight:700;color:var(--gold-lt);letter-spacing:.04em;
+  margin-bottom:6px;transition:all .2s ease;
+}
+.f-wa:hover{color:#EDD47E}
+.f-hours{font-family:'Source Sans 3',sans-serif;font-size:.76rem;color:rgba(255,255,255,.36);margin-bottom:18px}
+.f-email{
+  display:flex;align-items:center;gap:9px;
+  font-family:'Source Sans 3',sans-serif;font-size:.86rem;
+  color:rgba(255,255,255,.48);margin-bottom:22px;
+}
+.f-contact-btn{
+  display:inline-block;font-family:'Source Sans 3',sans-serif;font-size:.8rem;
+  font-weight:700;color:var(--navy-dk);
+  background:linear-gradient(135deg,var(--gold),var(--gold-lt));
+  padding:10px 24px;border-radius:4px;transition:all .2s ease;
+}
+.f-contact-btn:hover{transform:translateY(-1px);box-shadow:0 5px 20px rgba(201,168,76,.35)}
+/* Bottom bar */
+.footer-bar{border-top:1px solid rgba(255,255,255,.055);padding:20px 0}
+.footer-bar-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;
+}
+.footer-bar-inner p{
+  font-family:'Source Sans 3',sans-serif;font-size:.74rem;color:rgba(255,255,255,.28);
+}
+.bar-r{font-size:.7rem !important;color:rgba(201,168,76,.6) !important;white-space:nowrap}
+.bar-legal{color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s ease;}
+.bar-legal:hover{color:#C9A84C;}
+
+/* ══════════════════════════════════════════
+   15. SCROLL REVEAL
+══════════════════════════════════════════ */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1)}
+.reveal.vis{opacity:1;transform:translateY(0)}
+.divs-grid .reveal:nth-child(2),.proj-grid .reveal:nth-child(2){transition-delay:.1s}
+.divs-grid .reveal:nth-child(3),.proj-grid .reveal:nth-child(3){transition-delay:.2s}
+
+/* ══════════════════════════════════════════
+   16. RESPONSIVE
+══════════════════════════════════════════ */
+@media(max-width:1024px){
+  .divs-grid,.proj-grid{grid-template-columns:1fr 1fr}
+  .about-grid,.memb-grid{gap:44px}
+  .nl{padding:6px 9px;font-size:.76rem}
+}
+@media(max-width:768px){
+  :root{--nav-h:72px}
+  .wrap{padding:0 22px}
+  .section,.divs-sec,.proj-sec,.memb-sec{padding:68px 0}
+  /* Mobile nav */
+  .hamburger{display:flex}
+  .nav-cta{display:none}
+  .nav-links{
+    position:fixed;top:0;right:-100%;width:268px;height:100vh;
+    background:var(--navy-dk);flex-direction:column;align-items:flex-start;
+    padding:80px 26px 36px;gap:3px;
+    border-left:1px solid rgba(201,168,76,.14);
+    transition:right .38s ease;z-index:999;
+    box-shadow:-18px 0 55px rgba(0,0,0,.38);
+  }
+  .nav-links.open{right:0}
+  .nl{font-size:.92rem;padding:11px 14px;width:100%}
+  /* Sections */
+  .about-grid,.memb-grid{grid-template-columns:1fr}
+  .divs-grid,.proj-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:36px}
+  .footer-bar-inner{flex-direction:column;align-items:flex-start;gap:5px}
+  .hero h1{font-size:2.4rem}
+  .hero-btns{flex-direction:column;align-items:flex-start}
+  .stats-row{flex-wrap:wrap}
+  .stat{min-width:44%}
+  .stat-div{display:none}
+  .card-stack{width:272px;height:258px}
+  .mcard{width:252px;height:160px}
+  .mc-assoc{left:38px;top:70px}
+  .vision-sec{padding:80px 22px}
+  .vision-quote{font-size:1.5rem}
+  .lt-2{display:none}
+  .footer-main{padding:56px 0 44px}
+}
+@media(max-width:480px){
+  .hero h1{font-size:1.95rem}
+  .about-cards{grid-template-columns:1fr}
+  .acard-full{grid-column:1}
+  .sec-hdr h2,.proj-hdr h2{font-size:1.72rem}
+}
+
+/* 13. INVITATION MANIFESTO */
+.inv-sec{position:relative;background:linear-gradient(135deg,#0A1628 0%,#0F1D33 50%,#0A1628 100%);padding:120px 30px;overflow:hidden;}
+.inv-inner{max-width:800px;margin:0 auto;text-align:center;position:relative;z-index:1;}
+.manifesto-label{font-family:'Source Sans 3',sans-serif;font-size:13px;letter-spacing:5px;font-weight:600;color:rgba(201,168,76,0.85);text-transform:uppercase;margin-bottom:24px;}
+.manifesto-h1{font-family:'Playfair Display',Georgia,serif;font-size:42px;font-weight:600;color:#ffffff;line-height:1.2;letter-spacing:-0.5px;margin-bottom:24px;}
+.manifesto-h2{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:30px;font-weight:500;color:#C9A84C;line-height:1.3;letter-spacing:-0.3px;margin-bottom:28px;}
+.manifesto-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;font-weight:400;color:rgba(244,239,232,0.8);line-height:1.7;max-width:520px;margin:0 auto 40px;}
+.manifesto-btn{display:inline-block;background:#C9A84C;border:none;color:#0A1628;padding:15px 36px;font-family:'Source Sans 3',sans-serif;font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;border-radius:4px;cursor:pointer;transition:all 0.25s ease;text-decoration:none;}
+.manifesto-btn:hover{background:#B89640;color:#0A1628;}
+@media(max-width:768px){
+  .inv-sec{padding:80px 24px;}
+  .manifesto-label{font-size:11px;letter-spacing:4px;}
+  .manifesto-h1{font-size:32px;}
+  .headline-top.manifesto-size{font-size:28px;}
+  .headline-bottom.manifesto-size{font-size:22px;}
+  .headline-top.hero-size{font-size:38px;}
+  .headline-bottom.hero-size{font-size:30px;}
+  .manifesto-sub{font-size:15px;}
+  .manifesto-btn{padding:14px 28px;font-size:11px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════ -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" aria-label="KOPIT Home">
+      <div class="logo-unit">
+        <canvas id="kopitLogo" width="60" height="60" style="display:block;flex-shrink:0;"></canvas>
+        <div class="logo-text-block">
+          <span class="lt-1">KOPIT</span>
+          <span class="lt-2">Koperasi Usahawan Informasi Teknologi Malaysia Berhad</span>
+          <span class="lt-3">Malaysia's Premier IT Koperasi</span>
+        </div>
+      </div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html"      class="nl active" data-en="Home"       data-bm="Utama">Home</a></li>
+      <li><a href="about.html"      class="nl"        data-en="About"      data-bm="Tentang">About</a></li>
+      <li><a href="divisions.html"  class="nl"        data-en="Divisions"  data-bm="Bahagian">Divisions</a></li>
+      <li><a href="projects.html"   class="nl"        data-en="Projects"   data-bm="Projek">Projects</a></li>
+      <li><a href="membership.html" class="nl"        data-en="Membership" data-bm="Keahlian">Membership</a></li>
+      <li><a href="news.html"       class="nl"        data-en="News"       data-bm="Berita">News</a></li>
+      <li><a href="contact.html"    class="nl"        data-en="Contact"    data-bm="Hubungi">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btnEN" onclick="setLang('en')">EN</button>
+        <button class="lang-btn"        id="btnBM" onclick="setLang('bm')">BM</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="membership.html" class="nav-cta"
+         data-en="Member Login" data-bm="Log Masuk Ahli">Member Login</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section class="hero-section" id="home">
+  <div class="hero">
+    <!-- LEFT: Headline + CTAs -->
+    <div class="hero-left">
+      <div class="hero-deco-line"></div>
+      <h1 data-en="Malaysia's First<br>Member-Powered<br><span class='italic-accent'>Technology Cooperative.</span>"
+          data-bm="Koperasi Teknologi<br>Pertama Malaysia<br><span class='italic-accent'>Dikuasai Ahli.</span>">
+        Malaysia's First<br>
+        Member-Powered<br>
+        <span class="italic-accent">Technology Cooperative.</span>
+      </h1>
+      <p class="hero-sub"
+         data-en="<strong>Built by its members.</strong><br><strong>Governed by its members.</strong><br><strong>Grown by its members.</strong>"
+         data-bm="<strong>Dibina oleh ahlinya.</strong><br><strong>Ditadbir oleh ahlinya.</strong><br><strong>Dikembangkan oleh ahlinya.</strong>">
+        <strong>Built by its members.</strong><br>
+        <strong>Governed by its members.</strong><br>
+        <strong>Grown by its members.</strong>
+      </p>
+      <div class="hero-btns">
+        <a href="membership.html" class="btn-hero-gold"
+           data-en="Apply For Membership" data-bm="Mohon Keahlian">Apply For Membership</a>
+        <a href="contact.html#project-inquiry" class="btn-hero-outline"
+           data-en="Hire Our Services" data-bm="Sewa Perkhidmatan Kami">Hire Our Services</a>
+        <a href="projects.html" class="btn-hero-outline"
+           data-en="View Our Work" data-bm="Lihat Kerja Kami">View Our Work</a>
+      </div>
+    </div>
+    <!-- RIGHT: Living Constellation -->
+    <div class="scene">
+      <div class="stars"></div>
+      <svg class="connections" viewBox="0 0 560 560">
+        <defs>
+          <linearGradient id="g0" x1="50%" y1="50%" x2="50%" y2="0%">
+            <stop offset="0%" stop-color="#C9A84C" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#C9A84C" stop-opacity="0.18"/>
+          </linearGradient>
+          <linearGradient id="g1" x1="50%" y1="50%" x2="100%" y2="22%">
+            <stop offset="0%" stop-color="#C9A84C" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#2ebf84" stop-opacity="0.32"/>
+          </linearGradient>
+          <linearGradient id="g2" x1="50%" y1="50%" x2="100%" y2="78%">
+            <stop offset="0%" stop-color="#C9A84C" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#5a9ef5" stop-opacity="0.32"/>
+          </linearGradient>
+          <linearGradient id="g3" x1="50%" y1="50%" x2="78%" y2="100%">
+            <stop offset="0%" stop-color="#C9A84C" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#ccdcee" stop-opacity="0.32"/>
+          </linearGradient>
+          <linearGradient id="g4" x1="50%" y1="50%" x2="22%" y2="100%">
+            <stop offset="0%" stop-color="#C9A84C" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#C9A84C" stop-opacity="0.32"/>
+          </linearGradient>
+          <linearGradient id="g5" x1="50%" y1="50%" x2="0%" y2="78%">
+            <stop offset="0%" stop-color="#C9A84C" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#2ebf84" stop-opacity="0.32"/>
+          </linearGradient>
+          <linearGradient id="g6" x1="50%" y1="50%" x2="0%" y2="22%">
+            <stop offset="0%" stop-color="#C9A84C" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#5a9ef5" stop-opacity="0.32"/>
+          </linearGradient>
+        </defs>
+        <g id="constLines"></g>
+        <g id="constParts"></g>
+      </svg>
+      <div class="ring ring-outer"><div class="ring-dot"></div></div>
+      <div class="ring ring-flat"><div class="ring-dot"></div></div>
+      <div class="ring ring-inner"><div class="ring-dot"></div></div>
+      <div class="hub">
+        <div class="hub-glow-outer"></div>
+        <div class="hub-glow-inner"></div>
+        <div class="hub-block">
+          <div class="hub-text">KOPIT</div>
+          <div class="hub-sub">MALAYSIA</div>
+        </div>
+      </div>
+      <div id="constNodesContainer"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     WHO WE ARE — MANIFESTO
+══════════════════════════════════════ -->
+<section class="manifesto-sec" id="about">
+  <div class="manifesto-inner">
+    <div class="manifesto-lbl-wrap">
+      <div class="manifesto-lbl-line"></div>
+      <div class="manifesto-lbl">WHO WE ARE</div>
+    </div>
+    <div class="manifesto-grid">
+      <!-- LEFT: Manifesto -->
+      <div>
+        <h2 class="manifesto-h">We are not<br><span class="gold">a company.</span></h2>
+        <div class="manifesto-divider"></div>
+        <div class="manifesto-body">
+          <p>KOPIT is a <strong>registered technology cooperative</strong> — where every member is a co-owner, every project builds shared wealth, and every ringgit earned comes back to the people who earned it.</p>
+          <p>We are <strong>not investors waiting for returns</strong>. We are <strong>not employees collecting salaries</strong>. We are <strong>builders, owners, and partners</strong> — quietly building Malaysia's digital and energy future, one project at a time.</p>
+        </div>
+        <blockquote class="manifesto-quote">Built by its members. Governed by its members. Grown by its members.</blockquote>
+      </div>
+      <!-- RIGHT: Credentials box -->
+      <div class="cred-box">
+        <div class="cred-title">⬡ KOPIT AT A GLANCE ⬡</div>
+        <div class="cred-row">
+          <div class="cred-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-5"/></svg>
+          </div>
+          <div class="cred-text">
+            <span class="cred-label">Registration</span>
+            <span class="cred-value">SKM Registered Cooperative</span>
+            <span class="cred-sub">Suruhanjaya Koperasi Malaysia</span>
+          </div>
+        </div>
+        <div class="cred-row">
+          <div class="cred-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12l3 3 5-5"/></svg>
+          </div>
+          <div class="cred-text">
+            <span class="cred-label">Procurement</span>
+            <span class="cred-value">E-Perolehan Registered</span>
+            <span class="cred-sub">Federal vendor status</span>
+          </div>
+        </div>
+        <div class="cred-row">
+          <div class="cred-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          </div>
+          <div class="cred-text">
+            <span class="cred-label">Established</span>
+            <span class="cred-value">2022</span>
+            <span class="cred-sub">Building the foundation</span>
+          </div>
+        </div>
+        <div class="cred-row">
+          <div class="cred-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </div>
+          <div class="cred-text">
+            <span class="cred-label">Headquarters</span>
+            <span class="cred-value">Cheras, Kuala Lumpur</span>
+            <span class="cred-sub">Malaysia</span>
+          </div>
+        </div>
+        <div class="cred-row">
+          <div class="cred-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"><circle cx="8" cy="15" r="4"/><line x1="10.85" y1="12.15" x2="19" y2="4"/><line x1="18" y1="5" x2="20" y2="7"/><line x1="15" y1="8" x2="17" y2="10"/></svg>
+          </div>
+          <div class="cred-text">
+            <span class="cred-label">Membership Status</span>
+            <span class="cred-value">By Invitation Only</span>
+            <span class="cred-sub">BOD reviews all applications</span>
+          </div>
+        </div>
+        <div class="cred-badge">
+          <div class="cred-dot"></div>
+          <span class="cred-badge-text">KOPIT IS GROWING</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════════════════
+     OUR FOUNDATION — IDENTITY STRIP
+══════════════════════════════════════ -->
+<section class="identity-strip" id="identityStrip">
+  <div class="identity-strip-inner">
+    <div class="identity-label">OUR FOUNDATION</div>
+    <div class="identity-grid">
+      <div class="ibox">
+        <div class="ibox-title">E-Perolehan Registered</div>
+        <div class="ibox-sub">Government-grade vendor status. Federal procurement ready.</div>
+      </div>
+      <div class="ibox">
+        <div class="ibox-title">SKM Registered Cooperative</div>
+        <div class="ibox-sub">Member-owned. Member-governed. Member-grown.</div>
+      </div>
+      <div class="ibox">
+        <div class="ibox-title">7 Divisions. One Vision.</div>
+        <div class="ibox-sub">From code to capital. From AI to solar.</div>
+      </div>
+      <div class="ibox">
+        <div class="ibox-title">4 Revenue Channels</div>
+        <div class="ibox-sub">Government. Private. Member. Community.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     DIVISIONS
+══════════════════════════════════════ -->
+<section class="divs-sec" id="divisions">
+  <div class="divs-inner">
+    <div class="divs-label-wrap">
+      <div class="divs-label-line"></div>
+      <div class="divs-label">OUR DIVISIONS</div>
+    </div>
+    <div class="divs-heading">
+      <h2>Seven Divisions. <span class="gold">Satu Koperasi.</span></h2>
+    </div>
+    <p class="divs-sub">Built for the AI era. Engineered for Malaysian enterprise.</p>
+
+    <!-- TOP ROW: Wira Digital, Bijak AI, Hijau -->
+    <div class="divs-row-top">
+
+      <div class="dcard dcard-top" style="--dcol:#FFC857;--dcol-light:#FFE0A0;--dcol-dark:#B07F1A;--dglow:rgba(255,200,87,0.25)" onclick="toggleDivCard(this)">
+        <div class="dmed-wrap">
+          <div class="dmed">
+            <div class="dmed-aura"></div>
+            <div class="dmed-coin">
+              <div class="dmed-rim"></div>
+              <div class="dmed-rim-inner"></div>
+              <div class="dmed-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3D2400" stroke-width="1.8" stroke-linecap="round"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/></svg></div>
+            </div>
+          </div>
+        </div>
+        <div class="dcard-name">Wira Digital</div>
+        <div class="dcard-bm">ICT &amp; Sistem Berasaskan AI</div>
+        <div class="dcard-accentline"></div>
+        <div class="dcard-teaser">The AI-powered IT backbone for Malaysian enterprise.</div>
+        <div class="expand-area">
+          <div class="dcard-body">We build intelligent systems, automate critical operations, and integrate AI across legacy infrastructure — turning IT cost centres into AI-driven competitive advantage.</div>
+          <div class="dcard-svc-label">KEY SERVICES</div>
+          <div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> AI-Powered IT Operations (AIOps)</div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> Intelligent Process Automation</div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> AI-Enhanced Cybersecurity</div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> Cloud AI &amp; MLOps Integration</div>
+          </div>
+          <a href="contact.html?division=wira-digital" class="hire-btn" onclick="event.stopPropagation()">HIRE THIS DIVISION →</a>
+        </div>
+        <div class="dcard-hint"><span class="dcard-hint-dot"></span><span class="dcard-hint-txt">CLICK TO EXPAND</span></div>
+      </div>
+
+      <div class="dcard dcard-top" style="--dcol:#00D9FF;--dcol-light:#A0F0FF;--dcol-dark:#0085A8;--dglow:rgba(0,217,255,0.25)" onclick="toggleDivCard(this)">
+        <div class="dmed-wrap">
+          <div class="dmed">
+            <div class="dmed-aura"></div>
+            <div class="dmed-coin">
+              <div class="dmed-rim"></div>
+              <div class="dmed-rim-inner"></div>
+              <div class="dmed-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="6" r="1.5"/><circle cx="19" cy="6" r="1.5"/><circle cx="5" cy="18" r="1.5"/><circle cx="19" cy="18" r="1.5"/><line x1="6.5" y1="7" x2="10" y2="11"/><line x1="17.5" y1="7" x2="14" y2="11"/><line x1="6.5" y1="17" x2="10" y2="13"/><line x1="17.5" y1="17" x2="14" y2="13"/></svg></div>
+            </div>
+          </div>
+        </div>
+        <div class="dcard-name">Bijak AI</div>
+        <div class="dcard-bm">AI · IoT · Pengawasan Pintar</div>
+        <div class="dcard-accentline"></div>
+        <div class="dcard-teaser">Our flagship AI division — production-grade systems that see, decide, and act.</div>
+        <div class="expand-area">
+          <div class="dcard-body">From computer vision and intelligent surveillance to enterprise AI deployment, we deliver production-grade AI systems that solve real Malaysian business problems.</div>
+          <div class="dcard-svc-label">KEY SERVICES</div>
+          <div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> Custom AI Model Development</div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> Computer Vision &amp; Smart Surveillance</div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> IoT + AI Integration</div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> Predictive Analytics &amp; ML</div>
+          </div>
+          <a href="contact.html?division=bijak-ai" class="hire-btn" onclick="event.stopPropagation()">HIRE THIS DIVISION →</a>
+        </div>
+        <div class="dcard-hint"><span class="dcard-hint-dot"></span><span class="dcard-hint-txt">CLICK TO EXPAND</span></div>
+      </div>
+
+      <div class="dcard dcard-top" style="--dcol:#3DDC84;--dcol-light:#A0F0BC;--dcol-dark:#1F8048;--dglow:rgba(61,220,132,0.25)" onclick="toggleDivCard(this)">
+        <div class="dmed-wrap">
+          <div class="dmed">
+            <div class="dmed-aura"></div>
+            <div class="dmed-coin">
+              <div class="dmed-rim"></div>
+              <div class="dmed-rim-inner"></div>
+              <div class="dmed-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0F2A1F" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4 12h4M16 12h4M6 6l3 3M15 15l3 3M6 18l3-3M15 9l3-3"/></svg></div>
+            </div>
+          </div>
+        </div>
+        <div class="dcard-name">Hijau</div>
+        <div class="dcard-bm">Tenaga Lestari &amp; Teknologi Hijau</div>
+        <div class="dcard-accentline"></div>
+        <div class="dcard-teaser">AI-optimised renewable energy and intelligent battery systems.</div>
+        <div class="expand-area">
+          <div class="dcard-body">Sustainable energy meets artificial intelligence. We engineer Malaysia's green transition with smart, data-driven infrastructure — from solar to storage to carbon analytics.</div>
+          <div class="dcard-svc-label">KEY SERVICES</div>
+          <div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> AI-Optimised Solar Design</div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> Smart Battery Energy Storage</div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> Predictive Energy Management</div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> Carbon Analytics &amp; ESG Tech</div>
+          </div>
+          <a href="contact.html?division=hijau" class="hire-btn" onclick="event.stopPropagation()">HIRE THIS DIVISION →</a>
+        </div>
+        <div class="dcard-hint"><span class="dcard-hint-dot"></span><span class="dcard-hint-txt">CLICK TO EXPAND</span></div>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM ROW: Blockchain, Dana Sejahtera, Angkasa Build, Arif Advisory -->
+    <div class="divs-row-bot">
+
+      <div class="dcard" style="--dcol:#7B61FF;--dcol-light:#C8B8FF;--dcol-dark:#4A33B0;--dglow:rgba(123,97,255,0.25)" onclick="toggleDivCard(this)">
+        <div class="dmed-wrap">
+          <div class="dmed">
+            <div class="dmed-aura"></div>
+            <div class="dmed-coin">
+              <div class="dmed-rim"></div>
+              <div class="dmed-rim-inner"></div>
+              <div class="dmed-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><line x1="10" y1="6.5" x2="14" y2="6.5"/><line x1="10" y1="17.5" x2="14" y2="17.5"/><line x1="6.5" y1="10" x2="6.5" y2="14"/><line x1="17.5" y1="10" x2="17.5" y2="14"/></svg></div>
+            </div>
+          </div>
+        </div>
+        <div class="dcard-name">Blockchain</div>
+        <div class="dcard-bm">Teknologi Lejar Teragih</div>
+        <div class="dcard-accentline"></div>
+        <div class="dcard-teaser">Distributed ledger technology engineered for institutional trust.</div>
+        <div class="expand-area">
+          <div class="dcard-body">We design tokenisation infrastructure, smart contracts, and AI-blockchain hybrid systems for the next generation of digital assets and institutional finance.</div>
+          <div class="dcard-svc-label">KEY SERVICES</div>
+          <div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> Smart Contract Development</div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> Tokenisation Infrastructure</div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> AI-Blockchain Integration</div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> Crypto &amp; DeFi Systems</div>
+          </div>
+          <a href="contact.html?division=blockchain" class="hire-btn" onclick="event.stopPropagation()">HIRE THIS DIVISION →</a>
+        </div>
+        <div class="dcard-hint"><span class="dcard-hint-dot"></span><span class="dcard-hint-txt">CLICK TO EXPAND</span></div>
+      </div>
+
+      <div class="dcard" style="--dcol:#FFA552;--dcol-light:#FFD0A0;--dcol-dark:#B85F18;--dglow:rgba(255,165,82,0.25)" onclick="toggleDivCard(this)">
+        <div class="dmed-wrap">
+          <div class="dmed">
+            <div class="dmed-aura"></div>
+            <div class="dmed-coin">
+              <div class="dmed-rim"></div>
+              <div class="dmed-rim-inner"></div>
+              <div class="dmed-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3D1F00" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="6" rx="6" ry="2"/><path d="M6 6v3c0 1.1 2.7 2 6 2s6-.9 6-2V6"/><path d="M6 11v3c0 1.1 2.7 2 6 2s6-.9 6-2v-3"/><path d="M6 16v3c0 1.1 2.7 2 6 2s6-.9 6-2v-3"/></svg></div>
+            </div>
+          </div>
+        </div>
+        <div class="dcard-name">Dana Sejahtera</div>
+        <div class="dcard-bm">InsurTech &amp; Kewangan Pintar</div>
+        <div class="dcard-accentline"></div>
+        <div class="dcard-teaser">Financial intelligence for the cooperative era.</div>
+        <div class="expand-area">
+          <div class="dcard-body">AI-powered InsurTech, intelligent capital management, and smart member finance — combining traditional financial discipline with modern algorithmic precision.</div>
+          <div class="dcard-svc-label">KEY SERVICES</div>
+          <div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> AI-Powered InsurTech</div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> Intelligent Capital Management</div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> Member Finance Platforms</div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> Risk Analytics &amp; Modelling</div>
+          </div>
+          <a href="contact.html?division=dana-sejahtera" class="hire-btn" onclick="event.stopPropagation()">HIRE THIS DIVISION →</a>
+        </div>
+        <div class="dcard-hint"><span class="dcard-hint-dot"></span><span class="dcard-hint-txt">CLICK TO EXPAND</span></div>
+      </div>
+
+      <div class="dcard" style="--dcol:#4A9EFF;--dcol-light:#B0D2FF;--dcol-dark:#1F60B8;--dglow:rgba(74,158,255,0.25)" onclick="toggleDivCard(this)">
+        <div class="dmed-wrap">
+          <div class="dmed">
+            <div class="dmed-aura"></div>
+            <div class="dmed-coin">
+              <div class="dmed-rim"></div>
+              <div class="dmed-rim-inner"></div>
+              <div class="dmed-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-1.5 2.5-3 5-3 8.5 0 1.5.5 2.8 1.2 3.8h3.6c.7-1 1.2-2.3 1.2-3.8C15 7 13.5 4.5 12 2z"/><circle cx="12" cy="9" r="1.3"/><path d="M9 14l-2 2v3l3-1M15 14l2 2v3l-3-1"/><path d="M10.5 18.5L9 22M13.5 18.5L15 22M12 19v3"/></svg></div>
+            </div>
+          </div>
+        </div>
+        <div class="dcard-name">Angkasa Build</div>
+        <div class="dcard-bm">Dron AI &amp; PropTech</div>
+        <div class="dcard-accentline"></div>
+        <div class="dcard-teaser">Aerial intelligence meets the built environment.</div>
+        <div class="expand-area">
+          <div class="dcard-body">From AI drone mapping and inspection to smart building automation, we use AI to see, measure, and manage Malaysia's physical infrastructure from the sky down.</div>
+          <div class="dcard-svc-label">KEY SERVICES</div>
+          <div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> AI Drone Survey &amp; Mapping</div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> AI Drone Inspection &amp; Analytics</div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> Aerial Photogrammetry &amp; Digital Twins</div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> Smart Building Automation</div>
+          </div>
+          <a href="contact.html?division=angkasa-build" class="hire-btn" onclick="event.stopPropagation()">HIRE THIS DIVISION →</a>
+        </div>
+        <div class="dcard-hint"><span class="dcard-hint-dot"></span><span class="dcard-hint-txt">CLICK TO EXPAND</span></div>
+      </div>
+
+      <div class="dcard" style="--dcol:#7FE3C5;--dcol-light:#C0F0DC;--dcol-dark:#3D8C70;--dglow:rgba(127,227,197,0.25)" onclick="toggleDivCard(this)">
+        <div class="dmed-wrap">
+          <div class="dmed">
+            <div class="dmed-aura"></div>
+            <div class="dmed-coin">
+              <div class="dmed-rim"></div>
+              <div class="dmed-rim-inner"></div>
+              <div class="dmed-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F2A22" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l5 3"/></svg></div>
+            </div>
+          </div>
+        </div>
+        <div class="dcard-name">Arif Advisory</div>
+        <div class="dcard-bm">Strategi &amp; Tadbir Urus AI</div>
+        <div class="dcard-accentline"></div>
+        <div class="dcard-teaser">Malaysia's strategic AI advisory partner.</div>
+        <div class="expand-area">
+          <div class="dcard-body">We guide enterprises through AI adoption, governance, and digital transformation — translating AI ambition into measurable business execution and regulatory readiness.</div>
+          <div class="dcard-svc-label">KEY SERVICES</div>
+          <div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> AI Strategy &amp; Adoption Roadmap</div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> AI Readiness Assessment</div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> Generative AI Implementation</div>
+            <div class="dcard-svc-item"><span class="dcard-svc-arrow">▸</span> AI Governance &amp; Compliance</div>
+          </div>
+          <a href="contact.html?division=arif-advisory" class="hire-btn" onclick="event.stopPropagation()">HIRE THIS DIVISION →</a>
+        </div>
+        <div class="dcard-hint"><span class="dcard-hint-dot"></span><span class="dcard-hint-txt">CLICK TO EXPAND</span></div>
+      </div>
+
+    </div>
+
+    <!-- EXPLORE ALL CTA -->
+    <div class="divs-cta">
+      <a href="divisions.html" class="divs-cta-btn">Explore All Divisions →</a>
+    </div>
+
+    <!-- 8TH DIVISION SECTION -->
+    <div class="div8-sec">
+      <div class="div8-ornament">
+        <div class="div8-orn-line"></div>
+        <span class="div8-orn-sym">⬡</span>
+        <div class="div8-orn-line right"></div>
+      </div>
+      <p class="div8-sub">Tomorrow's KOPIT is decided by today's members</p>
+      <h3 class="div8-headline">The Next Division <span class="gold">Hasn't Been Written.</span></h3>
+      <p class="div8-body">Don't see your specialty? KOPIT grows with its members. When a member identifies a need, builds the case, and rallies the cooperative behind it — a new division is born.</p>
+      <a href="contact.html" class="div8-cta">Propose A New Division →</a>
+      <div class="div8-dot" style="top:20%;left:18%;animation-delay:0s"></div>
+      <div class="div8-dot" style="top:35%;right:20%;animation-delay:0.8s"></div>
+      <div class="div8-dot" style="bottom:30%;left:22%;animation-delay:1.6s"></div>
+      <div class="div8-dot" style="bottom:25%;right:18%;animation-delay:2.4s"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     HOW KOPIT WORKS
+══════════════════════════════════════ -->
+<section class="how-sec" id="how-it-works">
+  <div class="how-inner">
+    <div class="how-label-wrap">
+      <div class="how-label-line"></div>
+      <div class="how-label">HOW KOPIT WORKS</div>
+    </div>
+    <h2 class="how-heading">Satu Koperasi. <span class="gold">Every Opportunity.</span></h2>
+    <p class="how-sub">From mega-projects to government tenders to private clients — the cooperative model adapts to every scale and every sector.</p>
+
+    <div class="how-steps-wrap">
+      <div class="steps-grid">
+
+        <div class="step-item">
+          <div class="step-circle"><span class="step-num">1</span></div>
+          <div class="step-label">Step One</div>
+          <div class="step-title">Opportunity Identified</div>
+          <p class="step-body">Member-originated. Government tender. Private client. Every path leads to KOPIT.</p>
+        </div>
+
+        <div class="step-item">
+          <div class="step-circle"><span class="step-num">2</span></div>
+          <div class="step-label">Step Two</div>
+          <div class="step-title">Divisions Assemble</div>
+          <p class="step-body">The right divisions activate. One leads. Others contribute. Always collaborative.</p>
+        </div>
+
+        <div class="step-item">
+          <div class="step-circle"><span class="step-num">3</span></div>
+          <div class="step-label">Step Three</div>
+          <div class="step-title">Cooperative Delivers</div>
+          <p class="step-body">KOPIT delivers at institutional standard. Member-led, cooperative-backed, professionally executed.</p>
+        </div>
+
+        <div class="step-item">
+          <div class="step-circle"><span class="step-num">4</span></div>
+          <div class="step-label">Step Four</div>
+          <div class="step-title">Wealth Returns</div>
+          <p class="step-body">Project earnings flow back through cooperative dividends. Every member benefits.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="how-closing">
+      <p class="how-quote">Whatever the size. <span class="gold">Whatever the sector.</span><span class="break">Satu Koperasi. Endless opportunities.</span></p>
+      <a href="projects.html" class="how-cta-btn">View Our Projects →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     MEMBERSHIP TEASER
+══════════════════════════════════════ -->
+<section class="memb-teaser-sec" id="membership-teaser">
+  <div class="memb-teaser-inner">
+
+    <div class="memb-lbl-wrap">
+      <div class="memb-lbl-line"></div>
+      <div class="memb-lbl">MEMBERSHIP</div>
+    </div>
+    <h2 class="headline-top hero-size" style="text-align:center;">Membership Is</h2>
+    <h2 class="headline-bottom hero-size" style="text-align:center;margin-bottom:14px;">By Invitation.</h2>
+    <p class="memb-sub">Seven tiers. Curated by the cooperative. The Board of Directors reviews every application.</p>
+
+    <!-- GLOBE STAGE -->
+    <div class="globe-stage">
+      <div class="globe-inner" id="globeInner">
+
+        <!-- CARD 1: BOD — Board of Directors -->
+        <div class="globe-card" data-idx="0" style="background:linear-gradient(135deg,#080808 0%,#121212 22%,#1a1400 42%,#3a2c08 49%,#5a4410 50%,#3a2c08 51%,#1a1400 58%,#121212 78%,#080808 100%);border:1px solid rgba(201,168,76,0.65);box-shadow:0 24px 60px rgba(0,0,0,0.65),0 0 30px rgba(255,228,150,0.35);">
+          <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.05" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="guillo1" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/><circle cx="0" cy="11" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/><circle cx="22" cy="11" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/><circle cx="11" cy="0" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/><circle cx="11" cy="22" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/></pattern></defs><rect width="100%" height="100%" fill="url(#guillo1)"/></svg>
+          <div style="position:absolute;inset:8px;border:0.5px solid rgba(201,168,76,0.32);border-radius:10px;pointer-events:none;"></div>
+          <svg style="position:absolute;top:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 9 L2 2 L9 2" stroke="rgba(255,228,150,0.85)" stroke-width="0.8" fill="none"/><path d="M5 6 L5 4 L7 4" stroke="rgba(255,228,150,0.55)" stroke-width="0.5" fill="none"/></svg>
+          <svg style="position:absolute;top:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 2 L22 2 L22 9" stroke="rgba(255,228,150,0.85)" stroke-width="0.8" fill="none"/><path d="M17 4 L19 4 L19 6" stroke="rgba(255,228,150,0.55)" stroke-width="0.5" fill="none"/></svg>
+          <svg style="position:absolute;bottom:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 15 L2 22 L9 22" stroke="rgba(255,228,150,0.85)" stroke-width="0.8" fill="none"/><path d="M5 18 L5 20 L7 20" stroke="rgba(255,228,150,0.55)" stroke-width="0.5" fill="none"/></svg>
+          <svg style="position:absolute;bottom:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 22 L22 22 L22 15" stroke="rgba(255,228,150,0.85)" stroke-width="0.8" fill="none"/><path d="M17 20 L19 20 L19 18" stroke="rgba(255,228,150,0.55)" stroke-width="0.5" fill="none"/></svg>
+          <div style="position:absolute;top:24px;left:26px;display:flex;align-items:center;gap:10px;">
+            <svg width="24" height="24" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="rgba(255,228,150,0.55)" stroke-width="0.5"/><circle cx="20" cy="20" r="11" fill="none" stroke="rgba(255,228,150,0.7)" stroke-width="0.5"/><circle cx="20" cy="20" r="4" fill="rgba(255,228,150,0.95)"/><line x1="20" y1="20" x2="20" y2="6" stroke="rgba(255,228,150,0.7)" stroke-width="1"/><line x1="20" y1="20" x2="20" y2="34" stroke="rgba(255,228,150,0.7)" stroke-width="1"/><line x1="20" y1="20" x2="6" y2="20" stroke="rgba(255,228,150,0.7)" stroke-width="1"/><line x1="20" y1="20" x2="34" y2="20" stroke="rgba(255,228,150,0.7)" stroke-width="1"/><circle cx="20" cy="6" r="2" fill="rgba(255,228,150,0.85)"/><circle cx="20" cy="34" r="2" fill="rgba(255,228,150,0.85)"/><circle cx="6" cy="20" r="2" fill="rgba(255,228,150,0.85)"/><circle cx="34" cy="20" r="2" fill="rgba(255,228,150,0.85)"/></svg>
+            <div><div style="font-family:'Cinzel',serif;font-size:15px;font-weight:700;letter-spacing:3px;color:rgba(255,228,150,0.95);">KOPIT</div><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:2.5px;margin-top:3px;color:rgba(255,228,150,0.5);">EST · MMXXII</div></div>
+          </div>
+          <div style="position:absolute;top:24px;right:26px;text-align:right;">
+            <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:12px;color:rgba(255,248,220,0.92);line-height:1;">Tan Sri Michael</div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:2px;color:rgba(255,228,150,0.5);margin-top:4px;">MEMBER SINCE</div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-size:13px;letter-spacing:3px;font-weight:600;color:rgba(255,228,150,0.85);margin-top:1px;">2022</div>
+          </div>
+          <div style="position:absolute;top:88px;left:0;right:0;text-align:center;">
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:6px;color:rgba(255,228,150,0.6);margin-bottom:4px;">◆ ◆ ◆</div>
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:5px;color:rgba(255,228,150,0.85);margin-bottom:8px;">◆ LEMBAGA PENGARAH · GOVERNANCE ◆</div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:600;letter-spacing:-0.3px;color:#ffffff;text-shadow:0 0 12px rgba(255,228,150,0.35);">Board of Directors</div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:3px;color:rgba(255,228,150,0.7);margin-top:4px;">Lembaga Pengarah</div>
+          </div>
+          <div style="position:absolute;bottom:50px;left:26px;right:26px;display:flex;align-items:center;gap:10px;">
+            <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(255,228,150,0.5) 20%,rgba(255,228,150,0.5) 80%,transparent 100%);"></div>
+            <svg width="9" height="9" viewBox="0 0 9 9"><path d="M4.5 0 L9 4.5 L4.5 9 L0 4.5 Z" fill="rgba(255,228,150,0.7)"/></svg>
+            <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(255,228,150,0.5) 20%,rgba(255,228,150,0.5) 80%,transparent 100%);"></div>
+          </div>
+          <div style="position:absolute;bottom:22px;left:26px;right:26px;display:flex;justify-content:space-between;align-items:flex-end;">
+            <div><div style="font-family:'Courier New',monospace;font-size:10px;letter-spacing:1.5px;color:rgba(255,228,150,0.5);line-height:1;">SERIAL</div><div style="font-family:'Courier New',monospace;font-size:11px;letter-spacing:2px;color:rgba(255,228,150,0.92);margin-top:3px;">BOD·0001·MY</div></div>
+            <div style="text-align:right;"><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:1.5px;color:rgba(255,228,150,0.5);line-height:1;">CERTIFIED BY</div><div style="font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:2px;font-weight:600;color:rgba(255,228,150,0.85);margin-top:3px;">AGM ELECTION</div></div>
+          </div>
+          <div style="position:absolute;bottom:6px;left:0;right:0;text-align:center;font-family:'Courier New',monospace;font-size:8px;letter-spacing:0.5px;color:rgba(255,228,150,0.22);">KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT</div>
+        </div>
+
+        <!-- CARD 2: KL — Division Leader -->
+        <div class="globe-card" data-idx="1" style="background:linear-gradient(135deg,#5a3d08 0%,#7a5410 22%,#a07424 42%,#C9A84C 49%,#dabb5e 50%,#C9A84C 51%,#a07424 58%,#7a5410 78%,#5a3d08 100%);border:1px solid rgba(255,225,100,0.5);box-shadow:0 24px 60px rgba(0,0,0,0.65),0 0 30px rgba(255,228,150,0.4);">
+          <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.07" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="guillo2" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="10" fill="none" stroke="#3a2c08" stroke-width="0.4"/><circle cx="0" cy="11" r="10" fill="none" stroke="#3a2c08" stroke-width="0.4"/><circle cx="22" cy="11" r="10" fill="none" stroke="#3a2c08" stroke-width="0.4"/><circle cx="11" cy="0" r="10" fill="none" stroke="#3a2c08" stroke-width="0.4"/><circle cx="11" cy="22" r="10" fill="none" stroke="#3a2c08" stroke-width="0.4"/></pattern></defs><rect width="100%" height="100%" fill="url(#guillo2)"/></svg>
+          <div style="position:absolute;inset:8px;border:0.5px solid rgba(40,22,2,0.32);border-radius:10px;pointer-events:none;"></div>
+          <svg style="position:absolute;top:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 9 L2 2 L9 2" stroke="rgba(40,22,2,0.85)" stroke-width="0.8" fill="none"/><path d="M5 6 L5 4 L7 4" stroke="rgba(40,22,2,0.55)" stroke-width="0.5" fill="none"/></svg>
+          <svg style="position:absolute;top:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 2 L22 2 L22 9" stroke="rgba(40,22,2,0.85)" stroke-width="0.8" fill="none"/><path d="M17 4 L19 4 L19 6" stroke="rgba(40,22,2,0.55)" stroke-width="0.5" fill="none"/></svg>
+          <svg style="position:absolute;bottom:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 15 L2 22 L9 22" stroke="rgba(40,22,2,0.85)" stroke-width="0.8" fill="none"/><path d="M5 18 L5 20 L7 20" stroke="rgba(40,22,2,0.55)" stroke-width="0.5" fill="none"/></svg>
+          <svg style="position:absolute;bottom:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 22 L22 22 L22 15" stroke="rgba(40,22,2,0.85)" stroke-width="0.8" fill="none"/><path d="M17 20 L19 20 L19 18" stroke="rgba(40,22,2,0.55)" stroke-width="0.5" fill="none"/></svg>
+          <div style="position:absolute;top:24px;left:26px;display:flex;align-items:center;gap:10px;">
+            <svg width="24" height="24" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="rgba(40,22,2,0.55)" stroke-width="0.5"/><circle cx="20" cy="20" r="11" fill="none" stroke="rgba(40,22,2,0.75)" stroke-width="0.5"/><circle cx="20" cy="20" r="4" fill="rgba(22,12,2,0.85)"/><line x1="20" y1="20" x2="20" y2="6" stroke="rgba(40,22,2,0.75)" stroke-width="1"/><line x1="20" y1="20" x2="20" y2="34" stroke="rgba(40,22,2,0.75)" stroke-width="1"/><line x1="20" y1="20" x2="6" y2="20" stroke="rgba(40,22,2,0.75)" stroke-width="1"/><line x1="20" y1="20" x2="34" y2="20" stroke="rgba(40,22,2,0.75)" stroke-width="1"/><circle cx="20" cy="6" r="2" fill="rgba(22,12,2,0.85)"/><circle cx="20" cy="34" r="2" fill="rgba(22,12,2,0.85)"/><circle cx="6" cy="20" r="2" fill="rgba(22,12,2,0.85)"/><circle cx="34" cy="20" r="2" fill="rgba(22,12,2,0.85)"/></svg>
+            <div><div style="font-family:'Cinzel',serif;font-size:15px;font-weight:700;letter-spacing:3px;color:rgba(22,12,2,0.85);">KOPIT</div><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:2.5px;margin-top:3px;color:rgba(40,22,2,0.55);">EST · MMXXII</div></div>
+          </div>
+          <div style="position:absolute;top:24px;right:26px;text-align:right;">
+            <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:12px;color:rgba(22,12,2,0.92);line-height:1;">Ahmad Faizal</div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:2px;color:rgba(40,22,2,0.55);margin-top:4px;">MEMBER SINCE</div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-size:13px;letter-spacing:3px;font-weight:600;color:rgba(22,12,2,0.85);margin-top:1px;">2022</div>
+          </div>
+          <div style="position:absolute;top:88px;left:0;right:0;text-align:center;">
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:5px;color:rgba(40,22,2,0.7);margin-bottom:8px;">◆ AHLI PERKHIDMATAN · LEAD ◆</div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:600;letter-spacing:-0.3px;color:#1a0f02;text-shadow:0 0 12px rgba(255,228,150,0.4);">Division Leader</div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:3px;color:rgba(40,22,2,0.75);margin-top:4px;">Ketua Bahagian</div>
+          </div>
+          <div style="position:absolute;bottom:50px;left:26px;right:26px;display:flex;align-items:center;gap:10px;">
+            <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(22,12,2,0.45) 20%,rgba(22,12,2,0.45) 80%,transparent 100%);"></div>
+            <svg width="9" height="9" viewBox="0 0 9 9"><path d="M4.5 0 L9 4.5 L4.5 9 L0 4.5 Z" fill="rgba(40,22,2,0.75)"/></svg>
+            <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(22,12,2,0.45) 20%,rgba(22,12,2,0.45) 80%,transparent 100%);"></div>
+          </div>
+          <div style="position:absolute;bottom:22px;left:26px;right:26px;display:flex;justify-content:space-between;align-items:flex-end;">
+            <div><div style="font-family:'Courier New',monospace;font-size:10px;letter-spacing:1.5px;color:rgba(40,22,2,0.55);line-height:1;">SERIAL</div><div style="font-family:'Courier New',monospace;font-size:11px;letter-spacing:2px;color:rgba(22,12,2,0.92);margin-top:3px;">KL·0001·MY</div></div>
+            <div style="text-align:right;"><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:1.5px;color:rgba(40,22,2,0.55);line-height:1;">CERTIFIED BY</div><div style="font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:2px;font-weight:600;color:rgba(22,12,2,0.85);margin-top:3px;">BOD APPROVED</div></div>
+          </div>
+          <div style="position:absolute;bottom:6px;left:0;right:0;text-align:center;font-family:'Courier New',monospace;font-size:8px;letter-spacing:0.5px;color:rgba(40,22,2,0.32);">KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT</div>
+        </div>
+
+        <!-- CARD 3: KP — Division Member -->
+        <div class="globe-card" data-idx="2" style="background:linear-gradient(135deg,#0d1828 0%,#142035 22%,#1a2a40 42%,#5a4520 49%,#7a5510 50%,#5a4520 51%,#1a2a40 58%,#142035 78%,#0d1828 100%);border:1px solid rgba(201,168,76,0.4);box-shadow:0 24px 60px rgba(0,0,0,0.65),0 0 30px rgba(201,168,76,0.25);">
+          <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.04" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="guillo3" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/><circle cx="0" cy="11" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/><circle cx="22" cy="11" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/><circle cx="11" cy="0" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/><circle cx="11" cy="22" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/></pattern></defs><rect width="100%" height="100%" fill="url(#guillo3)"/></svg>
+          <div style="position:absolute;inset:8px;border:0.5px solid rgba(201,168,76,0.28);border-radius:10px;pointer-events:none;"></div>
+          <svg style="position:absolute;top:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 9 L2 2 L9 2" stroke="rgba(201,168,76,0.78)" stroke-width="0.8" fill="none"/><path d="M5 6 L5 4 L7 4" stroke="rgba(201,168,76,0.5)" stroke-width="0.5" fill="none"/></svg>
+          <svg style="position:absolute;top:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 2 L22 2 L22 9" stroke="rgba(201,168,76,0.78)" stroke-width="0.8" fill="none"/><path d="M17 4 L19 4 L19 6" stroke="rgba(201,168,76,0.5)" stroke-width="0.5" fill="none"/></svg>
+          <svg style="position:absolute;bottom:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 15 L2 22 L9 22" stroke="rgba(201,168,76,0.78)" stroke-width="0.8" fill="none"/><path d="M5 18 L5 20 L7 20" stroke="rgba(201,168,76,0.5)" stroke-width="0.5" fill="none"/></svg>
+          <svg style="position:absolute;bottom:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 22 L22 22 L22 15" stroke="rgba(201,168,76,0.78)" stroke-width="0.8" fill="none"/><path d="M17 20 L19 20 L19 18" stroke="rgba(201,168,76,0.5)" stroke-width="0.5" fill="none"/></svg>
+          <div style="position:absolute;top:24px;left:26px;display:flex;align-items:center;gap:10px;">
+            <svg width="24" height="24" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="rgba(201,168,76,0.5)" stroke-width="0.5"/><circle cx="20" cy="20" r="11" fill="none" stroke="rgba(201,168,76,0.7)" stroke-width="0.5"/><circle cx="20" cy="20" r="4" fill="rgba(255,228,150,0.85)"/><line x1="20" y1="20" x2="20" y2="6" stroke="rgba(201,168,76,0.7)" stroke-width="1"/><line x1="20" y1="20" x2="20" y2="34" stroke="rgba(201,168,76,0.7)" stroke-width="1"/><line x1="20" y1="20" x2="6" y2="20" stroke="rgba(201,168,76,0.7)" stroke-width="1"/><line x1="20" y1="20" x2="34" y2="20" stroke="rgba(201,168,76,0.7)" stroke-width="1"/><circle cx="20" cy="6" r="2" fill="rgba(201,168,76,0.85)"/><circle cx="20" cy="34" r="2" fill="rgba(201,168,76,0.85)"/><circle cx="6" cy="20" r="2" fill="rgba(201,168,76,0.85)"/><circle cx="34" cy="20" r="2" fill="rgba(201,168,76,0.85)"/></svg>
+            <div><div style="font-family:'Cinzel',serif;font-size:15px;font-weight:700;letter-spacing:3px;color:rgba(255,228,150,0.85);">KOPIT</div><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:2.5px;margin-top:3px;color:rgba(201,168,76,0.5);">EST · MMXXII</div></div>
+          </div>
+          <div style="position:absolute;top:24px;right:26px;text-align:right;">
+            <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:12px;color:rgba(255,252,240,0.92);line-height:1;">Priya Krishnan</div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:2px;color:rgba(201,168,76,0.5);margin-top:4px;">MEMBER SINCE</div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-size:13px;letter-spacing:3px;font-weight:600;color:rgba(201,168,76,0.85);margin-top:1px;">2023</div>
+          </div>
+          <div style="position:absolute;top:88px;left:0;right:0;text-align:center;">
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:5px;color:rgba(201,168,76,0.85);margin-bottom:8px;">◆ AHLI PERKHIDMATAN · MEMBER ◆</div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:600;letter-spacing:-0.3px;color:#ffffff;text-shadow:0 0 12px rgba(201,168,76,0.25);">Division Member</div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:3px;color:rgba(201,168,76,0.7);margin-top:4px;">Ahli Bahagian</div>
+          </div>
+          <div style="position:absolute;bottom:50px;left:26px;right:26px;display:flex;align-items:center;gap:10px;">
+            <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(201,168,76,0.45) 20%,rgba(201,168,76,0.45) 80%,transparent 100%);"></div>
+            <svg width="9" height="9" viewBox="0 0 9 9"><path d="M4.5 0 L9 4.5 L4.5 9 L0 4.5 Z" fill="rgba(201,168,76,0.7)"/></svg>
+            <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(201,168,76,0.45) 20%,rgba(201,168,76,0.45) 80%,transparent 100%);"></div>
+          </div>
+          <div style="position:absolute;bottom:22px;left:26px;right:26px;display:flex;justify-content:space-between;align-items:flex-end;">
+            <div><div style="font-family:'Courier New',monospace;font-size:10px;letter-spacing:1.5px;color:rgba(201,168,76,0.5);line-height:1;">SERIAL</div><div style="font-family:'Courier New',monospace;font-size:11px;letter-spacing:2px;color:rgba(201,168,76,0.92);margin-top:3px;">KP·0012·MY</div></div>
+            <div style="text-align:right;"><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:1.5px;color:rgba(201,168,76,0.5);line-height:1;">CERTIFIED BY</div><div style="font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:2px;font-weight:600;color:rgba(201,168,76,0.85);margin-top:3px;">MGT APPROVED</div></div>
+          </div>
+          <div style="position:absolute;bottom:6px;left:0;right:0;text-align:center;font-family:'Courier New',monospace;font-size:8px;letter-spacing:0.5px;color:rgba(201,168,76,0.22);">KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT</div>
+        </div>
+
+        <!-- CARD 4: KI1 — Entry Partner -->
+        <div class="globe-card" data-idx="3" style="background:linear-gradient(135deg,#2a1205 0%,#3a1a08 22%,#5c2e10 42%,#8a4820 49%,#a05828 50%,#8a4820 51%,#5c2e10 58%,#3a1a08 78%,#2a1205 100%);border:1px solid rgba(200,120,64,0.55);box-shadow:0 24px 60px rgba(0,0,0,0.65),0 0 30px rgba(220,150,90,0.3);">
+          <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.05" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="guillo4" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="10" fill="none" stroke="#c87840" stroke-width="0.4"/><circle cx="0" cy="11" r="10" fill="none" stroke="#c87840" stroke-width="0.4"/><circle cx="22" cy="11" r="10" fill="none" stroke="#c87840" stroke-width="0.4"/><circle cx="11" cy="0" r="10" fill="none" stroke="#c87840" stroke-width="0.4"/><circle cx="11" cy="22" r="10" fill="none" stroke="#c87840" stroke-width="0.4"/></pattern></defs><rect width="100%" height="100%" fill="url(#guillo4)"/></svg>
+          <div style="position:absolute;inset:8px;border:0.5px solid rgba(200,120,64,0.32);border-radius:10px;pointer-events:none;"></div>
+          <svg style="position:absolute;top:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 9 L2 2 L9 2" stroke="rgba(255,200,140,0.85)" stroke-width="0.8" fill="none"/><path d="M5 6 L5 4 L7 4" stroke="rgba(220,150,90,0.55)" stroke-width="0.5" fill="none"/></svg>
+          <svg style="position:absolute;top:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 2 L22 2 L22 9" stroke="rgba(255,200,140,0.85)" stroke-width="0.8" fill="none"/><path d="M17 4 L19 4 L19 6" stroke="rgba(220,150,90,0.55)" stroke-width="0.5" fill="none"/></svg>
+          <svg style="position:absolute;bottom:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 15 L2 22 L9 22" stroke="rgba(255,200,140,0.85)" stroke-width="0.8" fill="none"/><path d="M5 18 L5 20 L7 20" stroke="rgba(220,150,90,0.55)" stroke-width="0.5" fill="none"/></svg>
+          <svg style="position:absolute;bottom:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 22 L22 22 L22 15" stroke="rgba(255,200,140,0.85)" stroke-width="0.8" fill="none"/><path d="M17 20 L19 20 L19 18" stroke="rgba(220,150,90,0.55)" stroke-width="0.5" fill="none"/></svg>
+          <div style="position:absolute;top:24px;left:26px;display:flex;align-items:center;gap:10px;">
+            <svg width="24" height="24" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="rgba(220,150,90,0.55)" stroke-width="0.5"/><circle cx="20" cy="20" r="11" fill="none" stroke="rgba(220,160,95,0.75)" stroke-width="0.5"/><circle cx="20" cy="20" r="4" fill="rgba(255,200,140,0.85)"/><line x1="20" y1="20" x2="20" y2="6" stroke="rgba(220,160,95,0.75)" stroke-width="1"/><line x1="20" y1="20" x2="20" y2="34" stroke="rgba(220,160,95,0.75)" stroke-width="1"/><line x1="20" y1="20" x2="6" y2="20" stroke="rgba(220,160,95,0.75)" stroke-width="1"/><line x1="20" y1="20" x2="34" y2="20" stroke="rgba(220,160,95,0.75)" stroke-width="1"/><circle cx="20" cy="6" r="2" fill="rgba(230,165,105,0.85)"/><circle cx="20" cy="34" r="2" fill="rgba(230,165,105,0.85)"/><circle cx="6" cy="20" r="2" fill="rgba(230,165,105,0.85)"/><circle cx="34" cy="20" r="2" fill="rgba(230,165,105,0.85)"/></svg>
+            <div><div style="font-family:'Cinzel',serif;font-size:15px;font-weight:700;letter-spacing:3px;color:rgba(255,200,140,0.85);">KOPIT</div><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:2.5px;margin-top:3px;color:rgba(220,150,90,0.55);">EST · MMXXII</div></div>
+          </div>
+          <div style="position:absolute;top:24px;right:26px;text-align:right;">
+            <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:12px;color:rgba(255,210,165,0.92);line-height:1;">Siti Hajar</div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:2px;color:rgba(220,150,90,0.55);margin-top:4px;">MEMBER SINCE</div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-size:13px;letter-spacing:3px;font-weight:600;color:rgba(230,165,105,0.85);margin-top:1px;">2023</div>
+          </div>
+          <div style="position:absolute;top:88px;left:0;right:0;text-align:center;">
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:5px;color:rgba(220,150,90,0.7);margin-bottom:8px;">◆ AHLI PELABUR · TIER I ◆</div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:600;letter-spacing:-0.3px;color:#ffe4cc;text-shadow:0 0 12px rgba(220,150,90,0.3);">Entry Partner</div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:3px;color:rgba(220,160,95,0.75);margin-top:4px;">Rakan Modal</div>
+          </div>
+          <div style="position:absolute;bottom:50px;left:26px;right:26px;display:flex;align-items:center;gap:10px;">
+            <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(220,150,90,0.5) 20%,rgba(220,150,90,0.5) 80%,transparent 100%);"></div>
+            <svg width="9" height="9" viewBox="0 0 9 9"><path d="M4.5 0 L9 4.5 L4.5 9 L0 4.5 Z" fill="rgba(220,160,95,0.75)"/></svg>
+            <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(220,150,90,0.5) 20%,rgba(220,150,90,0.5) 80%,transparent 100%);"></div>
+          </div>
+          <div style="position:absolute;bottom:22px;left:26px;right:26px;display:flex;justify-content:space-between;align-items:flex-end;">
+            <div><div style="font-family:'Courier New',monospace;font-size:10px;letter-spacing:1.5px;color:rgba(220,150,90,0.55);line-height:1;">SERIAL</div><div style="font-family:'Courier New',monospace;font-size:11px;letter-spacing:2px;color:rgba(230,170,110,0.92);margin-top:3px;">KI1·0005·MY</div></div>
+            <div style="text-align:right;"><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:1.5px;color:rgba(220,150,90,0.55);line-height:1;">CERTIFIED BY</div><div style="font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:2px;font-weight:600;color:rgba(230,165,105,0.85);margin-top:3px;">BOD APPROVED</div></div>
+          </div>
+          <div style="position:absolute;bottom:6px;left:0;right:0;text-align:center;font-family:'Courier New',monospace;font-size:8px;letter-spacing:0.5px;color:rgba(220,150,90,0.25);">KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT</div>
+        </div>
+
+        <!-- CARD 5: KI2 — Growth Partner -->
+        <div class="globe-card" data-idx="4" style="background:linear-gradient(135deg,#141820 0%,#1c2330 22%,#252d38 42%,#3a4555 49%,#4a5868 50%,#3a4555 51%,#252d38 58%,#1c2330 78%,#141820 100%);border:1px solid rgba(160,185,210,0.55);box-shadow:0 24px 60px rgba(0,0,0,0.65),0 0 30px rgba(160,185,210,0.3);">
+          <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.05" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="guillo5" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="10" fill="none" stroke="#aac5e0" stroke-width="0.4"/><circle cx="0" cy="11" r="10" fill="none" stroke="#aac5e0" stroke-width="0.4"/><circle cx="22" cy="11" r="10" fill="none" stroke="#aac5e0" stroke-width="0.4"/><circle cx="11" cy="0" r="10" fill="none" stroke="#aac5e0" stroke-width="0.4"/><circle cx="11" cy="22" r="10" fill="none" stroke="#aac5e0" stroke-width="0.4"/></pattern></defs><rect width="100%" height="100%" fill="url(#guillo5)"/></svg>
+          <div style="position:absolute;inset:8px;border:0.5px solid rgba(160,185,210,0.32);border-radius:10px;pointer-events:none;"></div>
+          <svg style="position:absolute;top:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 9 L2 2 L9 2" stroke="rgba(195,215,238,0.85)" stroke-width="0.8" fill="none"/><path d="M5 6 L5 4 L7 4" stroke="rgba(160,185,210,0.55)" stroke-width="0.5" fill="none"/></svg>
+          <svg style="position:absolute;top:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 2 L22 2 L22 9" stroke="rgba(195,215,238,0.85)" stroke-width="0.8" fill="none"/><path d="M17 4 L19 4 L19 6" stroke="rgba(160,185,210,0.55)" stroke-width="0.5" fill="none"/></svg>
+          <svg style="position:absolute;bottom:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 15 L2 22 L9 22" stroke="rgba(195,215,238,0.85)" stroke-width="0.8" fill="none"/><path d="M5 18 L5 20 L7 20" stroke="rgba(160,185,210,0.55)" stroke-width="0.5" fill="none"/></svg>
+          <svg style="position:absolute;bottom:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 22 L22 22 L22 15" stroke="rgba(195,215,238,0.85)" stroke-width="0.8" fill="none"/><path d="M17 20 L19 20 L19 18" stroke="rgba(160,185,210,0.55)" stroke-width="0.5" fill="none"/></svg>
+          <div style="position:absolute;top:24px;left:26px;display:flex;align-items:center;gap:10px;">
+            <svg width="24" height="24" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="rgba(160,185,210,0.55)" stroke-width="0.5"/><circle cx="20" cy="20" r="11" fill="none" stroke="rgba(170,195,222,0.75)" stroke-width="0.5"/><circle cx="20" cy="20" r="4" fill="rgba(180,205,228,0.85)"/><line x1="20" y1="20" x2="20" y2="6" stroke="rgba(170,195,222,0.75)" stroke-width="1"/><line x1="20" y1="20" x2="20" y2="34" stroke="rgba(170,195,222,0.75)" stroke-width="1"/><line x1="20" y1="20" x2="6" y2="20" stroke="rgba(170,195,222,0.75)" stroke-width="1"/><line x1="20" y1="20" x2="34" y2="20" stroke="rgba(170,195,222,0.75)" stroke-width="1"/><circle cx="20" cy="6" r="2" fill="rgba(190,215,238,0.85)"/><circle cx="20" cy="34" r="2" fill="rgba(190,215,238,0.85)"/><circle cx="6" cy="20" r="2" fill="rgba(190,215,238,0.85)"/><circle cx="34" cy="20" r="2" fill="rgba(190,215,238,0.85)"/></svg>
+            <div><div style="font-family:'Cinzel',serif;font-size:15px;font-weight:700;letter-spacing:3px;color:rgba(180,205,228,0.85);">KOPIT</div><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:2.5px;margin-top:3px;color:rgba(160,185,210,0.55);">EST · MMXXII</div></div>
+          </div>
+          <div style="position:absolute;top:24px;right:26px;text-align:right;">
+            <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:12px;color:rgba(195,215,238,0.92);line-height:1;">Rajesh Kumar</div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:2px;color:rgba(160,185,210,0.55);margin-top:4px;">MEMBER SINCE</div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-size:13px;letter-spacing:3px;font-weight:600;color:rgba(190,215,238,0.85);margin-top:1px;">2024</div>
+          </div>
+          <div style="position:absolute;top:88px;left:0;right:0;text-align:center;">
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:5px;color:rgba(160,185,210,0.7);margin-bottom:8px;">◆ AHLI PELABUR · TIER II ◆</div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:600;letter-spacing:-0.3px;color:#e8f0fa;text-shadow:0 0 12px rgba(160,185,210,0.3);">Growth Partner</div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:3px;color:rgba(170,195,222,0.75);margin-top:4px;">Pelabur Teras</div>
+          </div>
+          <div style="position:absolute;bottom:50px;left:26px;right:26px;display:flex;align-items:center;gap:10px;">
+            <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(160,185,210,0.5) 20%,rgba(160,185,210,0.5) 80%,transparent 100%);"></div>
+            <svg width="9" height="9" viewBox="0 0 9 9"><path d="M4.5 0 L9 4.5 L4.5 9 L0 4.5 Z" fill="rgba(170,195,222,0.75)"/></svg>
+            <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(160,185,210,0.5) 20%,rgba(160,185,210,0.5) 80%,transparent 100%);"></div>
+          </div>
+          <div style="position:absolute;bottom:22px;left:26px;right:26px;display:flex;justify-content:space-between;align-items:flex-end;">
+            <div><div style="font-family:'Courier New',monospace;font-size:10px;letter-spacing:1.5px;color:rgba(160,185,210,0.55);line-height:1;">SERIAL</div><div style="font-family:'Courier New',monospace;font-size:11px;letter-spacing:2px;color:rgba(190,215,238,0.92);margin-top:3px;">KI2·0003·MY</div></div>
+            <div style="text-align:right;"><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:1.5px;color:rgba(160,185,210,0.55);line-height:1;">CERTIFIED BY</div><div style="font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:2px;font-weight:600;color:rgba(190,215,238,0.85);margin-top:3px;">BOD APPROVED</div></div>
+          </div>
+          <div style="position:absolute;bottom:6px;left:0;right:0;text-align:center;font-family:'Courier New',monospace;font-size:8px;letter-spacing:0.5px;color:rgba(160,185,210,0.25);">KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT</div>
+        </div>
+
+        <!-- CARD 6: KI3 — Strategic Partner -->
+        <!-- CARD 6: KI3 — Strategic Partner (Engraved Gunmetal Titanium) -->
+        <div class="globe-card" data-idx="5" style="background:linear-gradient(135deg,#1a1d22 0%,#252a32 22%,#363c46 42%,#494f5a 49%,#5c6371 50%,#494f5a 51%,#363c46 58%,#252a32 78%,#1a1d22 100%);border:1px solid rgba(180,195,215,0.55);box-shadow:0 30px 70px rgba(0,0,0,0.7),0 0 35px rgba(200,220,250,0.4),inset 0 1px 0 rgba(220,235,255,0.18),inset 0 -1px 0 rgba(0,0,0,0.6);">
+          <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.05" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="guillo6" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="10" fill="none" stroke="#aabbd0" stroke-width="0.4"/><circle cx="0" cy="11" r="10" fill="none" stroke="#aabbd0" stroke-width="0.4"/><circle cx="22" cy="11" r="10" fill="none" stroke="#aabbd0" stroke-width="0.4"/><circle cx="11" cy="0" r="10" fill="none" stroke="#aabbd0" stroke-width="0.4"/><circle cx="11" cy="22" r="10" fill="none" stroke="#aabbd0" stroke-width="0.4"/></pattern></defs><rect width="100%" height="100%" fill="url(#guillo6)"/></svg>
+          <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.20;pointer-events:none;" viewBox="0 0 380 235" preserveAspectRatio="none"><defs><pattern id="ki3-brush" x="0" y="0" width="2" height="235" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="235" stroke="#aabbd0" stroke-width="0.4"/><line x1="1" y1="0" x2="1" y2="235" stroke="#000" stroke-width="0.3"/></pattern></defs><rect width="380" height="235" fill="url(#ki3-brush)"/></svg>
+          <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,rgba(220,235,255,0.6) 30%,rgba(255,255,255,0.85) 50%,rgba(220,235,255,0.6) 70%,transparent);pointer-events:none;"></div>
+          <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(0,0,0,0.7) 30%,rgba(0,0,0,0.85) 50%,rgba(0,0,0,0.7) 70%,transparent);pointer-events:none;"></div>
+          <div style="position:absolute;inset:8px;border:0.5px solid rgba(180,195,215,0.3);border-radius:10px;pointer-events:none;"></div>
+          <svg style="position:absolute;top:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 9 L2 2 L9 2" stroke="rgba(220,235,255,0.95)" stroke-width="0.8" fill="none"/><path d="M5 6 L5 4 L7 4" stroke="rgba(220,235,255,0.6)" stroke-width="0.5" fill="none"/></svg>
+          <svg style="position:absolute;top:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 2 L22 2 L22 9" stroke="rgba(220,235,255,0.95)" stroke-width="0.8" fill="none"/><path d="M17 4 L19 4 L19 6" stroke="rgba(220,235,255,0.6)" stroke-width="0.5" fill="none"/></svg>
+          <svg style="position:absolute;bottom:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 15 L2 22 L9 22" stroke="rgba(220,235,255,0.95)" stroke-width="0.8" fill="none"/><path d="M5 18 L5 20 L7 20" stroke="rgba(220,235,255,0.6)" stroke-width="0.5" fill="none"/></svg>
+          <svg style="position:absolute;bottom:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 22 L22 22 L22 15" stroke="rgba(220,235,255,0.95)" stroke-width="0.8" fill="none"/><path d="M17 20 L19 20 L19 18" stroke="rgba(220,235,255,0.6)" stroke-width="0.5" fill="none"/></svg>
+          <div style="position:absolute;top:24px;left:26px;display:flex;align-items:center;gap:10px;">
+            <svg width="24" height="24" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="rgba(220,235,255,0.6)" stroke-width="0.5"/><circle cx="20" cy="20" r="11" fill="none" stroke="rgba(220,235,255,0.75)" stroke-width="0.5"/><circle cx="20" cy="20" r="4" fill="rgba(255,255,255,1)"/><line x1="20" y1="20" x2="20" y2="6" stroke="rgba(220,235,255,0.75)" stroke-width="1"/><line x1="20" y1="20" x2="20" y2="34" stroke="rgba(220,235,255,0.75)" stroke-width="1"/><line x1="20" y1="20" x2="6" y2="20" stroke="rgba(220,235,255,0.75)" stroke-width="1"/><line x1="20" y1="20" x2="34" y2="20" stroke="rgba(220,235,255,0.75)" stroke-width="1"/><circle cx="20" cy="6" r="2" fill="rgba(255,255,255,0.98)"/><circle cx="20" cy="34" r="2" fill="rgba(255,255,255,0.98)"/><circle cx="6" cy="20" r="2" fill="rgba(255,255,255,0.98)"/><circle cx="34" cy="20" r="2" fill="rgba(255,255,255,0.98)"/></svg>
+            <div><div style="font-family:'Cinzel',serif;font-size:15px;font-weight:700;letter-spacing:4px;color:rgba(255,255,255,1);text-shadow:0 1px 1px rgba(0,0,0,0.85),0 -0.5px 0 rgba(255,255,255,0.25),0 0 6px rgba(180,200,225,0.3);">KOPIT</div><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:11px;letter-spacing:3px;margin-top:3px;color:rgba(220,235,255,0.7);text-shadow:0 1px 0 rgba(0,0,0,0.6);">EST · MMXXII</div></div>
+          </div>
+          <div style="position:absolute;top:24px;right:26px;text-align:right;">
+            <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:12px;color:rgba(255,255,255,1);letter-spacing:0.2px;line-height:1;text-shadow:0 1px 1px rgba(0,0,0,0.8),0 -0.5px 0 rgba(255,255,255,0.2);">Dato' Lee Chong</div>
+            <div style="font-family:'Cinzel',serif;font-weight:500;font-size:10px;letter-spacing:3px;color:rgba(220,235,255,0.7);margin-top:4px;text-shadow:0 1px 0 rgba(0,0,0,0.6);">MEMBER SINCE</div>
+            <div style="font-family:'Cinzel',serif;font-weight:600;font-size:13px;letter-spacing:4px;color:rgba(255,255,255,1);margin-top:1px;text-shadow:0 1px 1px rgba(0,0,0,0.8),0 -0.5px 0 rgba(255,255,255,0.2);">2024</div>
+          </div>
+          <div style="position:absolute;top:60px;left:0;right:0;text-align:center;"><span style="font-family:'Cinzel',serif;font-weight:500;font-size:9px;letter-spacing:5px;color:rgba(245,250,255,0.92);padding:3px 14px;border-top:0.5px solid rgba(220,235,255,0.4);border-bottom:0.5px solid rgba(220,235,255,0.4);text-shadow:0 1px 0 rgba(0,0,0,0.7),0 -0.5px 0 rgba(255,255,255,0.2);">EDITION 001 / 050</span></div>
+          <div style="position:absolute;top:90px;left:0;right:0;text-align:center;">
+            <div style="font-family:'Playfair Display',Georgia,serif;font-size:14px;color:rgba(245,250,255,0.95);margin-bottom:4px;text-shadow:0 1px 1px rgba(0,0,0,0.7),0 -0.5px 0 rgba(255,255,255,0.3),0 0 10px rgba(200,220,250,0.4);">◆</div>
+            <div style="font-family:'Cinzel',serif;font-weight:500;font-size:9px;letter-spacing:6px;color:rgba(220,235,255,0.78);margin-bottom:8px;text-shadow:0 1px 0 rgba(0,0,0,0.6);">— AHLI PELABUR · TIER III —</div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-size:30px;font-weight:700;letter-spacing:-0.5px;line-height:1;color:rgba(255,255,255,1);text-shadow:0 2px 2px rgba(0,0,0,0.85),0 -1px 0 rgba(255,255,255,0.35),0 0 18px rgba(200,220,250,0.4);">Strategic Partner</div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:11px;letter-spacing:2.5px;color:rgba(245,250,255,0.88);margin-top:5px;text-shadow:0 1px 1px rgba(0,0,0,0.75),0 -0.5px 0 rgba(255,255,255,0.2);">Pelabur Agung</div>
+          </div>
+          <div style="position:absolute;bottom:42px;left:26px;right:26px;display:flex;align-items:center;gap:10px;">
+            <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(220,235,255,0.55) 20%,rgba(220,235,255,0.55) 80%,transparent 100%);"></div>
+            <svg width="9" height="9" viewBox="0 0 9 9" style="filter:drop-shadow(0 1px 0 rgba(0,0,0,0.5));"><path d="M4.5 0 L9 4.5 L4.5 9 L0 4.5 Z" fill="rgba(255,255,255,0.95)"/></svg>
+            <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(220,235,255,0.55) 20%,rgba(220,235,255,0.55) 80%,transparent 100%);"></div>
+          </div>
+          <div style="position:absolute;bottom:18px;left:26px;right:26px;display:flex;justify-content:space-between;align-items:flex-end;">
+            <div><div style="font-family:'Cinzel',serif;font-weight:500;font-size:10px;letter-spacing:2.5px;color:rgba(220,235,255,0.7);line-height:1;text-shadow:0 1px 0 rgba(0,0,0,0.6);">SERIAL</div><div style="font-family:'Cinzel',serif;font-weight:600;font-size:11px;letter-spacing:3px;color:rgba(255,255,255,1);margin-top:3px;text-shadow:0 1px 1px rgba(0,0,0,0.8),0 -0.5px 0 rgba(255,255,255,0.2);">KI3·0001·MY</div></div>
+            <div style="text-align:right;"><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:10px;letter-spacing:2px;color:rgba(220,235,255,0.7);line-height:1;text-shadow:0 1px 0 rgba(0,0,0,0.6);">CERTIFIED BY</div><div style="font-family:'Cinzel',serif;font-weight:600;font-size:10px;letter-spacing:3px;color:rgba(255,255,255,1);margin-top:3px;text-shadow:0 1px 1px rgba(0,0,0,0.8),0 -0.5px 0 rgba(255,255,255,0.2);">BOD · CHAIRMAN</div></div>
+          </div>
+          <div style="position:absolute;bottom:5px;left:0;right:0;text-align:center;font-family:'Cinzel',serif;font-weight:500;font-size:8px;letter-spacing:1px;color:rgba(220,235,255,0.32);">KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT</div>
+        </div>
+
+        <!-- CARD 7: KB — General Member -->
+        <div class="globe-card" data-idx="6" style="background:linear-gradient(135deg,#0a1628 0%,#0f1d33 22%,#152540 42%,#1f3050 49%,#2a3a5a 50%,#1f3050 51%,#152540 58%,#0f1d33 78%,#0a1628 100%);border:1px solid rgba(201,168,76,0.28);box-shadow:0 24px 60px rgba(0,0,0,0.65),0 0 30px rgba(201,168,76,0.18);">
+          <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.035" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="guillo7" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/><circle cx="0" cy="11" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/><circle cx="22" cy="11" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/><circle cx="11" cy="0" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/><circle cx="11" cy="22" r="10" fill="none" stroke="#f0d878" stroke-width="0.4"/></pattern></defs><rect width="100%" height="100%" fill="url(#guillo7)"/></svg>
+          <div style="position:absolute;inset:8px;border:0.5px solid rgba(201,168,76,0.22);border-radius:10px;pointer-events:none;"></div>
+          <svg style="position:absolute;top:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 9 L2 2 L9 2" stroke="rgba(201,168,76,0.7)" stroke-width="0.8" fill="none"/><path d="M5 6 L5 4 L7 4" stroke="rgba(201,168,76,0.45)" stroke-width="0.5" fill="none"/></svg>
+          <svg style="position:absolute;top:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 2 L22 2 L22 9" stroke="rgba(201,168,76,0.7)" stroke-width="0.8" fill="none"/><path d="M17 4 L19 4 L19 6" stroke="rgba(201,168,76,0.45)" stroke-width="0.5" fill="none"/></svg>
+          <svg style="position:absolute;bottom:8px;left:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M2 15 L2 22 L9 22" stroke="rgba(201,168,76,0.7)" stroke-width="0.8" fill="none"/><path d="M5 18 L5 20 L7 20" stroke="rgba(201,168,76,0.45)" stroke-width="0.5" fill="none"/></svg>
+          <svg style="position:absolute;bottom:8px;right:8px;width:24px;height:24px;" viewBox="0 0 24 24"><path d="M15 22 L22 22 L22 15" stroke="rgba(201,168,76,0.7)" stroke-width="0.8" fill="none"/><path d="M17 20 L19 20 L19 18" stroke="rgba(201,168,76,0.45)" stroke-width="0.5" fill="none"/></svg>
+          <div style="position:absolute;top:24px;left:26px;display:flex;align-items:center;gap:10px;">
+            <svg width="24" height="24" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="rgba(201,168,76,0.45)" stroke-width="0.5"/><circle cx="20" cy="20" r="11" fill="none" stroke="rgba(201,168,76,0.65)" stroke-width="0.5"/><circle cx="20" cy="20" r="4" fill="rgba(201,168,76,0.75)"/><line x1="20" y1="20" x2="20" y2="6" stroke="rgba(201,168,76,0.65)" stroke-width="1"/><line x1="20" y1="20" x2="20" y2="34" stroke="rgba(201,168,76,0.65)" stroke-width="1"/><line x1="20" y1="20" x2="6" y2="20" stroke="rgba(201,168,76,0.65)" stroke-width="1"/><line x1="20" y1="20" x2="34" y2="20" stroke="rgba(201,168,76,0.65)" stroke-width="1"/><circle cx="20" cy="6" r="2" fill="rgba(201,168,76,0.78)"/><circle cx="20" cy="34" r="2" fill="rgba(201,168,76,0.78)"/><circle cx="6" cy="20" r="2" fill="rgba(201,168,76,0.78)"/><circle cx="34" cy="20" r="2" fill="rgba(201,168,76,0.78)"/></svg>
+            <div><div style="font-family:'Cinzel',serif;font-size:15px;font-weight:700;letter-spacing:3px;color:rgba(201,168,76,0.75);">KOPIT</div><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:2.5px;margin-top:3px;color:rgba(201,168,76,0.45);">EST · MMXXII</div></div>
+          </div>
+          <div style="position:absolute;top:24px;right:26px;text-align:right;">
+            <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:12px;color:rgba(255,252,240,0.88);line-height:1;">David Lim</div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:2px;color:rgba(201,168,76,0.45);margin-top:4px;">MEMBER SINCE</div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-size:13px;letter-spacing:3px;font-weight:600;color:rgba(201,168,76,0.78);margin-top:1px;">2024</div>
+          </div>
+          <div style="position:absolute;top:88px;left:0;right:0;text-align:center;">
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:5px;color:rgba(201,168,76,0.85);margin-bottom:8px;">◆ WARGA KOPIT · GENERAL ◆</div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:600;letter-spacing:-0.3px;color:#ffffff;text-shadow:0 0 12px rgba(201,168,76,0.18);">General Member</div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:11px;letter-spacing:3px;color:rgba(201,168,76,0.65);margin-top:4px;">Warga KOPIT</div>
+          </div>
+          <div style="position:absolute;bottom:50px;left:26px;right:26px;display:flex;align-items:center;gap:10px;">
+            <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(201,168,76,0.4) 20%,rgba(201,168,76,0.4) 80%,transparent 100%);"></div>
+            <svg width="9" height="9" viewBox="0 0 9 9"><path d="M4.5 0 L9 4.5 L4.5 9 L0 4.5 Z" fill="rgba(201,168,76,0.65)"/></svg>
+            <div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent 0%,rgba(201,168,76,0.4) 20%,rgba(201,168,76,0.4) 80%,transparent 100%);"></div>
+          </div>
+          <div style="position:absolute;bottom:22px;left:26px;right:26px;display:flex;justify-content:space-between;align-items:flex-end;">
+            <div><div style="font-family:'Courier New',monospace;font-size:10px;letter-spacing:1.5px;color:rgba(201,168,76,0.45);line-height:1;">SERIAL</div><div style="font-family:'Courier New',monospace;font-size:11px;letter-spacing:2px;color:rgba(201,168,76,0.85);margin-top:3px;">KB·0048·MY</div></div>
+            <div style="text-align:right;"><div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:10px;letter-spacing:1.5px;color:rgba(201,168,76,0.45);line-height:1;">CERTIFIED BY</div><div style="font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:2px;font-weight:600;color:rgba(201,168,76,0.78);margin-top:3px;">MGT APPROVED</div></div>
+          </div>
+          <div style="position:absolute;bottom:6px;left:0;right:0;text-align:center;font-family:'Courier New',monospace;font-size:8px;letter-spacing:0.5px;color:rgba(201,168,76,0.18);">KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT·KOPIT</div>
+        </div>
+
+      </div><!-- end globe-inner -->
+      <button class="globe-btn" id="globePrev" aria-label="Previous">&#8249;</button>
+      <button class="globe-btn" id="globeNext" aria-label="Next">&#8250;</button>
+    </div><!-- end globe-stage -->
+
+    <!-- DRAG HINT -->
+    <div id="dragHint" style="color:rgba(201,168,76,0.4);font-size:11px;letter-spacing:3px;font-weight:500;margin-bottom:14px;font-family:'Cinzel',serif;text-transform:uppercase;opacity:0.6;transition:opacity 0.3s;">&#8592; drag or use arrows &#8594;</div>
+
+    <!-- NAVIGATION CONTROLS -->
+    <div class="globe-nav">
+      <div class="globe-dots" id="globeDots">
+        <button class="globe-dot active" data-dot="0" aria-label="Card 1"></button>
+        <button class="globe-dot" data-dot="1" aria-label="Card 2"></button>
+        <button class="globe-dot" data-dot="2" aria-label="Card 3"></button>
+        <button class="globe-dot" data-dot="3" aria-label="Card 4"></button>
+        <button class="globe-dot" data-dot="4" aria-label="Card 5"></button>
+        <button class="globe-dot" data-dot="5" aria-label="Card 6"></button>
+        <button class="globe-dot" data-dot="6" aria-label="Card 7"></button>
+      </div>
+    </div>
+
+    <!-- INFO BAR -->
+    <div class="globe-info" id="globeInfo">
+      <div class="globe-info-en" id="globeInfoEn">Board of Directors</div>
+      <div class="globe-info-bm" id="globeInfoBm">Lembaga Pengarah</div>
+    </div>
+
+    <!-- CTA -->
+    <a href="membership.html" class="memb-cta-btn">Explore All Membership Tiers →</a>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     INVITATION MANIFESTO
+══════════════════════════════════════ -->
+<section class="inv-sec" id="manifesto">
+  <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.04;pointer-events:none;" viewBox="0 0 800 400"><defs><pattern id="manifestoGrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#C9A84C" stroke-width="0.5"/></pattern></defs><rect width="800" height="400" fill="url(#manifestoGrid)"/></svg>
+  <div class="inv-inner">
+    <div class="manifesto-label">— The Invitation —</div>
+    <h2 class="headline-top manifesto-size">We are not built<br>to be the largest.</h2>
+    <h3 class="headline-bottom manifesto-size" style="margin:0 0 28px;">We are built to be the most<br>member-aligned.</h3>
+    <p class="manifesto-sub">If that resonates with you,<br>there is a place for you in KOPIT.</p>
+    <a href="membership.html" class="manifesto-btn">Apply For Membership →</a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOOTER (Section 11 from brief)
+══════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="wrap">
+      <div class="footer-grid">
+
+        <!-- LEFT: SVG logo + info -->
+        <div>
+          <div class="f-svg-wrap">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="KOPIT node network logo">
+              <!-- Central node -->
+              <circle cx="28" cy="28" r="4.5" fill="#C9A84C"/>
+              <!-- Outer nodes -->
+              <circle cx="28" cy="8"  r="3" fill="#C9A84C" opacity=".9"/>
+              <circle cx="46" cy="18" r="3" fill="#C9A84C" opacity=".9"/>
+              <circle cx="46" cy="38" r="3" fill="#C9A84C" opacity=".9"/>
+              <circle cx="28" cy="48" r="3" fill="#C9A84C" opacity=".9"/>
+              <circle cx="10" cy="38" r="3" fill="#C9A84C" opacity=".9"/>
+              <circle cx="10" cy="18" r="3" fill="#C9A84C" opacity=".9"/>
+              <!-- Connecting lines from center -->
+              <line x1="28" y1="28" x2="28" y2="11"  stroke="#C9A84C" stroke-width="1" opacity=".45"/>
+              <line x1="28" y1="28" x2="43" y2="20"  stroke="#C9A84C" stroke-width="1" opacity=".45"/>
+              <line x1="28" y1="28" x2="43" y2="36"  stroke="#C9A84C" stroke-width="1" opacity=".45"/>
+              <line x1="28" y1="28" x2="28" y2="45"  stroke="#C9A84C" stroke-width="1" opacity=".45"/>
+              <line x1="28" y1="28" x2="13" y2="36"  stroke="#C9A84C" stroke-width="1" opacity=".45"/>
+              <line x1="28" y1="28" x2="13" y2="20"  stroke="#C9A84C" stroke-width="1" opacity=".45"/>
+              <!-- Outer ring connections -->
+              <line x1="28" y1="11" x2="43" y2="20"  stroke="#C9A84C" stroke-width=".8" opacity=".25"/>
+              <line x1="43" y1="20" x2="43" y2="36"  stroke="#C9A84C" stroke-width=".8" opacity=".25"/>
+              <line x1="43" y1="36" x2="28" y2="45"  stroke="#C9A84C" stroke-width=".8" opacity=".25"/>
+              <line x1="28" y1="45" x2="13" y2="36"  stroke="#C9A84C" stroke-width=".8" opacity=".25"/>
+              <line x1="13" y1="36" x2="13" y2="20"  stroke="#C9A84C" stroke-width=".8" opacity=".25"/>
+              <line x1="13" y1="20" x2="28" y2="11"  stroke="#C9A84C" stroke-width=".8" opacity=".25"/>
+            </svg>
+          </div>
+          <div class="f-logo-name">KOPIT</div>
+          <p class="f-tagline"
+             data-en="Koperasi Usahawan Informasi Teknologi Malaysia Berhad"
+             data-bm="Koperasi Usahawan Informasi Teknologi Malaysia Berhad">
+            Koperasi Usahawan Informasi Teknologi Malaysia Berhad
+          </p>
+          <p class="f-premier"
+             data-en="Malaysia's Premier IT Koperasi"
+             data-bm="Koperasi IT Terulung Malaysia">
+            Malaysia's Premier IT Koperasi
+          </p>
+          <div class="footer-credentials" style="margin-top:16px;font-family:'Source Sans 3',sans-serif;font-size:12px;line-height:1.7;color:rgba(255,255,255,0.55);">
+            <div style="margin-bottom:14px;">Registered under Suruhanjaya Koperasi Malaysia (SKM)</div>
+            <div style="margin-bottom:14px;">
+              <div>E-Perolehan Registered Vendor</div>
+              <div style="margin-top:4px;font-family:'Cinzel',serif;font-size:14px;letter-spacing:1.5px;font-weight:500;color:rgba(201,168,76,0.85);">No. Rujukan Pendaftaran: 357-0002365635</div>
+            </div>
+            <div style="font-family:'Cinzel',serif;font-size:14px;letter-spacing:2px;font-weight:500;color:rgba(201,168,76,0.85);">Est. 2022</div>
+          </div>
+        </div>
+
+        <!-- CENTRE: Quick links -->
+        <div>
+          <h4 class="f-head" data-en="Quick Links" data-bm="Pautan Pantas">Quick Links</h4>
+          <ul class="f-nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="divisions.html">Divisions</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- RIGHT: Contact -->
+        <div>
+          <h4 class="f-head" data-en="Get In Touch" data-bm="Hubungi Kami">Get In Touch</h4>
+          <a href="https://wa.me/60105122561" class="f-wa" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366" style="flex-shrink:0">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            010-5122561
+          </a>
+          <p class="f-hours" data-en="Available Mon – Fri, 9am – 6pm" data-bm="Isnin – Jumaat, 9pg – 6ptg">Available Mon – Fri, 9am – 6pm</p>
+          <div class="f-email">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span style="font-size:.82rem;color:rgba(255,255,255,.38)">Email: <a href="mailto:admin@kopit.com.my" style="color:inherit;text-decoration:none;">admin@kopit.com.my</a></span>
+          </div>
+          <a href="contact.html" class="f-contact-btn">Send Us a Message</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <div class="wrap">
+      <div class="footer-bar-inner">
+        <p>© 2025 KOPIT. All rights reserved. · <a href="privacy.html" class="bar-legal">Privacy Policy</a> · <a href="terms.html" class="bar-legal">Terms of Service</a></p>
+        <p class="bar-r"
+           data-en="Malaysia's Premier IT Koperasi"
+           data-bm="Koperasi IT Terulung Malaysia">Malaysia's Premier IT Koperasi</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════
+   KOPIT — Main JavaScript
+   1. Language System
+   2. Canvas Logo Animation
+   3. Navbar + Mobile Menu
+   4. Scroll Reveal
+   5. Counter Animation
+═══════════════════════════════════════════ */
+
+/* ── 1. LANGUAGE SYSTEM ── */
+var currentLang = localStorage.getItem('kopitLang') || 'en';
+
+function applyLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('kopitLang', lang);
+
+  /* Swap all data-en / data-bm elements */
+  document.querySelectorAll('[data-en]').forEach(function(el) {
+    var val = lang === 'bm' ? el.getAttribute('data-bm') : el.getAttribute('data-en');
+    if (val !== null) el.innerHTML = val;
+  });
+
+  /* Update toggle button states */
+  document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+  document.getElementById('btnBM').classList.toggle('active', lang === 'bm');
+
+  /* Update html lang attribute */
+  document.documentElement.lang = lang === 'bm' ? 'ms' : 'en';
+}
+
+function setLang(lang) { applyLanguage(lang); }
+
+
+/* ── 2. CANVAS LOGO ANIMATION — KOPIT Genesis 3D ── */
+(function(){
+  const cv = document.getElementById('kopitLogo');
+  if(!cv) return;
+  const ctx = cv.getContext('2d');
+  const W = cv.width, H = cv.height;
+  const CX = W/2, CY = H/2;
+
+  const GOLD='#C9A84C', EMR='#2ebf84', SAP='#5a9ef5', PLT='#ccdcee';
+
+  const NODES = [
+    {x:0, y:0, z:0, t:'hub', c:GOLD},
+    {x:0, y:-22, z:6, t:'blk', c:PLT},
+    {x:0, y:18, z:-4, t:'cir', c:EMR},
+    {x:-22, y:0, z:3, t:'cir', c:SAP},
+    {x:16, y:0, z:-6, t:'blk', c:EMR},
+    {x:-14, y:-14, z:8, t:'blk', c:SAP},
+    {x:19, y:-15, z:-3, t:'cir', c:PLT},
+    {x:-13, y:14, z:-7, t:'blk', c:EMR},
+    {x:18, y:18, z:4, t:'cir', c:SAP},
+  ];
+  const EDGES = [[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[0,8]];
+
+  let aY = 0, fT = 0, tt = 0;
+  const aX = 0.15;
+
+  function rY(x,y,z,a){return{x:x*Math.cos(a)+z*Math.sin(a),y,z:-x*Math.sin(a)+z*Math.cos(a)};}
+  function rX(x,y,z,a){return{x,y:y*Math.cos(a)-z*Math.sin(a),z:y*Math.sin(a)+z*Math.cos(a)};}
+  function proj(x,y,z){const f=85/(85+z+45);return{sx:CX+x*f,sy:CY+y*f,sc:f};}
+  function rgb(h){return[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)];}
+  function ra(h,a){const[r,g,b]=rgb(h);return`rgba(${r},${g},${b},${a})`;}
+
+  function glow(x,y,r,col,str){
+    [2,1].forEach((m,i)=>{
+      const g=ctx.createRadialGradient(x,y,0,x,y,r*m);
+      g.addColorStop(0,ra(col,str*(0.5-i*0.2)));
+      g.addColorStop(1,ra(col,0));
+      ctx.beginPath();ctx.arc(x,y,r*m,0,Math.PI*2);
+      ctx.fillStyle=g;ctx.fill();
+    });
+  }
+
+  function box(x,y,w,h,r){
+    ctx.beginPath();
+    ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);
+    ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+    ctx.lineTo(x+w,y+h-r);
+    ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+    ctx.lineTo(x+r,y+h);
+    ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+    ctx.lineTo(x,y+r);
+    ctx.quadraticCurveTo(x,y,x+r,y);
+    ctx.closePath();
+  }
+
+  function drawHub(n,p){
+    const s = 9*n.sc;
+    glow(n.sx,n.sy,s*1.5,GOLD,0.15*p);
+    box(n.sx-s,n.sy-s,s*2,s*2,2.5*n.sc);
+    ctx.fillStyle='rgba(8,5,1,0.95)';ctx.fill();
+    ctx.strokeStyle=ra(GOLD,0.85);
+    ctx.lineWidth=1.2*n.sc;ctx.stroke();
+    ctx.fillStyle=ra(GOLD,0.95);
+    ctx.font=`700 ${7*n.sc}px 'Playfair Display'`;
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText('K',n.sx,n.sy);
+  }
+
+  function drawBlk(n,p){
+    const s = 3*n.sc;
+    glow(n.sx,n.sy,s*2.5,n.c,0.25*p);
+    box(n.sx-s,n.sy-s,s*2,s*2,1*n.sc);
+    const[r,g,b]=rgb(n.c);
+    ctx.fillStyle=`rgba(${Math.round(r*0.15)},${Math.round(g*0.15)},${Math.round(b*0.15)},0.95)`;
+    ctx.fill();
+    ctx.strokeStyle=ra(n.c,0.9);
+    ctx.lineWidth=0.8*n.sc;ctx.stroke();
+  }
+
+  function drawCir(n,p){
+    const r = 3*n.sc;
+    glow(n.sx,n.sy,r*2.5,n.c,0.25*p);
+    ctx.beginPath();ctx.arc(n.sx,n.sy,r,0,Math.PI*2);
+    const[rv,gv,bv]=rgb(n.c);
+    ctx.fillStyle=`rgba(${Math.round(rv*0.15)},${Math.round(gv*0.15)},${Math.round(bv*0.15)},0.95)`;
+    ctx.fill();
+    ctx.strokeStyle=ra(n.c,0.9);
+    ctx.lineWidth=0.8*n.sc;ctx.stroke();
+    ctx.beginPath();ctx.arc(n.sx,n.sy,1*n.sc,0,Math.PI*2);
+    ctx.fillStyle=ra(n.c,0.9);ctx.fill();
+  }
+
+  function frame(){
+    ctx.clearRect(0,0,W,H);
+    fT += 0.006; aY += 0.008; tt += 0.012;
+    const pulse = 0.7 + 0.3*Math.sin(tt*1.5);
+    const fo = Math.sin(fT)*2;
+    const tX = aX + Math.sin(fT*0.4)*0.03;
+
+    const nodes = NODES.map(n => {
+      let p = rY(n.x,n.y,n.z,aY);
+      p = rX(p.x,p.y,p.z,tX);
+      const pj = proj(p.x,p.y+fo,p.z);
+      return {...n, ...pj, tz:p.z};
+    });
+
+    EDGES.forEach(([i,j]) => {
+      const a = nodes[i], b = nodes[j];
+      const lg = ctx.createLinearGradient(a.sx,a.sy,b.sx,b.sy);
+      lg.addColorStop(0,ra(GOLD,0.4));
+      lg.addColorStop(1,ra(b.c,0.7));
+      ctx.beginPath();
+      ctx.moveTo(a.sx,a.sy);ctx.lineTo(b.sx,b.sy);
+      ctx.strokeStyle=ra(b.c,0.08*pulse);
+      ctx.lineWidth=2.5*(a.sc+b.sc)/2;ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(a.sx,a.sy);ctx.lineTo(b.sx,b.sy);
+      ctx.strokeStyle=lg;
+      ctx.lineWidth=0.7*(a.sc+b.sc)/2;ctx.stroke();
+    });
+
+    [...nodes].sort((a,b)=>a.tz-b.tz).forEach(n => {
+      if(n.t==='hub') drawHub(n,pulse);
+      else if(n.t==='blk') drawBlk(n,pulse);
+      else drawCir(n,pulse);
+    });
+
+    requestAnimationFrame(frame);
+  }
+
+  frame();
+})();
+
+
+/* ── 3. NAVBAR + MOBILE MENU ── */
+var navbar    = document.querySelector('.navbar');
+var hamburger = document.getElementById('hamburger');
+var navLinks  = document.getElementById('navLinks');
+
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 80) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+}, { passive: true });
+
+hamburger.addEventListener('click', function() {
+  hamburger.classList.toggle('open');
+  navLinks.classList.toggle('open');
+  document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+});
+
+navLinks.querySelectorAll('.nl').forEach(function(link) {
+  link.addEventListener('click', function() {
+    hamburger.classList.remove('open');
+    navLinks.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+document.addEventListener('click', function(e) {
+  if (navLinks.classList.contains('open') &&
+      !navLinks.contains(e.target) &&
+      !hamburger.contains(e.target)) {
+    hamburger.classList.remove('open');
+    navLinks.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+
+
+/* ── 4. SCROLL REVEAL ── */
+var revealEls = document.querySelectorAll('.reveal');
+
+var revealObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('vis');
+      revealObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+revealEls.forEach(function(el) { revealObs.observe(el); });
+
+
+
+
+/* ── 6. INIT LANGUAGE ON LOAD ── */
+document.addEventListener('DOMContentLoaded', function() {
+  applyLanguage(currentLang);
+});
+
+/* ── 7. DIVISION CARD TOGGLE ── */
+function toggleDivCard(card) {
+  const wasExpanded = card.classList.contains('expanded');
+  document.querySelectorAll('.dcard').forEach(c => c.classList.remove('expanded'));
+  if (!wasExpanded) card.classList.add('expanded');
+}
+
+/* ── 8. LIVING CONSTELLATION BUILDER ── */
+(function(){
+  const NODES = [
+    {name:'Wira Digital',tip:'The AI-powered IT backbone',color:'255,200,87',
+     icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFC857" stroke-width="1.7" stroke-linecap="round"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/></svg>`},
+    {name:'Bijak AI',tip:'Production-grade AI systems',color:'0,217,255',
+     icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00D9FF" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="6" r="1.5"/><circle cx="19" cy="6" r="1.5"/><circle cx="5" cy="18" r="1.5"/><circle cx="19" cy="18" r="1.5"/><line x1="6.5" y1="7" x2="10" y2="11"/><line x1="17.5" y1="7" x2="14" y2="11"/><line x1="6.5" y1="17" x2="10" y2="13"/><line x1="17.5" y1="17" x2="14" y2="13"/></svg>`},
+    {name:'Blockchain',tip:'Distributed ledger for institutional trust',color:'123,97,255',
+     icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7B61FF" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><line x1="10" y1="6.5" x2="14" y2="6.5"/><line x1="10" y1="17.5" x2="14" y2="17.5"/><line x1="6.5" y1="10" x2="6.5" y2="14"/><line x1="17.5" y1="10" x2="17.5" y2="14"/></svg>`},
+    {name:'Angkasa Build',tip:'Aerial intelligence + built environment',color:'74,158,255',
+     icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A9EFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-1.5 2.5-3 5-3 8.5 0 1.5.5 2.8 1.2 3.8h3.6c.7-1 1.2-2.3 1.2-3.8C15 7 13.5 4.5 12 2z"/><circle cx="12" cy="9" r="1.3"/><path d="M9 14l-2 2v3l3-1M15 14l2 2v3l-3-1"/><path d="M10.5 18.5L9 22M13.5 18.5L15 22M12 19v3"/></svg>`},
+    {name:'Dana Sejahtera',tip:'Financial intelligence for cooperatives',color:'255,165,82',
+     icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFA552" stroke-width="1.6" stroke-linecap="round"><ellipse cx="12" cy="6" rx="6" ry="2"/><path d="M6 6v3c0 1.1 2.7 2 6 2s6-.9 6-2V6"/><path d="M6 11v3c0 1.1 2.7 2 6 2s6-.9 6-2v-3"/><path d="M6 16v3c0 1.1 2.7 2 6 2s6-.9 6-2v-3"/></svg>`},
+    {name:'Hijau',tip:'AI-optimised renewable energy',color:'61,220,132',
+     icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3DDC84" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4 12h4M16 12h4M6 6l3 3M15 15l3 3M6 18l3-3M15 9l3-3"/></svg>`},
+    {name:'Arif Advisory',tip:"Malaysia's strategic AI advisory partner",color:'127,227,197',
+     icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7FE3C5" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l5 3"/></svg>`}
+  ];
+
+  const stars = document.querySelector('.scene .stars');
+  if(!stars) return;
+  [{top:'10%',left:'15%',delay:'0s'},{top:'25%',left:'80%',delay:'0.6s'},
+   {top:'65%',left:'88%',delay:'1.2s'},{top:'80%',left:'25%',delay:'1.8s'},
+   {top:'40%',left:'8%',delay:'2.4s'},{top:'55%',left:'92%',delay:'0.3s'},
+   {top:'88%',left:'60%',delay:'0.9s'},{top:'18%',left:'45%',delay:'1.5s'}
+  ].forEach(s=>{
+    const d=document.createElement('div');
+    d.className='star';
+    d.style.cssText=`top:${s.top};left:${s.left};animation-delay:${s.delay};`;
+    stars.appendChild(d);
+  });
+
+  const N=NODES.length, R=205, CX=280, CY=280;
+  const startAngle=-Math.PI/2;
+  const zPattern=[25,-10,18,-18,25,-10,18];
+  const cont=document.getElementById('constNodesContainer');
+  const ll=document.getElementById('constLines');
+  const pp=document.getElementById('constParts');
+  if(!cont||!ll||!pp) return;
+
+  NODES.forEach((n,i)=>{
+    const a=startAngle+(2*Math.PI/N)*i;
+    const x=CX+R*Math.cos(a), y=CY+R*Math.sin(a);
+    const z=zPattern[i];
+    const el=document.createElement('div');
+    el.className='node';
+    el.style.left=x+'px';el.style.top=y+'px';
+    el.style.transform=`translate(-50%,-50%) translateZ(${z}px)`;
+    el.style.setProperty('--node-color',`rgba(${n.color},0.85)`);
+    el.style.setProperty('--node-glow',`rgba(${n.color},0.45)`);
+    el.innerHTML=`
+      <div class="node-glow-aura"></div>
+      <div class="node-disc">
+        <div class="node-inner-ring"></div>
+        <div class="node-icon">${n.icon}</div>
+        <div class="node-label">${n.name}</div>
+      </div>
+      <div class="tooltip">${n.tip}</div>`;
+    el.style.animation=`nodeFloat${i} 6s ease-in-out infinite ${i*0.4}s`;
+    cont.appendChild(el);
+
+    const s=document.createElement('style');
+    s.textContent=`@keyframes nodeFloat${i}{0%,100%{transform:translate(-50%,-50%) translateZ(${z}px) translateY(0);}50%{transform:translate(-50%,-50%) translateZ(${z+10}px) translateY(-10px);}}`;
+    document.head.appendChild(s);
+
+    const line=document.createElementNS('http://www.w3.org/2000/svg','line');
+    line.setAttribute('x1',CX);line.setAttribute('y1',CY);
+    line.setAttribute('x2',x);line.setAttribute('y2',y);
+    line.setAttribute('stroke',`url(#g${i})`);line.setAttribute('stroke-width','1');
+    line.setAttribute('stroke-dasharray','3,4');
+    ll.appendChild(line);
+
+    const p=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    p.setAttribute('r','2.8');
+    p.setAttribute('fill',`rgb(${n.color})`);
+    p.setAttribute('filter',`drop-shadow(0 0 5px rgb(${n.color}))`);
+    const m=document.createElementNS('http://www.w3.org/2000/svg','animateMotion');
+    m.setAttribute('path',`M ${CX} ${CY} L ${x} ${y}`);
+    m.setAttribute('dur',(2.6+i*0.18)+'s');
+    m.setAttribute('repeatCount','indefinite');
+    p.appendChild(m);
+    pp.appendChild(p);
+
+    if(i%2===0){
+      const rp=document.createElementNS('http://www.w3.org/2000/svg','circle');
+      rp.setAttribute('r','2');rp.setAttribute('fill','#fff');
+      rp.setAttribute('opacity','0.6');
+      const rm=document.createElementNS('http://www.w3.org/2000/svg','animateMotion');
+      rm.setAttribute('path',`M ${x} ${y} L ${CX} ${CY}`);
+      rm.setAttribute('dur',(4+i*0.2)+'s');
+      rm.setAttribute('repeatCount','indefinite');
+      rm.setAttribute('begin',(i*0.6)+'s');
+      rp.appendChild(rm);
+      pp.appendChild(rp);
+    }
+  });
+})();
+
+/* ── 9. GLOBE CAROUSEL ── */
+(function(){
+  const globeInner = document.getElementById('globeInner');
+  const prevBtn    = document.getElementById('globePrev');
+  const nextBtn    = document.getElementById('globeNext');
+  const dotsWrap   = document.getElementById('globeDots');
+  const infoEl     = document.getElementById('globeInfo');
+  const infoEn     = document.getElementById('globeInfoEn');
+  const infoBm     = document.getElementById('globeInfoBm');
+
+  if(!globeInner||!prevBtn||!nextBtn||!dotsWrap||!infoEl) return;
+
+  const INFO = [
+    {en:'Board of Directors',   bm:'Lembaga Pengarah'},
+    {en:'Division Leader',      bm:'Ketua Bahagian'},
+    {en:'Division Member',      bm:'Ahli Bahagian'},
+    {en:'Entry Partner',        bm:'Rakan Modal'},
+    {en:'Growth Partner',       bm:'Pelabur Teras'},
+    {en:'Strategic Partner',    bm:'Pelabur Agung'},
+    {en:'General Member',       bm:'Warga KOPIT'}
+  ];
+
+  const N         = 7;
+  const angleStep = 360 / N; // 51.4286°
+  let   cur       = 0;
+  let   rotation  = 0;
+
+  const cards = Array.from(globeInner.querySelectorAll('.globe-card'));
+  const dots  = Array.from(dotsWrap.querySelectorAll('.globe-dot'));
+
+  function getRadius(){
+    return window.innerWidth <= 768 ? 190 : 240;
+  }
+
+  function positionCards(){
+    const R = getRadius();
+    cards.forEach(function(c, i){
+      c.style.transform = 'rotateY(' + (i * angleStep) + 'deg) translateZ(' + R + 'px)';
+    });
+  }
+
+  function apply(){
+    globeInner.style.transform = 'rotateY(' + rotation + 'deg)';
+    cards.forEach(function(c, i){
+      c.style.opacity = (i === cur) ? '1' : '0.05';
+    });
+    dots.forEach(function(d, i){
+      if(i === cur){
+        d.classList.add('active');
+      } else {
+        d.classList.remove('active');
+      }
+    });
+    infoEl.style.opacity = '0';
+    setTimeout(function(){
+      infoEn.textContent = INFO[cur].en;
+      infoBm.textContent = INFO[cur].bm;
+      infoEl.style.opacity = '1';
+    }, 250);
+  }
+
+  positionCards();
+  apply();
+
+  prevBtn.addEventListener('click', function(){
+    cur = (cur - 1 + N) % N;
+    rotation += angleStep;
+    apply();
+  });
+
+  nextBtn.addEventListener('click', function(){
+    cur = (cur + 1) % N;
+    rotation -= angleStep;
+    apply();
+  });
+
+  dots.forEach(function(d, i){
+    d.addEventListener('click', function(){
+      var diff     = i - cur;
+      var shortest = Math.abs(diff) > N / 2 ? diff - Math.sign(diff) * N : diff;
+      cur          = i;
+      rotation    -= shortest * angleStep;
+      apply();
+    });
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowLeft')  prevBtn.click();
+    if(e.key === 'ArrowRight') nextBtn.click();
+  });
+
+  var touchStartX = 0;
+  globeInner.addEventListener('touchstart', function(e){
+    touchStartX = e.changedTouches[0].clientX;
+  }, {passive:true});
+  globeInner.addEventListener('touchend', function(e){
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if(dx >  50) prevBtn.click();
+    if(dx < -50) nextBtn.click();
+  }, {passive:true});
+
+  window.addEventListener('resize', positionCards);
+
+  var stage    = document.querySelector('.globe-stage');
+  var dragHint = document.getElementById('dragHint');
+
+  if(stage){
+    var dragStartX2 = 0;
+    var isDragging  = false;
+    var dragMoved   = false;
+
+    stage.addEventListener('mouseenter', function(){
+      prevBtn.style.opacity = '0.85';
+      nextBtn.style.opacity = '0.85';
+      if(dragHint) dragHint.style.opacity = '1';
+    });
+    stage.addEventListener('mouseleave', function(){
+      prevBtn.style.opacity = '0';
+      nextBtn.style.opacity = '0';
+      if(dragHint) dragHint.style.opacity = '0.6';
+      isDragging = false;
+      stage.style.cursor = 'grab';
+    });
+    stage.addEventListener('mousedown', function(e){
+      dragStartX2 = e.clientX;
+      isDragging  = true;
+      dragMoved   = false;
+      stage.style.cursor = 'grabbing';
+    });
+    stage.addEventListener('mousemove', function(e){
+      if(!isDragging) return;
+      if(Math.abs(e.clientX - dragStartX2) > 8) dragMoved = true;
+    });
+    stage.addEventListener('mouseup', function(e){
+      if(!isDragging) return;
+      isDragging = false;
+      stage.style.cursor = 'grab';
+      if(!dragMoved) return;
+      var dx = e.clientX - dragStartX2;
+      if(dx >  50) prevBtn.click();
+      if(dx < -50) nextBtn.click();
+    });
+    stage.style.cursor = 'grab';
+  }
+})();
+</script>
+</body>
+</html>
