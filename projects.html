@@ -196,12 +196,14 @@ img{max-width:100%;display:block}
 .project-cover[data-division="angkasa-build"]{background:linear-gradient(135deg,#1f1610 0%,#3d2920 50%,#1f1610 100%);}
 .project-cover[data-division="dana-sejahtera"]{background:linear-gradient(135deg,#2a1f0a 0%,#4d3a1e 50%,#2a1f0a 100%);}
 .project-cover[data-division="arif-advisory"]{background:linear-gradient(135deg,#1a1410 0%,#3a2e24 50%,#1a1410 100%);}
+.project-cover[data-division="joint-bai-blk"]{background:linear-gradient(135deg,#150A22 0%,#2E1640 30%,#1A1820 58%,#252A35 100%);}
 .project-status{position:absolute;top:14px;left:14px;padding:4px 10px;border-radius:3px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:#fff;font-weight:600;}
 .status-active{background:rgba(60,140,90,0.85);}
 .status-in-development{background:rgba(85,130,200,0.85);}
 .status-planning{background:rgba(180,140,60,0.85);}
 .status-completed{background:rgba(80,120,80,0.85);color:#fff;}
 .project-division{position:absolute;top:14px;right:14px;padding:4px 10px;background:rgba(10,22,40,0.85);border:0.5px solid rgba(201,168,76,0.4);border-radius:3px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:#D4B97A;font-weight:600;}
+.project-card[data-project="card-11"] .project-division,.project-modal-hero[data-division="joint-bai-blk"] .project-division{padding:4px 8px;font-size:8.5px;letter-spacing:1.2px;}
 .project-info{padding:22px 22px 18px;}
 .project-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:#F4EFE8;margin:0 0 10px;letter-spacing:-0.2px;line-height:1.3;}
 .project-description{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(244,239,232,0.7);line-height:1.6;margin:0 0 16px;}
@@ -225,6 +227,7 @@ img{max-width:100%;display:block}
 .project-modal-hero[data-division="angkasa-build"]{background:linear-gradient(135deg,#1f1610 0%,#3d2920 50%,#1f1610 100%);}
 .project-modal-hero[data-division="dana-sejahtera"]{background:linear-gradient(135deg,#2a1f0a 0%,#4d3a1e 50%,#2a1f0a 100%);}
 .project-modal-hero[data-division="arif-advisory"]{background:linear-gradient(135deg,#1a1410 0%,#3a2e24 50%,#1a1410 100%);}
+.project-modal-hero[data-division="joint-bai-blk"]{background:linear-gradient(135deg,#150A22 0%,#2E1640 30%,#1A1820 58%,#252A35 100%);}
 .project-modal-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,16,28,0) 35%,rgba(8,16,28,0.92) 100%);pointer-events:none;}
 .project-modal-badges{position:absolute;top:18px;left:18px;display:flex;gap:8px;z-index:2;}
 .project-modal-content .project-modal-badges .project-status{position:static;}
@@ -637,6 +640,26 @@ img{max-width:100%;display:block}
         </div>
       </div>
 
+      <!-- CARD 11 — Bijak AI × Blockchain (In Development) -->
+      <div class="project-card reveal" data-project="card-11" onclick="openProjectModal('card-11')" style="transition-delay:0s;">
+        <div class="project-cover" data-division="joint-bai-blk">
+          <img src="images/projects/card-11/hero.jpg" alt="Autonomous Blockchain Trading System" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <div class="project-status status-in-development">IN DEVELOPMENT</div>
+          <div class="project-division">BIJAK AI &times; BLOCKCHAIN</div>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">Autonomous Blockchain Trading System</h3>
+          <p class="project-description">An autonomous system that reads market trends, plans its own strategy, and executes trades on-chain &mdash; reporting back through AI when each cycle closes.</p>
+          <div class="project-footer">
+            <div>
+              <div class="project-key-label">STAGE</div>
+              <div class="project-key-value">Prototype v5 Built</div>
+            </div>
+            <div class="project-arrow">&#8594;</div>
+          </div>
+        </div>
+      </div>
+
       <!-- CARD 5 — Bijak AI (Planning) -->
       <div class="project-card reveal" data-project="card-5" onclick="openProjectModal('card-5')" style="transition-delay:0.16s;">
         <div class="project-cover" data-division="bijak-ai">
@@ -740,36 +763,6 @@ img{max-width:100%;display:block}
             <div>
               <div class="project-key-label">SCOPE</div>
               <div class="project-key-value">Cooperative-Wide</div>
-            </div>
-            <div class="project-arrow">&#8594;</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CARD 8 — Blockchain (Completed) -->
-      <div class="project-card reveal" data-project="card-8" onclick="openProjectModal('card-8')" style="transition-delay:0s;">
-        <div class="project-cover" data-division="blockchain">
-          <svg viewBox="0 0 300 180" style="position:absolute;inset:0;width:100%;height:100%;">
-            <rect x="60" y="60" width="40" height="40" fill="none" stroke="rgba(212,185,122,0.7)" stroke-width="0.8" rx="2"/>
-            <rect x="130" y="60" width="40" height="40" fill="none" stroke="rgba(212,185,122,0.85)" stroke-width="1" rx="2"/>
-            <rect x="200" y="60" width="40" height="40" fill="rgba(212,185,122,0.15)" stroke="rgba(212,185,122,0.95)" stroke-width="1.2" rx="2"/>
-            <line x1="100" y1="80" x2="130" y2="80" stroke="rgba(212,185,122,0.6)" stroke-width="0.6"/>
-            <line x1="170" y1="80" x2="200" y2="80" stroke="rgba(212,185,122,0.7)" stroke-width="0.6"/>
-            <line x1="65" y1="68" x2="95" y2="92" stroke="rgba(212,185,122,0.4)" stroke-width="0.4"/>
-            <line x1="135" y1="68" x2="165" y2="92" stroke="rgba(212,185,122,0.4)" stroke-width="0.4"/>
-            <line x1="205" y1="68" x2="235" y2="92" stroke="rgba(212,185,122,0.4)" stroke-width="0.4"/>
-            <circle cx="220" cy="80" r="3" fill="#D4B97A"/>
-          </svg>
-          <div class="project-status status-completed">COMPLETED</div>
-          <div class="project-division">BLOCKCHAIN</div>
-        </div>
-        <div class="project-info">
-          <h3 class="project-title">Member Share Registry</h3>
-          <p class="project-description">Distributed ledger for transparent member share tracking and AGM record.</p>
-          <div class="project-footer">
-            <div>
-              <div class="project-key-label">DELIVERY</div>
-              <div class="project-key-value">Internal Use</div>
             </div>
             <div class="project-arrow">&#8594;</div>
           </div>
@@ -1377,17 +1370,6 @@ var projectData = {
     images: [],
     year: 2024
   },
-  'card-8': {
-    status: 'COMPLETED',
-    statusClass: 'status-completed',
-    division: 'BLOCKCHAIN',
-    divisionRoute: 'blockchain',
-    title: 'Member Share Registry',
-    subtitle: 'Distributed Ledger for Cooperative Governance',
-    description: 'Blockchain governance system for member share verification and AGM records.',
-    images: [],
-    year: 2023
-  },
   'card-9': {
     status: 'ACTIVE',
     statusClass: 'status-active',
@@ -1409,6 +1391,24 @@ var projectData = {
     description: 'Cooperative campus development with Foundation partner JV.',
     images: [],
     year: 2024
+  },
+  'card-11': {
+    status: 'IN DEVELOPMENT',
+    statusClass: 'status-in-development',
+    division: 'BIJAK AI × BLOCKCHAIN',
+    divisionRoute: 'joint-bai-blk',
+    title: 'Autonomous Blockchain Trading System',
+    subtitle: 'AI-Driven Execution on Blockchain',
+    description: 'Autonomous algorithmic system that reads market signals, plans its execution path, and trades on-chain without human intervention. AI-driven reporting on every cycle close. Built end-to-end by Bijak AI and Blockchain divisions.',
+    gallery: [
+      { src: 'images/projects/card-11/hero.jpg',      caption: 'Autonomous AI Operator · Live Trading Floor' },
+      { src: 'images/projects/card-11/execution.jpg', caption: 'On-Screen Execution · BUY / SELL Decisioning' },
+      { src: 'images/projects/card-11/reasoning.jpg', caption: 'Strategic Reasoning · AI Reviews the Setup' },
+      { src: 'images/projects/card-11/command.jpg',   caption: 'Command Center · Cooperative-Built Infrastructure' }
+    ],
+    year: 2026,
+    projectLead: 'Project Sentinel · Bijak AI × Blockchain Build',
+    ctaText: 'Discuss This Project →'
   }
 };
 
@@ -1477,7 +1477,7 @@ var projectData = {
     }
 
     ctaBtn.href        = 'contact.html?division=' + data.divisionRoute;
-    ctaBtn.textContent = 'Hire ' + data.division + ' Division →';
+    ctaBtn.textContent = data.ctaText || ('Hire ' + data.division + ' Division →');
 
     var existingYear = document.querySelector('.project-modal-year');
     if (existingYear) existingYear.remove();
