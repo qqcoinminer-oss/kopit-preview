@@ -237,6 +237,9 @@ img{max-width:100%;display:block}
 .article-mosaic .gallery-thumb{aspect-ratio:1;border-radius:0;background:linear-gradient(135deg,rgba(var(--d-rgb),0.14),rgba(var(--d-rgb),0.04));}
 /* When a mosaic has exactly 2 images, render them as 16:9 banner pair instead of square pair — keeps the article shorter */
 .article-mosaic.article-mosaic-pair .gallery-thumb{aspect-ratio:16/9;}
+/* When a mosaic has exactly 5 images: 3-col layout leaves a hole in row 2.
+   Last tile spans the remaining 2 cols as a 2:1 banner — fills the grid cleanly. */
+.article-mosaic[data-n="5"] .gallery-thumb:nth-child(5){grid-column:span 2;aspect-ratio:2/1;}
 .article-card.featured-mosaic .article-content{padding:26px 30px 28px;}
 @media (max-width:780px){
   .article-mosaic{grid-template-columns:repeat(2,1fr)!important;}
@@ -881,7 +884,7 @@ document.addEventListener('DOMContentLoaded',function(){applyLanguage(currentLan
         </div>
         <article class="article-card featured featured-mosaic div-color-${div.short}">
           ${article.featured ? '<div class="featured-badge">★ FEATURED</div>' : ''}
-          <div class="${mosaicClass}" style="grid-template-columns:repeat(${cols},1fr);">${thumbs}</div>
+          <div class="${mosaicClass}" data-n="${n}" style="grid-template-columns:repeat(${cols},1fr);">${thumbs}</div>
           <div class="article-content">
             <div class="article-meta">
               <span class="article-type-badge">${typeBadge}</span>

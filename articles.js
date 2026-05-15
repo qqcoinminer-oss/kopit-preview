@@ -199,8 +199,7 @@ window.KOPIT_ARTICLES = [
       "worldwide-holdings-02.jpg",
       "worldwide-holdings-03.jpg",
       "worldwide-holdings-04.jpg",
-      "worldwide-holdings-05.jpg",
-      "worldwide-holdings-06.jpg"
+      "worldwide-holdings-05.jpg"
     ]
   }
 ];
