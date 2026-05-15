@@ -197,13 +197,15 @@ img{max-width:100%;display:block}
 .project-cover[data-division="dana-sejahtera"]{background:linear-gradient(135deg,#2a1f0a 0%,#4d3a1e 50%,#2a1f0a 100%);}
 .project-cover[data-division="arif-advisory"]{background:linear-gradient(135deg,#1a1410 0%,#3a2e24 50%,#1a1410 100%);}
 .project-cover[data-division="joint-bai-blk"]{background:linear-gradient(135deg,#150A22 0%,#2E1640 30%,#1A1820 58%,#252A35 100%);}
+.project-cover[data-division="joint-wira-bai"]{background:linear-gradient(135deg,#0A1F3D 0%,#1E2350 30%,#1A0D2A 58%,#2C1C3D 100%);}
 .project-status{position:absolute;top:14px;left:14px;padding:4px 10px;border-radius:3px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:#fff;font-weight:600;}
 .status-active{background:rgba(60,140,90,0.85);}
 .status-in-development{background:rgba(85,130,200,0.85);}
 .status-planning{background:rgba(180,140,60,0.85);}
 .status-completed{background:rgba(80,120,80,0.85);color:#fff;}
 .project-division{position:absolute;top:14px;right:14px;padding:4px 10px;background:rgba(10,22,40,0.85);border:0.5px solid rgba(201,168,76,0.4);border-radius:3px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:#D4B97A;font-weight:600;}
-.project-card[data-project="card-11"] .project-division,.project-modal-hero[data-division="joint-bai-blk"] .project-division{padding:4px 8px;font-size:8.5px;letter-spacing:1.2px;}
+.project-card[data-project="card-11"] .project-division,.project-modal-hero[data-division="joint-bai-blk"] .project-division,
+.project-card[data-project="card-12"] .project-division,.project-modal-hero[data-division="joint-wira-bai"] .project-division{padding:4px 8px;font-size:8.5px;letter-spacing:1.2px;}
 /* Card-12 marketing poster (1600x853) is information-dense — show it whole, not cover-cropped.
    Cover img object-fit:contain is set inline on the <img> tag itself (lower-friction than fighting inline cascade).
    For the modal hero, !important is needed because the data-division rule below uses `background:` shorthand
@@ -243,6 +245,7 @@ img{max-width:100%;display:block}
 .project-modal-hero[data-division="dana-sejahtera"]{background:linear-gradient(135deg,#2a1f0a 0%,#4d3a1e 50%,#2a1f0a 100%);}
 .project-modal-hero[data-division="arif-advisory"]{background:linear-gradient(135deg,#1a1410 0%,#3a2e24 50%,#1a1410 100%);}
 .project-modal-hero[data-division="joint-bai-blk"]{background:linear-gradient(135deg,#150A22 0%,#2E1640 30%,#1A1820 58%,#252A35 100%);}
+.project-modal-hero[data-division="joint-wira-bai"]{background:linear-gradient(135deg,#0A1F3D 0%,#1E2350 30%,#1A0D2A 58%,#2C1C3D 100%);}
 .project-modal-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,16,28,0) 35%,rgba(8,16,28,0.92) 100%);pointer-events:none;}
 .project-modal-badges{position:absolute;top:18px;left:18px;display:flex;gap:8px;z-index:2;}
 .project-modal-content .project-modal-badges .project-status{position:static;}
@@ -630,12 +633,12 @@ img{max-width:100%;display:block}
         </div>
       </div>
 
-      <!-- CARD 12 — Wira Digital (Active) — KOPIT Smart Solution Suite -->
+      <!-- CARD 12 — Wira Digital × Bijak AI joint build — KOPIT Smart Solution Suite -->
       <div class="project-card reveal" data-project="card-12" onclick="openProjectModal('card-12')" style="transition-delay:0.16s;">
-        <div class="project-cover" data-division="wira-digital">
+        <div class="project-cover" data-division="joint-wira-bai">
           <img src="images/projects/card-12/cover.jpg" alt="KOPIT Smart Solution" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;">
           <div class="project-status status-active">ACTIVE</div>
-          <div class="project-division">WIRA DIGITAL</div>
+          <div class="project-division">WIRA &times; BIJAK AI</div>
         </div>
         <div class="project-info">
           <h3 class="project-title">KOPIT Smart Solution</h3>
@@ -1373,8 +1376,8 @@ var projectData = {
   'card-12': {
     status: 'ACTIVE',
     statusClass: 'status-active',
-    division: 'WIRA DIGITAL',
-    divisionRoute: 'wira-digital',
+    division: 'WIRA × BIJAK AI',
+    divisionRoute: 'joint-wira-bai',
     title: 'KOPIT Smart Solution',
     subtitle: 'Mobile-Controlled IoT Suite for Modern Premises',
     description: "One app. Five product lines. Every premises a touchpoint. Smart Auto Gate, Smart EV Charging, Smart Switches, Smart Switchable Glass Film, and Smart CCTV — each a KOPIT-managed install, all controllable from a single mobile interface.",
