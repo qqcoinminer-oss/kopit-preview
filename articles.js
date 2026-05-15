@@ -42,8 +42,6 @@ window.KOPIT_ARTICLES = [
     "featured": true,
     "layout": "mosaic",
     "images": [
-      "reunion-dinner/reunion-dinner-04.jpg",
-      "reunion-dinner/reunion-dinner-05.jpg",
       "reunion-dinner/reunion-dinner-11.jpg",
       "reunion-dinner/reunion-dinner-12.jpg",
       "reunion-dinner/reunion-dinner-13.jpg",
@@ -54,7 +52,6 @@ window.KOPIT_ARTICLES = [
       "reunion-dinner/reunion-dinner-06.jpg",
       "reunion-dinner/reunion-dinner-07.jpg",
       "reunion-dinner/reunion-dinner-08.jpg",
-      "reunion-dinner/reunion-dinner-09.jpg",
       "reunion-dinner/reunion-dinner-10.jpg"
     ]
   },
