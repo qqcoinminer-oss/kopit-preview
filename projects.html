@@ -76,6 +76,10 @@ img{max-width:100%;display:block}
   transition:width .35s ease, height .35s ease;
 }
 .navbar.scrolled #kopitLogo{width:55px;height:55px}
+#kopitLogo{position:relative;}
+#kopitLogo .mark-img{width:100%;height:100%;object-fit:contain;display:block;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4));}
+#kopitLogo .pulse-dot{position:absolute;left:var(--x);top:var(--y);width:14%;height:14%;border-radius:50%;background:radial-gradient(circle, rgba(180,220,255,0.95) 0%, rgba(90,158,245,0.55) 35%, rgba(90,158,245,0) 70%);transform:translate(-50%,-50%) scale(0.4);pointer-events:none;mix-blend-mode:screen;opacity:0;animation:dotPulse 3.2s ease-in-out infinite;animation-delay:var(--d);}
+@keyframes dotPulse{0%,100%{opacity:0;transform:translate(-50%,-50%) scale(0.4);}50%{opacity:0.9;transform:translate(-50%,-50%) scale(1.0);}}
 .logo-unit{display:flex;align-items:center;gap:11px;flex-shrink:0;cursor:pointer;}
 .logo-text-block{display:flex;flex-direction:column;justify-content:center;}
 .lt-1{
@@ -385,11 +389,20 @@ img{max-width:100%;display:block}
   <div class="nav-inner">
     <a href="index.html" aria-label="KOPIT Home">
       <div class="logo-unit">
-        <canvas id="kopitLogo" width="60" height="60" style="display:block;flex-shrink:0;"></canvas>
+        <div id="kopitLogo" aria-label="KOPIT mark">
+          <img class="mark-img" src="images/logo/mark-2026.png" alt="">
+          <span class="pulse-dot" style="--x:28%;--y:14%;--d:0s"></span>
+          <span class="pulse-dot" style="--x:64%;--y:17%;--d:0.45s"></span>
+          <span class="pulse-dot" style="--x:90%;--y:41%;--d:0.9s"></span>
+          <span class="pulse-dot" style="--x:70%;--y:79%;--d:1.35s"></span>
+          <span class="pulse-dot" style="--x:46%;--y:91%;--d:1.8s"></span>
+          <span class="pulse-dot" style="--x:18%;--y:79%;--d:2.25s"></span>
+          <span class="pulse-dot" style="--x:20%;--y:48%;--d:2.7s"></span>
+        </div>
         <div class="logo-text-block">
           <span class="lt-1">KOPIT</span>
           <span class="lt-2">Koperasi Usahawan Informasi Teknologi Malaysia Berhad</span>
-          <span class="lt-3">Malaysia's Premier IT Koperasi</span>
+          <span class="lt-3">Bersama &middot; Berdaya &middot; Berinovasi</span>
         </div>
       </div>
     </a>
@@ -1033,7 +1046,7 @@ function setLang(lang) { applyLanguage(lang); }
 /* ── 2. CANVAS LOGO ANIMATION — KOPIT Genesis 3D ── */
 (function(){
   var cv = document.getElementById('kopitLogo');
-  if(!cv) return;
+  if(!cv || cv.tagName !== "CANVAS") return;
   var ctx = cv.getContext('2d');
   var W = cv.width, H = cv.height;
   var CX = W/2, CY = H/2;

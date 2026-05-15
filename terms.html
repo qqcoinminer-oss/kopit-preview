@@ -29,6 +29,10 @@ img{max-width:100%;display:block}
 .nav-right{display:flex;align-items:center;justify-content:flex-end;gap:12px}
 #kopitLogo{background:transparent;display:block;flex-shrink:0;width:75px;height:75px;transition:width .35s ease, height .35s ease;}
 .navbar.scrolled #kopitLogo{width:55px;height:55px}
+#kopitLogo{position:relative;}
+#kopitLogo .mark-img{width:100%;height:100%;object-fit:contain;display:block;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4));}
+#kopitLogo .pulse-dot{position:absolute;left:var(--x);top:var(--y);width:14%;height:14%;border-radius:50%;background:radial-gradient(circle, rgba(180,220,255,0.95) 0%, rgba(90,158,245,0.55) 35%, rgba(90,158,245,0) 70%);transform:translate(-50%,-50%) scale(0.4);pointer-events:none;mix-blend-mode:screen;opacity:0;animation:dotPulse 3.2s ease-in-out infinite;animation-delay:var(--d);}
+@keyframes dotPulse{0%,100%{opacity:0;transform:translate(-50%,-50%) scale(0.4);}50%{opacity:0.9;transform:translate(-50%,-50%) scale(1.0);}}
 .logo-unit{display:flex;align-items:center;gap:11px;flex-shrink:0;cursor:pointer}
 .logo-text-block{display:flex;flex-direction:column;justify-content:center}
 .lt-1{font-family:'Cinzel','Playfair Display',serif;font-size:30px;font-weight:700;color:#ffffff;letter-spacing:4px;margin-bottom:2px;display:block;line-height:1;transition:font-size .35s ease;}
@@ -187,11 +191,20 @@ img{max-width:100%;display:block}
   <div class="nav-inner">
     <a href="index.html" aria-label="KOPIT Home">
       <div class="logo-unit">
-        <canvas id="kopitLogo" width="60" height="60" style="display:block;flex-shrink:0;"></canvas>
+        <div id="kopitLogo" aria-label="KOPIT mark">
+          <img class="mark-img" src="images/logo/mark-2026.png" alt="">
+          <span class="pulse-dot" style="--x:28%;--y:14%;--d:0s"></span>
+          <span class="pulse-dot" style="--x:64%;--y:17%;--d:0.45s"></span>
+          <span class="pulse-dot" style="--x:90%;--y:41%;--d:0.9s"></span>
+          <span class="pulse-dot" style="--x:70%;--y:79%;--d:1.35s"></span>
+          <span class="pulse-dot" style="--x:46%;--y:91%;--d:1.8s"></span>
+          <span class="pulse-dot" style="--x:18%;--y:79%;--d:2.25s"></span>
+          <span class="pulse-dot" style="--x:20%;--y:48%;--d:2.7s"></span>
+        </div>
         <div class="logo-text-block">
           <span class="lt-1">KOPIT</span>
           <span class="lt-2">Koperasi Usahawan Informasi Teknologi Malaysia Berhad</span>
-          <span class="lt-3">Malaysia's Premier IT Koperasi</span>
+          <span class="lt-3">Bersama &middot; Berdaya &middot; Berinovasi</span>
         </div>
       </div>
     </a>
@@ -510,7 +523,7 @@ function applyLanguage(lang){currentLang=lang;localStorage.setItem('kopitLang',l
 function setLang(lang){applyLanguage(lang);}
 
 (function(){
-  const cv=document.getElementById('kopitLogo');if(!cv)return;const ctx=cv.getContext('2d');const W=cv.width,H=cv.height;const CX=W/2,CY=H/2;
+  const cv=document.getElementById('kopitLogo');if(!cv||cv.tagName!=="CANVAS")return;const ctx=cv.getContext('2d');const W=cv.width,H=cv.height;const CX=W/2,CY=H/2;
   const GOLD='#C9A84C',EMR='#2ebf84',SAP='#5a9ef5',PLT='#ccdcee';
   const NODES=[{x:0,y:0,z:0,t:'hub',c:GOLD},{x:0,y:-22,z:6,t:'blk',c:PLT},{x:0,y:18,z:-4,t:'cir',c:EMR},{x:-22,y:0,z:3,t:'cir',c:SAP},{x:16,y:0,z:-6,t:'blk',c:EMR},{x:-14,y:-14,z:8,t:'blk',c:SAP},{x:19,y:-15,z:-3,t:'cir',c:PLT},{x:-13,y:14,z:-7,t:'blk',c:EMR},{x:18,y:18,z:4,t:'cir',c:SAP}];
   const EDGES=[[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[0,8]];
