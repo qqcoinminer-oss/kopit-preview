@@ -157,7 +157,8 @@ window.KOPIT_ARTICLES = [
       "sarawak-energy-04.jpg",
       "sarawak-energy-05.jpg",
       "sarawak-energy-06.jpg",
-      "sarawak-energy-07.jpg"
+      "sarawak-energy-07.jpg",
+      "sarawak-energy-08.jpg"
     ]
   }
 ];
