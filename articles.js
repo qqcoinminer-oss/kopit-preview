@@ -196,6 +196,7 @@ window.KOPIT_ARTICLES = [
     "author": "Chairman's Office",
     "images": [
       "worldwide-holdings-01.jpg",
+      "worldwide-holdings-07.jpg",
       "worldwide-holdings-02.jpg",
       "worldwide-holdings-03.jpg",
       "worldwide-holdings-04.jpg",
