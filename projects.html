@@ -248,6 +248,7 @@ img{max-width:100%;display:block}
 .project-gallery-item{display:flex;flex-direction:column;gap:6px;}
 .project-gallery-caption{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;color:rgba(244,239,232,0.65);text-align:center;line-height:1.35;padding:0 2px;}
 .project-gallery-thumbs a img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px;border:0.5px solid rgba(201,168,76,0.2);cursor:pointer;transition:border-color 0.3s;display:block;}
+.project-gallery-thumbs video{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px;border:0.5px solid rgba(201,168,76,0.2);display:block;background:rgba(8,16,28,0.85);}
 .project-gallery-thumbs a:hover img{border-color:rgba(201,168,76,0.6);}
 .project-gallery-thumbs a{position:relative;display:block;}
 .project-gallery-thumbs a::after,
@@ -1439,10 +1440,10 @@ var projectData = {
     subtitle: 'Mobile-Controlled IoT Suite for Modern Premises',
     description: "One app. Four product lines. Every premises a touchpoint. Smart Auto Gate, Smart EV Charging, Smart Switches, and Smart Window (PDLC) — each a KOPIT-managed install, all controllable from a single mobile interface.",
     gallery: [
-      { src: 'images/projects/card-12/gate.mp4',   caption: 'Smart Auto Gate · Mobile-Controlled Demo',          poster: 'images/projects/card-12/gate-poster.jpg',   autoplay: true },
-      { src: 'images/projects/card-12/ev.mp4',     caption: 'Smart EV Charging · Mobile-Controlled Installation Demo', poster: 'images/projects/card-12/ev-poster.jpg', autoplay: true },
-      { src: 'images/projects/card-12/switch.mp4', caption: 'Smart Switches · Mobile-Controlled Demo',           poster: 'images/projects/card-12/switch-poster.jpg', autoplay: true },
-      { src: 'images/projects/card-12/window.mp4', caption: 'Smart Window (PDLC) · Mobile-Controlled Demo',      poster: 'images/projects/card-12/window-poster.jpg', autoplay: true }
+      { src: 'images/projects/card-12/gate.mp4',   caption: 'Smart Auto Gate · Mobile-Controlled Demo',          poster: 'images/projects/card-12/gate-poster.jpg'   },
+      { src: 'images/projects/card-12/ev.mp4',     caption: 'Smart EV Charging · Mobile-Controlled Installation Demo', poster: 'images/projects/card-12/ev-poster.jpg' },
+      { src: 'images/projects/card-12/switch.mp4', caption: 'Smart Switches · Mobile-Controlled Demo',           poster: 'images/projects/card-12/switch-poster.jpg' },
+      { src: 'images/projects/card-12/window.mp4', caption: 'Smart Window (PDLC) · Mobile-Controlled Demo',      poster: 'images/projects/card-12/window-poster.jpg' }
     ],
     year: 2025,
     projectLead: 'Wira Digital · KOPIT Smart Solution Programme',
