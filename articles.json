@@ -121,5 +121,14 @@
     "featured": true,
     "layout": "mosaic",
     "images": ["bod-meeting-april-2023.jpg", "bod-meeting-april-2023-2.jpg"]
+  },
+  {
+    "date": "2023-09-09",
+    "type": "project-update",
+    "division": "bijak-ai",
+    "title": "Bijak AI Project · First Documented Member Distribution",
+    "excerpt": "Opening the Member Distribution Record. KOPIT issued RM 5,600 to Encik Lee Ru Pin (Member K00004) at the close of an internal Bijak AI project cycle — principal and member share returned in full. Each future cycle close will be documented in this series.",
+    "author": "Chairman's Office",
+    "images": ["Investment_Return.jpg"]
   }
 ]
