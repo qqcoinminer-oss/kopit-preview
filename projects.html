@@ -248,7 +248,18 @@ img{max-width:100%;display:block}
 .project-gallery-item{display:flex;flex-direction:column;gap:6px;}
 .project-gallery-caption{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;color:rgba(244,239,232,0.65);text-align:center;line-height:1.35;padding:0 2px;}
 .project-gallery-thumbs a img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px;border:0.5px solid rgba(201,168,76,0.2);cursor:pointer;transition:border-color 0.3s;display:block;}
-.project-gallery-thumbs video{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px;border:0.5px solid rgba(201,168,76,0.2);display:block;background:rgba(8,16,28,0.85);}
+/* Autoplay-loop videos (no wrap) — sit alongside images in the 4-col grid */
+.project-gallery-thumbs > .project-gallery-item > video{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px;border:0.5px solid rgba(201,168,76,0.2);display:block;background:rgba(8,16,28,0.85);}
+/* Custom click-to-play wrap — minimal controls (play overlay + PiP top-right, nothing else) */
+.vid-wrap{position:relative;width:100%;aspect-ratio:4/3;border-radius:4px;overflow:hidden;border:0.5px solid rgba(201,168,76,0.2);background:rgba(8,16,28,0.85);}
+.vid-wrap video{width:100%;height:100%;object-fit:cover;display:block;cursor:pointer;}
+.vid-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:42px;height:42px;border:none;border-radius:50%;background:rgba(0,0,0,0.55);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;transition:background .2s,opacity .25s;}
+.vid-play svg{width:20px;height:20px;margin-left:2px;}
+.vid-wrap:hover .vid-play{background:rgba(0,0,0,0.8);}
+.vid-wrap.playing .vid-play{opacity:0;pointer-events:none;}
+.vid-pip{position:absolute;top:6px;right:6px;width:26px;height:26px;border:none;border-radius:3px;background:rgba(0,0,0,0.55);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;transition:background .2s;}
+.vid-pip svg{width:14px;height:14px;}
+.vid-pip:hover{background:rgba(0,0,0,0.85);color:#D4B97A;}
 .project-gallery-thumbs a:hover img{border-color:rgba(201,168,76,0.6);}
 .project-gallery-thumbs a{position:relative;display:block;}
 .project-gallery-thumbs a::after,
@@ -1514,16 +1525,25 @@ var projectData = {
         var alt = item.caption || '';
         var isVideo = /\.(mp4|webm|mov)$/i.test(item.src);
         if (isVideo) {
-          // Per-item flags: poster (jpg path), autoplay (silent loop convention for IoT demos).
-          // Default: controls + preload metadata. Autoplay implies muted + loop + no controls.
+          // Per-item flags: poster (jpg path), autoplay (silent loop, no controls).
+          // Default click-to-play uses a custom overlay — big play button + PiP top-right.
+          // No fullscreen, no mute, no scrubber (audio is already stripped from these clips).
           var posterAttr = item.poster ? ' poster="' + item.poster + '"' : '';
-          var vidAttrs = item.autoplay
-            ? ' muted autoplay loop playsinline'
-            : ' controls preload="metadata" playsinline';
-          galleryHTML += '<div class="project-gallery-item">' +
-            '<video src="' + item.src + '"' + posterAttr + vidAttrs + ' style="width:100%;display:block;border-radius:4px;"></video>' +
-            (alt ? '<div class="project-gallery-caption">' + alt + '</div>' : '') +
-          '</div>';
+          if (item.autoplay) {
+            galleryHTML += '<div class="project-gallery-item">' +
+              '<video src="' + item.src + '"' + posterAttr + ' muted autoplay loop playsinline></video>' +
+              (alt ? '<div class="project-gallery-caption">' + alt + '</div>' : '') +
+            '</div>';
+          } else {
+            galleryHTML += '<div class="project-gallery-item">' +
+              '<div class="vid-wrap">' +
+                '<video src="' + item.src + '"' + posterAttr + ' playsinline preload="metadata"></video>' +
+                '<button type="button" class="vid-play" aria-label="Play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>' +
+                '<button type="button" class="vid-pip" aria-label="Picture-in-picture"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="1.2"/><rect x="12" y="12" width="7" height="5" fill="currentColor" stroke="none"/></svg></button>' +
+              '</div>' +
+              (alt ? '<div class="project-gallery-caption">' + alt + '</div>' : '') +
+            '</div>';
+          }
         } else {
           galleryHTML += '<div class="project-gallery-item">' +
             '<a href="' + item.src + '" target="_blank" rel="noopener"' + anchorClass + '><img src="' + item.src + '" alt="' + alt + '"></a>' +
@@ -1630,6 +1650,28 @@ var projectData = {
   function closeLb() {
     if (lb) lb.classList.remove('active');
   }
+
+  // Custom video controls (play overlay + PiP). No fullscreen, no mute, no scrubber.
+  document.addEventListener('click', function(e){
+    var wrap = e.target.closest('.vid-wrap');
+    if (!wrap) return;
+    var video = wrap.querySelector('video');
+    if (!video) return;
+    var pipBtn = e.target.closest('.vid-pip');
+    if (pipBtn) {
+      e.stopPropagation();
+      if (document.pictureInPictureElement) { document.exitPictureInPicture().catch(function(){}); }
+      else if (video.requestPictureInPicture) { video.requestPictureInPicture().catch(function(){}); }
+      return;
+    }
+    // Click anywhere else inside the wrap (video, play button, padding) toggles play/pause
+    if (video.paused) { video.play().then(function(){ wrap.classList.add('playing'); }).catch(function(){}); }
+    else { video.pause(); wrap.classList.remove('playing'); }
+  });
+  // Sync .playing class on native pause/end events (e.g. user exits PiP, video ends)
+  document.addEventListener('play',   function(e){ var w = e.target.closest && e.target.closest('.vid-wrap'); if (w) w.classList.add('playing'); }, true);
+  document.addEventListener('pause',  function(e){ var w = e.target.closest && e.target.closest('.vid-wrap'); if (w) w.classList.remove('playing'); }, true);
+  document.addEventListener('ended',  function(e){ var w = e.target.closest && e.target.closest('.vid-wrap'); if (w) w.classList.remove('playing'); }, true);
 
   // Listen for clicks on any gallery thumb
   document.addEventListener('click', function(e) {
