@@ -826,6 +826,26 @@ img{max-width:100%;display:block}
         </div>
       </div>
 
+      <!-- CARD 12 — Wira Digital (Active) — KOPIT Smart Solution Suite -->
+      <div class="project-card reveal" data-project="card-12" onclick="openProjectModal('card-12')" style="transition-delay:0s;">
+        <div class="project-cover" data-division="wira-digital">
+          <img src="images/projects/card-12/cover.jpg" alt="KOPIT Smart Solution" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <div class="project-status status-active">ACTIVE</div>
+          <div class="project-division">WIRA DIGITAL</div>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">KOPIT Smart Solution</h3>
+          <p class="project-description">A unified suite of mobile-controlled smart products deployed under the KOPIT brand &mdash; automated gates, EV charging, smart switches, and switchable smart glass. Every installation extends the cooperative&rsquo;s digital footprint into homes and premises across Malaysia.</p>
+          <div class="project-footer">
+            <div>
+              <div class="project-key-label">PRODUCTS</div>
+              <div class="project-key-value">4 Active Lines</div>
+            </div>
+            <div class="project-arrow">&#8594;</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1409,6 +1429,28 @@ var projectData = {
     year: 2026,
     projectLead: 'Project Sentinel · Bijak AI × Blockchain Build',
     ctaText: 'Discuss This Project →'
+  },
+  'card-12': {
+    status: 'ACTIVE',
+    statusClass: 'status-active',
+    division: 'WIRA DIGITAL',
+    divisionRoute: 'wira-digital',
+    title: 'KOPIT Smart Solution',
+    subtitle: 'Mobile-Controlled IoT Suite for Modern Premises',
+    description: "A Wira Digital product category bringing KOPIT-branded intelligent infrastructure into residential, commercial, and institutional premises across Malaysia. The Smart Solution suite currently spans four active product lines, all controllable from a single mobile interface: Smart Auto Gate (mobile-controlled automated entry with remote operation, access logging, and multi-user permissioning); Smart EV Charging (WiFi-connected charge points with mobile-app load management and circuit breaker integration); Smart Switches (retrofit smart switching for lighting, climate, and appliance control from any networked device); and Smart Window PDLC (switchable smart glass with on-demand opacity, scheduling, and zone control from mobile). Each product is a standalone deployment; together they form a unified KOPIT-branded ecosystem extending the cooperative's brand into every premises it serves.",
+    gallery: [
+      { src: 'images/projects/card-12/gate-01.jpg',   caption: 'Smart Auto Gate · Mobile-Controlled Entry' },
+      { src: 'images/projects/card-12/gate-02.jpg',   caption: 'Smart Auto Gate · App Interface' },
+      { src: 'images/projects/card-12/ev-01.jpg',     caption: 'Smart EV Charging · WiFi-Connected Charge Point' },
+      { src: 'images/projects/card-12/ev-02.jpg',     caption: 'Smart EV Charging · Mobile Load Management' },
+      { src: 'images/projects/card-12/switch-01.jpg', caption: 'Smart Switches · Retrofit Smart Switching' },
+      { src: 'images/projects/card-12/switch-02.jpg', caption: 'Smart Switches · App Control' },
+      { src: 'images/projects/card-12/window-01.jpg', caption: 'Smart Window (PDLC) · Switchable Smart Glass' },
+      { src: 'images/projects/card-12/window-02.jpg', caption: 'Smart Window (PDLC) · Mobile Zone Control' }
+    ],
+    year: 2025,
+    projectLead: 'Wira Digital · KOPIT Smart Solution Programme',
+    ctaText: 'Discuss This Project →'
   }
 };
 
@@ -1453,7 +1495,15 @@ var projectData = {
     }
 
     heroEl.setAttribute('data-division', data.divisionRoute);
-    var heroSrc = data.hero || (galleryItems.length > 0 ? galleryItems[0].src : null);
+    var heroSrc = data.hero;
+    if (!heroSrc) {
+      for (var hi = 0; hi < galleryItems.length; hi++) {
+        if (!/\.(mp4|webm|mov)$/i.test(galleryItems[hi].src)) {
+          heroSrc = galleryItems[hi].src;
+          break;
+        }
+      }
+    }
     heroEl.style.backgroundImage = heroSrc ? "url('" + heroSrc + "')" : '';
 
     descEl.textContent = data.description || '';
@@ -1465,10 +1515,18 @@ var projectData = {
       for (var i = 0; i < galleryItems.length; i++) {
         var item = galleryItems[i];
         var alt = item.caption || '';
-        galleryHTML += '<div class="project-gallery-item">' +
-          '<a href="' + item.src + '" target="_blank" rel="noopener"' + anchorClass + '><img src="' + item.src + '" alt="' + alt + '"></a>' +
-          (alt ? '<div class="project-gallery-caption">' + alt + '</div>' : '') +
-        '</div>';
+        var isVideo = /\.(mp4|webm|mov)$/i.test(item.src);
+        if (isVideo) {
+          galleryHTML += '<div class="project-gallery-item">' +
+            '<video src="' + item.src + '" controls preload="metadata" playsinline style="width:100%;display:block;border-radius:4px;"></video>' +
+            (alt ? '<div class="project-gallery-caption">' + alt + '</div>' : '') +
+          '</div>';
+        } else {
+          galleryHTML += '<div class="project-gallery-item">' +
+            '<a href="' + item.src + '" target="_blank" rel="noopener"' + anchorClass + '><img src="' + item.src + '" alt="' + alt + '"></a>' +
+            (alt ? '<div class="project-gallery-caption">' + alt + '</div>' : '') +
+          '</div>';
+        }
       }
       galleryHTML += '</div>';
       galleryEl.innerHTML = galleryHTML;
