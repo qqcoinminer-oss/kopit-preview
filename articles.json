@@ -148,5 +148,23 @@
       "sarawak-energy-07.jpg",
       "sarawak-energy-08.jpg"
     ]
+  },
+  {
+    "date": "2025-01-09",
+    "type": "project-update",
+    "division": "wira-digital",
+    "featured": true,
+    "layout": "mosaic",
+    "title": "KOPIT Mission to Shenzhen Explores Off-Grid Data Centre Technology Transfer",
+    "excerpt": "A KOPIT delegation joined by Director S.W. Tan visited Shenzhen from 7–9 January 2025 to explore technology transfer pathways for off-grid data centre infrastructure. The three-day study covered renewable generation integration, autonomous compute architecture, and supply-chain frameworks for AI-optimised hardware. The findings feed directly into the Hijau and Wira Digital divisions' design work on KOPIT's planned off-grid Digital Hub portfolio in Malaysia.",
+    "author": "Chairman's Office",
+    "images": [
+      "shenzhen-tech-01.jpg",
+      "shenzhen-tech-02.jpg",
+      "shenzhen-tech-03.jpg",
+      "shenzhen-tech-04.jpg",
+      "shenzhen-tech-05.jpg",
+      "shenzhen-tech-06.jpg"
+    ]
   }
 ]
