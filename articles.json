@@ -128,5 +128,24 @@
     "excerpt": "Opening the Member Distribution Record. KOPIT issued RM 5,600 to Encik Lee Ru Pin (Member K00004) at the close of an internal Bijak AI project cycle — principal and member share returned in full. Each future cycle close will be documented in this series.",
     "author": "Chairman's Office",
     "images": ["Investment_Return.jpg"]
+  },
+  {
+    "date": "2024-01-15",
+    "type": "project-update",
+    "division": "hijau-energy",
+    "featured": true,
+    "layout": "mosaic",
+    "title": "KOPIT Delegation Visits Sarawak Energy on Digital Hub Power Sourcing",
+    "excerpt": "A KOPIT cross-divisional delegation visited Sarawak Energy Berhad from 10–15 January 2024 to open early discussions and conduct a feasibility study on power supply arrangements for the cooperative's planned Digital Hub portfolio. The visit brought together team members from Hijau, Wira Digital, Blockchain and Bijak AI divisions to align on infrastructure scale, energy mix, and regional positioning. Sarawak's renewable-heavy generation profile offers a distinct pathway for KOPIT's digital infrastructure ambitions, complementing the Peninsular Malaysia projects already in delivery.",
+    "author": "Chairman's Office",
+    "images": [
+      "sarawak-energy-01.jpg",
+      "sarawak-energy-02.jpg",
+      "sarawak-energy-03.jpg",
+      "sarawak-energy-04.jpg",
+      "sarawak-energy-05.jpg",
+      "sarawak-energy-06.jpg",
+      "sarawak-energy-07.jpg"
+    ]
   }
 ]
