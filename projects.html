@@ -213,8 +213,9 @@ img{max-width:100%;display:block}
 /* Card-4 Lumina screenshots (~2.16:1, wide website captures) — same treatment as card-12: contain, not crop */
 .project-modal-hero[data-project="card-4"]{aspect-ratio:2446/1131;height:auto;background-size:contain !important;background-repeat:no-repeat !important;background-color:#0a1f3d !important;background-position:center !important;}
 .project-modal-hero[data-project="card-4"] .project-modal-hero-overlay{background:linear-gradient(to bottom,rgba(8,16,28,0) 70%,rgba(8,16,28,0.85) 100%);}
-/* Card-2 Off-Grid AI Digital Infrastructure — modal hero only (grid card cover left untouched per request) */
-.project-modal-hero[data-project="card-2"]{aspect-ratio:1378/1142;height:auto;background-size:contain !important;background-repeat:no-repeat !important;background-color:#0d2818 !important;background-position:center !important;}
+/* Card-2 Off-Grid AI Digital Infrastructure — modal hero only (grid card cover left untouched per request).
+   max-height caps the hero so the gallery + CTA remain in the first viewport — without this, the 5:4 aspect makes the hero ~500px tall and eats the whole modal. */
+.project-modal-hero[data-project="card-2"]{aspect-ratio:1378/1142;height:auto;max-height:42vh;background-size:contain !important;background-repeat:no-repeat !important;background-color:#0d2818 !important;background-position:center !important;}
 .project-modal-hero[data-project="card-2"] .project-modal-hero-overlay{background:linear-gradient(to bottom,rgba(8,16,28,0) 70%,rgba(8,16,28,0.85) 100%);}
 .project-info{padding:22px 22px 18px;}
 .project-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:#F4EFE8;margin:0 0 10px;letter-spacing:-0.2px;line-height:1.3;}
