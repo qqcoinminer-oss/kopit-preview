@@ -42,6 +42,7 @@ window.KOPIT_ARTICLES = [
     "featured": true,
     "layout": "mosaic",
     "images": [
+      "reunion-dinner/reunion-dinner-04.jpg",
       "reunion-dinner/reunion-dinner-11.jpg",
       "reunion-dinner/reunion-dinner-12.jpg",
       "reunion-dinner/reunion-dinner-13.jpg",
