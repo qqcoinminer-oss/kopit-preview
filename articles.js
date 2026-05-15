@@ -180,7 +180,10 @@ window.KOPIT_ARTICLES = [
       "shenzhen-tech-07.jpg",
       "shenzhen-tech-08.jpg",
       "shenzhen-tech-09.jpg",
-      "shenzhen-tech-10.jpg"
+      "shenzhen-tech-10.jpg",
+      "shenzhen-tech-11.jpg",
+      "shenzhen-tech-12.jpg",
+      "shenzhen-tech-13.jpg"
     ]
   }
 ];
