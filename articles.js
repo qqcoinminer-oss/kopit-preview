@@ -184,5 +184,23 @@ window.KOPIT_ARTICLES = [
       "shenzhen-tech-12.jpg",
       "shenzhen-tech-13.jpg"
     ]
+  },
+  {
+    "date": "2026-02-02",
+    "type": "project-update",
+    "division": "hijau-energy",
+    "featured": true,
+    "layout": "mosaic",
+    "title": "Worldwide Holdings Berhad Invites KOPIT to Explore Renewable Energy Data Centre Concept in Selangor",
+    "excerpt": "Worldwide Holdings Berhad extended an invitation to KOPIT on 2 February 2026 to explore the cooperative's Renewable Energy Data Centre concept across land assets in Selangor. A KOPIT senior delegation led by the Chairman, joined by Hijau Lead Colen Lau and Secretary General Ting Chun Sik, attended the engagement to present the operating model and secure commitment for a feasibility pilot. The engagement marks KOPIT's first formal Selangor extension of the Renewable Energy Data Centre framework already in development with state-linked partners in Perak.",
+    "author": "Chairman's Office",
+    "images": [
+      "worldwide-holdings-01.jpg",
+      "worldwide-holdings-02.jpg",
+      "worldwide-holdings-03.jpg",
+      "worldwide-holdings-04.jpg",
+      "worldwide-holdings-05.jpg",
+      "worldwide-holdings-06.jpg"
+    ]
   }
 ];
