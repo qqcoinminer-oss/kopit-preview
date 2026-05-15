@@ -1437,11 +1437,11 @@ var projectData = {
     divisionRoute: 'wira-digital',
     title: 'KOPIT Smart Solution',
     subtitle: 'Mobile-Controlled IoT Suite for Modern Premises',
-    description: "A Wira Digital product category bringing KOPIT-branded intelligent infrastructure into residential, commercial, and institutional premises across Malaysia. The Smart Solution suite currently spans four active product lines, all controllable from a single mobile interface: Smart Auto Gate (mobile-controlled automated entry with remote operation, access logging, and multi-user permissioning); Smart EV Charging (WiFi-connected charge points with mobile-app load management and circuit breaker integration); Smart Switches (retrofit smart switching for lighting, climate, and appliance control from any networked device); and Smart Window PDLC (switchable smart glass with on-demand opacity, scheduling, and zone control from mobile). Each product is a standalone deployment; together they form a unified KOPIT-branded ecosystem extending the cooperative's brand into every premises it serves.",
+    description: "A Wira Digital product category bringing KOPIT-managed intelligent infrastructure into residential, commercial, and institutional premises across Malaysia. The Smart Solution suite currently spans four active product lines, all controllable from a single mobile interface: Smart Auto Gate (mobile-controlled automated entry with remote operation, access logging, and multi-user permissioning); Smart EV Charging (WiFi-connected charge points with mobile-app load management and circuit breaker integration); Smart Switches (retrofit smart switching for lighting, climate, and appliance control from any networked device); and Smart Window PDLC (switchable smart glass with on-demand opacity, scheduling, and zone control from mobile). Each product is a standalone deployment; together they form a unified KOPIT-managed ecosystem extending the cooperative's service footprint into every premises it serves.",
     gallery: [
       { src: 'images/projects/card-12/gate-01.jpg',   caption: 'Smart Auto Gate · Mobile-Controlled Entry' },
       { src: 'images/projects/card-12/gate-02.jpg',   caption: 'Smart Auto Gate · App Interface' },
-      { src: 'images/projects/card-12/ev-01.jpg',     caption: 'Smart EV Charging · WiFi-Connected Charge Point' },
+      { src: 'images/projects/card-12/ev-01.mp4',     caption: 'Smart EV Charging · Mobile-Controlled Installation Demo', poster: 'images/projects/card-12/ev-01-poster.jpg', autoplay: true },
       { src: 'images/projects/card-12/ev-02.jpg',     caption: 'Smart EV Charging · Mobile Load Management' },
       { src: 'images/projects/card-12/switch-01.jpg', caption: 'Smart Switches · Retrofit Smart Switching' },
       { src: 'images/projects/card-12/switch-02.jpg', caption: 'Smart Switches · App Control' },
@@ -1517,8 +1517,14 @@ var projectData = {
         var alt = item.caption || '';
         var isVideo = /\.(mp4|webm|mov)$/i.test(item.src);
         if (isVideo) {
+          // Per-item flags: poster (jpg path), autoplay (silent loop convention for IoT demos).
+          // Default: controls + preload metadata. Autoplay implies muted + loop + no controls.
+          var posterAttr = item.poster ? ' poster="' + item.poster + '"' : '';
+          var vidAttrs = item.autoplay
+            ? ' muted autoplay loop playsinline'
+            : ' controls preload="metadata" playsinline';
           galleryHTML += '<div class="project-gallery-item">' +
-            '<video src="' + item.src + '" controls preload="metadata" playsinline style="width:100%;display:block;border-radius:4px;"></video>' +
+            '<video src="' + item.src + '"' + posterAttr + vidAttrs + ' style="width:100%;display:block;border-radius:4px;"></video>' +
             (alt ? '<div class="project-gallery-caption">' + alt + '</div>' : '') +
           '</div>';
         } else {
