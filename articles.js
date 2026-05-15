@@ -175,7 +175,6 @@ window.KOPIT_ARTICLES = [
       "shenzhen-tech-02.jpg",
       "shenzhen-tech-03.jpg",
       "shenzhen-tech-04.jpg",
-      "shenzhen-tech-05.jpg",
       "shenzhen-tech-06.jpg",
       "shenzhen-tech-07.jpg",
       "shenzhen-tech-08.jpg",
