@@ -32,3 +32,6 @@ credentials/
 
 # Admin kit (separate folder, just in case)
 KOPIT-Admin-Kit/
+
+# Claude Code internal worktrees
+.claude/worktrees/
