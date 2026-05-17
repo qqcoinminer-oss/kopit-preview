@@ -214,6 +214,7 @@ img{max-width:100%;display:block}
 .article-card.standard .article-card-split{grid-template-columns:240px 1fr;}
 .article-card.compact .article-card-split{grid-template-columns:200px 1fr;}
 .article-image-zone{background:linear-gradient(135deg,rgba(var(--d-rgb),0.18),rgba(var(--d-rgb),0.05));display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;min-height:140px;border-right:0.5px dashed rgba(var(--d-rgb),0.3);position:relative;overflow:hidden;}
+.article-image-zone[data-img]{cursor:zoom-in;}
 .article-card.featured .article-image-zone{min-height:240px;}
 .article-image-zone img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;}
 .article-image-zone img.img-fit-contain{object-fit:contain;background:linear-gradient(135deg,#0a1828 0%,#1a2d4a 50%,#0a1828 100%);padding:14px;box-sizing:border-box;}
@@ -773,7 +774,7 @@ document.addEventListener('DOMContentLoaded',function(){applyLanguage(currentLan
     if (variant === 'featured' && extras.length >= 1) return renderFeaturedWithPair(article, div, cover, extras, typeBadge, dateFormatted, articleId);
     if (variant === 'featured') return renderFeaturedSingle(article, div, cover, typeBadge, dateFormatted, articleId);
     if (variant === 'standard' && extras.length >= 3) return renderStandardWithGallery(article, div, cover, extras, typeBadge, dateFormatted, articleId);
-    return renderStandardOrCompact(article, div, cover, variant, typeBadge, dateFormatted);
+    return renderStandardOrCompact(article, div, cover, variant, typeBadge, dateFormatted, articleId);
   }
 
   function imageHTML(filename, fit) {
@@ -915,13 +916,13 @@ document.addEventListener('DOMContentLoaded',function(){applyLanguage(currentLan
       </div>`;
   }
 
-  function renderStandardOrCompact(article, div, cover, variant, typeBadge, date) {
+  function renderStandardOrCompact(article, div, cover, variant, typeBadge, date, articleId) {
     return `
-      <div class="article-row">
+      <div class="article-row" id="${articleId}">
         <div class="article-orb-col"><div class="article-orb ${div.short}"></div></div>
         <article class="article-card ${variant} div-color-${div.short}">
           <div class="article-card-split">
-            <div class="article-image-zone">${imageHTML(cover, article.imageFit)}</div>
+            <div class="article-image-zone" data-article="${articleId}" data-img="0">${imageHTML(cover, article.imageFit)}</div>
             <div class="article-content">
               <div class="article-meta">
                 <span class="article-type-badge">${typeBadge}</span>
@@ -1011,7 +1012,7 @@ document.addEventListener('DOMContentLoaded',function(){applyLanguage(currentLan
         const articleEl = document.getElementById(articleId);
         if (!articleEl) return;
         const allThumbs = articleEl.querySelectorAll('[data-img]');
-        if (allThumbs.length < 4) return;
+        if (allThumbs.length < 1) return;
         lightboxImages = Array.from(allThumbs).map(t => {
           const img = t.querySelector('img');
           return img ? img.src : null;
