@@ -202,5 +202,14 @@ window.KOPIT_ARTICLES = [
       "worldwide-holdings-04.jpg",
       "worldwide-holdings-05.jpg"
     ]
+  },
+  {
+    "date": "2026-04-08",
+    "type": "project-update",
+    "division": "hijau-energy",
+    "title": "KOPIT Meets Master Tec Group on Next Gen Renewable Energy Digital Hub",
+    "excerpt": "A four-handed table. Four thumbs up. A project worth the room. KOPIT met Master Tec Group Berhad — CEO Mr Tee with his associates and partners — on 8 April 2026 to introduce the Next Gen Renewable Energy Digital Hub Project. The cooperative's framework for combining renewable generation and AI-grade compute now has another conversation partner.",
+    "author": "Chairman's Office",
+    "images": ["master-tec-april-2026.jpg"]
   }
 ];
