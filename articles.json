@@ -199,5 +199,25 @@
     "excerpt": "A four-handed table. Four thumbs up. A project worth the room. KOPIT met Master Tec Group Berhad — CEO Mr Tee with his associates and partners — on 8 April 2026 to introduce the Next Gen Renewable Energy Digital Hub Project. The cooperative's framework for combining renewable generation and AI-grade compute now has another conversation partner.",
     "author": "Chairman's Office",
     "images": ["master-tec-april-2026.jpg"]
+  },
+  {
+    "date": "2025-12-19",
+    "type": "project-update",
+    "division": "hijau-energy",
+    "featured": true,
+    "layout": "mosaic",
+    "title": "Briefing the State: KOPIT Presents Off-Grid Renewable Energy Digital Hubs to InvestPerak",
+    "excerpt": "A serious room, a serious brief. KOPIT Chairman Michael Ong led the cooperative's senior delegation to the Perak Investment Management Centre on 19 December 2025, presenting the Off-Grid Renewable Energy Digital Hub concept to InvestPerak Malaysia. The framework — combining floating solar, BESS storage, and AI-grade compute on cooperative-owned land — was delivered beneath the official portraits of Perak's Royal House, marking KOPIT's most formal state-level engagement on the Digital Hub thesis to date.",
+    "author": "Chairman's Office",
+    "images": [
+      "investperak-2025/investperak-2025-01.jpg",
+      "investperak-2025/investperak-2025-02.jpg",
+      "investperak-2025/investperak-2025-03.jpg",
+      "investperak-2025/investperak-2025-04.jpg",
+      "investperak-2025/investperak-2025-05.jpg",
+      "investperak-2025/investperak-2025-06.jpg",
+      "investperak-2025/investperak-2025-07.jpg",
+      "investperak-2025/investperak-2025-08.jpg"
+    ]
   }
 ]
