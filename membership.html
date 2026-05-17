@@ -301,7 +301,7 @@ ul{list-style:none}
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
-      <a href="membership.html" class="nav-cta"
+      <a href="membership.html#member-login" class="nav-cta"
          data-en="Member Login" data-bm="Log Masuk Ahli">Member Login</a>
     </div>
   </div>
@@ -1756,6 +1756,16 @@ document.addEventListener('DOMContentLoaded', function() {
   if (backdrop) backdrop.addEventListener('click', closeLogin);
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && modal.classList.contains('active')) closeLogin();
+  });
+
+  // Auto-open the modal when the page is loaded with the hash — so the
+  // "Member Login" link in the navbar of any other page works in a single
+  // click (lands on membership.html#member-login -> modal pops up).
+  if (location.hash === '#member-login') openLogin();
+  // Also react to in-page hashchanges, in case the user navigates via hash
+  // while already on membership.html.
+  window.addEventListener('hashchange', function() {
+    if (location.hash === '#member-login') openLogin();
   });
 });
 
